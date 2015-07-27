@@ -2,6 +2,8 @@
 if($_POST && trim($_POST['search']) != '')
 {
     $q=trim($_POST['search']);
+    $q = strtolower($q);
+
     // Create connection
     if(file_exists("db_settings.php")) {include("db_settings.php");}
     if(file_exists("../db_settings.php")) {include("../db_settings.php");}
@@ -14,8 +16,103 @@ if($_POST && trim($_POST['search']) != '')
 
     $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
 
+    //Brand query
     $sql_res=mysqli_query($con, "select * from brands where Live = '1' AND (Brand_name like '$q%' or ID like '$q%') order by Brand_name LIMIT 5");
-    $sql_res2=mysqli_query($con, "select distinct Item_name, Item_number, Brand, Image_URL1 from products, brands where products.Brand = brands.ID AND (Item_name like '$q%') AND brands.Live = '1' order by Item_name LIMIT 5");
+
+    $colourQuery = '';
+    if (strpos($q,'beige') !== false) {
+        $colourQuery = " AND products.Colour = 'Beige' ";
+        $q = str_replace("beige", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'black') !== false) {
+        $colourQuery = " AND products.Colour = 'Black' ";
+        $q = str_replace("black", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'blue') !== false) {
+        $colourQuery = " AND products.Colour = 'Blue' ";
+        $q = str_replace("blue", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'brown') !== false) {
+        $colourQuery = " AND products.Colour = 'Brown' ";
+        $q = str_replace("brown", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'copper') !== false) {
+        $colourQuery = " AND products.Colour = 'Copper' ";
+        $q = str_replace("copper", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'cream') !== false) {
+        $colourQuery = " AND products.Colour = 'Cream' ";
+        $q = str_replace("cream", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'gold') !== false) {
+        $colourQuery = " AND products.Colour = 'Gold' ";
+        $q = str_replace("gold", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'green') !== false) {
+        $colourQuery = " AND products.Colour = 'Green' ";
+        $q = str_replace("green", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'grey') !== false) {
+        $colourQuery = " AND products.Colour = 'Grey' ";
+        $q = str_replace("grey", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'maroon') !== false) {
+        $colourQuery = " AND products.Colour = 'Maroon' ";
+        $q = str_replace("maroon", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'multi') !== false) {
+        $colourQuery = " AND products.Colour = 'Multi' ";
+        $q = str_replace("multi", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'navy') !== false) {
+        $colourQuery = " AND products.Colour = 'Navy' ";
+        $q = str_replace("navy", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'orange') !== false) {
+        $colourQuery = " AND products.Colour = 'Orange' ";
+        $q = str_replace("orange", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'pink') !== false) {
+        $colourQuery = " AND products.Colour = 'Pink' ";
+        $q = str_replace("pink", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'purple') !== false) {
+        $colourQuery = " AND products.Colour = 'Purple' ";
+        $q = str_replace("purple", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'red') !== false) {
+        $colourQuery = " AND products.Colour = 'Red' ";
+        $q = str_replace("red", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'silver') !== false) {
+        $colourQuery = " AND products.Colour = 'Silver' ";
+        $q = str_replace("silver", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'tan') !== false) {
+        $colourQuery = " AND products.Colour = 'Tan' ";
+        $q = str_replace("tan", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'white') !== false) {
+        $colourQuery = " AND products.Colour = 'White' ";
+        $q = str_replace("white", "", $q);
+        $q = trim($q);
+    } else if (strpos($q,'yellow') !== false) {
+        $colourQuery = " AND products.Colour = 'Yellow' ";
+        $q = str_replace("yellow", "", $q);
+        $q = trim($q);
+    }
+
+    // Category search
+    $sql_res2=mysqli_query($con, "select distinct Item_name, Item_number, Brand, Image_URL1 from products, brands, categories where products.Brand = brands.ID AND products.category = categories.ID AND (categories.keywords like '%$q%') $colourQuery AND brands.Live = '1' order by Item_name LIMIT 5");
+    // Product name search
+    $sql_res3=mysqli_query($con, "select distinct Item_name, Item_number, Brand, Image_URL1 from products, brands where products.Brand = brands.ID AND (Item_name like '%$q%') $colourQuery AND brands.Live = '1' order by Item_name LIMIT 5");
+
+    // If category search yields no results use product name search instead
+    $numResults2 = mysqli_num_rows($sql_res2);
+    if ($numResults2 == 0) {
+        $sql_res2 = $sql_res3;
+    }
+
     $maxResults = 50*max(mysqli_num_rows($sql_res), mysqli_num_rows($sql_res2));
     $borderSize = 0;
     if($maxResults != 0) {$borderSize = 2;}

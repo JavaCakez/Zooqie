@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>About Us | Who we are and what we&#39;re about | Zooqie</title>
+<title>yoAbout Us | Who we are and what we&#39;re about | Zooqie</title>
 <meta name="viewport" content="width=1000">
 <meta name="description" content="We want to help independent brands get started and selling quickly, we want to help customers find all these brands under one roof and we want to share brands amongst customers and share customers amognst brands.">
 <link rel="icon" href="favicon.ico" type="image/x-icon">

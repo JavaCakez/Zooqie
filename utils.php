@@ -282,48 +282,267 @@
                     <div id="result" style="margin-top: 6px;"></div>
                 </div>
 
-                <div style="position:absolute;left:350px;top:0px;width:639px;height:73px;">
-                    <ul id="nav" class="sf-menu">
-                        <li><a href="'.$folderString.'index.php">Home</a>
-                        </li>
+                <div style="position:absolute;left:400px;top:0px;width:600px;height:73px;">
+<link href="http://fonts.googleapis.com/css?family=Cousine" rel="stylesheet" type="text/css">
+<style>
+.home4 .nav-menu {
+	margin-right: -15px !important;
+}
 
-                        <li><a href="'.$folderString.'men/index.php">Men</a>
-                            <ul>
-                            <li><a href="'.$folderString.'men/all.php">All &nbsp;Men\'s</a></li>
-                            <li><a href="'.$folderString.'men/all.php?na=on">New Arrivals</a></li>
-                            <li><a href="'.$folderString.'men/all.php?mp=on">Most Popular</a></li>
-                            </ul>
-                        </li>
+nav ul {
+	padding: 0px;
+	margin: 0px;
+	display: table;
+	float: right;
+	padding-top: 38px;
+}
 
-                        <li><a href="'.$folderString.'women/index.php">Women</a>
-                            <ul>
-                            <li><a href="'.$folderString.'women/all.php">All &nbsp;Women\'s</a></li>
-                            <li><a href="'.$folderString.'women/all.php?na=on">New Arrivals</a></li>
-                            <li><a href="'.$folderString.'women/all.php?mp=on">Most Popular</a></li>
-                            </ul>
-                        </li>
+nav ul li {
+	float: left;
+	margin: 0;
+	text-transform: uppercase;
+	list-style: none;
+	font-size: 15px;
+	font-weight: bold;
+}
 
-                        <li><a href="'.$folderString.'brands/">Brands</a>
-                        </li>
+nav ul li a {
+	color: #565656;
+	font-family: Cousine;
+	text-decoration: none;
+	font-weight: bold;
+	padding: 15px 16px 35px;
+	position: relative;
+	z-index: 999;
+}
 
-                        <li><a href="'.$folderString.'blog/">Blog</a>
-                        </li>
+.home2 nav ul li a {
+	padding: 30px 0 30px;
+}
 
-                        <li><a href="'.$folderString.'about.php">About</a>
-                            <ul>
-                            <li><a href="'.$folderString.'about.php">About Us</a></li>
-                            <li><a href="'.$folderString.'faqs.php">FAQS</a></li>
-                            </ul>
-                        </li>
+nav ul li a:hover {
+	color: #cf4647;
+}
 
-                        <li><a href="'.$folderString.'contact.php">Contact</a>
-                            <ul>
-                            <li><a href="'.$folderString.'contact.php">Contact Us</a></li>
-                            <li><a href="'.$folderString.'newbrands.php">Set up your brand on Zooqie</a></li>
-                            <li><a href="'.$folderString.'returns.php">Returns and Disputes</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+.megamenu {
+	position: absolute;
+	width: 1140px;
+	top: 75px;
+	right: 0px;
+	left: 0px;
+	background: #fff;
+	margin: 0 auto;
+	padding: 30px;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: top 0.3s ease-in-out;
+	-moz-transition: top 0.3s ease-in-out;
+	-o-transition: top 0.3s ease-in-out;
+	transition: top 0.3s ease-in-out;
+	border: 1px solid #bbbbbb;
+}
+
+.megamenu1 span {
+	width: 25%;
+	float: left;
+}
+
+.megamenu1 span a {
+	width: 100%;
+	text-transform: none;
+	color: #555555;
+	font-family: Arial;
+	margin-bottom: 13px;
+	font-weight: normal;
+	font-size: 14px;
+	display: table;
+	padding: 0px !important;
+}
+
+.megamenu1 em {
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 1.1;
+	font-family: Cousine;
+	color: #666666;
+	margin: 10px 0 20px;
+	display: table;
+}
+
+.megamenu1 {
+	display: table;
+	width: 100%;
+}
+
+.megamenu1 span:nth-child(5) img {
+	display: table;
+	float: right;
+	margin: 12px 0 0;
+}
+
+.megamenu2 {
+	display: table;
+	width: 100%;
+	margin: 40px 0 5px;
+}
+
+.megamenu2 span {
+	width: 31%;
+	margin-right: 3.5%;
+	float: left;
+}
+
+.megamenu2 span:nth-child(3) {
+	margin-right: 0%;
+}
+
+.dropdown_menu {
+	position: relative;
+}
+
+.d_menu {
+	width: 220px;
+	display: table;
+	background: #fff;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	opacity: 0;
+	visibility: hidden;
+	border-top: 1px solid #bbb;
+}
+
+.d_menu span a {
+	font-family: Arial;
+	color: #555;
+	font-size: 13px;
+	padding: 10px 25px !important;
+	border-bottom: 1px solid #e5e5e5;
+	float: none;
+	font-weight: normal;
+	text-transform: none;
+	width: 100%;
+	display: table;
+}
+
+.megamenu1 span a:hover,
+.d_menu span a:hover {
+	color: #cf4647;
+}
+
+.dropdown_mmenu:hover .parent {
+    color: #cf4647;
+}
+
+.dropdown_mmenu:hover .megamenu {
+	position: absolute;
+	margin-left: 41px;
+	top: 90px;
+	width: 498px;
+	height: 200px;
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition: top 0.3s ease-in-out;
+	-moz-transition: top 0.3s ease-in-out;
+	-o-transition: top 0.3s ease-in-out;
+	transition: top 0.3s ease-in-out;
+}
+
+.dropdown_menu:hover .d_menu {
+	position: absolute;
+	top: 36px;
+	margin-top: 16px;
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition: top 0.3s ease-in-out;
+	-moz-transition: top 0.3s ease-in-out;
+	-o-transition: top 0.3s ease-in-out;
+	transition: top 0.3s ease-in-out;
+}
+</style>
+<nav class="no320">
+	<ul>
+		<li><a href="'.$folderString.'index.php">Home</a></li>
+		<li class="dropdown_mmenu">
+			<a class="parent" href="'.$folderString.'men/index.php">Men</a>
+			<div class="megamenu">
+				<div class="megamenu1">
+					<span>
+						<em>Categories</em>
+						<a href="'.$folderString.'men/all.php">All Men\'s</a>
+						<a href="'.$folderString.'men/all.php?na=on">New Arrivals</a>
+						<a href="'.$folderString.'men/all.php?mp=on">Most Popular</a>
+					</span>
+
+					<span>
+						<em>By Product</em>
+						<a href="'.$folderString.'men/accessories.php">Accessories</a>
+						<a href="'.$folderString.'men/bags.php">Bags</a>
+						<a href="'.$folderString.'men/caps.php">Caps</a>
+						<a href="'.$folderString.'men/coats.php">Jackets</a>
+						<a href="'.$folderString.'men/hats.php">Hats</a>
+					</span>
+
+					<span>
+						<a style="margin-top: 46px;" href="'.$folderString.'men/jumpers.php">Jumpers</a>
+						<a href="'.$folderString.'men/onesies.php">Onesies</a>
+						<a href="'.$folderString.'men/shirts.php">Shirts</a>
+						<a href="'.$folderString.'men/shorts.php">Shorts</a>
+						<a href="'.$folderString.'men/swimwear.php">Swimwear</a>
+					</span>
+
+					<span>
+						<a style="margin-top: 46px;" href="'.$folderString.'men/tees.php">Tees</a>
+						<a href="'.$folderString.'men/vests.php">Vests</a>
+					</span>
+				</div>
+			</div>
+		</li>
+		<li class="dropdown_mmenu">
+			<a class="parent" href="'.$folderString.'women/index.php">Women</a>
+			<div class="megamenu">
+				<div class="megamenu1">
+					<span>
+						<em>Categories</em>
+						<a href="'.$folderString.'women/all.php">All Women\'s</a>
+						<a href="'.$folderString.'women/all.php?na=on">New Arrivals</a>
+						<a href="'.$folderString.'women/all.php?mp=on">Most Popular</a>
+					</span>
+
+					<span>
+						<em>By Product</em>
+						<a href="'.$folderString.'women/accessories.php">Accessories</a>
+						<a href="'.$folderString.'women/bags.php">Bags</a>
+						<a href="'.$folderString.'women/caps.php">Caps</a>
+						<a href="'.$folderString.'women/coats.php">Coats</a>
+						<a href="'.$folderString.'women/dresses.php">Dresses</a>
+					</span>
+
+					<span>
+						<a style="margin-top: 46px;" href="'.$folderString.'women/tops.php">Girls Tops</a>
+						<a href="'.$folderString.'women/hats.php">Hats</a>
+						<a href="'.$folderString.'women/jumpers.php">Jumpers</a>
+						<a href="'.$folderString.'women/jewellery.php">Jewellery</a>
+						<a href="'.$folderString.'women/onesies.php">Onesies</a>
+					</span>
+
+					<span>
+						<a style="margin-top: 46px;" href="'.$folderString.'women/shorts.php">Shorts</a>
+						<a href="'.$folderString.'women/skirts.php">Skirts</a>
+						<a href="'.$folderString.'women/tees.php">Tees</a>
+						<a href="'.$folderString.'women/vests.php">Vests</a>
+					</span>
+				</div>
+			</div>
+		</li>
+		<li><a href="'.$folderString.'brands/">Brands</a></li>
+		<li><a href="'.$folderString.'blog/">Blog</a></li>
+		<li><a href="'.$folderString.'about.php">About</a></li>
+		<li><a href="'.$folderString.'contact.php">Contact</a></li>
+	</ul>
+</nav>
                 </div>
                 <a href="'.$folderString.'index.php"><img src="'.$folderString.'images/zooqie.png" border="0" width="150" id="pic_255" title="" alt="Home" style="position:absolute;top:27px;"></a>
             </div>
@@ -472,3 +691,9 @@
 //TODO: Clean up all scripts, put them nicely in folders (e.g. userMade, 3rd party etc)
 //TODO: merge nav348 to styles.css
 //TODO: MASSIVELY clean up all css!!
+
+//TODO: New header categories dynamically
+//TODO: Script so when search drop down is visible, menu drop down isnt and vice versa MAYBE (SEE BELOW)
+//TODO: Restyle search drop down to be same as menu drop down.
+//TODO: Change search so it will find brands, products or categories. Only in 1 column, stacked on top of eachother
+//TODO: Brands drop down with featured/popular brands

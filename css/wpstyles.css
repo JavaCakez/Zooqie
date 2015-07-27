@@ -1,0 +1,32 @@
+a:link {color:#656565;}
+a:visited {color:#656565;}
+a:hover {color:#e52b50;}
+a:active {color:#656565;}
+.Wp-Body-P
+{
+    margin:0.0px 0.0px 12.0px 0.0px; text-align:left; font-weight:400;
+}
+.Wp-Heading-1-P
+{
+    margin:32.0px 0.0px 4.0px 0.0px; text-align:left; font-weight:400;
+}
+.Wp-Heading-2-P
+{
+    margin:20.0px 0.0px 4.0px 0.0px; text-align:left; font-weight:400;
+}
+.Wp-Heading-3-P
+{
+    margin:12.0px 0.0px 0.0px 0.0px; text-align:center; font-weight:400;
+}
+.Wp-Normal-P
+{
+    margin:0.0px 0.0px 0.0px 0.0px; text-align:left; font-weight:400;
+}
+.Wp-Default-Paragraph-Font-C
+{
+    font-family:"Lato", sans-serif;
+}
+.Wp-Placeholder-C
+{
+    font-family:"Lato", sans-serif;
+}

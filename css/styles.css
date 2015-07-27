@@ -1,0 +1,1408 @@
+/*
+* Template Name: Stylie
+* Author: Serif Templates
+* Author URI: http://seriftemplates.com
+* Version: 1.0
+*/
+
+
+
+@font-face {
+    font-family: Chunkfive;
+    src: url("http://www.zooqie.com/css/Chunkfive.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Harabara;
+    src: url("Harabara.ttf");
+}
+
+#nav-bar { 
+  padding:0;
+  background: #fff;
+  min-height: 90px;
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  z-index: 198;
+  -moz-box-shadow:0 1px 15px rgba(0,0,0,0.3);
+  -webkit-box-shadow:0 1px 15px rgba(0,0,0,0.3);
+  box-shadow:0 1px 15px rgba(0,0,0,0.3);
+}
+
+#site_search_1_input {
+  border-color:#ffffff;
+  border-width:0px;
+  border-style:solid;
+  height:25px;
+  width:220px;
+}
+
+/* ------------------------------------------------------------------------
+	Dropdown Menu
+------------------------------------------------------------------------- */
+ 
+.sf-menu, .sf-menu * {
+	margin:			0;
+	padding:		0;
+	list-style:		none;
+}
+.sf-menu {
+	
+}
+.sf-menu ul {
+	position:		absolute;
+	top:			-999em;
+	width:			10em; /* left offset of submenus need to match (see below) */
+}
+.sf-menu ul li {
+	width:			100%;
+}
+.sf-menu li:hover {
+	visibility:		inherit; /* fixes IE7 'sticky bug' */
+}
+.sf-menu li {
+	float:			left;
+	position:		relative;
+}
+.sf-menu a {
+	display:		block;
+	position:		relative;
+}
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+	left:			0;
+	top:			2.5em; /* match top ul list item height */
+	z-index:		99;
+}
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+	left:			10em; /* match ul width */
+	top:			0;
+}
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul {
+	left:			10em; /* match ul width */
+	top:			0;
+}
+
+/* navigation styles */
+
+#nav {
+  float: right;
+  text-decoration: none;
+}
+#nav > li {
+  margin: 0 15px;
+}
+#nav > li:first-child {
+  margin-left: 0px;
+}
+#nav > li:last-child {
+  border-right: none;
+  padding-right: 0px;
+}
+#nav > li > a {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  display: block;
+  overflow: hidden;
+  line-height: 80px;
+  border-top: 3px solid transparent;
+}
+
+/* sub navigation -----------------------------------------------------*/
+.sfHover ul {
+  display: block;
+  border: solid 1px #FFF;
+  margin-top: 30px;
+  margin-left: 0px;
+  text-shadow: none;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+.sfHover ul li a {
+  display: block;
+  padding: 15px 20px;
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+
+/* skin */
+
+#nav > li > a {
+  color: #2C2C2C;
+  text-decoration:none;
+}
+#nav > li:hover > a {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border-top: 3px solid #E52B50;
+}
+#nav span:hover {
+  -webkit-transform: translate(-10px, -3px);
+  -moz-transform: translate(-10px, -3px);
+  -o-transform: translate(-10px, -3px);
+  transform: translate(-10px, -3px);
+}
+#nav > li.current-menu-item > a,
+#nav > li.current_page_item > a {
+  border-top: 3px solid #E52B50;
+}
+#nav .sfHover ul {
+  background: #F2F2F2;
+}
+#nav .sfHover ul li a {
+  color: #444444;
+}
+#nav .sfHover ul li a:hover {
+  background: #FFF;
+  color: #E52B50;
+}
+
+.show {
+    background-color: #f2f2f2;
+}
+
+.show:hover  {
+    background-color: #FFFFFF;
+    color: #E52B50;
+}
+
+input:focus::-webkit-input-placeholder
+{
+    color: transparent;
+}
+
+input.search {
+    border: 2px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+    font-size: 12px;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+}
+input.search:focus {
+    border-color: #339933;
+}
+
+
+
+/* ------------------------------------------------------------------------
+	Parallax Image Slider
+------------------------------------------------------------------------- */
+
+.dpUniSlider_wrapper {
+	position: absolute;
+	display:none;
+	top: 0px;
+	width: 100%;
+}
+
+.dpUniSlider {
+	display:none;
+}
+
+.dpUniSlider_container { 
+	text-align: left; 
+	margin: 0 auto; 
+	width: 100%; 
+	position: relative; 
+	overflow: hidden; 
+	list-style:none; 
+	padding:0;
+}
+
+.dpUniSlider_drag {
+	width:100%;
+	height:100%;
+	padding-bottom: 50px;
+}
+
+.dpUniSlider_container.isDraggable {
+	cursor: pointer;
+}
+
+.dpUniSlider_container.isDragging {
+	opacity: .7;
+}
+
+a.dpUniSlider_larrow, a.dpUniSlider_rarrow { 
+	position: absolute; 
+	top: 50%; 
+	width: 50px; 
+	height: 50px; 
+	text-indent:-9999px; 
+	display: none; 
+	z-index: 6;
+	margin-top: -26px; 
+	opacity: .9;
+}
+
+a.dpUniSlider_larrow { 
+	background:url(http://www.zooqie.com/images/left-arrow.png) 50% 50% no-repeat;
+	left: 15px; 
+}	
+
+a.dpUniSlider_rarrow { 
+	background:url(http://www.zooqie.com/images/right-arrow.png) 50% 50% no-repeat;
+	right: 15px; 
+}
+
+.dpUniSlider_container li span.dpUniSlider_caption {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:10px;
+	text-transform:uppercase;
+	font-weight:bold;
+	color: #dbdbdb;
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	display:block;
+	padding: 5px 10px; 
+	background: #000; 
+	opacity: .9;
+	text-shadow: none;
+}
+
+ul.dpUniSlider_nav { 
+	position: absolute; 
+	bottom: -25px; 
+	left: 50%;
+	padding: 5px 3px 5px 3px;
+	margin: 0;
+	display: none; 
+	z-index: 6; 
+	background: #EBEBEB; 
+	opacity: .9;
+	list-style:none;
+}
+
+ul.dpUniSlider_nav li { 
+	float:left;
+	width:8px;
+	height:8px;
+	margin: 0 5px;
+	padding: 0;
+	background:#dbdbdb;
+	list-style: none;
+	cursor: pointer;
+}
+
+ul.dpUniSlider_nav li.active { 
+	background: #404040;
+}
+
+.dpUniSlider_autoLoader { 
+	position:absolute;
+	top: 10px;
+	right: 10px;
+	width:24px;
+	height:24px;
+	z-index: 99999;
+	background: url(http://www.zooqie.com/images/ajax-loader.gif) 0 0 no-repeat;
+	padding:0;
+	margin:0;
+	display: none;
+}
+
+li.dpUniSlider_slide { 
+	padding: 0;
+	margin:0;
+	text-align: center; 
+	padding-bottom: 50px; 
+	width: 100%; 
+	position: relative; 
+	overflow: hidden; 
+	list-style:none;
+	background-position: 50% 0;
+}
+
+ul.gallery li.dpUniSlider_slide { 
+	padding-bottom: 0 !important;
+}
+
+/* Effects */
+
+.dpUniSlider_wrapper .blink_container_append { 
+	z-index: 4;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: none;
+	top: 0px;
+	left: 0px;
+}
+
+.dpUniSlider_wrapper .blink_fx { 
+	background: #fff;
+	opacity: 0;
+	display: none;
+	width: 100%;
+	height: 100%; 
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 4;
+}
+
+/* Texts */
+
+.dpUniSlider_container a, 
+.dpUniSlider_container span,
+.dpUniSlider_container p {
+	text-decoration:none;
+	font-family: 'Harabara', sans-serif;
+	font-size: 20px; 
+	color: #333; 
+	text-shadow: 1px 1px 1px #fff; 
+	margin:5px 0;
+}
+
+.dpUniSlider_container p {
+	margin:20px 0;
+}
+
+.dpUniSlider_container span.normal_text,
+.dpUniSlider_container p.normal_text {
+	font-size: 14px; 
+}
+
+.dpUniSlider_container a::selection, 
+.dpUniSlider_container span::selection,
+.dpUniSlider_container p::selection,
+.dpUniSlider_container a::-moz-selection, 
+.dpUniSlider_container span::-moz-selection,
+.dpUniSlider_container p::-moz-selection {
+	background: #a8d1ff;
+}
+
+.dpUniSlider_container a.main_title, 
+.dpUniSlider_container span.main_title,
+.dpUniSlider_container a.main_title.light:hover,
+.dpUniSlider_container a.subtitle, 
+.dpUniSlider_container span.subtitle,
+.dpUniSlider_container a.subtitle.light:hover { 
+	color: #656565; 
+	font-size: 30px; 
+	font-style:normal;
+	margin: 10px 0;
+	font-family: 'Harabara', sans-serif;
+}
+
+.dpUniSlider_container a.main_title.light, 
+.dpUniSlider_container span.main_title.light,
+.dpUniSlider_container a.main_title:hover,
+.dpUniSlider_container a.subtitle.light, 
+.dpUniSlider_container span.subtitle.light,
+.dpUniSlider_container a.subtitle:hover { 
+	color: #000; 
+	text-shadow: 1px 1px 1px #333;
+	background: #f5f5f5; 
+}
+
+.dpUniSlider_container a.subtitle, 
+.dpUniSlider_container span.subtitle,
+.dpUniSlider_container a.subtitle.light:hover { 
+	font-size: 20px; 
+	text-shadow: none !important;
+}
+
+
+.dpUniSlider_container a.banner_title, 
+.dpUniSlider_container span.banner_title,
+.dpUniSlider_container a.banner_title.light:hover { 
+	color: #E52B50; 
+	padding: 5px 20px; 
+	background: #FFF; 
+	opacity: .9; 
+	font-size: 22px;
+	font-style:normal;
+	margin: 10px 0;
+	font-family: 'Harabara', sans-serif;
+}
+
+
+.dpUniSlider_container li.dpUniSlider_slide div { 
+	clear: both; 
+	width: 100%; 
+	padding: 0; 
+	text-align: center;
+}
+
+.dpUniSlider_container .button span{
+	border-top: none;
+}
+
+/* ------------------------------------------------------------------------
+	Nivo Slider
+------------------------------------------------------------------------- */
+
+/*
+Skin Name: Nivo Slider Default Theme
+Skin URI: http://nivo.dev7studios.com
+Skin Type: flexible
+Description: The default skin for the Nivo Slider.
+Version: 1.2
+Author: Gilbert Pellegrom
+Author URI: http://dev7studios.com
+*/
+
+.theme-default .nivoSlider {
+	position:relative;
+  background:#fff url(http://www.zooqie.com/images/loading.gif) no-repeat 50% 50%;
+  margin-bottom:10px;
+}
+.theme-default .nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+.theme-default .nivoSlider a {
+	border:0;
+	display:block;
+}
+
+.theme-default .nivo-controlNav {
+	text-align: center;
+	padding: 2px 0;
+}
+.theme-default .nivo-controlNav a {
+	display:inline-block;
+	width:18px;
+	height:18px;
+	background:url(http://www.zooqie.com/images/bullets.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+	margin: 0 0px;
+}
+.theme-default .nivo-controlNav a.active {
+	background-position:0 -18px;
+}
+
+.theme-default .nivo-directionNav a {
+	display:block;
+	width:50px;
+	height:50px;
+	background:url(http://www.zooqie.com/images/arrows.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+}
+.theme-default a.nivo-nextNav {
+	background-position:-50px 0;
+	right:20px;
+	top:235px;
+}
+.theme-default a.nivo-prevNav {
+	left:20px;
+  top:235px;
+}
+
+.theme-default .nivo-caption {
+	margin: 0 0;
+	font-family:"Harabara", serif; color:#656565; font-size:14px; line-height:1.50em;
+}
+.theme-default .nivo-caption a {
+    color:#000;
+    border-bottom:1px dotted #000;
+}
+.theme-default .nivo-caption a:hover {
+    color:#000;
+}
+
+.theme-default .nivo-controlNav.nivo-thumbs-enabled {
+	width: 100%;
+}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled a {
+	width: auto;
+	height: auto;
+	background: none;
+	margin-bottom: 5px;
+}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled img {
+	display: block;
+	width: 120px;
+	height: auto;
+}
+ 
+/* The Nivo Slider styles */
+.nivoSlider {
+	position:relative;
+	width:100%;
+	height:auto;
+	overflow: hidden;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+.nivo-main-image {
+	display: block !important;
+	position: relative !important; 
+	width: 100% !important;
+}
+
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:6;
+	display:none;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:5;
+	height:100%;
+	top:0;
+}
+.nivo-box {
+	display:block;
+	position:absolute;
+	z-index:5;
+	overflow:hidden;
+}
+.nivo-box img { display:block; }
+
+/* Caption styles */
+.nivo-caption {
+	position:absolute;
+	left:90px;
+	bottom:90px;
+	background:#fff;
+	font-family: Helvetica, Arial, sans-serif;
+	color:#000;
+	width:45%;
+	z-index:8;
+	padding: 15px 15px;
+	opacity: 0.8;
+	overflow: hidden;
+	display: none;
+	-moz-opacity: 0.8;
+	filter:alpha(opacity=8);
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+.nivo-caption p {
+	padding:5px;
+	margin:0;
+}
+.nivo-caption a {
+	display:inline !important;
+}
+.nivo-html-caption {
+    display:none;
+}
+
+#slider h1{
+	margin: 0 0 10px 5px;
+	font-family:"Harabara", serif; color:#656565; font-size:24.0pxline-height:1.46em; font-weight: 400;
+}
+
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+	position:absolute;
+	top:45%;
+	z-index:9;
+	cursor:pointer;
+}
+.nivo-prevNav {
+	left:0px;
+}
+.nivo-nextNav {
+	right:0px;
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav {
+	text-align:center;
+	padding: 15px 0;
+}
+.nivo-controlNav a {
+	cursor:pointer;
+}
+.nivo-controlNav a.active {
+	font-weight:bold;
+}
+
+
+
+/* ------------------------------------------------------------------------
+	Ecommerce Zoom
+------------------------------------------------------------------------- */
+/*
+ * Title: jQuery Etalage plugin CSS
+ * Author: Berend de Jong, Frique
+ * Author URI: http://www.frique.me/
+ * Version: 1.3.2 (20120904.1)
+ *
+ * ------------------------------------ STYLE ------------------------------------
+ * Edit this section to style your thumbnails, zoom area, magnifier etc.
+ * If the id of your Etalage instance is different, do a find/replace on #etalage.
+ * -------------------------------------------------------------------------------
+ */
+
+#ecom{
+	display: none;
+	margin-top: 0px;
+}
+
+#ecom .etalage_thumb{
+	background: white url(http://www.zooqie.com/images/loading.gif) center no-repeat;
+	border:1px solid #CDCFD2;
+}
+
+#ecom .etalage_small_thumbs li{
+	margin: 5px;
+	cursor: pointer;
+}
+
+#ecom ul li.etalage_smallthumb_active{
+	border:1px solid #CDCFD2;
+	cursor: default;
+}
+
+#ecom .etalage_zoom_area,
+.etalage_zoom_area{
+	background: url(http://www.zooqie.com/images/loading.gif) center no-repeat;
+	-webkit-box-shadow: 0 0 10px #000;
+	-moz-box-shadow: 0 0 10px #000;
+	box-shadow: 0 0 10px #000;
+}
+
+#ecom .etalage_magnifier{
+	background: white;
+	-webkit-box-shadow: 0 0 10px #000;
+	-moz-box-shadow: 0 0 10px #000;
+	box-shadow: 0 0 10px #000;
+}
+
+
+.etalage, .etalage_thumb, .etalage_thumb_image, .etalage_source_image, .etalage_zoom_preview, .etalage_icon, .etalage_hint{ display:none }
+.etalage, .etalage ul, .etalage li, .etalage img, .etalage_hint, .etalage_icon, .etalage_description{ margin:0; padding:0; border:0; list-style:none }
+.etalage, .etalage_magnifier div, .etalage_magnifier div img, .etalage_small_thumbs ul, ul .etalage_small_thumbs li, .etalage_zoom_area div, .etalage_zoom_img{ position:relative }
+.etalage img, .etalage li{ -webkit-user-select:none; -khtml-user-select:none; -moz-user-select:none; -o-user-select:none; user-select:none; -webkit-user-drag:none; -moz-user-drag:none; user-drag:none }
+.etalage, .etalage_small_thumbs li{ float:left }
+.etalage_right{ float:right }
+.etalage li{ position:absolute }
+.etalage img{ vertical-align:bottom; max-width:none }
+.etalage_magnifier{ cursor:default }
+.etalage_magnifier div, .etalage_small_thumbs{ overflow:hidden }
+.etalage_magnifier div img{ display:none }
+.etalage_icon, .etalage_hint{ cursor:default; width:0; height:0; overflow:hidden }
+.etalage_small_thumbs li.vertical{ float:none }
+.etalage_zoom_area div{ overflow:hidden; z-index:195 }
+.etalage_zoom_preview{ position:absolute; z-index:196 }
+.etalage_zoom_img, .etalage_hint{ z-index:197 }
+.etalage{ direction:ltr }
+div.etalage_description{ position:absolute; bottom:0; left:0; z-index:197 }
+div.etalage_description.rtl{ direction:rtl; text-align:right }
+
+
+/* ------------------------------------------------------------------------
+	PrettyPhoto Lightbox
+------------------------------------------------------------------------- */
+
+	
+	div.facebook .pp_top .pp_left { background: url(http://www.zooqie.com/images/prettyphoto/facebook/sprite.png) -88px -53px no-repeat; } /* Top left corner */
+	div.facebook .pp_top .pp_middle { background: url(http://www.zooqie.com/images/prettyphoto/facebook/contentPatternTop.png) top left repeat-x; } /* Top pattern/color */
+	div.facebook .pp_top .pp_right { background: url(http://www.zooqie.com/images/prettyphoto/facebook/sprite.png) -110px -53px no-repeat; } /* Top right corner */
+	
+	div.facebook .pp_content .ppt { color: #000; }
+	div.facebook .pp_content_container .pp_left { background: url(http://www.zooqie.com/images/prettyphoto/facebook/contentPatternLeft.png) top left repeat-y; } /* Content background */
+	div.facebook .pp_content_container .pp_right { background: url(http://www.zooqie.com/images/prettyphoto/facebook/contentPatternRight.png) top right repeat-y; } /* Content background */
+	div.facebook .pp_content { background: #FFF; } /* Content background */
+	div.facebook .pp_expand { background: url(http://www.zooqie.com/images/prettyphoto/facebook/sprite.png) -31px -26px no-repeat; cursor: pointer; } /* Expand button */
+	div.facebook .pp_expand:hover { background: url(http://www.zooqie.com/images/prettyphoto/facebook/sprite.png) -31px -47px no-repeat; cursor: pointer; } /* Expand button hover */
+	div.facebook .pp_contract { background: url(http://www.zooqie.com/images/prettyphoto/facebook/sprite.png) 0 -26px no-repeat; cursor: pointer; } /* Contract button */
+	div.facebook .pp_contract:hover { background: url(http://www.zooqie.com/images/prettyphoto/facebook/sprite.png) 0 -47px no-repeat; cursor: pointer; } /* Contract button hover */
+	div.facebook .pp_close { width: 22px; height: 22px; background: url(http://www.zooqie.com/images/prettyphoto/facebook/sprite.png) -1px -1px no-repeat; cursor: pointer; } /* Close button */
+	div.facebook .pp_details { position: relative; }
+	div.facebook .pp_description { margin: 0 37px 0 0; }
+	div.facebook #pp_full_res .pp_inline { color: #000; } 
+	div.facebook .pp_loaderIcon { background: url(http://www.zooqie.com/images/prettyphoto/facebook/loading.gif) center center no-repeat; } /* Loader icon */
+	
+	div.facebook .pp_arrow_previous { background: url(http://www.zooqie.com/images/prettyphoto/facebook/sprite.png) 0 -71px no-repeat; height: 22px; margin-top: 0; width: 22px; } /* The previous arrow in the bottom nav */
+		div.facebook .pp_arrow_previous.disabled { background-position: 0 -96px; cursor: default; }
+	div.facebook .pp_arrow_next { background: url(http://www.zooqie.com/images/prettyphoto/facebook/sprite.png) -32px -71px no-repeat; height: 22px; margin-top: 0; width: 22px; } /* The next arrow in the bottom nav */
+		div.facebook .pp_arrow_next.disabled { background-position: -32px -96px; cursor: default; }
+	div.facebook .pp_nav { margin-top: 0; }
+	div.facebook .pp_nav p { font-size: 15px; font-family: Helvetica, Arial, sans-serif; color:#999; padding: 0 3px 0 4px; }
+	div.facebook .pp_nav .pp_play { background: url(http://www.zooqie.com/images/prettyphoto/facebook/sprite.png) -1px -123px no-repeat; height: 22px; width: 22px; }
+	div.facebook .pp_nav .pp_pause { background: url(http://www.zooqie.com/images/prettyphoto/facebook/sprite.png) -32px -123px no-repeat; height: 22px; width: 22px; }
+	
+	div.facebook .pp_next:hover { background: url(http://www.zooqie.com/images/prettyphoto/facebook/btnNext.png) center right no-repeat; cursor: pointer; } /* Next button */
+	div.facebook .pp_previous:hover { background: url(http://www.zooqie.com/images/prettyphoto/facebook/btnPrevious.png) center left no-repeat; cursor: pointer; } /* Previous button */
+	
+	div.facebook .pp_bottom .pp_left { background: url(http://www.zooqie.com/images/prettyphoto/facebook/sprite.png) -88px -80px no-repeat; } /* Bottom left corner */
+	div.facebook .pp_bottom .pp_middle { background: url(http://www.zooqie.com/images/prettyphoto/facebook/contentPatternBottom.png) top left repeat-x; } /* Bottom pattern/color */
+	div.facebook .pp_bottom .pp_right { background: url(http://www.zooqie.com/images/prettyphoto/facebook/sprite.png) -110px -80px no-repeat; } /* Bottom right corner */
+
+
+	div.pp_pic_holder a:focus { outline:none; }
+
+	div.pp_overlay {
+		background: #FFF;
+		display: none;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 9500;
+	}
+	
+	div.pp_pic_holder {
+		display: none;
+		position: absolute;
+		width: 100px;
+		z-index: 10000;
+	}
+
+		
+		.pp_top {
+			height: 20px;
+			position: relative;
+		}
+			* html .pp_top { padding: 0 20px; }
+		
+			.pp_top .pp_left {
+				height: 20px;
+				left: 0;
+				position: absolute;
+				width: 20px;
+			}
+			.pp_top .pp_middle {
+				height: 20px;
+				left: 20px;
+				position: absolute;
+				right: 20px;
+			}
+				* html .pp_top .pp_middle {
+					left: 0;
+					position: static;
+				}
+			
+			.pp_top .pp_right {
+				height: 20px;
+				left: auto;
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 20px;
+			}
+		
+		.pp_content { height: 40px; min-width: 40px; }
+		* html .pp_content { width: 40px; }
+		
+		.pp_fade { display: none; }
+		
+		.pp_content_container {
+			position: relative;
+			text-align: left;
+			width: 100%;
+		}
+		
+			.pp_content_container .pp_left { padding-left: 20px; }
+			.pp_content_container .pp_right { padding-right: 20px; }
+		
+			.pp_content_container .pp_details {
+				float: left;
+				margin: 10px 0 2px 0;
+			}
+				.pp_description {
+					display: none;
+					margin: 0;
+				}
+				
+				.pp_social { float: left; margin: 0; }
+				.pp_social .facebook { float: left; margin-left: 5px; width: 55px; overflow: hidden; }
+				.pp_social .twitter { float: left; }
+				
+				.pp_nav {
+					clear: right;
+					float: left;
+					margin: 3px 10px 0 0;
+				}
+				
+					.pp_nav p {
+						float: left;
+						margin: 2px 4px;
+						white-space: nowrap;
+					}
+					
+					.pp_nav .pp_play,
+					.pp_nav .pp_pause {
+						float: left;
+						margin-right: 4px;
+						text-indent: -10000px;
+					}
+				
+					a.pp_arrow_previous,
+					a.pp_arrow_next {
+						display: block;
+						float: left;
+						height: 15px;
+						margin-top: 3px;
+						overflow: hidden;
+						text-indent: -10000px;
+						width: 14px;
+					}
+		
+		.pp_hoverContainer {
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: 2000;
+		}
+		
+		.pp_gallery {
+			display: none;
+			left: 50%;
+			margin-top: -50px;
+			position: absolute;
+			z-index: 10000;
+		}
+		
+			.pp_gallery div {
+				float: left;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			.pp_gallery ul {
+				float: left;
+				height: 35px;
+				margin: 0 0 0 5px;
+				padding: 0;
+				position: relative;
+				white-space: nowrap;
+			}
+			
+			.pp_gallery ul a {
+				border: 1px #655E4B solid;
+				border: 1px rgba(0,0,0,0.5) solid;
+				display: block;
+				float: left;
+				height: 33px;
+				overflow: hidden;
+			}
+			
+			.pp_gallery ul a:hover,
+			.pp_gallery li.selected a { border-color: #fff; }
+			
+			.pp_gallery ul a img { border: 0; }
+			
+			.pp_gallery li {
+				display: block;
+				float: left;
+				margin: 0 5px 0 0;
+				padding: 0;
+			}
+			
+			.pp_gallery li.default a {
+				background: url(http://www.zooqie.com/images/prettyphoto/facebook/default_thumbnail.gif) 0 0 no-repeat;
+				display: block;
+				height: 33px;
+				width: 50px;
+			}
+			
+			.pp_gallery li.default a img { display: none; }
+			
+			.pp_gallery .pp_arrow_previous,
+			.pp_gallery .pp_arrow_next {
+				margin-top: 7px !important;
+			}
+		
+		a.pp_next {
+			background: url(http://www.zooqie.com/images/prettyphoto/light_rounded/btnNext.png) 10000px 10000px no-repeat;
+			display: block;
+			float: right;
+			height: 100%;
+			text-indent: -10000px;
+			width: 49%;
+		}
+			
+		a.pp_previous {
+			background: url(http://www.zooqie.com/images/prettyphoto/light_rounded/btnNext.png) 10000px 10000px no-repeat;
+			display: block;
+			float: left;
+			height: 100%;
+			text-indent: -10000px;
+			width: 49%;
+		}
+		
+		a.pp_expand,
+		a.pp_contract {
+			cursor: pointer;
+			display: none;
+			height: 20px;	
+			position: absolute;
+			right: 30px;
+			text-indent: -10000px;
+			top: 10px;
+			width: 20px;
+			z-index: 20000;
+		}
+			
+		a.pp_close {
+			position: absolute; right: 0; top: 0; 
+			display: block;
+			line-height:22px;
+			text-indent: -10000px;
+		}
+		
+		.pp_bottom {
+			height: 20px;
+			position: relative;
+		}
+			* html .pp_bottom { padding: 0 20px; }
+			
+			.pp_bottom .pp_left {
+				height: 20px;
+				left: 0;
+				position: absolute;
+				width: 20px;
+			}
+			.pp_bottom .pp_middle {
+				height: 20px;
+				left: 20px;
+				position: absolute;
+				right: 20px;
+			}
+				* html .pp_bottom .pp_middle {
+					left: 0;
+					position: static;
+				}
+				
+			.pp_bottom .pp_right {
+				height: 20px;
+				left: auto;
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 20px;
+			}
+		
+		.pp_loaderIcon {
+			display: block;
+			height: 24px;
+			left: 50%;
+			margin: -12px 0 0 -12px;
+			position: absolute;
+			top: 50%;
+			width: 24px;
+		}
+		
+		#pp_full_res {
+			line-height: 1 !important;
+		}
+		
+			#pp_full_res .pp_inline {
+				text-align: left;
+			}
+			
+				#pp_full_res .pp_inline p { margin: 0 0 15px 0; }
+	
+		div.ppt {
+			color: #fff;
+			display: none;
+			font-size: 17px;
+			margin: 0 0 5px 15px;
+			z-index: 9999;
+		}
+		
+.pp_social {display:none;}
+	
+
+
+/* ------------------------------------------------------------------------
+	Buttons
+------------------------------------------------------------------------- */
+
+.button, .button span {
+	display: inline-block;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	z-index:0;
+}
+.button {
+	white-space: nowrap;
+	line-height:1em;
+	position:relative;
+	outline: none;
+	overflow: visible; /* removes extra side padding in IE */
+	cursor: pointer;
+	text-decoration:none;
+	border: 1px solid #999;/* IE */
+	border: rgba(0, 0, 0, .2) 1px solid;/* Saf4+, Chrome, FF3.6 */
+	border-bottom:rgba(0, 0, 0, .4) 1px solid;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	background: -moz-linear-gradient(
+		center top,
+		rgba(255, 255, 255, .1) 0%,
+		rgba(0, 0, 0, .1) 100%
+	);/* FF3.6 */
+	background: -webkit-gradient(
+		linear,
+		center bottom,
+		center top,
+		from(rgba(0, 0, 0, .1)),
+		to(rgba(255, 255, 255, .1))
+	);/* Saf4+, Chrome */
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#19FFFFFF', EndColorStr='#19000000'); /* IE6,IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#19FFFFFF', EndColorStr='#19000000')"; /* IE8 */
+	-moz-user-select: none;
+	-webkit-user-select:none;
+	-khtml-user-select: none;
+	user-select: none;
+	margin-bottom:10px;
+}
+.button.full, .button.full span {
+	display: block;
+}
+.button:hover, .button.hover {
+	background: -moz-linear-gradient(
+		center top,
+		rgba(255, 255, 255, .2) 0%,
+		rgba(255, 255, 255, .1) 100%
+	);/* FF3.6 */
+	background: -webkit-gradient(
+		linear,
+		center bottom,
+		center top,
+		from(rgba(255, 255, 255, .1)),
+		to(rgba(255, 255, 255, .2))
+	);/* Saf4+, Chrome */
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#33FFFFFF', EndColorStr='#19FFFFFF'); /* IE6,IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#33FFFFFF', EndColorStr='#19FFFFFF')"; /* IE8 */
+}
+.button:active, .button.active {
+	top:1px;
+}
+.button span {
+	position: relative;
+	color:#fff;
+	font-family: Arial, Helvetica, sans-serif;
+	text-shadow:0 1px 1px rgba(0, 0, 0, 0.25);
+	border-top: rgba(255, 255, 255, .2) 1px solid;
+	padding:0.6em 1.3em;
+	line-height:1em;
+	text-decoration:none;
+	text-align:center;
+	white-space: nowrap;
+}
+
+
+.button.small span {
+	font-size:12px;
+}
+.button.medium span {
+	font-size:14px;
+}
+.button.large span {
+	font-size:18px;
+}
+
+
+.button.black {
+	background-color: #333333;
+}
+.button.gray {
+	background-color: #666666;
+}
+.button.white {
+	background-color: #FFFFFF;
+}
+.button.white span{
+	color: #666666;
+}
+.button.red {
+	background-color: #e62727;
+}
+.button.orange {
+	background-color: #ff5c00;
+}
+.button.magenta {
+	background-color: #A9014B;
+}
+.button.yellow {
+	background-color: #ffb515;
+}
+.button.blue {
+	background-color: #00ADEE;
+}
+.button.pink {
+	background-color: #e22092;
+}
+.button.green {
+	background-color: #91bd09;
+}
+.button.rosy {
+	background-color: #F16C7C;
+}
+.button.brown {
+	background-color: #804000;
+}
+.button.purple {
+	background-color: #800080;
+}
+.button.cyan {
+	background-color: #46C7C7;
+}
+.button.gold {
+	background-color: #D4A017;
+}
+.button.amaranth {
+	background-color: #E52B50;
+}
+
+
+/* ------------------------------------------------------------------------
+	Tabs
+------------------------------------------------------------------------- */
+
+
+
+#menu {
+ padding: 0;
+ font-family:"Lato", sans-serif;
+ font-size:14.0pxpxine-height:1.29em;
+}
+
+#menu li { display: inline; }
+
+#menu li a {
+ background: #E1E1E1;
+ padding: 10px;
+ float:left;
+ border-right: 2px solid #fff;
+ border-bottom: none;
+ text-decoration: none;
+ color: #2C2C2C;
+
+}
+
+#menu li.active a { 
+ background: #EDEDED;
+}
+
+.content {
+ float: left;
+ clear: both;
+ font-family:"Lato", sans-serif;
+ font-size:14.0px;
+pxe-height:1.29em;
+ background: #EDEDED;
+ color: #2C2C2C;
+ padding: 20px 20px 20px;
+ width: 400px;
+}
+
+
+/* ------------------------------------------------------------------------
+	Back To Top
+------------------------------------------------------------------------- */
+
+#toTop {
+	display:none;
+	text-decoration:none;
+	position:fixed;
+	bottom:20px;
+	right:20px;
+	overflow:hidden;
+	width:50px;
+	height:50px;
+	border:none;
+	text-indent:100%;
+	z-index: 999;
+	background:url(http://www.zooqie.com/images/totop.png) no-repeat left top;
+}
+
+#toTopHover {
+	background:url(http://www.zooqie.com/images/totop.png) no-repeat left -50px;
+	width:50px;
+	height:50px;
+	display:block;
+	overflow:hidden;
+	float:left;
+	opacity: 0;
+	-moz-opacity: 0;
+	filter:alpha(opacity=0);
+}
+
+#toTop:active, #toTop:focus {
+	outline:none;
+}
+
+
+/* ------------------------------------------------------------------------
+	Accordion FAQ
+------------------------------------------------------------------------- */
+
+.section
+{
+	display: block;
+} 
+
+.accordion
+{
+	background-color: #FFF;
+	width: 960px;
+	padding: 0px;	
+	margin: 0px;
+}
+ 
+.accordion section 
+{
+ 	border: 1px solid #DBDBDB;
+	margin-bottom: 5px;
+	
+	background-color: #fff;
+}
+
+.accordion h2,
+ .accordion p
+{
+	margin: 0;	
+}
+
+.accordion div
+{
+	height: 200px;
+	display: none;
+}
+
+.accordion p
+{
+	padding: 10px;
+	font: 14px 'Lato', 'Lucida Sans', Arial, Helvetica;
+  color: #2c2c2c;
+}
+ 
+.accordion h2 a 
+{
+	display: block;
+	position: relative;
+	font-family:"Harabara", serif; color:#e52b50; font-size:16.0px; lipxeight:1.50em; font-weight: 400;
+	padding: 10px;
+	color: #535353;
+	outline: 0;
+	text-decoration: none;
+}
+
+.accordion h2 a:after 
+{  
+  content: url(http://www.zooqie.com/images/acc-closed.png);
+	position: absolute;
+	right: 12px;
+	top: 50%;
+	margin-top: -7px;
+}
+
+.accordion h2 a:hover 
+{
+	background: #fff;
+}
+ 
+.accordion h2.active a:after 
+{  
+  content: url(http://www.zooqie.com/images/acc-open.png);
+	position: absolute;
+	right: 12px;
+	top: 50%;
+	margin-top: -7px;
+}
+
+
+
+/* ------------------------------------------------------------------------
+	Contact Form
+------------------------------------------------------------------------- */
+
+#contact p, label, legend { font-family:"Lato", sans-serif; color:#2c2c2c; font-size:14.0px; linepxght:1.29em; }
+
+#contact h1 { margin: 10px 0 10px; font-family:"Lato", sans-serif; font-size: 18px; color: #333333; }
+#contact hr { color: inherit; height: 0; margin: 6px 0 6px 0; padding: 0; border: 1px solid #d9d9d9; border-style: none none solid; }
+
+#contact { display: block; width: 550px; background-color: #FFF; -webkit-border-radius:5px; }
+
+/* Form style */
+
+#contact label { display: inline-block; float: left; height: 26px; line-height: 26px; width: 155px; font-size: 1.0em; -webkit-border-radius:5px; }
+#contact input, textarea, select { width: 280px; margin: 0; padding: 5px; color: #666; background: #f5f5f5; border: 1px solid #ccc; margin: 5px 0; font:1.0em "Lato", "Lucida Grande", Arial, sans-serif; webkit-border-radius:5px; }
+#contact input:focus, textarea:focus, select:focus { border: 1px solid #999; background-color: #fff; color:#333; }
+#contact input.submit { width: 85px; cursor: pointer; border: 1px solid #222; background:#333; color:#fff; }
+#contact input.submit:hover { background:#444; }
+#contact input[type="submit"][disabled] { background:#888; }
+#contact fieldset { padding:20px 20px 20px 0; border: none; }
+#contact legend { padding:7px 10px; font-weight:bold; color:#000; border:1px solid #eee; -webkit-border-radius:5px; -moz-border-radius:5px; margin-bottom:0 !important; margin-bottom:20px; }
+
+#contact span.required{ font-size: 13px; color: #ff0000; } /* Select the colour of the * if the field is required. */
+
+#message { margin: 10px 0; padding: 0; }
+
+.error_message { display: block; font-family:"Lato", sans-serif; font-size:14.0px; height: 22px; line-height: 22px; background: #FBE3E4 url('http://www.zooqie.com/images/error.gif') no-repeat 10px center; padding: 3px 10px 3px 35px; color:#8a1f11;border: 1px solid #FBC2C4; -webkit-border-radius:5px; }
+
+.loader { padding: 0 10px; }
+
+#contact #success_page h1 { background: url('http://www.zooqie.com/images/success.gif') left no-repeat; padding-left:22px; }
+
+acronym { border-bottom:1px dotted #ccc; }
+
+
+
+
+
+
+div.nav_348style, .nav_348style span, .nav_348style a, .nav_348style a:link, .nav_348style a:visited, .nav_348style a:hover, .nav_348style a:active{color:#cdcfd2;font-family:Arial,sans-serif;font-size:12pt;font-weight:normal;text-decoration:none;text-align:left;font-variant:normal;text-transform:none;font-style:normal;letter-spacing:normal;}
+.nav_348style, .nav_348style_level1{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+.nav_348style span, .nav_348style a, .nav_348style a:link, .nav_348style a:visited, .nav_348style a:hover, .nav_348style a:active{color:#2c2c2c;font-family:Tahoma,sans-serif;font-size:10pt;text-decoration:none;border-bottom:0px none #2c2c2c;}
+.nav_348style :focus{outline:none;}
+.nav_348style a.currentpage, .nav_348style a.currentpage:link, .nav_348style a.currentpage:visited, .nav_348style a.currentpage:hover, .nav_348style a.currentpage:active{text-decoration:none;border-bottom:0px none #2c2c2c;}
+.nav_348style span.hassubmenu, .nav_348style a.hassubmenu, .nav_348style a.hassubmenu:link, .nav_348style a.hassubmenu:visited, .nav_348style a.hassubmenu:hover, .nav_348style a.hassubmenu:active{text-decoration:none;border-bottom:0px none #2c2c2c;}
+.nav_348style span.open, .nav_348style a.open, .nav_348style a.open:link, .nav_348style a.open:visited, .nav_348style a.open:hover, .nav_348style a.open:active, .nav_348style a:hover, .nav_348style a:active{color:#e52b50;border-bottom:1px none #656565;}
+table.nav_348style_level1{background:#ffffff;border:1px solid #656565;padding:4px 0px;border-collapse:separate;border-spacing:0;}
+table.nav_348style_level1 :focus{outline:none;}
+.nav_348style_level1 span, .nav_348style_level1 a, .nav_348style_level1 a:link, .nav_348style_level1 a:visited, .nav_348style_level1 a:hover, .nav_348style_level1 a:active{background-color:transparent;color:#cdcfd2;font-family:Tahoma,sans-serif;font-size:10pt;font-weight:normal;text-decoration:none;text-align:left;font-variant:normal;text-transform:none;font-style:normal;letter-spacing:normal;padding:3px;}
+.nav_348style_level1 span.open, .nav_348style_level1 a.open:link, .nav_348style_level1 a.open:visited, .nav_348style_level1 a.open:hover, .nav_348style_level1 a.open:active{padding:3px;}
+.nav_348style_level1 span{cursor:default;}
+.nav_348style_level1 a.currentpage, .nav_348style_level1 a.currentpage:link, .nav_348style_level1 a.currentpage:visited, .nav_348style_level1 a.currentpage:hover, .nav_348style_level1 a.currentpage:active{font-weight:bold;}
+.nav_348style_level1 span.hassubmenu_left, .nav_348style_level1 a.hassubmenu_left, .nav_348style_level1 a.hassubmenu_left:link, .nav_348style_level1 a.hassubmenu_left:visited, .nav_348style_level1 a.hassubmenu_left:hover, .nav_348style_level1 a.hassubmenu_left:active{background-image:url('../http://www.zooqie.com/images/left_navbar_gif.gif');background-position:left center;background-attachment:scroll;background-repeat:no-repeat;}
+.nav_348style_level1 span.hassubmenu_right, .nav_348style_level1 a.hassubmenu_right, .nav_348style_level1 a.hassubmenu_right:link, .nav_348style_level1 a.hassubmenu_right:visited, .nav_348style_level1 a.hassubmenu_right:hover, .nav_348style_level1 a.hassubmenu_right:active{background-image:url('../http://www.zooqie.com/images/right_navbar_gif.gif');background-position:right center;background-attachment:scroll;background-repeat:no-repeat;}
+.nav_348style_level1 img{width:16px;}
+.nav_348style_level1 span.open, .nav_348style_level1 a.open, .nav_348style_level1 a.open:link, .nav_348style_level1 a.open:visited, .nav_348style_level1 a.open:hover, .nav_348style_level1 a.open:active{background-color:#212121;}
+.nav_348style_level1 hr{border:none 0;border-top:1px solid #2c2c2c;height:1px;width:90%;text-align:center;margin:1px auto 1px auto;}

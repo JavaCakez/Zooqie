@@ -281,7 +281,7 @@ var blankSrc = "http://www.zooqie.com/js/blank.gif";
 					</ul>
 				</li>
 				
-				<li><a href="/brands">Brands</a>
+				<li><a href="brands">Brands</a>
 				</li>
 				
 				<li><a href="blog/">Blog</a>

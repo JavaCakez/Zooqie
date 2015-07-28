@@ -244,6 +244,11 @@
 
     function echoHeader($folderLevel, $pageWidth, $pageHeight) {
         $folderString = createFolderString($folderLevel);
+        if (isDev()) {
+            $url = 'http://www.zooqie.com/development/';
+        } else {
+            $url = 'http://www.zooqie.com/';
+        }
         echo '
             <div style="background-color:#ffffff;margin-left:auto;margin-right:auto;position:relative;width:'.$pageWidth.'px;height:'.$pageHeight.'px;">
                 <div id="nav-panel" class="wpfixed" style="left:50%;margin-left:-500px;top:0px;width:1000px;height:80px; z-index: 199; margin-top:5px;">
@@ -282,12 +287,36 @@
                 </script>
 
                 <div class="content" style="position: absolute; top:30px; left:170px; width:540px; height:22px;margin: 0; padding: 0; background:#ffffff">
-                    <input type="text" class="search" id="searchid" placeholder="Search brands or products" style="width:250px; height:15px; "/>
-                    <i class="fa fa-search" style="margin-left:-24px;font-size:12px"></i>
+                    <form id="searchForm" action="'.$url.'search-results/" method="post">
+                        <input type="text" name="search" class="search" id="searchid" placeholder="Search brands or products" style="width:250px; height:15px; "/>
+                        <input type="hidden" name="headerSearch" value="true">
+
+                        <style>
+                            .searchFormButton {
+                                margin-left:-30px;
+                                background-color:#fff;
+                                border:none;
+                            }
+                            .searchFormButton:focus {
+                                outline: none;
+                            }
+                            .searchFormButton:hover {
+                                cursor: pointer;
+                            }
+                            .searchFormButton:hover .fa {
+                                color: #cf4647;
+                            }
+
+                        </style>
+                        <button type="submit" class="searchFormButton">
+                            <i class="fa fa-search" style="font-size:12px"></i>
+                        </button>
+                    </form>
+
                     <div id="result" style="margin-top: 6px;"></div>
                 </div>
 
-                <div style="position:absolute;left:400px;top:0px;width:600px;height:80px;">
+                <div style="position:absolute;left:450px;top:0px;width:550px;height:80px;">
 <link href="http://fonts.googleapis.com/css?family=Cousine" rel="stylesheet" type="text/css">
 <style>
 .home4 .nav-menu {
@@ -443,7 +472,7 @@ nav ul li a:hover {
 
 .dropdown_mmenu:hover .megamenu {
 	position: absolute;
-	margin-left: 39px;
+	margin-left: -11px;
 	top: 75px;
 	width: 499px;
 	height: 200px;
@@ -541,8 +570,63 @@ nav ul li a:hover {
 					</span>
 				</div>
 			</div>
+		</li>';
+
+
+		echo '
+        <li class="dropdown_mmenu">
+			<a class="parent" href="'.$folderString.'brands">Brands</a>
+			<div class="megamenu">
+				<div class="megamenu1">
+					<span>
+						<em>Work With Us</em>
+						<a href="'.$folderString.'newbrands.php">Joining Zooqie</a>
+						<a href="'.$folderString.'contact.php">Contact Us</a>
+					</span>
+
+					<span style="width: 75%;">
+						<em>Featured Brands</em>
+					</span>
+					<span style="width: 75%">
+				';
+
+        // Create connection
+        if(file_exists("db_settings.php")) {include("db_settings.php");}
+        if(file_exists("../db_settings.php")) {include("../db_settings.php");}
+        if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
+        if(file_exists("db_settings.php")) {include("db_settings.php");}
+
+        $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
+
+        //Brand query
+        $sql_res=mysqli_query($con, "select * from brands where Live = '1' AND (Brand_name = 'HazelleDoll' || Brand_name = 'Thunder Apparel')");
+
+        while($row=mysqli_fetch_array($sql_res))
+        {
+            $username=stripslashes($row['Brand_name']);
+            $s = $row['ID'];
+            $img = $url . $row['shopbybrand_URL'];
+
+            $result2 = mysqli_query($con,"SELECT * FROM brandfolders WHERE ID = '" . $s . "'");
+            while($row2 = mysqli_fetch_array($result2))
+            {
+                $foldername = $url . 'brands/' . $row2['Folder_name'];
+            }
+            echo '
+                    <div style="display:inline-block;width:49%;text-align:center;">
+						<a href="'.$foldername.'">
+							<img src="'.$img.'" class="img-responsive" width=172 height=104 alt="'.$username.'" style="border: solid 1px;">
+							<p>'.$username.'</p>
+						</a>
+                    </div>
+			';
+        }
+
+        echo '
+				    </span>
+				</div>
+			</div>
 		</li>
-		<li><a href="'.$folderString.'brands/">Brands</a></li>
 		<li><a href="'.$folderString.'blog/">Blog</a></li>
 		<li><a href="'.$folderString.'about.php">About</a></li>
 		<li><a href="'.$folderString.'contact.php">Contact</a></li>
@@ -556,15 +640,10 @@ nav ul li a:hover {
 
     function isDev() {
         $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-        while(substr($url, -1) != '/') {
-            $url = substr($url, 0, -1);
+        if (strpos($url,'development') !== false) {
+            return true;
         }
-        //Remove /
-        $url = substr($url, 0, -1);
-
-        //take last 3 letters
-        $url = substr($url, -3);
-        return $url == 'dev';
+        return false;
     }
 
     function echoFooter($folderLevel, $pageHeight) {
@@ -692,6 +771,10 @@ nav ul li a:hover {
         ';
     }
 
+    function alert($var) {
+        echo "<script type='text/javascript'>alert('{$var}');</script>";
+    }
+
 //TODO: methods for price slider. E.g. getting min and max price, echoing the scripts etc
 //TODO: methods for colourstrings, categorystrings, colourcount (not done on all pages yet)
 //TODO: Clean up all scripts, put them nicely in folders (e.g. userMade, 3rd party etc)
@@ -700,8 +783,7 @@ nav ul li a:hover {
 //TODO: remove all old unused html files
 
 //TODO: New header categories dynamically
-//TODO: Script so when search drop down is visible, menu drop down isnt and vice versa MAYBE (SEE BELOW)
-//TODO: Restyle search drop down to be same as menu drop down.
 //TODO: Change search so it will find brands, products or categories. Only in 1 column, stacked on top of eachother
-//TODO: Brands drop down with featured/popular brands
 //TODO: clean up, move styles etc
+
+//TODO: cleanup search-results/index, it's pretty messy as fuck.

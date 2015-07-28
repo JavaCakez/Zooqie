@@ -400,7 +400,7 @@ The sales map shows the geographical locations of those who bought your products
 		</div>
 
         <div style = "position:absolute; top: 30px; left: 845px; width:140px; height: 50px; text-align: center; z-index: 100">
-            <a href = "/uploadmenu.php" style = "text-decoration:none;color:#E52B50; font-family:'Harabara', serif; font-size:17px; line-height:1.50em;"><< Manage Store</a>
+            <a href = "uploadmenu.php" style = "text-decoration:none;color:#E52B50; font-family:'Harabara', serif; font-size:17px; line-height:1.50em;"><< Manage Store</a>
         </div>
 
 		<!--Structure Lines-->

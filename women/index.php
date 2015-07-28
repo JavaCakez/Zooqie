@@ -185,7 +185,7 @@ a.hlink_6:active {color:#cdcfd2;}
 
 <div id="frag_58" style="position:absolute;left:20px;top:204px;width:132px;height:262px;">
     <!--Body-->
-        <h1 class="Heading-1-P-P0"><span class="Heading-1-C-C1"><a class="hlink_5" href="/brands" style="text-decoration:none;">Shop By Brand</a></span></h1>
+        <h1 class="Heading-1-P-P0"><span class="Heading-1-C-C1"><a class="hlink_5" href="brands" style="text-decoration:none;">Shop By Brand</a></span></h1>
     	<p class="Wp-Body-P"><span class="Body-C"><br></span></p>
     	
         <h1 class="Heading-1-P-P0"><span class="Heading-1-C-C1"><a class="hlink_5" href="all.php" style="text-decoration:none;">All &nbsp;Women's</a></span></h1>

@@ -469,7 +469,7 @@ echoGoogleAnalyticsScript();
 <!--        		</div>-->
 
         <div style = "position:absolute; top: 30px; left: 845px; width:140px; height: 50px; text-align: center; z-index: 100">
-            <a href = "/uploadmenu.php" style = "text-decoration:none;color:#E52B50; font-family:'Harabara', serif; font-size:17px; line-height:1.50em;"><< Manage Store</a>
+            <a href = "uploadmenu.php" style = "text-decoration:none;color:#E52B50; font-family:'Harabara', serif; font-size:17px; line-height:1.50em;"><< Manage Store</a>
         </div>
 		
 		<!--Information-->
@@ -485,7 +485,7 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 		<!--SALES THIS WEEK-->
 		
 		<!--Make entire box clickable through to the sales dashboard-->
-		<a href = "/dashboardsales.php" >
+		<a href = "dashboardsales.php" >
 			<div style = "position:absolute; top: 80px; left: 62.5px; width:250px; height: 150px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 				
 				<!--Highlight the box on mouse over-->
@@ -521,7 +521,7 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 		<!--VIEWS THIS WEEK-->
 		
 		<!--Make entire box clickable through to the views dashboard-->
-		<a href = "/dashboardviews.php" >
+		<a href = "dashboardviews.php" >
 			<div style = "position:absolute; top: 80px; left: 375px; width:250px; height: 150px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 				
 				<!--Highlight the box on mouse over-->
@@ -557,7 +557,7 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 		<!--TARGETS-->
 		
 		<!--Make entire box clickable through to the targets dashboard-->
-		<a href = "/dashboardtargets.php" >
+		<a href = "dashboardtargets.php" >
 			<div style = "position:absolute; top: 80px; left: 687.5px; width:250px; height: 150px; background-color:#D1D1D1; opacity: .9;">
 				
 				<!--Highlight the box on mouse over-->
@@ -751,7 +751,7 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 		<!--MOST VIEWED-->
 		
 		<!--Make entire box clickable to navigate to views dashboard-->
-		<a href = "/dashboardviews.php" >
+		<a href = "dashboardviews.php" >
 			<div style = "position:absolute; top: 292.5px; left: 375px; width:250px; height: 198px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 				
 				<!--Highlight the box on mouse over-->
@@ -862,7 +862,7 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 		<!--STOCK-->
 		
 		<!--Make entire box clickable to navigate to stocks dashboard-->
-		<a href="/dashboardstocks.php">
+		<a href="dashboardstocks.php">
 			<div style = "position:absolute; top: 292.5px; left: 687.5px; width:250px; height: 198px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 				
 				<!--Make entire box clickable to navigate to views dashboard-->

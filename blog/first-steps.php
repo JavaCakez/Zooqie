@@ -204,7 +204,7 @@ echoNavBar(1, array('Home', 'Blog', 'First Steps'), array('../index.php', '../bl
 <h3 class="Heading-3-P"><span class="Heading-3-C">Facts &amp; Figures (since launch to date)</span></h3>
 <p class="Wp-Body-P"><span class="Body-C-C0"><br></span></p>
 <ul class="Body-P-P0">
-    <li class="Body-P-P1"><span class="Body-C">From 20 up to 42 <a href="/brands" style="text-decoration:underline;">brands</a></span></li><li class="Body-P-P1"><span class="Body-C">Over 30,000 site hits</span></li><li class="Body-P-P1"><span class="Body-C">174 sales</span></li><li class="Body-P-P1"><span class="Body-C">&#163;2,652.70 worth of sales</span></li></ul>
+    <li class="Body-P-P1"><span class="Body-C">From 20 up to 42 <a href="brands" style="text-decoration:underline;">brands</a></span></li><li class="Body-P-P1"><span class="Body-C">Over 30,000 site hits</span></li><li class="Body-P-P1"><span class="Body-C">174 sales</span></li><li class="Body-P-P1"><span class="Body-C">&#163;2,652.70 worth of sales</span></li></ul>
 </div>
 <div id="txt_491" style="position:absolute;left:310px;top:550px;width:346px;height:237px;overflow:hidden;  /*BorderDivStyle*/">
 <h3 class="Heading-3-P-P0" style="margin-top:0px"><span class="Heading-3-C-C0">So, what’s gone on?</span></h3>

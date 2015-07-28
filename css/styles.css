@@ -204,9 +204,10 @@ input.search {
     outline: 0;
     -webkit-appearance: none;
 }
+/*
 input.search:focus {
     border-color: #339933;
-}
+}*/
 
 
 

@@ -721,7 +721,7 @@ else
             font-family:"Oswald", serif; color:#2c2c2c; font-size:14.0px; line-height:1.50em;
         }
 
-        #nav-bar {  min-height: 90px; background: #fff; }        /* Top bar height and colour */
+        #nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
         #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
         .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 
@@ -807,7 +807,7 @@ else
         </div>
         <a href="http://www.zooqie.com/index.html"><img src="http://www.zooqie.com/wpimages/wpde5c8324_05_06.jpg" border="0" width="125" height="41" id="pic_255" title="" alt="Home" style="position:absolute;left:6px;top:24px;"></a>
     </div>
-    <img src="http://www.zooqie.com/wpimages/wpbbcbff94_06.png" border="0" width="1000" height="40" id="qs_1" title="" alt="Navigation Bar" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:90px;">
+    <img src="http://www.zooqie.com/wpimages/wpbbcbff94_06.png" border="0" width="1000" height="40" id="qs_1" title="" alt="Navigation Bar" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:80px;">
     <script type="text/javascript" id="nav_348_script">
         try {
             var navtree_nav_348 = WpNavBar.getNavTreeBreadcrumb( global_navtree, {'m_sThisPageUrl':'http://www.zooqie.com/uploadmenu.php',
@@ -835,7 +835,7 @@ else
         }
     </script>
     <noscript>
-        <div class="nav_348style" id="nav_348" style="left: 20px; top: 101px; width: 960px; height: 26px; position: absolute;"><a id="nav_348_I0" href="http://www.zooqie.com/index.html" target="_self"> Home </a> &gt; <a class=" currentpage" id="nav_348_I1" href="http://www.zooqie.com/uploadmenu.php" target="_self"> Brand Upload Tool </a></div>
+        <div class="nav_348style" id="nav_348" style="left: 20px; top: 91px;; width: 960px; height: 26px; position: absolute;"><a id="nav_348_I0" href="http://www.zooqie.com/index.html" target="_self"> Home </a> &gt; <a class=" currentpage" id="nav_348_I1" href="http://www.zooqie.com/uploadmenu.php" target="_self"> Brand Upload Tool </a></div>
     </noscript>
     <div id="txt_15" style="position:absolute;left:760px;top:2672px;width:220px;height:40px;overflow:hidden;">
         <h2 class="Wp-Heading-2-P" style="margin-top:0px"><span class="Heading-2-C">Follow Us</span></h2>

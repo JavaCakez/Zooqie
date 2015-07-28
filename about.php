@@ -89,7 +89,7 @@ a.hlink_1:active {color:#2c2c2c;}
     font-family: 'Lato', sans-serif; color:#1f1f1f; font-size:21px;
 }
 
-#nav-bar {  min-height: 90px; background: #fff; }        /* Top bar height and colour */
+#nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
 #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
 .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 

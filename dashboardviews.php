@@ -225,7 +225,7 @@ a.hlink_1:active {color:#2c2c2c;}
     font-family:"Harabara", serif; color:#656565; font-size:32px; line-height:1.47em;
 }
 
-#nav-bar {  min-height: 90px; background: #fff; }        /* Top bar height and colour */
+#nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
 #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
 .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 
@@ -254,7 +254,7 @@ echoSocialMediaFollowButtons();
 echoGoogleAnalyticsScript();
 ?>
 
-<img src="images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:90px; " >
+<img src="images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:80px;" >
 <!--NAVBAR-->
 
 
@@ -875,7 +875,7 @@ ob_end_clean (); // Wipe the buffer
 
 $navBar = '
 
-<div class="nav_348style" id="nav_348" style="left: 20px; top: 101px; width: 960px; height: 26px; position: absolute;">
+<div class="nav_348style" id="nav_348" style="left: 20px; top: 91px;; width: 960px; height: 26px; position: absolute;">
 	<a id="nav_348_I0" href="index.php" target="_self"> Home </a>
 	 &gt; 
 	<a id="nav_348_I2" href="dashboard.php" target="_self"> Dashboard Home </a>

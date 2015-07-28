@@ -252,7 +252,7 @@ a.hlink_1:active {color:#2c2c2c;}
     font-family:"Lato", sans-serif; font-size:13.0px; line-height:1.23em;
 }
 
-#nav-bar {  min-height: 90px; background: #fff; }        /* Top bar height and colour */
+#nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
 #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
 .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 </style>
@@ -277,7 +277,7 @@ a.hlink_1:active {color:#2c2c2c;}
     font-family:"Harabara", serif; color:#656565; font-size:21.0px; line-height:1.48em;
 }
 
-#nav-bar {  min-height: 90px; background: #fff; }        /* Top bar height and colour */
+#nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
 #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
 .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 

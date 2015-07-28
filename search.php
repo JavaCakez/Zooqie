@@ -102,10 +102,19 @@ if($_POST && trim($_POST['search']) != '')
         $q = trim($q);
     }
 
-    // Category search
-    $sql_res2=mysqli_query($con, "select distinct Item_name, Item_number, Brand, Image_URL1 from products, brands, categories where products.Brand = brands.ID AND products.category = categories.ID AND (categories.keywords like '%$q%') $colourQuery AND brands.Live = '1' order by Item_name LIMIT 5");
-    // Product name search
-    $sql_res3=mysqli_query($con, "select distinct Item_name, Item_number, Brand, Image_URL1 from products, brands where products.Brand = brands.ID AND (Item_name like '%$q%') $colourQuery AND brands.Live = '1' order by Item_name LIMIT 5");
+    // HACK: quick hack to ensure if there is a brand result, then no second column (to force only one column)
+    // TODO clean up hack
+    $numResults = mysqli_num_rows($sql_res);
+    if ($numResults == 0) {
+        // Category search
+        $sql_res2=mysqli_query($con, "select distinct Item_name, Item_number, Brand, Image_URL1 from products, brands, categories where products.Brand = brands.ID AND products.category = categories.ID AND (categories.keywords like '%$q%') $colourQuery AND brands.Live = '1' order by Item_name LIMIT 5");
+        // Product name search
+        $sql_res3=mysqli_query($con, "select distinct Item_name, Item_number, Brand, Image_URL1 from products, brands where products.Brand = brands.ID AND (Item_name like '%$q%') $colourQuery AND brands.Live = '1' order by Item_name LIMIT 5");
+    } else {
+        $sql_res2=mysqli_query($con, "select distinct Item_name, Item_number, Brand, Image_URL1 from products, brands, categories where products.Brand = brands.ID AND products.category = categories.ID AND (categories.keywords like 'qweqwdqwdef') $colourQuery AND brands.Live = '1' order by Item_name LIMIT 5");
+        // Product name search
+        $sql_res3=mysqli_query($con, "select distinct Item_name, Item_number, Brand, Image_URL1 from products, brands where products.Brand = brands.ID AND (Item_name like 'qwdwqdqdqwd') $colourQuery AND brands.Live = '1' order by Item_name LIMIT 5");
+    }
 
     // If category search yields no results use product name search instead
     $numResults2 = mysqli_num_rows($sql_res2);
@@ -115,29 +124,29 @@ if($_POST && trim($_POST['search']) != '')
 
     $maxResults = 50*max(mysqli_num_rows($sql_res), mysqli_num_rows($sql_res2));
     $borderSize = 0;
-    if($maxResults != 0) {$borderSize = 2;}
-    $numResults = mysqli_num_rows($sql_res);
-    $numResults2 = mysqli_num_rows($sql_res2);
+    if($maxResults != 0) {$borderSize = 1;}
+    $borderRadius = 0;
+
     ?>
-        <div   <?php if($numResults == 0) {echo 'style="display:none; ';} else {echo 'style= '; } ?><?php echo ' "float:left; width:268px; height:'.$maxResults.'px; background-color: #f2f2f2;
+        <div   <?php if($numResults == 0) {echo 'style="display:none; ';} else {echo 'style= '; } ?><?php echo ' "float:left; width:268px; height:'.$maxResults.'px; margin-top:12px; background-color: #f2f2f2;
         border-bottom: '.$borderSize.'px solid #ccc;
     border-left: '.$borderSize.'px solid #ccc;
     border-top: '.$borderSize.'px solid #ccc; '?>
             <?php
             if($numResults2 == 0) {
                 echo ' border-right: '.$borderSize.'px solid #ccc;
-                -moz-border-top-right-radius: 13px;
-                -moz-border-bottom-right-radius: 13px;
-                -webkit-border-top-right-radius: 13px;
-                -webkit-border-bottom-right-radius: 13px;
-                border-top-right-radius: 13px;
-                border-bottom-right-radius: 13px;';
+                -moz-border-top-right-radius: '.$borderRadius.'px;
+                -moz-border-bottom-right-radius: '.$borderRadius.'px;
+                -webkit-border-top-right-radius: '.$borderRadius.'px;
+                -webkit-border-bottom-right-radius: '.$borderRadius.'px;
+                border-top-right-radius: '.$borderRadius.'px;
+                border-bottom-right-radius: '.$borderRadius.'px;';
             }
             if($numResults2 > $numResults1) {
                 echo '
-                -moz-border-bottom-left-radius: 13px;
-                -webkit-border-bottom-left-radius: 13px;
-                border-bottom-left-radius: 13px;';
+                -moz-border-bottom-left-radius: '.$borderRadius.'px;
+                -webkit-border-bottom-left-radius: '.$borderRadius.'px;
+                border-bottom-left-radius: '.$borderRadius.'px;';
             }
             echo '"';
             ?>>
@@ -164,19 +173,19 @@ if($_POST && trim($_POST['search']) != '')
             <?php if ($counter == $numResults && $numResults2 == 0) { echo "border-bottom: 0px solid #ccc;
                 border-right: 0px solid #ccc;
                 border-left: 0px solid #ccc;
-                -moz-border-bottom-left-radius: 10px;
-                -moz-border-bottom-right-radius: 10px;
-                -webkit-border-bottom-left-radius: 10px;
-                -webkit-border-bottom-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-                border-bottom-left-radius: 10px;"; } ?>
+                -moz-border-bottom-left-radius: '.$borderRadius.'px;
+                -moz-border-bottom-right-radius: '.$borderRadius.'px;
+                -webkit-border-bottom-left-radius: '.$borderRadius.'px;
+                -webkit-border-bottom-right-radius: '.$borderRadius.'px;
+                border-bottom-right-radius: '.$borderRadius.'px;
+                border-bottom-left-radius: '.$borderRadius.'px;"; } ?>
 
             <?php if ($counter == 1 && $numResults2 == 0) { echo "border-bottom: 0px solid #ccc;
                 border-right: 0px solid #ccc;
                 border-left: 0px solid #ccc;
-                -moz-border-top-right-radius: 10px;
-                -webkit-border-top-right-radius: 10px;
-                border-top-right-radius: 10px;"; } ?>
+                -moz-border-top-right-radius: '.$borderRadius.'px;
+                -webkit-border-top-right-radius: '.$borderRadius.'px;
+                border-top-right-radius: '.$borderRadius.'px;"; } ?>
 
                 ">
                 <img src="<?php echo $img; ?>" style="width:83px; height:50px; float:left; margin-right:6px;" />
@@ -195,16 +204,16 @@ if($_POST && trim($_POST['search']) != '')
         $counter = 0;
     ?>
     </div>
-    <div align="left" <?php if($numResults2 == 0) {echo 'style="display:none; ';} else {echo 'style= '; } ?> <?php if($numResults == 0) {echo ' "float:left; border-left: '.$borderSize.'px solid #ccc;';} else {echo ' "float:right; '; } ?><?php echo ' width:268px; height:'.$maxResults.'px; background-color: #f2f2f2;
+    <div align="left" <?php if($numResults2 == 0) {echo 'style="display:none; ';} else {echo 'style= '; } ?> <?php if($numResults == 0) {echo ' "float:left; border-left: '.$borderSize.'px solid #ccc;';} else {echo ' "float:right; '; } ?><?php echo ' width:268px; height:'.$maxResults.'px;margin-top:12px; background-color: #f2f2f2;
     border-bottom: '.$borderSize.'px solid #ccc;
     border-right: '.$borderSize.'px solid #ccc;
     border-top: '.$borderSize.'px solid #ccc;
-    -moz-border-top-right-radius: 13px;
-    -moz-border-bottom-right-radius: 13px;
-    -webkit-border-top-right-radius: 13px;
-    -webkit-border-bottom-right-radius: 13px;
-    border-top-right-radius: 13px;
-    border-bottom-right-radius: 13px;
+    -moz-border-top-right-radius: '.$borderRadius.'px;
+    -moz-border-bottom-right-radius: '.$borderRadius.'px;
+    -webkit-border-top-right-radius: '.$borderRadius.'px;
+    -webkit-border-bottom-right-radius: '.$borderRadius.'px;
+    border-top-right-radius: '.$borderRadius.'px;
+    border-bottom-right-radius: '.$borderRadius.'px;
     "'?>>
     <?php
 
@@ -229,19 +238,19 @@ if($_POST && trim($_POST['search']) != '')
                 <?php if ($counter == $numResults2) { echo "border-bottom: 0px solid #ccc;
                 border-right: 0px solid #ccc;
                 border-left: 0px solid #ccc;
-                -moz-border-bottom-left-radius: 10px;
-                -moz-border-bottom-right-radius: 10px;
-                -webkit-border-bottom-left-radius: 10px;
-                -webkit-border-bottom-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-                border-bottom-left-radius: 10px;"; } ?>
+                -moz-border-bottom-left-radius: '.$borderRadius.'px;
+                -moz-border-bottom-right-radius: '.$borderRadius.'px;
+                -webkit-border-bottom-left-radius: '.$borderRadius.'px;
+                -webkit-border-bottom-right-radius: '.$borderRadius.'px;
+                border-bottom-right-radius: '.$borderRadius.'px;
+                border-bottom-left-radius: '.$borderRadius.'px;"; } ?>
 
                 <?php if ($counter == 1) { echo "border-bottom: 0px solid #ccc;
                 border-right: 0px solid #ccc;
                 border-left: 0px solid #ccc;
-                -moz-border-top-right-radius: 10px;
-                -webkit-border-top-right-radius: 10px;
-                border-top-right-radius: 10px;"; } ?>
+                -moz-border-top-right-radius: '.$borderRadius.'px;
+                -webkit-border-top-right-radius: '.$borderRadius.'px;
+                border-top-right-radius: '.$borderRadius.'px;"; } ?>
 
                 ">
                     <img src="<?php echo $img; ?>" style="width:39px; height:50px; float:left; margin-right:6px;" />

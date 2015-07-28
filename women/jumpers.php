@@ -315,7 +315,7 @@ ob_start (); // Buffer output
             font-family:"Harabara", serif; color:#2c2c2c; font-size:32px; line-height:1.47em;
         }
 
-        #nav-bar {  min-height: 90px; background: #fff; }        /* Top bar height and colour */
+        #nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
         #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
         .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 
@@ -347,7 +347,7 @@ ob_start (); // Buffer output
 
 
 
-    <img src="../images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:90px; " >
+    <img src="../images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:80px;" >
     <!--NAVBAR-->
 
 
@@ -1087,8 +1087,8 @@ ob_start (); // Buffer output
 $pageContents = ob_get_contents (); // Get all the page's HTML into a string
 ob_end_clean (); // Wipe the buffer
 
-if($gender == 'M') $navBar = '<div class="nav_348style" id="nav_348" style="left: 20px; top: 101px; width: 960px; height: 26px; position: absolute;"><a id="nav_348_I0" href="../index.php" target="_self"> Home </a> &gt; <a id="nav_348_I2" href="../men/" target="_self"> Men </a> &gt; <a class=" currentpage" id="nav_348_I3" href="" target="_self"> '.$categoryName.' </a></div>';
-if($gender == 'F') $navBar = '<div class="nav_348style" id="nav_348" style="left: 20px; top: 101px; width: 960px; height: 26px; position: absolute;"><a id="nav_348_I0" href="../index.php" target="_self"> Home </a> &gt; <a id="nav_348_I2" href="../women/" target="_self"> Women </a> &gt; <a class=" currentpage" id="nav_348_I3" href="" target="_self"> '.$categoryName.' </a></div>';
+if($gender == 'M') $navBar = '<div class="nav_348style" id="nav_348" style="left: 20px; top: 91px;; width: 960px; height: 26px; position: absolute;"><a id="nav_348_I0" href="../index.php" target="_self"> Home </a> &gt; <a id="nav_348_I2" href="../men/" target="_self"> Men </a> &gt; <a class=" currentpage" id="nav_348_I3" href="" target="_self"> '.$categoryName.' </a></div>';
+if($gender == 'F') $navBar = '<div class="nav_348style" id="nav_348" style="left: 20px; top: 91px;; width: 960px; height: 26px; position: absolute;"><a id="nav_348_I0" href="../index.php" target="_self"> Home </a> &gt; <a id="nav_348_I2" href="../women/" target="_self"> Women </a> &gt; <a class=" currentpage" id="nav_348_I3" href="" target="_self"> '.$categoryName.' </a></div>';
 
 $pageTitle = '';
 if($gender == 'M') $pageTitle = $pageTitle . "Men | ";

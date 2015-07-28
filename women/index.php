@@ -61,7 +61,7 @@ a.hlink_1:active {color:#2c2c2c;}
     font-family:"Harabara", serif; color:#656565; font-size:16px; line-height:1.50em;
 }
 
-#nav-bar {  min-height: 90px; background: #fff; }        /* Top bar height and colour */
+#nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
 #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
 .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 
@@ -177,7 +177,7 @@ a.hlink_6:active {color:#cdcfd2;}
     font-family:"Harabara", serif; color:#161616; font-size:32px; line-height:1.47em;
 }
 
-#nav-bar {  min-height: 90px; background: #fff; }        /* Top bar height and colour */
+#nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
 #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
 .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 

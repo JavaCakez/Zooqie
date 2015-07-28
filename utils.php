@@ -235,14 +235,18 @@
               js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
               fjs.parentNode.insertBefore(js, fjs);
             }(document, "script", "facebook-jssdk"));</script>
+
+
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         ';
+        /*TODO: font awesome shouldn't be here */
     }
 
     function echoHeader($folderLevel, $pageWidth, $pageHeight) {
         $folderString = createFolderString($folderLevel);
         echo '
             <div style="background-color:#ffffff;margin-left:auto;margin-right:auto;position:relative;width:'.$pageWidth.'px;height:'.$pageHeight.'px;">
-                <div id="nav-panel" class="wpfixed" style="left:50%;margin-left:-500px;top:0px;width:1000px;height:90px; z-index: 199;">
+                <div id="nav-panel" class="wpfixed" style="left:50%;margin-left:-500px;top:0px;width:1000px;height:80px; z-index: 199; margin-top:5px;">
 
                 <script type="text/javascript">
                     $(function(){
@@ -279,10 +283,11 @@
 
                 <div class="content" style="position: absolute; top:30px; left:170px; width:540px; height:22px;margin: 0; padding: 0; background:#ffffff">
                     <input type="text" class="search" id="searchid" placeholder="Search brands or products" style="width:250px; height:15px; "/>
+                    <i class="fa fa-search" style="margin-left:-24px;font-size:12px"></i>
                     <div id="result" style="margin-top: 6px;"></div>
                 </div>
 
-                <div style="position:absolute;left:400px;top:0px;width:600px;height:73px;">
+                <div style="position:absolute;left:400px;top:0px;width:600px;height:80px;">
 <link href="http://fonts.googleapis.com/css?family=Cousine" rel="stylesheet" type="text/css">
 <style>
 .home4 .nav-menu {
@@ -332,7 +337,7 @@ nav ul li a:hover {
 	left: 0px;
 	background: #fff;
 	margin: 0 auto;
-	padding: 30px;
+	padding: 10px 10px 0px 50px;
 	opacity: 0;
 	visibility: hidden;
 	-webkit-transition: top 0.3s ease-in-out;
@@ -438,9 +443,9 @@ nav ul li a:hover {
 
 .dropdown_mmenu:hover .megamenu {
 	position: absolute;
-	margin-left: 41px;
-	top: 90px;
-	width: 498px;
+	margin-left: 39px;
+	top: 75px;
+	width: 499px;
 	height: 200px;
 	opacity: 1;
 	visibility: visible;
@@ -633,15 +638,15 @@ nav ul li a:hover {
     function echoSocialMediaFollowButtons() {
         echo '
             <script>(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src="http://instagramfollowbutton.com/components/instagram/v2/js/ig-follow.js";s.parentNode.insertBefore(g,s);}(document,"script"));</script>
-            <div style="position:absolute;left:875px;top:100px;height:20px;z-index:2; " >
+            <div style="position:absolute;left:875px;top:90px;height:20px;z-index:2; " >
                 <span class="ig-follow" data-id="54a009d105" data-count="false" data-size="small" data-username="true"></span>
             </div>
 
-            <div id="frag_56" style="position:absolute;left:788px;top:100px;width:80px;height:20px;z-index:2; " >
+            <div id="frag_56" style="position:absolute;left:788px;top:90px;width:80px;height:20px;z-index:2; " >
                 <div class="fb-like" data-href="https://www.facebook.com/zooqie" data-width="50" data-layout="button_count" data-show-faces="false" data-send="false"></div>
             </div>
 
-            <div id="frag_57" style="position:absolute;left:650px;top:100px;width:127px;height:20px;z-index:2; " >
+            <div id="frag_57" style="position:absolute;left:650px;top:90px;width:127px;height:20px;z-index:2; " >
                 <a href="https://twitter.com/zooqie_uk" class="twitter-follow-button" data-show-count="false">Follow @zooqie_uk</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\'://platform.twitter.com/widgets.js\';fjs.parentNode.insertBefore(js,fjs);}}(document, \'script\', \'twitter-wjs\');</script>
             </div>
@@ -664,11 +669,12 @@ nav ul li a:hover {
         ';
     }
 
+    /* TODO: this doesn't seem to be used everywhere? */
     function echoNavBar($folderLevel, $names, $links) {
         $folderString = createFolderString($folderLevel);
         echo '
-            <img src="'.$folderString.'images/navbar.png" border="0" width="1000" height="40" id="qs_1" title="" alt="Navigation Bar" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:90px;">
-            <div class="nav_348style" style="left: 20px; top: 101px; width: 960px; height: 26px; position: absolute;">
+            <img src="'.$folderString.'images/navbar.png" border="0" width="1000" height="40" id="qs_1" title="" alt="Navigation Bar" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:80px;">
+            <div class="nav_348style" style="left: 20px; top: 91px;; width: 960px; height: 26px; position: absolute;">
 
         ';
 
@@ -691,9 +697,11 @@ nav ul li a:hover {
 //TODO: Clean up all scripts, put them nicely in folders (e.g. userMade, 3rd party etc)
 //TODO: merge nav348 to styles.css
 //TODO: MASSIVELY clean up all css!!
+//TODO: remove all old unused html files
 
 //TODO: New header categories dynamically
 //TODO: Script so when search drop down is visible, menu drop down isnt and vice versa MAYBE (SEE BELOW)
 //TODO: Restyle search drop down to be same as menu drop down.
 //TODO: Change search so it will find brands, products or categories. Only in 1 column, stacked on top of eachother
 //TODO: Brands drop down with featured/popular brands
+//TODO: clean up, move styles etc

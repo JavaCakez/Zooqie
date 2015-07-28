@@ -53,7 +53,7 @@ div > .wpfixed{position:fixed;}
     font-family:"Harabara", serif; color:#656565; font-size:15px; line-height:1.47em;
 }
 
-#nav-bar {  min-height: 90px; background: #fff; }        /* Top bar height and colour */
+#nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
 #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
 .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 </style>
@@ -86,7 +86,7 @@ echoSocialMediaFollowButtons();
 echoGoogleAnalyticsScript();
 ?>
 
-<img src="../../images/navbar.png" border="0" width="450" height="40" id="qs_1" title="" alt="Navigation Bar" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:90px;">
+<img src="../../images/navbar.png" border="0" width="450" height="40" id="qs_1" title="" alt="Navigation Bar" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:80px;">
 <!--NAVBAR-->
 
 <?
@@ -206,7 +206,7 @@ $y += 400;
 $pageContents = ob_get_contents (); // Get all the page's HTML into a string
 ob_end_clean (); // Wipe the buffer
 
-$navBar = '<div class="nav_348style" id="nav_348" style="left: 20px; top: 101px; width: 960px; height: 26px; position: absolute;"><a id="nav_348_I0" href="../../index.php" target="_self"> Home </a> &gt; <a id="nav_348_I1" href="../../blog/" target="_self"> Blog </a> &gt; <a id="nav_348_I2" href="../../blog/lookbooks/" target="_self"> Lookbooks </a> &gt; <a class=" currentpage" id="nav_348_I3" href="../../blog/lookbooks/fresh'.$ID.'.php" target="_self"> '.$name.' </a></div>';
+$navBar = '<div class="nav_348style" id="nav_348" style="left: 20px; top: 91px;; width: 960px; height: 26px; position: absolute;"><a id="nav_348_I0" href="../../index.php" target="_self"> Home </a> &gt; <a id="nav_348_I1" href="../../blog/" target="_self"> Blog </a> &gt; <a id="nav_348_I2" href="../../blog/lookbooks/" target="_self"> Lookbooks </a> &gt; <a class=" currentpage" id="nav_348_I3" href="../../blog/lookbooks/fresh'.$ID.'.php" target="_self"> '.$name.' </a></div>';
 
 
 $array1 = array('<!--PAGEHEIGHT-->', '<!--NAVBAR-->');//Values to replace 

@@ -183,7 +183,7 @@ a.hlink_1:active {color:#2c2c2c;}
     font-family:"Oswald", serif; color:#2c2c2c; font-size:32px; line-height:1.47em;
 }
 
-#nav-bar {  min-height: 90px; background: #fff; }        /* Top bar height and colour */
+#nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
 #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
 .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 
@@ -307,7 +307,7 @@ var blankSrc = "http://www.zooqie.com/js/blank.gif";
     </div>
     <a href="index.html"><img src="http://www.zooqie.com/images/zooqie.png" border="0" width="150" id="pic_255" title="" alt="Home" style="position:absolute;top:27px;"></a>
 </div>
-<img src="http://www.zooqie.com/images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:90px; " >
+<img src="http://www.zooqie.com/images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:80px;" >
 <!--NAVBAR-->
 <noscript>
 </noscript>
@@ -447,7 +447,7 @@ ob_end_clean (); // Wipe the buffer
 
 $navBar = '
 
-<div class="nav_348style" id="nav_348" style="left: 20px; top: 101px; width: 960px; height: 26px; position: absolute;">
+<div class="nav_348style" id="nav_348" style="left: 20px; top: 91px;; width: 960px; height: 26px; position: absolute;">
 	<a id="nav_348_I0" href="index.html" target="_self"> Home </a>
 	 &gt; 
 	<a id="nav_348_I2" href="loginmenu.php" target="_self"> Login Menu </a>

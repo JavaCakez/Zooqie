@@ -185,6 +185,124 @@
         ';
     }
 
+    function echoRefineByHeader($slidingDivNumber, $text) {
+        echo '
+			<div style="border-bottom: 1px solid #000000;overflow:hidden; " >
+				<a href="#" class="show_hide'.$slidingDivNumber.'" style="text-decoration: none">
+					<p>
+						<img id="arrow'.$slidingDivNumber.'" src="../images/downarrow.png" width="24" height="24" style="float:left;"/>
+						<h1 class="Heading-1-P" style="margin-top:0px;float:left;">
+							<span class="Heading-1-C-C0">
+								'.$text.'
+							</span>
+						</h1>
+					</p>
+				</a>
+			</div>
+		';
+    }
+
+    function echoRefineByCheckboxes($slidingDivNumber, $refineAttributes, $limit) {
+        echo '
+			<div class="slidingDiv'.$slidingDivNumber.'" '; if(count($refineAttributes) > 8 && $limit == 'true') echo 'style="height:270px;overflow-y: scroll;'; echo '">
+		';
+
+        foreach ($refineAttributes as $refineAttribute)
+        {
+            $strreplace = str_replace(' ', '_', $refineAttribute);
+            echo '
+                    <p class="Heading-1-C-C12">
+                        <input type="checkbox" name="' . $refineAttribute . '" style="float:left;margin-bottom:8px" onClick="submit();"'; if($_POST[$strreplace] == 'on') echo 'checked'; echo '>
+                        ' . $refineAttribute . '
+                        <br/>
+                    </p>';
+        }
+
+        echo '</div>';
+    }
+
+    function echoRefineByPrice($slidingDivNumber) {
+        echo '
+                <div class="slidingDiv'.$slidingDivNumber.'">
+                    <div>
+                        <h1 class="Wp-Heading-1-P""><span id="amount" class="Heading-1-C-C1"></span></h1>
+                    </div>
+
+                    <input type="hidden" name="LowerBoundPrice" id="amount1" value=""/>
+                    <input type="hidden" name="UpperBoundPrice" id="amount2" value=""/>
+
+                    <div id="slider-range" style="margin: 0 10px 0 10px;"></div>
+                    <br/>
+                </div>
+            ';
+    }
+
+    function echoRefineByPriceScript($topPrice) {
+        echo '
+                <script>
+                    $(function() {
+                        $( "#slider-range" ).slider(
+                            {
+                                range: true,
+                                min: 0,
+                                max: '.$topPrice.',';
+
+                                if($_POST["LowerBoundPrice"] == "" && $_POST["UpperBoundPrice"] == "")
+                                {
+                                  echo "values: [ 0, " . $topPrice . " ],";
+                                }
+                                else
+                                {
+                                  echo "values: [ " . $_POST["LowerBoundPrice"] . ", " . $_POST["UpperBoundPrice"] . " ],";
+                                }
+
+                        echo '
+                                stop: function( event, ui )
+                                {
+                                    document.getElementById("refineForm").submit();
+                                },
+
+                                slide: function( event, ui )
+                                {
+                                    $( "#amount" ).html( "&pound;" + ui.values[ 0 ] + " - " + "&pound;" + ui.values[ 1 ] );
+
+                                    $( "#amount1" ).val(ui.values[ 0 ]);
+                                    $( "#amount2" ).val(ui.values[ 1 ]);
+                                }
+                            });
+
+                        $( "#amount" ).html( "&pound;" + $( "#slider-range" ).slider( "values", 0 ) +
+                            " - " + "&pound;" + $( "#slider-range" ).slider( "values", 1 ) );
+
+                        $( "#amount1" ).val($( "#slider-range" ).slider( "values", 0 ));
+                        $( "#amount2" ).val($( "#slider-range" ).slider( "values", 1 ));
+                    });
+                </script>
+        ';
+    }
+
+    function removeSpaces($str) {
+        if (is_array($str)) {
+            foreach ($str as &$s) {
+                $s = str_replace(' ', '_', $s);
+            }
+            return $str;
+        }
+        $str = str_replace(' ', '_', $str);
+        return $str;
+    }
+
+    function replaceSpaces($str) {
+        if (is_array($str)) {
+            foreach ($str as &$s) {
+                $s = str_replace('_', ' ', $s);
+            }
+            return $str;
+        }
+        $str = str_replace('_', ' ', $str);
+        return $str;
+    }
+
     function getUniqueColumnValues($sql, $column) {
         // Create connection
         if(file_exists("db_settings.php")) {include("db_settings.php");}
@@ -775,15 +893,16 @@ nav ul li a:hover {
         echo "<script type='text/javascript'>alert('{$var}');</script>";
     }
 
-//TODO: methods for price slider. E.g. getting min and max price, echoing the scripts etc
 //TODO: methods for colourstrings, categorystrings, colourcount (not done on all pages yet)
 //TODO: Clean up all scripts, put them nicely in folders (e.g. userMade, 3rd party etc)
 //TODO: merge nav348 to styles.css
 //TODO: MASSIVELY clean up all css!!
-//TODO: remove all old unused html files
+//TODO: remove all old unused html files (inc uploadmenu2 and alert.txt)
 
 //TODO: New header categories dynamically
 //TODO: Change search so it will find brands, products or categories. Only in 1 column, stacked on top of eachother
 //TODO: clean up, move styles etc
 
 //TODO: cleanup search-results/index, it's pretty messy as fuck.
+
+//TODO: clean up database calls. Make sure only 1 call to database is done per page and everything needed is collected once. Then close connection.

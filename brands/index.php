@@ -148,6 +148,10 @@ a.hlink_1:active {color:#2c2c2c;}
 {
     font-family:"Harabara", serif; color:#656565; font-size:26px; line-height:1.47em;
 }
+.Heading-1-C-C12
+{
+	font-family:"Lato"; color:#656565; font-size:13px; line-height:1.54em;
+}
 .Heading-1-C-C0
 {
     font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
@@ -201,8 +205,7 @@ echoNavBar(1, array('Home', 'Brands'), array('../index.php', '../brands'));
 <div id="txt_225" style="position:absolute;left:228px;top:149px;width:82px;height:36px;overflow:hidden;">
 <h1 class="Wp-Heading-1-P" style="margin-top:0px"><span class="Heading-1-C-C0">Sort by:</span></h1>
 </div>
-<!-- Form form_31 -->
-<form id="form_31" name="refineForm"  accept-charset="UTF-8" method="post" target="_self" enctype="application/x-www-form-urlencoded" style="margin:0;position:absolute;left:0px;top:0px;width:1035px;" >
+<form id="refineForm" name="refineForm"  accept-charset="UTF-8" method="post" target="_self" enctype="application/x-www-form-urlencoded" style="margin:0;position:absolute;left:0px;top:0px;width:1035px;" >
 <?php
 
     if($_POST['Sort'] == '') $_POST['Sort'] = 'Newest';
@@ -214,199 +217,44 @@ echoNavBar(1, array('Home', 'Brands'), array('../index.php', '../brands'));
 		<div style="position:absolute;left:20px;top:187px;width:169px; overflow:hidden; ">
 	';
 
+	// Create connection
+	$con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
 
-	echo '
-		<!-- HTML Frame - Refine by Gender txt_360 -->
-		<div id="txt_360" style="border-bottom: 1px solid #000000;overflow:hidden; " >
-			<a href="#" class="show_hide1" style="text-decoration: none">
-				<p>
-					<img id="arrow1" src="../images/downarrow.png" width="24" height="24" style="float:left;"/>
-					<h1 class="Heading-1-P" style="margin-top:0px;float:left;">
-						<span class="Heading-1-C-C0">
-							Gender
-						</span>
-					</h1>
-				</p>
-			</a>
-		</div>
-	';
-
-
-	echo '
-		<div class="slidingDiv1">
-	';
-
-
-	if($_POST['Male'] == 'on')
+	// Check connection
+	if (mysqli_connect_errno($con))
 	{
-		echo '<p><input style="float:left;" type="checkbox" id="check_34" name="Male" onClick="submit();" checked>';
 	}
 	else
 	{
-		echo '<p><input style="float:left;" type="checkbox" id="check_34" name="Male" onClick="submit();">';
+		$result = mysqli_query($con,"SELECT * FROM brands WHERE Live=1");
+
+		$locationCounter = 0;
+
+		while($row = mysqli_fetch_array($result))
+		{
+			$temp = 'true';
+			for ($j = 0; $j < $locationCounter; $j++)
+			{
+				if(ucwords(strtolower($locationStrings[$j])) == ucwords(strtolower($row['Location']))) $temp = 'false';
+			}
+
+			if($temp == 'true')
+			{
+
+				if(trim($row['Location']) != '') {
+					$locationStrings[$locationCounter] = ucwords(strtolower($row['Location']));
+					$locationCounter++;
+				}
+			}
+		}
+		if($locationStrings) {usort($locationStrings, 'strnatcasecmp');}
 	}
 
-	echo '
+	echoRefineByHeader(1, "Gender");
+	echoRefineByCheckboxes(1, array("Male", "Female"), "true");
 
-		<!-- HTML Frame - Male txt_361 -->
-		<div id="txt_361" style="float:left;">
-			<h1 class="Wp-Heading-1-P" style="margin-top:0px">
-				<span class="Heading-1-C-C1">
-					Male
-				</span>
-			</h1>
-		</div>
-		<br/>
-		</p>
-
-
-	';
-
-	if($_POST['Female'] == 'on')
-	{
-		echo '<p><input style="float:left;" type="checkbox" id="check_35" name="Female" onClick="submit();" checked>';
-	}
-	else
-	{
-		echo '<p><input style="float:left;" type="checkbox" id="check_35" name="Female" onClick="submit();">';
-	}
-
-	echo '
-		<!-- HTML Frame - Female txt_362 -->
-		<div id="txt_362" style="float:left;">
-			<h1 class="Wp-Heading-1-P" style="margin-top:0px">
-				<span class="Heading-1-C-C1">
-					Female
-				</span>
-			</h1>
-		</div>
-		<br/>
-		</p>
-	';
-
-
-	echo '
-		</div>
-	';
-
-
-
-
-
-    // Create connection
-    $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-
-    // Check connection
-    if (mysqli_connect_errno($con))
-    {
-    }
-    else
-    {
-        $result = mysqli_query($con,"SELECT * FROM brands WHERE Live=1");
-
-        $locationCounter = 0;
-
-        while($row = mysqli_fetch_array($result))
-        {
-            $temp = 'true';
-            for ($j = 0; $j < $locationCounter; $j++)
-            {
-                if(ucwords(strtolower($locationStrings[$j])) == ucwords(strtolower($row['Location']))) $temp = 'false';
-            }
-
-            if($temp == 'true')
-            {
-
-                if(trim($row['Location']) != '') {
-                    $locationStrings[$locationCounter] = ucwords(strtolower($row['Location']));
-                    $locationCounter++;
-                }
-            }
-        }
-        if($locationStrings) {usort($locationStrings, 'strnatcasecmp');}
-    }
-
-
-echo '
-
-		<!-- HTML Frame - Refine by Price txt_368 -->
-		<div id="txt_368" style="border-bottom: 1px solid #000000;overflow:hidden; " >
-			<a href="#" class="show_hide2" style="text-decoration: none">
-				<p>
-					<img id="arrow2" src="../images/downarrow.png" width="24" height="24" style="float:left;"/>
-					<h1 class="Heading-1-P" style="margin-top:0px;float:left;">
-						<span class="Heading-1-C-C0">
-							Brand Location
-						</span>
-					</h1>
-				</p>
-			</a>
-		</div>
-	';
-
-echo '
-		<div class="slidingDiv2" '; if($locationCounter > 15) echo 'style="height:270px;overflow-y: scroll;'; echo '">
-	';
-
-for ($j = 0; $j < $locationCounter; $j++)
-{
-    $strreplace = str_replace(' ', '_', $locationStrings[$j]);
-    if($_POST[$strreplace] == 'on')
-    {
-        echo '<p><input type="checkbox" name="' . $locationStrings[$j] . '" style="float:left;" onClick="submit();" checked>';
-    }
-    else
-    {
-        echo '<p><input type="checkbox" name="' . $locationStrings[$j] . '" style="float:left;" onClick="submit();">';
-    }
-
-    echo '
-			<div style="float:left;" >
-			<h1 class="Wp-Heading-1-P" style="margin-top:0px; "><span class="Heading-1-C-C1">' . $locationStrings[$j] . '</span></h1>
-			</div>
-			<br/>
-			</p>
-		';
-
-}
-
-echo '
-		</div>
-	';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	echoRefineByHeader(2, "Brand Location");
+	echoRefineByCheckboxes(2, $locationStrings, "false");
 
 	echo '
 		</div>

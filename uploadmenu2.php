@@ -1396,21 +1396,7 @@ else
         	';
 
 
-    echo '
-        		<!-- HTML Frame - Refine by Gender txt_360 -->
-        		<div id="txt_360" style="border-bottom: 1px solid #000000;overflow:hidden; " >
-        			<a href="#" class="show_hide1" style="text-decoration: none">
-        				<p>
-        					<img id="arrow1" src="images/downarrow.png" width="24" height="24" style="float:left;"/>
-        					<h1 class="Heading-1-P" style="margin-top:0px;float:left;">
-        						<span class="Heading-1-C-C0">
-        							Refine by Gender
-        						</span>
-        					</h1>
-        				</p>
-        			</a>
-        		</div>
-        	';
+    echoRefineByHeader(1, "Refine by Gender");
 
 
     echo '
@@ -1478,21 +1464,7 @@ else
         	';
 
 
-    echo '
-        		<!-- HTML Frame - Refine by Type txt_273 -->	
-        		<div id="txt_273" style="border-bottom: 1px solid #000000;overflow:hidden; " >
-        			<a href="#" class="show_hide2" style="text-decoration: none">
-        				<p>
-        					<img id="arrow2" src="images/downarrow.png" width="24" height="24" style="float:left;"/>
-        					<h1 class="Heading-1-P" style="margin-top:0px;float:left;">
-        						<span class="Heading-1-C-C0">
-        							Refine by Type
-        						</span>
-        					</h1>
-        				</p>
-        			</a>
-        		</div>
-        	';
+    echoRefineByHeader(2, "Refine by Type");
 
 
     echo '

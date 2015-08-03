@@ -175,81 +175,18 @@ ob_start (); // Buffer output
 
     </style>
 
-    <!-- TODO: sort this out! remove old one -->
     <?php
-    $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-    if (mysqli_connect_errno($con))
-    {
-//        echo '<div style="position:absolute;left:508px;top:265px;"> Failed to connect to products database, please try again later.  </div>';
-    }
-    else
-    {
-//        $categorySql = ($category != 'all' ? "Category = '".$categoryName."' AND" : "");
-//        $result = mysqli_query($con,"SELECT count(distinct Brand) as total FROM products WHERE " . $categorySql . " (Gender = '".$gender."' OR Gender = 'U') ORDER BY Brand_name");
-//        $data=mysqli_fetch_array($result);
-//        $brandCounter = $data['total'];
-//
-//        $result = mysqli_query($con,"SELECT count(distinct Category) as total FROM products WHERE " . $categorySql . " (Gender = '".$gender."' OR Gender = 'U') ORDER BY Brand_name");
-//        $data=mysqli_fetch_array($result);
-//        $categoryCounter = $data['total'];
-//
-//        $result = mysqli_query($con,"SELECT count(distinct Colour) as total FROM products WHERE " . $categorySql . " (Gender = '".$gender."' OR Gender = 'U') ORDER BY Brand_name");
-//        $data=mysqli_fetch_array($result);
-//        $colourCounter = $data['total'];
-//
+        $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
+
         $result = mysqli_query($con,"SELECT MAX(Price) as total FROM products WHERE Brand IN (SELECT ID FROM brands Where Live = 1) AND " . $categorySql . " (Gender = 'M' OR Gender = 'U' OR Gender = 'F') ORDER BY Brand_name");
         $data=mysqli_fetch_array($result);
         $topPrice = $data['total'];
-//
-//        $sql = "SELECT * FROM products WHERE " . $categorySql . " (Gender = '".$gender."' OR Gender = 'U') AND Live = 1 ORDER BY Brand_name";
-//        $colourStrings = getUniqueColumnValues($sql, 'Colour');
-//        $categoryStrings = getUniqueColumnValues($sql, 'Category');
-//        $brandStrings = getUniqueColumnValues($sql, 'Brand_name');
-//        $brandStrings2 = getUniqueColumnValues($sql, 'Brand');
-    }
+
+        echoRefineByPriceScript($topPrice)
     ?>
 
 
-    <script>
-        $(function() {
-            $( "#slider-range" ).slider(
-                {
-                    range: true,
-                    min: 0,
-                    max: <?echo $topPrice;?>,
 
-                    <?php
-                          if($_POST['LowerBoundPrice'] == '' && $_POST['UpperBoundPrice'] == '')
-                          {
-                              echo 'values: [ 0, ' . $topPrice . ' ],';
-                          }
-                          else
-                          {
-                              echo 'values: [ ' . $_POST['LowerBoundPrice'] . ', ' . $_POST['UpperBoundPrice'] . ' ],';
-                          }
-                      ?>
-
-                    stop: function( event, ui )
-                    {
-                        document.getElementById("form_31").submit();
-                    },
-
-                    slide: function( event, ui )
-                    {
-                        $( "#amount" ).text( "£" + ui.values[ 0 ] + " - " + "£" + ui.values[ 1 ] );
-
-                        $( "#amount1" ).val(ui.values[ 0 ]);
-                        $( "#amount2" ).val(ui.values[ 1 ]);
-                    }
-                });
-
-            $( "#amount" ).text( "£" + $( "#slider-range" ).slider( "values", 0 ) +
-                " - " + "£" + $( "#slider-range" ).slider( "values", 1 ) );
-
-            $( "#amount1" ).val($( "#slider-range" ).slider( "values", 0 ));
-            $( "#amount2" ).val($( "#slider-range" ).slider( "values", 1 ));
-        });
-    </script>
 
 
     <style type="text/css">
@@ -398,7 +335,7 @@ ob_start (); // Buffer output
 <!--    </div>-->
 
 
-    <form id="form_31" name="refineForm"  accept-charset="UTF-8" method="post" target="_self" enctype="application/x-www-form-urlencoded" style="margin:0;position:absolute;left:0px;top:-200px;width:1035px;" >
+    <form id="refineForm" name="refineForm"  accept-charset="UTF-8" method="post" target="_self" enctype="application/x-www-form-urlencoded" style="margin:0;position:absolute;left:0px;top:-200px;width:1035px;" >
     <?php
 
 
@@ -446,7 +383,6 @@ ob_start (); // Buffer output
                 if($temp == 'true')
                 {
                     $brandStrings[$brandCounter] = $row['Brand_name'];
-                    $brandStrings2[$brandCounter] = $row['Brand'];
                     $brandCounter++;
                 }
 
@@ -533,9 +469,8 @@ ob_start (); // Buffer output
             }
             $keywordz = explode(",", $keywords);
             foreach ($keywordz as $keyword) {
-                //alert(strtolower($keyword));
                 if (strpos($q, strtolower($keyword)) !== false) {
-                    $categoryString = str_replace(' ', '_', $categoryString);
+                    $categoryString = removeSpaces($categoryString);
                     if ($_POST[$categoryString] == '') $_POST[$categoryString] = 'on';
                     $searchSuccess = 'true';
                 }
@@ -578,272 +513,21 @@ ob_start (); // Buffer output
 	';
 
 
-        echo '
-			<div id="txt_273" style="border-bottom: 1px solid #000000;overflow:hidden; " >
-				<a href="#" class="show_hide5" style="text-decoration: none">
-					<p>
-						<img id="arrow5" src="../images/downarrow.png" width="24" height="24" style="float:left;"/>
-						<h1 class="Heading-1-P" style="margin-top:0px;float:left;">
-							<span class="Heading-1-C-C0">
-								Refine by Gender
-							</span>
-						</h1>
-					</p>
-				</a>
-			</div>';
+    echoRefineByHeader(5, "Refine by Gender");
+    echoRefineByCheckboxes(5, array("Male", "Female"), "true");
 
+    echoRefineByHeader(2, "Refine by Type");
+    echoRefineByCheckboxes(2, $categoryStrings, "true");
 
+    echoRefineByHeader(1, "Refine by Brand");
+    echoRefineByCheckboxes(1, $brandStrings, "true");
 
+    echoRefineByHeader(3, "Refine by Price");
+    echoRefineByPrice(3);
 
 
-
-        echo '
-                <div class="slidingDiv5" ';  echo '">
-            ';
-
-
-
-        if($_POST['Male'] == 'on')
-        {
-            echo '<p><input style="float:left;" type="checkbox" id="check_34" name="Male" onClick="submit();" checked>';
-        }
-        else
-        {
-            echo '<p><input style="float:left;" type="checkbox" id="check_34" name="Male" onClick="submit();">';
-        }
-
-        echo '
-
-			<!-- HTML Frame - Male txt_361 -->
-			<div id="txt_361" style="float:left;">
-				<h1 class="Wp-Heading-1-P" style="margin-top:0px">
-					<span class="Heading-1-C-C12">
-						Male
-					</span>
-				</h1>
-			</div>
-			<br/>
-			</p>
-
-
-		';
-
-
-
-
-
-        if($_POST['Female'] == 'on')
-        {
-            echo '<p><input style="float:left;" type="checkbox" id="check_35" name="Female" onClick="submit();" checked>';
-        }
-        else
-        {
-            echo '<p><input style="float:left;" type="checkbox" id="check_35" name="Female" onClick="submit();">';
-        }
-
-        echo '
-			<!-- HTML Frame - Female txt_362 -->
-			<div id="txt_362" style="float:left;">
-				<h1 class="Wp-Heading-1-P" style="margin-top:0px">
-					<span class="Heading-1-C-C12">
-						Female
-					</span>
-				</h1>
-			</div>
-			<br/>
-			</p>
-		';
-
-
-
-        echo '
-                </div>
-            ';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        echo '
-			<div id="txt_273" style="border-bottom: 1px solid #000000;overflow:hidden; " >
-				<a href="#" class="show_hide2" style="text-decoration: none">
-					<p>
-						<img id="arrow2" src="../images/downarrow.png" width="24" height="24" style="float:left;"/>
-						<h1 class="Heading-1-P" style="margin-top:0px;float:left;">
-							<span class="Heading-1-C-C0">
-								Refine by Type
-							</span>
-						</h1>
-					</p>
-				</a>
-			</div>
-		';
-
-
-        echo '
-			<div class="slidingDiv2" '; if($categoryCounter > 7) echo 'style="height:270px;overflow-y: scroll;'; echo '">	
-		';
-
-        for ($j = 0; $j < $categoryCounter; $j++)
-        {
-            $strreplace = str_replace(' ', '_', $categoryStrings[$j]);
-            if($_POST[$strreplace] == 'on')
-            {
-                echo '<p class="Heading-1-C-C12"><input type="checkbox" name="' . $categoryStrings[$j] . '" style="float:left;margin-bottom:8px;" onClick="submit();" checked>';
-            }
-            else
-            {
-                echo '<p class="Heading-1-C-C12"><input type="checkbox" name="' . $categoryStrings[$j] . '" style="float:left;margin-bottom:8px;" onClick="submit();">';
-            }
-
-            echo $categoryStrings[$j] . '
-				<br/>
-				</p>
-				
-			';
-
-        }
-
-        echo '
-			</div>	
-		';
-
-
-    echo '
-		<!-- HTML Frame - Refine by Brand txt_360 -->
-		<div id="txt_360" style="border-bottom: 1px solid #000000;overflow:hidden; " >
-			<a href="#" class="show_hide1" style="text-decoration: none">
-				<p>
-					<img id="arrow1" src="../images/downarrow.png" width="24" height="24" style="float:left;"/>
-					<h1 class="Heading-1-P" style="margin-top:0px;float:left;">
-						<span class="Heading-1-C-C0">
-							Refine by Brand
-						</span>
-					</h1>
-				</p>
-			</a>
-		</div>
-	';
-
-
-    echo '
-		<div class="slidingDiv1" '; if($brandCounter > 7) echo 'style="height:270px;overflow-y: scroll;'; echo '">	
-	';
-
-    for ($j = 0; $j < $brandCounter; $j++)
-    {
-
-        if($_POST[$brandStrings2[$j]] == 'on')
-        {
-            echo '<p class="Heading-1-C-C12"><input type="checkbox" name="' . $brandStrings2[$j] . '" style="float:left;margin-bottom:8px;" onClick="submit();" checked>';
-        }
-        else
-        {
-            echo '<p class="Heading-1-C-C12"><input type="checkbox" name="' . $brandStrings2[$j] . '" style="float:left;margin-bottom:8px;" onClick="submit();">';
-        }
-
-        echo $brandStrings[$j] . '
-			<br/>
-			</p>
-			
-		';
-
-    }
-
-    echo '
-		</div>	
-	';
-
-
-
-
-    echo '
-		<!-- HTML Frame - Refine by Price txt_368 -->
-		<div id="txt_368" style="border-bottom: 1px solid #000000;overflow:hidden; " >
-			<a href="#" class="show_hide3" style="text-decoration: none">
-				<p>
-					<img id="arrow3" src="../images/downarrow.png" width="24" height="24" style="float:left;"/>
-					<h1 class="Heading-1-P" style="margin-top:0px;float:left;">
-						<span class="Heading-1-C-C0">
-							Refine by Price
-						</span>
-					</h1>
-				</p>
-			</a>
-		</div>
-	';
-
-
-    echo '<div class="slidingDiv3">
-	
-		<div id="txt_221" >
-		<h1 class="Wp-Heading-1-P""><span id="amount" class="Heading-1-C-C1"></span></h1>
-		</div>
-		
-	  	<input type="hidden" name="LowerBoundPrice" id="amount1" value=""/>
-	  	<input type="hidden" name="UpperBoundPrice" id="amount2" value=""/>
-		
-		<div id="slider-range"></div>
-		<br/>
-	
-	</div>';
-
-
-    echo '
-
-		<!-- HTML Frame - Refine by Price txt_368 -->
-		<div id="txt_368" style="border-bottom: 1px solid #000000;overflow:hidden; " >
-			<a href="#" class="show_hide4" style="text-decoration: none">
-				<p>
-					<img id="arrow4" src="../images/downarrow.png" width="24" height="24" style="float:left;"/>
-					<h1 class="Heading-1-P" style="margin-top:0px;float:left;">
-						<span class="Heading-1-C-C0">
-							Refine by Colour
-						</span>
-					</h1>
-				</p>
-			</a>
-		</div>
-	';
-
-
-    echo '
-		<div class="slidingDiv4" '; if($colourCounter > 7) echo 'style="height:270px;overflow-y: scroll;'; echo '">	
-	';
-
-    for ($j = 0; $j < $colourCounter; $j++)
-    {
-        if($_POST[$colourStrings[$j]] == 'on')
-        {
-            echo '<p><input type="checkbox" name="' . $colourStrings[$j] . '" style="float:left;" onClick="submit();" checked>';
-        }
-        else
-        {
-            echo '<p><input type="checkbox" name="' . $colourStrings[$j] . '" style="float:left;" onClick="submit();">';
-        }
-
-        echo '
-			<div style="float:left;" >
-			<h1 class="Wp-Heading-1-P" style="margin-top:0px;"><span class="Heading-1-C-C12">' . $colourStrings[$j] . '</span></h1>
-			</div>
-			<br/>
-			</p>
-		';
-
-    }
-
-    echo '
-		</div>	
-	';
+    echoRefineByHeader(4, "Refine by Colour");
+    echoRefineByCheckboxes(4, $colourStrings, "true");
 
 
     echo '
@@ -886,16 +570,18 @@ ob_start (); // Buffer output
         $and = 'false';
         for ($j = 0; $j < $brandCounter; $j++)
         {
-            if($_POST[$brandStrings2[$j]] == 'on')
+            $strreplace = removeSpaces($brandStrings[$j]);
+            if($_POST[$strreplace] == 'on')
             {
+                $strreplace = replaceSpaces($brandStrings[$j]);
                 if($and == 'false')
                 {
-                    $str .= " AND (Brand ='" . strtoupper($brandStrings2[$j]) . "'";
+                    $str .= " AND (Brand_name ='" . strtoupper($strreplace) . "'";
                     $and = 'true';
                 }
                 else
                 {
-                    $str .= " OR Brand ='" . strtoupper($brandStrings2[$j]) . "'";
+                    $str .= " OR Brand_name ='" . strtoupper($strreplace) . "'";
                 }
             }
         }
@@ -911,7 +597,7 @@ ob_start (); // Buffer output
         $and = 'false';
         for ($j = 0; $j < $categoryCounter; $j++)
         {
-            $strreplace = str_replace(' ', '_', $categoryStrings[$j]);
+            $strreplace = removeSpaces($categoryStrings[$j]);
             if($_POST[$strreplace] == 'on')
             {
                 if($and == 'false')
@@ -1028,7 +714,7 @@ ob_start (); // Buffer output
             if ($searchSuccess == 'false') {
                 $productNameStr .= " AND Item_name like '%$q%' ";
             }
-            alert("SELECT DISTINCT Item_number FROM products WHERE Brand = '".$brow['ID']."' ". $productNameStr . $str );
+
             $result = mysqli_query($con,"SELECT DISTINCT Item_number FROM products WHERE Brand = '".$brow['ID']."' ". $productNameStr . $str );
             while($row = mysqli_fetch_array($result))
             {
@@ -1043,7 +729,7 @@ ob_start (); // Buffer output
                 if ($searchSuccess == 'false') {
                     $productNameStr .= " AND Item_name like '%$q%' ";
                 }
-                alert("SELECT DISTINCT Item_number FROM products WHERE Brand = '".$brow['ID']."' ". $productNameStr . $str );
+
                 $result = mysqli_query($con,"SELECT DISTINCT Item_number FROM products WHERE Brand = '".$brow['ID']."' " . $str );
                 while($row = mysqli_fetch_array($result))
                 {

@@ -526,16 +526,17 @@ ob_start (); // Buffer output
         }
 
         //Search for categories in query string
-        foreach ($categoryStrings as $category) {
-            $result = mysqli_query($con, "SELECT * FROM categories WHERE ID = '" . $category . "'");
+        foreach ($categoryStrings as $categoryString) {
+            $result = mysqli_query($con, "SELECT * FROM categories WHERE Name = '" . $categoryString . "'");
             while ($row = mysqli_fetch_array($result)) {
                 $keywords = $row['Keywords'];
             }
-            $keywords = explode(",", $keywords);
-            foreach ($keywords as $keyword) {
+            $keywordz = explode(",", $keywords);
+            foreach ($keywordz as $keyword) {
+                //alert(strtolower($keyword));
                 if (strpos($q, strtolower($keyword)) !== false) {
-                    $category = str_replace(' ', '_', $category);
-                    if ($_POST[$category] == '') $_POST[$category] = 'on';
+                    $categoryString = str_replace(' ', '_', $categoryString);
+                    if ($_POST[$categoryString] == '') $_POST[$categoryString] = 'on';
                     $searchSuccess = 'true';
                 }
             }
@@ -697,17 +698,14 @@ ob_start (); // Buffer output
             $strreplace = str_replace(' ', '_', $categoryStrings[$j]);
             if($_POST[$strreplace] == 'on')
             {
-                echo '<p><input type="checkbox" name="' . $categoryStrings[$j] . '" style="float:left;" onClick="submit();" checked>';
+                echo '<p class="Heading-1-C-C12"><input type="checkbox" name="' . $categoryStrings[$j] . '" style="float:left;margin-bottom:8px;" onClick="submit();" checked>';
             }
             else
             {
-                echo '<p><input type="checkbox" name="' . $categoryStrings[$j] . '" style="float:left;" onClick="submit();">';
+                echo '<p class="Heading-1-C-C12"><input type="checkbox" name="' . $categoryStrings[$j] . '" style="float:left;margin-bottom:8px;" onClick="submit();">';
             }
 
-            echo '
-				<div style="float:left;" >
-				<h1 class="Wp-Heading-1-P" style="margin-top:0px;"><span class="Heading-1-C-C12">' . $categoryStrings[$j] . '</span></h1>
-				</div>
+            echo $categoryStrings[$j] . '
 				<br/>
 				</p>
 				
@@ -746,17 +744,14 @@ ob_start (); // Buffer output
 
         if($_POST[$brandStrings2[$j]] == 'on')
         {
-            echo '<p><input type="checkbox" name="' . $brandStrings2[$j] . '" style="float:left;" onClick="submit();" checked>';
+            echo '<p class="Heading-1-C-C12"><input type="checkbox" name="' . $brandStrings2[$j] . '" style="float:left;margin-bottom:8px;" onClick="submit();" checked>';
         }
         else
         {
-            echo '<p><input type="checkbox" name="' . $brandStrings2[$j] . '" style="float:left;" onClick="submit();">';
+            echo '<p class="Heading-1-C-C12"><input type="checkbox" name="' . $brandStrings2[$j] . '" style="float:left;margin-bottom:8px;" onClick="submit();">';
         }
 
-        echo '
-			<div style="float:left;" >
-			<h1 class="Wp-Heading-1-P" style="margin-top:0px;"><span class="Heading-1-C-C12">' . $brandStrings[$j] . '</span></h1>
-			</div>
+        echo $brandStrings[$j] . '
 			<br/>
 			</p>
 			

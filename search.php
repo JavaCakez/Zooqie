@@ -105,7 +105,7 @@ if($_POST && trim($_POST['search']) != '')
     // HACK: quick hack to ensure if there is a brand result, then no second column (to force only one column)
     // TODO clean up hack
     $numResults = mysqli_num_rows($sql_res);
-    if ($numResults == 0) {
+    if ($numResults == 0 && strlen($q) > 1) {
         // Category search
         $sql_res2=mysqli_query($con, "select distinct Item_name, Item_number, Brand, Image_URL1 from products, brands, categories where products.Brand = brands.ID AND products.category = categories.ID AND (categories.keywords like '%$q%') $colourQuery AND brands.Live = '1' order by Item_name LIMIT 5");
         // Product name search

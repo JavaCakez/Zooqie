@@ -288,7 +288,7 @@
 
                 <div class="content" style="position: absolute; top:30px; left:170px; width:540px; height:22px;margin: 0; padding: 0; background:#ffffff">
                     <form id="searchForm" action="'.$url.'search-results/" method="post">
-                        <input type="text" name="search" class="search" id="searchid" placeholder="Search brands or products" style="width:250px; height:15px; "/>
+                        <input type="text" name="search" class="search" id="searchid" placeholder="Search brands or products" autocomplete="off" style="width:250px; height:15px; "/>
                         <input type="hidden" name="headerSearch" value="true">
 
                         <style>

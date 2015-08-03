@@ -572,17 +572,14 @@ ob_start (); // Buffer output
                 $strreplace = str_replace(' ', '_', $categoryStrings[$j]);
                 if($_POST[$strreplace] == 'on')
                 {
-                    echo '<p><input type="checkbox" name="' . $categoryStrings[$j] . '" style="float:left;" onClick="submit();" checked>';
+                    echo '<p class="Heading-1-C-C12"><input type="checkbox" name="' . $categoryStrings[$j] . '" style="float:left;margin-bottom:8px" onClick="submit();" checked>';
                 }
                 else
                 {
-                    echo '<p><input type="checkbox" name="' . $categoryStrings[$j] . '" style="float:left;" onClick="submit();">';
+                    echo '<p class="Heading-1-C-C12"><input type="checkbox" name="' . $categoryStrings[$j] . '" style="float:left;margin-bottom:8px" onClick="submit();">';
                 }
 
-                echo '
-				<div style="float:left;" >
-				<h1 class="Wp-Heading-1-P" style="margin-top:0px;"><span class="Heading-1-C-C12">' . $categoryStrings[$j] . '</span></h1>
-				</div>
+                echo $categoryStrings[$j] . '
 				<br/>
 				</p>
 				
@@ -621,17 +618,14 @@ ob_start (); // Buffer output
 
             if($_POST[$brandStrings2[$j]] == 'on')
             {
-                echo '<p><input type="checkbox" name="' . $brandStrings2[$j] . '" style="float:left;" onClick="submit();" checked>';
+                echo '<p class="Heading-1-C-C12"><input type="checkbox" name="' . $brandStrings2[$j] . '" style="float:left;margin-bottom:8px" onClick="submit();" checked>';
             }
             else
             {
-                echo '<p><input type="checkbox" name="' . $brandStrings2[$j] . '" style="float:left;" onClick="submit();">';
+                echo '<p class="Heading-1-C-C12"><input type="checkbox" name="' . $brandStrings2[$j] . '" style="float:left;margin-bottom:8px" onClick="submit();">';
             }
 
-            echo '
-			<div style="float:left;" >
-			<h1 class="Wp-Heading-1-P" style="margin-top:0px;"><span class="Heading-1-C-C12">' . $brandStrings[$j] . '</span></h1>
-			</div>
+            echo $brandStrings[$j] . '
 			<br/>
 			</p>
 			
@@ -704,11 +698,11 @@ ob_start (); // Buffer output
         {
             if($_POST[$colourStrings[$j]] == 'on')
             {
-                echo '<p><input type="checkbox" name="' . $colourStrings[$j] . '" style="float:left;" onClick="submit();" checked>';
+                echo '<p><input type="checkbox" name="' . $colourStrings[$j] . '" style="float:left;margin-bottom:8px" onClick="submit();" checked>';
             }
             else
             {
-                echo '<p><input type="checkbox" name="' . $colourStrings[$j] . '" style="float:left;" onClick="submit();">';
+                echo '<p><input type="checkbox" name="' . $colourStrings[$j] . '" style="float:left;margin-bottom:8px" onClick="submit();">';
             }
 
             echo '

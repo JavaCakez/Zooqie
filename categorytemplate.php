@@ -514,135 +514,57 @@ ob_start (); // Buffer output
         }
         else
         {
+            $sqlStr = '';
+            $brandSqlStr    = constructGenericSqlString($brandCounter, $brandStrings, "Brand_name");
+            $categorySqlStr = constructGenericSqlString($categoryCounter, $categoryStrings, "Category");
+            $priceSqlStr    = constructPriceSqlString();
+            $colourSqlStr   = constructGenericSqlString($colourCounter, $colourStrings, "Colour");
+            $sqlStr .= $brandSqlStr . $categorySqlStr . $priceSqlStr . $colourSqlStr;
 
-            $and = 'false';
-            for ($j = 0; $j < $brandCounter; $j++)
-            {
-                $strreplace = removeSpaces($brandStrings[$j]);
-                if($_POST[$strreplace] == 'on')
-                {
-                    $strreplace = replaceSpaces($brandStrings[$j]);
-                    if($and == 'false')
-                    {
-                        $str .= " AND (Brand_name ='" . strtoupper($strreplace) . "'";
-                        $and = 'true';
-                    }
-                    else
-                    {
-                        $str .= " OR Brand_name ='" . strtoupper($strreplace) . "'";
-                    }
-                }
+            if ($brandSqlStr == '') {
+                disableCheckboxes('Brand_name', $sqlStr, $con, 1);
             }
-            if($and == 'true')
-            {
-                $str .= ")";
+            if ($categorySqlStr == '') {
+                disableCheckboxes('Category', $sqlStr, $con, 2);
             }
-
-
-
-
-
-            $and = 'false';
-            for ($j = 0; $j < $categoryCounter; $j++)
-            {
-                $strreplace = str_replace(' ', '_', $categoryStrings[$j]);
-                if($_POST[$strreplace] == 'on')
-                {
-                    if($and == 'false')
-                    {
-                        $str .= " AND (Category ='" . strtoupper($categoryStrings[$j]) . "'";
-                        $and = 'true';
-                    }
-                    else
-                    {
-                        $str .= " OR Category ='" . strtoupper($categoryStrings[$j]) . "'";
-                    }
-                }
+            if ($colourSqlStr == '') {
+                disableCheckboxes('Colour', $sqlStr, $con, 4);
             }
-            if($and == 'true')
-            {
-                $str .= ")";
-            }
-
-
-
-
-
-
-
-            if($_POST['LowerBoundPrice'] != '' && $_POST['UpperBoundPrice'] != '')
-            {
-                $str .= " AND (Price <= " . $_POST['UpperBoundPrice'] . ") AND (Price >= " . $_POST['LowerBoundPrice'] . ")";
-            }
-
-
-
-
-
-
-
-            $and = 'false';
-            for ($j = 0; $j < $colourCounter; $j++)
-            {
-                if($_POST[$colourStrings[$j]] == 'on')
-                {
-                    if($and == 'false')
-                    {
-                        $str .= " AND (Colour ='" . strtoupper($colourStrings[$j]) . "'";
-                        $and = 'true';
-                    }
-                    else
-                    {
-                        $str .= " OR Colour ='" . strtoupper($colourStrings[$j]) . "'";
-                    }
-                }
-            }
-            if($and == 'true')
-            {
-                $str .= ")";
-            }
-
-
-
-
-
-
-
 
             if($_POST['Sort'] == 'Default' || $_POST['Sort'] == '')
             {
             }
             else if($_POST['Sort'] == 'Brandasc')
             {
-                $str .= " ORDER BY Brand_name";
+                $sqlStr .= " ORDER BY Brand_name";
             }
             else if($_POST['Sort'] == 'Branddesc')
             {
-                $str .= " ORDER BY Brand_name DESC";
+                $sqlStr .= " ORDER BY Brand_name DESC";
             }
             else if($_POST['Sort'] == 'Asc')
             {
-                $str .= " ORDER BY Item_name";
+                $sqlStr .= " ORDER BY Item_name";
             }
             else if($_POST['Sort'] == 'desc')
             {
-                $str .= " ORDER BY Item_name DESC";
+                $sqlStr .= " ORDER BY Item_name DESC";
             }
             else if($_POST['Sort'] == 'Price asc')
             {
-                $str .= " ORDER BY Price";
+                $sqlStr .= " ORDER BY Price";
             }
             else if($_POST['Sort'] == 'Price desc')
             {
-                $str .= " ORDER BY Price DESC";
+                $sqlStr .= " ORDER BY Price DESC";
             }
             else if($_POST['Sort'] == 'Newest')
             {
-                $str .= " ORDER BY Date_added DESC";
+                $sqlStr .= " ORDER BY Date_added DESC";
             }
             else if($_POST['Sort'] == 'Popularity')
             {
-                $str .= " ORDER BY Quantity_sold DESC";
+                $sqlStr .= " ORDER BY Quantity_sold DESC";
             }
 
 
@@ -659,8 +581,8 @@ ob_start (); // Buffer output
             $bresult = mysqli_query($con,"SELECT * FROM brands WHERE Live = 1 ORDER BY Brand_name");
             while($brow = mysqli_fetch_array($bresult))
             {
-                if($category != 'all') $result = mysqli_query($con,"SELECT DISTINCT Item_number FROM products WHERE Brand = '".$brow['ID']."' AND Category = '".$categoryName."' AND (Gender = '".$gender."' OR Gender = 'U')" . $str);
-                if($category == 'all') $result = mysqli_query($con,"SELECT DISTINCT Item_number FROM products WHERE Brand = '".$brow['ID']."' AND (Gender = '".$gender."' OR Gender = 'U')". $str);
+                if($category != 'all') $result = mysqli_query($con,"SELECT DISTINCT Item_number FROM products WHERE Brand = '".$brow['ID']."' AND Category = '".$categoryName."' AND (Gender = '".$gender."' OR Gender = 'U')" . $sqlStr);
+                if($category == 'all') $result = mysqli_query($con,"SELECT DISTINCT Item_number FROM products WHERE Brand = '".$brow['ID']."' AND (Gender = '".$gender."' OR Gender = 'U')". $sqlStr);
                 while($row = mysqli_fetch_array($result))
                 {
                     $totalItems++;
@@ -694,8 +616,8 @@ ob_start (); // Buffer output
             $limit = $maxItems;
 
 
-            if($category != 'all') $result = mysqli_query($con,"SELECT * FROM (SELECT DISTINCT Item_number FROM products WHERE Brand IN (SELECT ID FROM brands Where Live = 1) AND Category = '".$categoryName."' AND (Gender = '".$gender."' OR Gender = 'U')". $str .") AS tmp_table  LIMIT ".$offset.", " .$limit);
-            if($category == 'all') $result = mysqli_query($con,"SELECT * FROM (SELECT DISTINCT Item_number FROM products WHERE Brand IN (SELECT ID FROM brands Where Live = 1) AND(Gender = '".$gender."' OR Gender = 'U')". $str .") AS tmp_table  LIMIT ".$offset.", " .$limit);
+            if($category != 'all') $result = mysqli_query($con,"SELECT * FROM (SELECT DISTINCT Item_number FROM products WHERE Brand IN (SELECT ID FROM brands Where Live = 1) AND Category = '".$categoryName."' AND (Gender = '".$gender."' OR Gender = 'U')". $sqlStr .") AS tmp_table  LIMIT ".$offset.", " .$limit);
+            if($category == 'all') $result = mysqli_query($con,"SELECT * FROM (SELECT DISTINCT Item_number FROM products WHERE Brand IN (SELECT ID FROM brands Where Live = 1) AND(Gender = '".$gender."' OR Gender = 'U')". $sqlStr .") AS tmp_table  LIMIT ".$offset.", " .$limit);
             while($row = mysqli_fetch_array($result))
             {
                 $itemno = $row['Item_number'];

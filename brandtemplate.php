@@ -402,118 +402,49 @@ echoGoogleAnalyticsScript();
 			';
 		}
 
+		$sqlStr = '';
+		$genderSqlStr   = constructGenderSqlString();
+		$categorySqlStr = constructGenericSqlString($categoryCounter, $categoryStrings, "Category");
+		$priceSqlStr    = constructPriceSqlString();
+		$colourSqlStr   = constructGenericSqlString($colourCounter, $colourStrings, "Colour");
+		$sqlStr .= $genderSqlStr . $categorySqlStr . $priceSqlStr . $colourSqlStr . " AND Brand = '". $ID . "'";
 
-		$str = '';
-		if($_POST['Male'] == 'on' && $_POST['Female'] != 'on')
-		{
-			$str .= " AND (Gender ='M' OR Gender ='U')";
+		if ($categorySqlStr == '') {
+			disableCheckboxes('Category', $sqlStr, $con, 2);
 		}
-		else if ($_POST['Male'] != 'on' && $_POST['Female'] == 'on')
-		{
-			$str .= " AND (Gender ='F' OR Gender ='U')";
+		if ($colourSqlStr == '') {
+			disableCheckboxes('Colour', $sqlStr, $con, 4);
 		}
-		else
-		{
-			$str .= " AND (Gender ='M' OR Gender ='F' OR Gender ='U')";
+		if ($genderSqlStr == '') {
+			disableCheckboxes('Gender', $sqlStr, $con, 1);
 		}
-		
-		
-		
-		
-		
-		$and = 'false';
-		for ($j = 0; $j < $categoryCounter; $j++)
-		{
-		   	$strreplace = str_replace(' ', '_', $categoryStrings[$j]);
-	   		if($_POST[$strreplace] == 'on')
-			{
-				if($and == 'false')
-				{
-					$str .= " AND (Category ='" . $categoryStrings[$j] . "'";
-					$and = 'true';
-				}
-				else
-				{
-					$str .= " OR Category ='" . $categoryStrings[$j] . "'";
-				}
-			}
-		}
-		if($and == 'true')
-		{
-			$str .= ")";
-		}
-		
-		
-		
-		
-		
-		
-		
-		if($_POST['LowerBoundPrice'] != '' && $_POST['UpperBoundPrice'] != '')
-		{
-			$str .= " AND (Price <= " . $_POST['UpperBoundPrice'] . ") AND (Price >= " . $_POST['LowerBoundPrice'] . ")";
-		}
-		
-		
-		
-		
-		
-		
-		
-		$and = 'false';
-		for ($j = 0; $j < $colourCounter; $j++)
-		{
-		   	if($_POST[$colourStrings[$j]] == 'on')
-			{
-				if($and == 'false')
-				{
-					$str .= " AND (Colour ='" . $colourStrings[$j] . "'";
-					$and = 'true';
-				}
-				else
-				{
-					$str .= " OR Colour ='" . $colourStrings[$j] . "'";
-				}
-			}
-		}
-		if($and == 'true')
-		{
-			$str .= ")";
-		}
-		
-		
-		
-		
-		
-		
-		
 		
 		if($_POST['Sort'] == 'Default' || $_POST['Sort'] == '')
 		{
 		}
 		else if($_POST['Sort'] == 'Asc')
 		{
-			$str .= " ORDER BY Item_name";
+			$sqlStr .= " ORDER BY Item_name";
 		}
 		else if($_POST['Sort'] == 'desc')
 		{
-			$str .= " ORDER BY Item_name DESC";
+			$sqlStr .= " ORDER BY Item_name DESC";
 		}
 		else if($_POST['Sort'] == 'Price asc')
 		{
-			$str .= " ORDER BY Price";
+			$sqlStr .= " ORDER BY Price";
 		}
 		else if($_POST['Sort'] == 'Price desc')
 		{
-			$str .= " ORDER BY Price DESC";
+			$sqlStr .= " ORDER BY Price DESC";
 		}
 		else if($_POST['Sort'] == 'Newest')
 		{
-			$str .= " ORDER BY Date_added DESC";
+			$sqlStr .= " ORDER BY Date_added DESC";
 		}
 		else if($_POST['Sort'] == 'Popularity')
 		{
-			$str .= " ORDER BY Quantity_sold DESC";
+			$sqlStr .= " ORDER BY Quantity_sold DESC";
 		}
 		
 
@@ -528,7 +459,7 @@ echoGoogleAnalyticsScript();
 		$maxItems = $maxColumns * $maxRows;
 		
 		$totalItems = 0;
-		$result = mysqli_query($con,"SELECT DISTINCT Item_number FROM products WHERE Brand = '". $ID . "'" . $str);
+		$result = mysqli_query($con,"SELECT DISTINCT Item_number FROM products WHERE Brand = '". $ID . "'" . $sqlStr);
 		while($row = mysqli_fetch_array($result))
 		{
 			$totalItems++;
@@ -560,7 +491,7 @@ echoGoogleAnalyticsScript();
 		
 		$offset = ($page-1)*$maxItems;
 		$limit = $maxItems;
-		$result = mysqli_query($con,"SELECT * FROM (SELECT DISTINCT Item_number FROM products WHERE Brand = '". $ID . "'" . $str . ") AS tmp_table  LIMIT ".$offset.", " .$limit);
+		$result = mysqli_query($con,"SELECT * FROM (SELECT DISTINCT Item_number FROM products WHERE Brand = '". $ID . "'" . $sqlStr . ") AS tmp_table  LIMIT ".$offset.", " .$limit);
 		while($row = mysqli_fetch_array($result))
 		{
 			$itemno = $row['Item_number'];

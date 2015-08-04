@@ -187,7 +187,7 @@
 
     function echoRefineByHeader($slidingDivNumber, $text) {
         echo '
-			<div style="border-bottom: 1px solid #000000;overflow:hidden; " >
+			<div id="js-slidingHeader-'.$slidingDivNumber.'" style="border-bottom: 1px solid #000000;overflow:hidden; " >
 				<a href="#" class="show_hide'.$slidingDivNumber.'" style="text-decoration: none">
 					<p>
 						<img id="arrow'.$slidingDivNumber.'" src="../images/downarrow.png" width="24" height="24" style="float:left;"/>
@@ -204,21 +204,116 @@
 
     function echoRefineByCheckboxes($slidingDivNumber, $refineAttributes, $limit) {
         echo '
-			<div class="slidingDiv'.$slidingDivNumber.'" '; if(count($refineAttributes) > 8 && $limit == 'true') echo 'style="height:270px;overflow-y: scroll;'; echo '">
+			<div id="js-slidingDiv-'.$slidingDivNumber.'" class="slidingDiv'.$slidingDivNumber.'" '; if(count($refineAttributes) > 8 && $limit == 'true') echo 'style="height:270px;overflow-y: scroll;'; echo '">
 		';
 
         foreach ($refineAttributes as $refineAttribute)
         {
-            $strreplace = str_replace(' ', '_', $refineAttribute);
+            $strreplace = removeSpaces($refineAttribute);
+            $strreplace2 = $strreplace;
+            if (strtolower($strreplace) == 'female') $strreplace2 = 'f';
+            if (strtolower($strreplace) == 'male') $strreplace2 = 'm';
+            if (strtolower($strreplace) == 'unisex') $strreplace2 = 'u';
             echo '
-                    <p class="Heading-1-C-C12">
-                        <input type="checkbox" name="' . $refineAttribute . '" style="float:left;margin-bottom:8px" onClick="submit();"'; if($_POST[$strreplace] == 'on') echo 'checked'; echo '>
+                    <p id="js2-' . strtolower($strreplace2) . '" class="Heading-1-C-C12">
+                        <input id="js-' . strtolower($strreplace2) . '" type="checkbox" name="' . $refineAttribute . '" style="float:left;margin-bottom:8px;cursor:pointer;" onClick="submit();"'; if($_POST[$strreplace] == 'on') echo 'checked'; echo '>
                         ' . $refineAttribute . '
                         <br/>
                     </p>';
         }
 
         echo '</div>';
+    }
+
+    function constructGenderSqlString() {
+        $str = '';
+        if($_POST['Male'] == 'on' && $_POST['Female'] != 'on')
+        {
+            $str .= " AND (Gender ='M' OR Gender ='U')";
+        }
+        else if ($_POST['Male'] != 'on' && $_POST['Female'] == 'on')
+        {
+            $str .= " AND (Gender ='F' OR Gender ='U')";
+        }
+        return $str;
+    }
+
+    function constructGenericSqlString($counter, $strings, $columnName) {
+        $str = '';
+        $and = 'false';
+        for ($j = 0; $j < $counter; $j++)
+        {
+            $strreplace = removeSpaces($strings[$j]);
+            if($_POST[$strreplace] == 'on')
+            {
+                if($and == 'false')
+                {
+                    $str .= " AND (".$columnName." ='" . strtoupper($strings[$j]) . "'";
+                    $and = 'true';
+                }
+                else
+                {
+                    $str .= " OR ".$columnName." ='" . strtoupper($strings[$j]) . "'";
+                }
+            }
+        }
+        if($and == 'true')
+        {
+            $str .= ")";
+        }
+
+        return $str;
+    }
+
+    function constructPriceSqlString() {
+        $str = '';
+        if($_POST['LowerBoundPrice'] != '' && $_POST['UpperBoundPrice'] != '')
+        {
+            $str .= " AND (Price <= " . $_POST['UpperBoundPrice'] . ") AND (Price >= " . $_POST['LowerBoundPrice'] . ")";
+        }
+        return $str;
+    }
+
+    function disableCheckboxes($column, $sqlStr, $con, $slidingDivNo) {
+        echo '
+                <script type="text/javascript">
+                    $(document).ready(function() {
+
+            ';
+
+        $cresult = mysqli_query($con,"SELECT DISTINCT ".$column." FROM products WHERE Brand IN (SELECT ID FROM brands Where Live = 1)");
+        while($crow = mysqli_fetch_array($cresult))
+        {
+            echo '
+                        $("#js-'.str_replace('&', '\\\&', strtolower(removeSpaces($crow[$column]))).'").attr("disabled", true);
+                        $("#js-'.str_replace('&', '\\\&', strtolower(removeSpaces($crow[$column]))).'").css("cursor", "default");
+                        $("#js2-'.str_replace('&', '\\\&', strtolower(removeSpaces($crow[$column]))).'").css("opacity", "0.5");
+                ';
+        }
+
+        $cresult = mysqli_query($con,"SELECT DISTINCT ".$column." FROM products WHERE Brand IN (SELECT ID FROM brands Where Live = 1)". $sqlStr);
+        /* Attempted improvement to hide refine box if none are available
+        if (mysqli_num_rows($cresult) < 1) {
+            echo '
+                        $("#js-slidingHeader-'.$slidingDivNo.'").css("display", "none");
+                        $("#js-slidingDiv-'.$slidingDivNo.'").css("display", "none");
+                ';
+        } else {
+
+        }*/
+        while($crow = mysqli_fetch_array($cresult))
+        {
+            echo '
+                        $("#js-'.str_replace('&', '\\\&', strtolower(removeSpaces($crow[$column]))).'").attr("disabled", false);
+                        $("#js-'.str_replace('&', '\\\&', strtolower(removeSpaces($crow[$column]))).'").css("cursor", "pointer");
+                        $("#js2-'.str_replace('&', '\\\&', strtolower(removeSpaces($crow[$column]))).'").css("opacity", "1.0");
+                ';
+        }
+
+        echo '
+                    });
+                </script>
+            ';
     }
 
     function echoRefineByPrice($slidingDivNumber) {
@@ -289,17 +384,6 @@
             return $str;
         }
         $str = str_replace(' ', '_', $str);
-        return $str;
-    }
-
-    function replaceSpaces($str) {
-        if (is_array($str)) {
-            foreach ($str as &$s) {
-                $s = str_replace('_', ' ', $s);
-            }
-            return $str;
-        }
-        $str = str_replace('_', ' ', $str);
         return $str;
     }
 
@@ -906,3 +990,7 @@ nav ul li a:hover {
 //TODO: cleanup search-results/index, it's pretty messy as fuck.
 
 //TODO: clean up database calls. Make sure only 1 call to database is done per page and everything needed is collected once. Then close connection.
+
+//TODO: clear button for refine bys
+
+//TODO: do audit of Harabara font, overused sometimes

@@ -10,228 +10,184 @@ ob_start (); // Buffer output
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     <html lang="en">
     <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title><!--TITLE--></title>
-    <meta name="viewport" content="width=1000">
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title><!--TITLE--></title>
+        <meta name="viewport" content="width=1000">
+        <link rel="icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
 
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../css/styles.css">
-    <script type="text/javascript" src="../js/jquery.js"></script>
-    <script type="text/javascript" src="../js/superfish.js"></script>
-    <script type="text/javascript" src="../js/jquery.prettyphoto.js" charset="utf-8"></script>
-    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
-
-
-    <meta http-equiv="Content-Style-Type" content="text/css">
-    <meta http-equiv="Content-Script-Type" content="text/javascript">
-    <meta content="<!--DESCRIPTION-->" name="description" property="og:description" />
-
-    <?php
-    //Include database settings
-    if(file_exists("db_settings.php")) {include("db_settings.php");}
-    else if(file_exists("../db_settings.php")) {include("../db_settings.php");}
-    else if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
-
-    //Include utilities
-    if(file_exists("utils.php")) {include("utils.php");}
-    else if(file_exists("../utils.php")) {include("../utils.php");}
-    else if(file_exists("../../utils.php")) {include("../../utils.php");}
-    ?>
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../css/styles.css">
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/superfish.js"></script>
+        <script type="text/javascript" src="../js/jquery.prettyphoto.js" charset="utf-8"></script>
+        <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
 
 
+        <meta http-equiv="Content-Style-Type" content="text/css">
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <meta content="<!--DESCRIPTION-->" name="description" property="og:description" />
 
+        <?php
+            //Include database settings
+            if(file_exists("db_settings.php")) {include("db_settings.php");}
+            else if(file_exists("../db_settings.php")) {include("../db_settings.php");}
+            else if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
 
+            //Include utilities
+            if(file_exists("utils.php")) {include("utils.php");}
+            else if(file_exists("../utils.php")) {include("../utils.php");}
+            else if(file_exists("../../utils.php")) {include("../../utils.php");}
+        ?>
 
+        <style type ="text/css">
+            .Heading-1-P
+            {
+                margin:32px 0px 4px 0px; text-align:center; font-weight:400;
+            }
+            .Heading-2-C
+            {
+                font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
+            }
+            .Body-C
+            {
+                font-family:"Lato", sans-serif; color:#2c2c2c; font-size:14px; line-height:1.29em;
+            }
+            .Heading-2-C-C0
+            {
+                font-family:"Harabara", serif; color:#656565; font-size:21px; line-height:1.48em;
+            }
+            .Heading-3-C
+            {
+                font-family:"Harabara", serif; color:#e52b50; font-size:14px; line-height:1.50em;
+            }
+            .Heading-1-C-C0
+            {
+                font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
+            }
+            .Heading-1-C-C10
+            {
+                font-family:"Harabara", serif; color:#656565; font-size:24px; line-height:1.47em;
+            }
+            .Heading-1-C-C1
+            {
+                font-family:"Harabara", serif; color:#656565; font-size:13px; line-height:1.54em;
+            }
+            .Heading-1-C-C12
+            {
+                font-family:"Lato"; color:#656565; font-size:13px; line-height:1.54em;
+            }
+            .Heading-3-C-C0
+            {
+                font-family:"Harabara", serif; font-weight:700; color:#656565; font-size:16px; line-height:1.50em;
+            }
+            .Heading-3-C-C1
+            {
+                font-family:"Lato", serif; color:#656565; font-size:13px; line-height:1.54em;
+            }
+            .Heading-3-C-C10
+            {
+                font-family:"Harabara", serif; color:#656565; font-size:13px; line-height:1.54em; text-align: center;
+            }
+            .Heading-1-C-C9
+            {
+                font-family:"Harabara", serif; color:#656565; font-size:27px; line-height:1.47em;
+            }
+            .Body-C-C3
+            {
+                font-family:"Lato", sans-serif; color:#2c2c2c; font-size:16px; line-height:1.38em;
+            }
+            .Body-C-C4
+            {
+                font-family:"Lato", sans-serif; color:#ff0000; font-size:16px; line-height:1.38em;
+            }
+            .Heading-3-C-C12
+            {
+                font-family:"Harabara", serif; font-size:15px; line-height:1.47em;
+            }
+        </style>
 
+        <?
+            echo '
+            <script type="text/javascript">';
+            echoCookieFunctions();
+            echo '
+            $(document).ready(function(){ ';
 
+            echoSlidingDiv(1);
+            echoSlidingDiv(2);
+            echoSlidingDiv(3);
+            echoSlidingDiv(4);
+            echoSlidingDiv(5);
 
+            echo '});
+            </script>';
+        ?>
 
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
+        <style>
+            .ui-slider-range { background: #cbcbcb; }
+            .ui-slider-horizontal .ui-slider-handle { background: #656565; }
 
+        </style>
 
+        <style type="text/css">
+            body{margin:0;padding:0;}
+            .wpfixed{position:absolute;}
+            div > .wpfixed{position:fixed;}
+            a.hlink_1:link {color:#2c2c2c;}
+            a.hlink_1:visited {color:#2c2c2c;}
+            a.hlink_1:hover {color:#e52b50;}
+            a.hlink_1:active {color:#2c2c2c;}
+            .Heading-2-C
+            {
+                font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
+            }
+            .Body-C
+            {
+                font-family:"Lato", sans-serif; color:#2c2c2c; font-size:14px; line-height:1.29em;
+            }
+            .Heading-2-C-C0
+            {
+                font-family:"Harabara", serif; color:#656565; font-size:21px; line-height:1.48em;
+            }
+            .Heading-1-C
+            {
+                font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
+            }
+            .Body-C-C0
+            {
+                font-family:"Harabara", serif; color:#2c2c2c; font-size:32px; line-height:1.47em;
+            }
 
+            #nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
+            #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
+            .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 
+        </style>
 
+        <?php
+            $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
 
+            $result = mysqli_query($con,"SELECT MAX(Price) as total FROM products WHERE Brand IN (SELECT ID FROM brands Where Live = 1) AND " . $categorySql . " (Gender = 'M' OR Gender = 'U' OR Gender = 'F') ORDER BY Brand_name");
+            $data=mysqli_fetch_array($result);
+            $topPrice = $data['total'];
 
-
-
-
-
-
-
-
-
-
-    <?
-
-
-
-    // Create connection
-    $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-
-    ?>
-
-    <style type ="text/css">
-        .Heading-1-P
-        {
-            margin:32px 0px 4px 0px; text-align:center; font-weight:400;
-        }
-        .Heading-2-C
-        {
-            font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
-        }
-        .Body-C
-        {
-            font-family:"Lato", sans-serif; color:#2c2c2c; font-size:14px; line-height:1.29em;
-        }
-        .Heading-2-C-C0
-        {
-            font-family:"Harabara", serif; color:#656565; font-size:21px; line-height:1.48em;
-        }
-        .Heading-3-C
-        {
-            font-family:"Harabara", serif; color:#e52b50; font-size:14px; line-height:1.50em;
-        }
-        .Heading-1-C-C0
-        {
-            font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
-        }
-        .Heading-1-C-C10
-        {
-            font-family:"Harabara", serif; color:#656565; font-size:24px; line-height:1.47em;
-        }
-        .Heading-1-C-C1
-        {
-            font-family:"Harabara", serif; color:#656565; font-size:13px; line-height:1.54em;
-        }
-        .Heading-1-C-C12
-        {
-            font-family:"Lato"; color:#656565; font-size:13px; line-height:1.54em;
-        }
-        .Heading-3-C-C0
-        {
-            font-family:"Harabara", serif; font-weight:700; color:#656565; font-size:16px; line-height:1.50em;
-        }
-        .Heading-3-C-C1
-        {
-            font-family:"Harabara", serif; color:#656565; font-size:13px; line-height:1.54em;
-        }
-        .Heading-3-C-C10
-        {
-            font-family:"Harabara", serif; color:#656565; font-size:13px; line-height:1.54em; text-align: center;
-        }
-        .Heading-1-C-C9
-        {
-            font-family:"Harabara", serif; color:#656565; font-size:27px; line-height:1.47em;
-        }
-        .Body-C-C3
-        {
-            font-family:"Lato", sans-serif; color:#2c2c2c; font-size:16px; line-height:1.38em;
-        }
-        .Body-C-C4
-        {
-            font-family:"Lato", sans-serif; color:#ff0000; font-size:16px; line-height:1.38em;
-        }
-        .Heading-3-C-C12
-        {
-            font-family:"Harabara", serif; font-size:15px; line-height:1.47em;
-        }
-    </style>
-
-    <?
-        echo '
-        <script type="text/javascript">';
-        echoCookieFunctions();
-        echo '
-        $(document).ready(function(){ ';
-
-        echoSlidingDiv(1);
-        echoSlidingDiv(2);
-        echoSlidingDiv(3);
-        echoSlidingDiv(4);
-        echoSlidingDiv(5);
-
-        echo '});
-        </script>';
-    ?>
-
-
-
-
-
-
-
-
-
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
-    <style>
-        .ui-slider-range { background: #cbcbcb; }
-        .ui-slider-horizontal .ui-slider-handle { background: #656565; }
-
-    </style>
-
-    <?php
-        $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-
-        $result = mysqli_query($con,"SELECT MAX(Price) as total FROM products WHERE Brand IN (SELECT ID FROM brands Where Live = 1) AND " . $categorySql . " (Gender = 'M' OR Gender = 'U' OR Gender = 'F') ORDER BY Brand_name");
-        $data=mysqli_fetch_array($result);
-        $topPrice = $data['total'];
-
-        echoRefineByPriceScript($topPrice)
-    ?>
+            echoRefineByPriceScript($topPrice)
+        ?>
 
 
 
 
 
-    <style type="text/css">
-        body{margin:0;padding:0;}
-        .wpfixed{position:absolute;}
-        div > .wpfixed{position:fixed;}
-        a.hlink_1:link {color:#2c2c2c;}
-        a.hlink_1:visited {color:#2c2c2c;}
-        a.hlink_1:hover {color:#e52b50;}
-        a.hlink_1:active {color:#2c2c2c;}
-        .Heading-2-C
-        {
-            font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
-        }
-        .Body-C
-        {
-            font-family:"Lato", sans-serif; color:#2c2c2c; font-size:14px; line-height:1.29em;
-        }
-        .Heading-2-C-C0
-        {
-            font-family:"Harabara", serif; color:#656565; font-size:21px; line-height:1.48em;
-        }
-        .Heading-1-C
-        {
-            font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
-        }
-        .Body-C-C0
-        {
-            font-family:"Harabara", serif; color:#2c2c2c; font-size:32px; line-height:1.47em;
-        }
 
-        #nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
-        #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
-        .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
-
-    </style>
-    <script type="text/javascript" src="../js/jspngfix.js"></script>
-    <link rel="stylesheet" href="../css/wpstyles.css" type="text/css"><script type="text/javascript">
-        var blankSrc = "../js/blank.gif";
-    </script>
-    <script type="text/javascript" src="../js/jsRollover.js"></script>
-    <script type="text/javascript">
-
-
-    </script>
+        <script type="text/javascript" src="../js/jspngfix.js"></script>
+        <link rel="stylesheet" href="../css/wpstyles.css" type="text/css"><script type="text/javascript">
+            var blankSrc = "../js/blank.gif";
+        </script>
+        <script type="text/javascript" src="../js/jsRollover.js"></script>
     </head>
 
 
@@ -252,87 +208,12 @@ ob_start (); // Buffer output
 
     <img src="../images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:80px;" >
     <!--NAVBAR-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- shopbybrand.jpg - Emb. Bitmap pic_57 -->
-
-
-
-<!--    <img src="../images/shopbybrand.jpg" border="1" width="984" height="186" id="pic_57" alt="" style="position:absolute;left:8px;top:144px; " >-->
-
-
-
-    <!-- Quick Rectangle qs_288 -->
-
-
-
     <img src="../images/grey_bar.png" border="0" width="784" height="43" id="qs_288" alt="" onload="OnLoadPngFix()" style="position:absolute;left:208px;top:142px; " >
 
-
-
-    <!-- HTML Frame - Sort by: txt_225 -->
-
-
-    <div id="txt_225" style="position:absolute;left:229px;top:149px;width:82px;height:36px;overflow:hidden; " >
-
+    <div style="position:absolute;left:229px;top:149px;width:82px;height:36px;overflow:hidden; " >
         <h1 class="Wp-Heading-1-P" style="margin-top:0px"><span class="Heading-1-C">Sort by:</span></h1>
     </div>
 
-
-
-
-
-
-<!--    <img src="../images/white_bar.png" border="1" width="243" height="60" title="" alt="" style="position:absolute;left:30px;top:185px; ">-->
-    <!-- HTML Frame - Shop by Brand txt_295 -->
-
-
-<!--    <div id="txt_295" style="position:absolute;left:39px;top:193px;width:288px;height:54px; " >-->
-<!---->
-<!--        <p class="Wp-Body-P"><span class="Body-C-C0">Visit Brand Shops</span></p>-->
-<!--    </div>-->
-<!---->
-<!---->
-<!---->
-<!---->
-<!--    <div id="frag_42" style="position:absolute;left:95px;top:253px;width:144px;height:32px; " >-->
-<!--        <a class="button medium black" href="../brands"><span >CLICK HERE</span></a>-->
-<!--    </div>-->
 
 
     <form id="refineForm" name="refineForm"  accept-charset="UTF-8" method="post" target="_self" enctype="application/x-www-form-urlencoded" style="margin:0;position:absolute;left:0px;top:-200px;width:1035px;" >
@@ -535,12 +416,6 @@ ob_start (); // Buffer output
 	';
 
 
-    ?>
-
-
-
-    <?
-
     // Create connection
     $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
 
@@ -551,154 +426,67 @@ ob_start (); // Buffer output
     }
     else
     {
+        $sqlStr = '';
+        $genderSqlStr   = constructGenderSqlString();
+        $brandSqlStr    = constructGenericSqlString($brandCounter, $brandStrings, "Brand_name");
+        $categorySqlStr = constructGenericSqlString($categoryCounter, $categoryStrings, "Category");
+        $priceSqlStr    = constructPriceSqlString();
+        $colourSqlStr   = constructGenericSqlString($colourCounter, $colourStrings, "Colour");
+        $sqlStr .= $genderSqlStr . $brandSqlStr . $categorySqlStr . $priceSqlStr . $colourSqlStr;
 
-        $str = '';
-        if($_POST['Male'] == 'on' && $_POST['Female'] != 'on')
-        {
-            $str .= " AND (Gender ='M' OR Gender ='U')";
+        if ($brandSqlStr == '') {
+            disableCheckboxes('Brand_name', $sqlStr, $con, 1);
         }
-        else if ($_POST['Male'] != 'on' && $_POST['Female'] == 'on')
-        {
-            $str .= " AND (Gender ='F' OR Gender ='U')";
+        if ($categorySqlStr == '') {
+            disableCheckboxes('Category', $sqlStr, $con, 2);
         }
-        else
-        {
-            $str .= " AND (Gender ='M' OR Gender ='F' OR Gender ='U')";
+        if ($colourSqlStr == '') {
+            disableCheckboxes('Colour', $sqlStr, $con, 4);
         }
-
-
-        $and = 'false';
-        for ($j = 0; $j < $brandCounter; $j++)
-        {
-            $strreplace = removeSpaces($brandStrings[$j]);
-            if($_POST[$strreplace] == 'on')
-            {
-                $strreplace = replaceSpaces($brandStrings[$j]);
-                if($and == 'false')
-                {
-                    $str .= " AND (Brand_name ='" . strtoupper($strreplace) . "'";
-                    $and = 'true';
-                }
-                else
-                {
-                    $str .= " OR Brand_name ='" . strtoupper($strreplace) . "'";
-                }
-            }
-        }
-        if($and == 'true')
-        {
-            $str .= ")";
+        if ($genderSqlStr == '') {
+            disableCheckboxes('Gender', $sqlStr, $con, 5);
         }
 
 
-
-
-
-        $and = 'false';
-        for ($j = 0; $j < $categoryCounter; $j++)
-        {
-            $strreplace = removeSpaces($categoryStrings[$j]);
-            if($_POST[$strreplace] == 'on')
-            {
-                if($and == 'false')
-                {
-                    $str .= " AND (Category ='" . strtoupper($categoryStrings[$j]) . "'";
-                    $and = 'true';
-                }
-                else
-                {
-                    $str .= " OR Category ='" . strtoupper($categoryStrings[$j]) . "'";
-                }
-            }
-        }
-        if($and == 'true')
-        {
-            $str .= ")";
-        }
-
-
-
-
-
-
-
-        if($_POST['LowerBoundPrice'] != '' && $_POST['UpperBoundPrice'] != '')
-        {
-            $str .= " AND (Price <= " . $_POST['UpperBoundPrice'] . ") AND (Price >= " . $_POST['LowerBoundPrice'] . ")";
-        }
-
-
-
-
-
-
-
-        $and = 'false';
-        for ($j = 0; $j < $colourCounter; $j++)
-        {
-            if($_POST[$colourStrings[$j]] == 'on')
-            {
-                if($and == 'false')
-                {
-                    $str .= " AND (Colour ='" . strtoupper($colourStrings[$j]) . "'";
-                    $and = 'true';
-                }
-                else
-                {
-                    $str .= " OR Colour ='" . strtoupper($colourStrings[$j]) . "'";
-                }
-            }
-        }
-        if($and == 'true')
-        {
-            $str .= ")";
-        }
-
-
-
-
-
-
-
-
+        //TODO: utils these
         if($_POST['Sort'] == 'Default' || $_POST['Sort'] == '')
         {
         }
         else if($_POST['Sort'] == 'Brandasc')
         {
-            $str .= " ORDER BY Brand_name";
+            $sqlStr .= " ORDER BY Brand_name";
         }
         else if($_POST['Sort'] == 'Branddesc')
         {
-            $str .= " ORDER BY Brand_name DESC";
+            $sqlStr .= " ORDER BY Brand_name DESC";
         }
         else if($_POST['Sort'] == 'Asc')
         {
-            $str .= " ORDER BY Item_name";
+            $sqlStr .= " ORDER BY Item_name";
         }
         else if($_POST['Sort'] == 'desc')
         {
-            $str .= " ORDER BY Item_name DESC";
+            $sqlStr .= " ORDER BY Item_name DESC";
         }
         else if($_POST['Sort'] == 'Price asc')
         {
-            $str .= " ORDER BY Price";
+            $sqlStr .= " ORDER BY Price";
         }
         else if($_POST['Sort'] == 'Price desc')
         {
-            $str .= " ORDER BY Price DESC";
+            $sqlStr .= " ORDER BY Price DESC";
         }
         else if($_POST['Sort'] == 'Newest')
         {
-            $str .= " ORDER BY Date_added DESC";
+            $sqlStr .= " ORDER BY Date_added DESC";
         }
         else if($_POST['Sort'] == 'Popularity')
         {
-            $str .= " ORDER BY Quantity_sold DESC";
+            $sqlStr .= " ORDER BY Quantity_sold DESC";
         }
 
 
-
+        //TODO: utils pagination
         $r = 0;
         $c = 0;
 
@@ -715,7 +503,7 @@ ob_start (); // Buffer output
                 $productNameStr .= " AND Item_name like '%$q%' ";
             }
 
-            $result = mysqli_query($con,"SELECT DISTINCT Item_number FROM products WHERE Brand = '".$brow['ID']."' ". $productNameStr . $str );
+            $result = mysqli_query($con,"SELECT DISTINCT Item_number FROM products WHERE Brand = '".$brow['ID']."' ". $productNameStr . $sqlStr );
             while($row = mysqli_fetch_array($result))
             {
                 $totalItems++;
@@ -730,7 +518,7 @@ ob_start (); // Buffer output
                     $productNameStr .= " AND Item_name like '%$q%' ";
                 }
 
-                $result = mysqli_query($con,"SELECT DISTINCT Item_number FROM products WHERE Brand = '".$brow['ID']."' " . $str );
+                $result = mysqli_query($con,"SELECT DISTINCT Item_number FROM products WHERE Brand = '".$brow['ID']."' " . $sqlStr );
                 while($row = mysqli_fetch_array($result))
                 {
                     $totalItems++;
@@ -768,9 +556,9 @@ ob_start (); // Buffer output
         if ($searchSuccess == 'false') {
             $productNameStr .= " AND Item_name like '%$q%' ";
         }
-        $result = mysqli_query($con,"SELECT * FROM (SELECT DISTINCT Item_number FROM products WHERE Brand IN (SELECT ID FROM brands Where Live = 1) ". $productNameStr . $str  .") AS tmp_table  LIMIT ".$offset.", " .$limit);
+        $result = mysqli_query($con,"SELECT * FROM (SELECT DISTINCT Item_number FROM products WHERE Brand IN (SELECT ID FROM brands Where Live = 1) ". $productNameStr . $sqlStr  .") AS tmp_table  LIMIT ".$offset.", " .$limit);
         if (mysqli_num_rows($result) == 0) {
-            $result = mysqli_query($con,"SELECT * FROM (SELECT DISTINCT Item_number FROM products WHERE Brand IN (SELECT ID FROM brands Where Live = 1) ". $str .") AS tmp_table  LIMIT ".$offset.", " .$limit);
+            $result = mysqli_query($con,"SELECT * FROM (SELECT DISTINCT Item_number FROM products WHERE Brand IN (SELECT ID FROM brands Where Live = 1) ". $sqlStr .") AS tmp_table  LIMIT ".$offset.", " .$limit);
         }
         while($row = mysqli_fetch_array($result))
         {

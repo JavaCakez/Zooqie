@@ -275,41 +275,8 @@ echoNavBar(1, array('Home', 'Brands'), array('../index.php', '../brands'));
 	else
 	{
 		$str = "WHERE Live = 1";
-		if($_POST['Male'] == 'on' && $_POST['Female'] != 'on')
-		{
-			$str .= " AND (Gender ='M' OR Gender ='U')";
-		}
-		else if ($_POST['Male'] != 'on' && $_POST['Female'] == 'on')
-		{
-			$str .= " AND (Gender ='F' OR Gender ='U')";
-		}
-		else
-		{
-			$str .= " AND (Gender ='M' OR Gender ='F' OR Gender ='U')";
-		}
-
-
-        $and = 'false';
-        for ($j = 0; $j < $locationCounter; $j++)
-        {
-            $strreplace = str_replace(' ', '_', $locationStrings[$j]);
-            if($_POST[$strreplace] == 'on')
-            {
-                if($and == 'false')
-                {
-                    $str .= " AND (Location ='" . $locationStrings[$j] . "'";
-                    $and = 'true';
-                }
-                else
-                {
-                    $str .= " OR Location ='" . $locationStrings[$j] . "'";
-                }
-            }
-        }
-        if($and == 'true')
-        {
-            $str .= ")";
-        }
+		$str .= constructGenderSqlString();
+		$str .= constructGenericSqlString($locationCounter, $locationStrings, "Location");
 
 
 

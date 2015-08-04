@@ -1213,91 +1213,12 @@ else
     }
     else
     {
-
-
+        //Greying out unavailable refinement options not done here. TODO: do it?
         $str = '';
-        if($_POST['Male'] == 'on' && $_POST['Female'] != 'on')
-        {
-            $str .= " AND (Gender ='M' OR Gender ='U')";
-        }
-        else if ($_POST['Male'] != 'on' && $_POST['Female'] == 'on')
-        {
-            $str .= " AND (Gender ='F' OR Gender ='U')";
-        }
-        else
-        {
-            $str .= " AND (Gender ='M' OR Gender ='F' OR Gender ='U')";
-        }
-
-
-
-
-
-        $and = 'false';
-        for ($j = 0; $j < $categoryCounter; $j++)
-        {
-            $strreplace = str_replace(' ', '_', $categoryStrings[$j]);
-            if($_POST[$strreplace] == 'on')
-            {
-                if($and == 'false')
-                {
-                    $str .= " AND (Category ='" . strtoupper($categoryStrings[$j]) . "'";
-                    $and = 'true';
-                }
-                else
-                {
-                    $str .= " OR Category ='" . strtoupper($categoryStrings[$j]) . "'";
-                }
-            }
-        }
-        if($and == 'true')
-        {
-            $str .= ")";
-        }
-
-
-
-
-
-
-
-        if($_POST['LowerBoundPrice'] != '' && $_POST['UpperBoundPrice'] != '')
-        {
-            $str .= " AND (Price <= " . $_POST['UpperBoundPrice'] . ") AND (Price >= " . $_POST['LowerBoundPrice'] . ")";
-        }
-
-
-
-
-
-
-
-        $and = 'false';
-        for ($j = 0; $j < $colourCounter; $j++)
-        {
-            if($_POST[$colourStrings[$j]] == 'on')
-            {
-                if($and == 'false')
-                {
-                    $str .= " AND (Colour ='" . strtoupper($colourStrings[$j]) . "'";
-                    $and = 'true';
-                }
-                else
-                {
-                    $str .= " OR Colour ='" . strtoupper($colourStrings[$j]) . "'";
-                }
-            }
-        }
-        if($and == 'true')
-        {
-            $str .= ")";
-        }
-
-
-
-
-
-
+        $str .= constructGenderSqlString();
+        $str .= constructGenericSqlString($categoryCounter, $categoryStrings, "Category");
+        $str .= constructPriceSqlString();
+        $str .= constructGenericSqlString($colourCounter, $colourStrings, "Colour");
 
 
         if($_POST['Sort'] == 'Default' || $_POST['Sort'] == '')

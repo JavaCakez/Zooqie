@@ -994,3 +994,11 @@ nav ul li a:hover {
 //TODO: clear button for refine bys
 
 //TODO: do audit of Harabara font, overused sometimes
+
+//TODO: refinement forms no longer need to reload page
+//TODO: don't allow brand to add a product if they dont have any shipping price sets
+//TODO: make upload tool step by step.
+
+//TODO: get rid of all alerts (e.g. mainly on upload tool), find alternative
+
+//TODO: make buttons on upload tool flat style.

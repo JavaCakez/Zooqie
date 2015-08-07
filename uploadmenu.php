@@ -30,6 +30,21 @@ else
     <meta http-equiv="Content-Style-Type" content="text/css">
     <meta http-equiv="Content-Script-Type" content="text/javascript">
 
+    <!-------------------------------- Image upload tool ------------------------------------------------->
+    <link href="image-upload-tool/assets/css/demo.html5imageupload.css?v1.3" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+    <!-------------------------------- Image upload tool ------------------------------------------------->
+
+
     <?php
     //Include database settings
     if(file_exists("db_settings.php")) {include("db_settings.php");}
@@ -105,15 +120,13 @@ else
                     if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
                   if(file_exists("db_settings.php")) {include("db_settings.php");}
                   $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-
                   // Check connection
                   if (mysqli_connect_errno($con))
                   {
                   }
                   else
                   {
-                      $result = mysqli_query($con,"SELECT * FROM brands WHERE Username = '". $_SESSION['username'] . "'");
-
+                      $result = mysqli_query($con,"SELECT * FROM brands WHERE Username = '". $_SESSION['username'] . "' OR ID = '". $_SESSION['username'] . "' OR Brand_name = '". $_SESSION['username'] . "'");
                       while($row = mysqli_fetch_array($result))
                       {
                           $id = $row['ID'];
@@ -223,18 +236,14 @@ else
                 if(form.elements['stock4'].value != ''){if(isNaN(n) || n < 0){ alert("The stock must be a positive number"); form.elements['stock4'].focus(); return false; }}
             }
 
-            if( (ltrim(rtrim(form.elements['stock5'].value,' '),' ')!="") ||  ltrim(rtrim(form.elements['size5'].value,' '),' ')!="" )
-            {
-                if( ltrim(rtrim(form.elements['size5'].value,' '),' ')=="" ) { alert("You must input a corresponding Size for that stock"); form.elements['size5'].focus(); return false; }
-
-                if( ltrim(rtrim(form.elements['stock5'].value,' '),' ')=="" ) { alert("You must input a corresponding Stock for that Size"); form.elements['stock5'].focus(); return false; }
-                n = parseInt(ltrim(ltrim(rtrim(form.elements['stock5'].value,' '),' '),'£'));
-                if(form.elements['stock5'].value != ''){if(isNaN(n) || n < 0){ alert("The stock must be a positive number"); form.elements['stock5'].focus(); return false; }}
-            }
-
-            if( ltrim(rtrim(form.elements['file1'].value,' '),' ')=="" ) { alert("Item Image 1 is required"); form.elements['file1'].focus(); return false; }
+//            if( ltrim(rtrim(form.elements['file1'].value,' '),' ')=="" ) { alert("Item Image 1 is required"); form.elements['file1'].focus(); return false; }
 
             if( ltrim(rtrim(form.elements['desc'].value,' '),' ')=="e.g. \nStripped Chino shorts\nZip and Button closure\n\n100% cotton\nColour: Grey\n\nModel in image wears size: 32R" ) form.elements['desc'].value = "";
+
+            if ($('.tools').css("display")!= 'none') {
+                alert('Please press green click to save image editing.');
+                return false;
+            }
 
             $('#butn_95').hide();
             $('#loading_image4').show();
@@ -303,7 +312,7 @@ else
         }
         .Heading-3-Ca
         {
-            font-family:"Harabara", serif; color:#2c2c2c; font-size:14px; line-height:1.50em;
+            font-family:"Lato", serif; color:#2c2c2c; font-size:14px; line-height:1.50em; font-weight:bold;
         }
         .Heading-1-C-C0
         {
@@ -1310,9 +1319,150 @@ else
         				<input type="hidden" name="username" value="' . $_SESSION['username'] . '">
         				<input type="hidden" name="ID" value="' . $id . '">
         				<input type="hidden" name="brandname" value="' . $brandName . '">
-        				
-        				
-        				<div>
+
+                        <style>
+@font-face {
+  font-family: "Glyphicons Halflings";
+  src: url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.eot");
+  src: url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.woff") format("woff"), url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: "Glyphicons Halflings";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-resize-full:before {
+    content: "\e096";
+}
+
+.glyphicon-pencil:before {
+  content: "\270f";
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open>.dropdown-toggle.btn-info {
+    color: #fff;
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+
+.glyphicon-trash:before {
+  content: "\e020";
+}
+
+.glyphicon-fullscreen:before {
+    content: "\e140";
+}
+
+.glyphicon-resize-small:before {
+    content: "\e097";
+}
+
+.glyphicon-remove:before {
+    content: "\e014";
+}
+
+.glyphicon-ok:before {
+    content: "\e013";
+}
+
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.btn:hover, .btn:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open>.dropdown-toggle.btn-danger {
+    color: #fff;
+    background-color: #c9302c;
+    border-color: #ac2925;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open>.dropdown-toggle.btn-success {
+    color: #fff;
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+                        </style>
+                        <div id="js-addProduct-images" style="display:none;" >
+                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
+                                <p style="font-size:20px;font-weight:bold;">Upload a primary image</p>
+                                <p style="font-size:18px;">This will be the main image used for this product throughout the site.</p>
+                            </div>
+                            <div style="width:352px; height:452px;margin:auto;padding-top:35px;">
+                                <div class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-url="upload_product_imgs.php" data-resize="false" style="width: 352px; height: 452px;">
+                                    <input type="file" name="file1" required />
+                                    <input id="js-img-left" type="hidden" name="img_left" />
+                                    <input id="js-img-top" type="hidden" name="img_top" />
+                                    <input id="js-img-width" type="hidden" name="img_width" />
+                                    <input id="js-img-height" type="hidden" name="img_height" />
+                                    <input type="hidden" name="target_width" value="352" />
+                                    <input type="hidden" name="target_height" value="452" />
+                                </div>
+                            </div>
+                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
+                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton" value="Back" >
+                            <input class="button large blue" type="button" style="color:white;width:130px;height:30px;float:right;margin:0;margin-right:110px;margin-bottom:-30px;top:-30px;" id="js-addProduct-addAnother" value="Add another Image" >
+                        </div>
+
+
+        				<div id="js-addProduct-details">
         				
         					<div style="float:left;">
         						<div id="txt_417">
@@ -1560,6 +1710,7 @@ else
         						<br/><br/>
         						
         						
+        					<!--
         						<div>
         							<p class="Wp-Body-P">
         								<label for="combo_29"><span class="Body-C-C4">Product Images:</span></label>
@@ -1587,12 +1738,33 @@ else
         						</div>
         						
         						<br/>
-        						<input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;" id="butn_95" value="Submit" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
-        					
+        						-->
+        						<!--<input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;" id="butn_95" value="Submit" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">-->
+        					    <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:right;" id="js-addProduct-nextButton" value="Next" >
         					</div>
         				</div>
         				
-        
+                        <script>
+                            $(document).ready(function(){
+
+                                $("#butn_95").click(function(){
+                                    $("#js-img-left").val($(".cropWrapper img").css("left"));
+                                    $("#js-img-top").val($(".cropWrapper img").css("top"));
+                                    $("#js-img-width").val($(".cropWrapper img").css("width"));
+                                    $("#js-img-height").val($(".cropWrapper img").css("height"));
+                                });
+
+                                $("#js-addProduct-nextButton").click(function(){
+                                    $("#js-addProduct-details").css("display", "none");
+                                    $("#js-addProduct-images").css("display", "block");
+                                });
+
+                                $("#js-addProduct-backButton").click(function(){
+                                    $("#js-addProduct-details").css("display", "block");
+                                    $("#js-addProduct-images").css("display", "none");
+                                });
+                            });
+                        </script>
         				
         				</form>
         				
@@ -2258,26 +2430,26 @@ else
 
 
                 <div id="txt_434" style="position:absolute;left:8px;top:8px;width:46px;height:25px;overflow:hidden; " >
-                    <p class="Wp-Body-P"><label for="file_10"><span class="Body-C-C1">Logo:</span></label></p>
+                    <p class="Wp-Body-P"><label for="file_10"><span class="Heading-3-Ca">Logo:</span></label></p>
                 </div>
                 <input type="file" id="file_10" name="file1" size="17" style="position:absolute; left:112px; top:8px; width:208px;  " >
 
 
                 <div id="txt_435" style="position:absolute;left:8px;top:38px;width:60px;height:25px;overflow:hidden; " >
-                    <p class="Wp-Body-P"><label for="file_11"><span class="Body-C-C1">Banner:</span></label></p>
+                    <p class="Wp-Body-P"><label for="file_11"><span class="Heading-3-Ca">Banner:</span></label></p>
                 </div>
                 <input type="file" id="file_11" name="file2" size="17" style="position:absolute; left:112px; top:38px; width:208px;  " >
 
 
 
                 <div id="txt_436" style="position:absolute;left:8px;top:68px;width:93px;height:25px;overflow:hidden; " >
-                    <p class="Wp-Body-P"><label for="file_12"><span class="Body-C-C1">Background:</span></label></p>
+                    <p class="Wp-Body-P"><label for="file_12"><span class="Heading-3-Ca">Background:</span></label></p>
                 </div>
                 <input type="file" id="file_12" name="file3" size="17" style="position:absolute; left:112px; top:68px; width:208px;  " >
 
 
                 <div style="position:absolute;left:8px;top:98px;width:93px;height:25px;overflow:hidden; " >
-                    <p class="Wp-Body-P"><span class="Body-C-C1">Storefront:</span></p>
+                    <p class="Wp-Body-P"><span class="Heading-3-Ca">Storefront:</span></p>
                 </div>
                 <input type="file" id="file_12" name="file4" size="17" style="position:absolute; left:112px; top:98px; width:208px;  " >
 
@@ -2301,7 +2473,7 @@ else
             }
             else
             {
-                $result = mysqli_query($con,"SELECT * FROM brands WHERE Username = '". $_SESSION['username'] . "'");
+                $result = mysqli_query($con,"SELECT * FROM brands WHERE Username = '". $_SESSION['username'] . "' OR ID = '". $_SESSION['username'] . "' OR Brand_name = '". $_SESSION['username'] . "'");
 
                 while($row = mysqli_fetch_array($result))
                 {
@@ -2322,7 +2494,7 @@ else
         		<img src="'. $sbb .'" border="1" width="252" height="152" style="position:absolute;left:8px;top:70px; " >
         
         		<div style="position:absolute;left:8px;top:40px; >
-        		<p class="Wp-Body-P"><span class="Body-C-C1">Storefront Image Preview</span></p>
+        		<p class="Wp-Body-P"><span class="Heading-3-Ca">Storefront Image Preview</span></p>
         		</div>
         		';
 
@@ -2355,7 +2527,7 @@ else
             $tmp = $x + 30;
             echo '
         		<div style="position:absolute;left:317px;top:'.$tmp.'px; >
-        		<p class="Wp-Body-P"><span class="Body-C-C1">Store (Logo, Banner, Background) Preview</span></p>
+        		<p class="Wp-Body-P"><span class="Heading-3-Ca">Store (Logo, Banner, Background) Preview</span></p>
         		</div>
         		
         		</div>
@@ -2387,7 +2559,7 @@ else
             }
             else
             {
-                $result = mysqli_query($con,"SELECT * FROM brands WHERE Username = '". $_SESSION['username'] . "'");
+                $result = mysqli_query($con,"SELECT * FROM brands WHERE Username = '". $_SESSION['username'] . "' OR ID = '". $_SESSION['username'] . "' OR Brand_name = '". $_SESSION['username'] . "'");
 
                 while($row = mysqli_fetch_array($result))
                 {
@@ -2508,34 +2680,34 @@ else
     </div>
     <div id="panel_8" style="position:absolute;left:0px;top:405px;width:170px;height:68px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
         <div id="txt_449" style="position:absolute;left:20px;top:23px;width:129px;height:21px;overflow:hidden;">
-            <p class="Wp-Body-P"><span class="Body-C-C1">Products</span></p>
+            <p class="Wp-Body-P"><span class="Heading-3-Ca">Products</span></p>
         </div>
     </div>
     <div id="panel_7" style="position:absolute;left:0px;top:199px;width:170px;height:69px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
         <div id="txt_450" style="position:absolute;left:20px;top:23px;width:129px;height:22px;overflow:hidden;">
-            <p class="Wp-Body-P"><span class="Body-C-C1">Store Images</span></p>
+            <p class="Wp-Body-P"><span class="Heading-3-Ca">Store Images</span></p>
         </div>
     </div>
     <div id="panel_6" style="position:absolute;left:0px;top:130px;width:170px;height:68px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
         <div id="txt_451" style="position:absolute;left:20px;top:26px;width:129px;height:22px;overflow:hidden;">
-            <p class="Wp-Body-P"><span class="Body-C-C1">Brand Info</span></p>
+            <p class="Wp-Body-P"><span class="Heading-3-Ca">Brand Info</span></p>
         </div>
     </div>
     <img src="images/vertical_grey_line.png" border="0" width="1" height="2528" id="pcrv_5" alt="" style="position:absolute;left:171px;top:130px;">
     <a name="panel_9" style="position:absolute; left:0px; top:337px"></a>
     <div id="panel_9" style="position:absolute;left:0px;top:337px;width:170px;height:67px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
         <div id="txt_469" style="position:absolute;left:20px;top:23px;width:129px;height:21px;overflow:hidden;">
-            <p class="Wp-Body-P"><span class="Body-C-C1">Sizing Guides</span></p>
+            <p class="Wp-Body-P"><span class="Heading-3-Ca">Sizing Guides</span></p>
         </div>
     </div>
     <div id="panel_10" style="position:absolute;left:0px;top:269px;width:170px;height:67px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2; /*MainDivStyle*/">
         <div id="txt_478" style="position:absolute;left:20px;top:23px;width:129px;height:22px;overflow:hidden;">
-            <p class="Wp-Body-P"><span class="Body-C-C1">Shipping Prices</span></p>
+            <p class="Wp-Body-P"><span class="Heading-3-Ca">Shipping Prices</span></p>
         </div>
     </div>
     <div id="panel_11" style="position:absolute;left:0px;top:474px;width:170px;height:70px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2; /*MainDivStyle*/">
         <div id="txt_479" style="position:absolute;left:20px;top:23px;width:129px;height:21px;overflow:hidden;">
-            <p class="Wp-Body-P"><span class="Body-C-C1">FAQs</span></p>
+            <p class="Wp-Body-P"><span class="Heading-3-Ca">FAQs</span></p>
         </div>
     </div>
     <div id="FAQs" style="position:absolute;left:170px;top:130px;width:810px;height:628px; visibility:hidden; /*MainDivStyle*/">
@@ -2724,12 +2896,56 @@ else
 
 
 
-
-
     <!--Fullsize Background Image End-->
     <script src="js/jquery.backstretch.js"></script>
     <script>
         jQuery.backstretch("images/backgrounds/sbackground3.jpg");
+    </script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script src="image-upload-tool/assets/js/html5imageupload.js?v1.4.3"></script>
+
+    <script>
+
+        $('#retrievingfilename').html5imageupload({
+            onAfterProcessImage: function() {
+                $('#filename').val($(this.element).data('name'));
+            },
+            onAfterCancel: function() {
+                $('#filename').val('');
+            }
+
+        });
+
+        $('#save').html5imageupload({
+            onSave: function(data) {
+                console.log(data);
+            },
+
+        });
+
+        $('.dropzone').html5imageupload();
+
+        $( "#myModal" ).on('shown.bs.modal', function(){
+            $('#modaldialog').html5imageupload();
+        });
+        /*
+         $('#form').html5imageupload({
+         onAfterProcessImage: function() {
+         $(this.element).closest('form').submit();
+         }
+         });
+
+         $('form button.btn').unbind('click').click(function(e) {
+         e.preventDefault()
+         $(this).closest('form').find('#form').data('html5imageupload').imageCrop()
+         });*/
+
+
     </script>
     </body>
     </html>

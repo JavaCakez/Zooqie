@@ -1,7 +1,6 @@
 <?php
 
 $errorMessage = "NULL";
-$uploadedString = "";
 
 // Create connection
 if(file_exists("db_settings.php")) {include("db_settings.php");}
@@ -57,89 +56,103 @@ else
         }
         if($counter == 0) break;
     }
+    if(file_exists("utils.php")) {include("utils.php");}
+    else if(file_exists("../utils.php")) {include("../utils.php");}
+    else if(file_exists("../../utils.php")) {include("../../utils.php");}
+/*
+//Include utilities
+    if(file_exists("utils.php")) {include("utils.php");}
+    else if(file_exists("../utils.php")) {include("../utils.php");}
+    else if(file_exists("../../utils.php")) {include("../../utils.php");}
+
+    $imgLeft = substr($_POST['img_left'], 0, -2);
+    $imgTop = substr($_POST['img_top'], 0, -2);
+    $imgWidth = substr($_POST['img_width'], 0, -2);
+    $imgHeight = substr($_POST['img_height'], 0, -2);
+    $targetWidth = $_POST['target_width'];
+    $targetHeight = $_POST['target_height'];
+
+    $imagedetails = getimagesize($_FILES["file1"]["tmp_name"]);
+    $originalWidth = $imagedetails[0];
+    $originalHeight = $imagedetails[1];
+
+    $extension = end(explode(".", $_FILES["file1"]["name"]));
+    $extension = strtolower($extension);
+    if ($extension == "gif") {
+        $imgt = "ImageGIF";
+        $imgcreatefrom = "ImageCreateFromGIF";
+        $imagecreateto = "imagegif";
+    }
+    if ($extension == "jpeg" || $extension == "jpg") {
+        $imgt = "ImageJPEG";
+        $imgcreatefrom = "ImageCreateFromJPEG";
+        $imagecreateto = "imagejpeg";
+    }
+    if ($extension == "png") {
+        $imgt = "ImagePNG";
+        $imgcreatefrom = "ImageCreateFromPNG";
+        $imagecreateto = "imagepng";
+    }
+    $im = $imgcreatefrom($_FILES["file1"]["tmp_name"]);
+
+
+
+
+    $resizedImage 			= imagecreatetruecolor($originalWidth, $originalHeight);
+    imagecopyresampled($resizedImage, $im, 0, 0, 0, 0, $originalWidth, $originalHeight, $imgWidth, $imgHeight);
+
+    $finalImage 			= imagecreatetruecolor($targetWidth, $targetHeight);
+    imagecopyresampled($finalImage, $resizedImage, 0, 0, $imgLeft, $imgTop, $targetWidth, $targetHeight, $targetWidth, $targetHeight);
+
+    $filename				= substr($_POST['name'],0,-(strlen(end(explode('.',$_POST['name']))) + 1)).'.'.substr(sha1(time()),0,6).'.'.$extension;
+
+    if ($extension == 'png') {
+        imagesavealpha($finalImage, true);
+    }
+
+*/
+
+    $error					= false;
+    $absolutedir			= dirname(__FILE__);
+    $dir					= '/images/productimages/';
+    $serverdir				= $absolutedir.$dir;
+    $filename				= array();
+    $i = 1;
+    foreach($_FILES as $name => $value) {
+
+        $jsonData = stripslashes(html_entity_decode($_POST[$name.'_values']));
+        $jsonData = rtrim($jsonData, "\0");
+        $json					= json_decode($jsonData);
+        $tmp					= explode(',',$json->data);
+        $imgdata 				= base64_decode($tmp[1]);
+
+        $extension				= strtolower(end(explode('.',$json->name)));
+        $fname					= $s . "_".$i."." . $extension;
+
+
+        $handle					= fopen($serverdir.$fname,'w');
+        fwrite($handle, $imgdata);
+        fclose($handle);
+
+        $filename[]				= $fname;
+
+        $i++;
+    }
+
+
 
 
 
 
 
     //Upload image files
-    for ($i = 1; $i <= 5; $i++)
-    {
-        $fileString = "file" . $i;
-        if($_FILES[$fileString]["name"] == "") break;
-
-        $allowedExts = array("gif", "jpeg", "jpg", "png");
-        $temp = explode(".", $_FILES[$fileString]["name"]);
-        $extension = end($temp);
-        if ($_FILES[$fileString]["size"] < 6144000)
-        {
-            if ($_FILES[$fileString]["error"] > 0)
-            {
-                $errorMessage = "Return Code: " . $_FILES[$fileString]["error"] . "<br>";
-            }
-        }
-        else
-        {
-            $errorMessage = "Invalid file - Must be a jpg or png and be less than 6MB in size";
-        }
-    }
-
-
-
-    if($errorMessage == "NULL")
-    {
-        //Upload image files
         for ($i = 1; $i <= 5; $i++)
         {
             $fileString = "file" . $i;
-            if($_FILES[$fileString]["name"] != "")
+            if($_POST[$fileString.'_values'] != "")
             {
-                $allowedExts = array("gif", "jpeg", "jpg", "png");
-                $temp = explode(".", $_FILES[$fileString]["name"]);
-                $extension = end($temp);
-                if ($_FILES[$fileString]["size"] < 6144000)
-                {
-                    if ($_FILES[$fileString]["error"] > 0)
-                    {
-                        $errorMessage = "Return Code: " . $_FILES[$fileString]["error"] . "<br>";
-                    }
-                    else
-                    {
-
-                        // Create connection
-                        $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-
-                        // Check connection
-                        if (mysqli_connect_errno($con))
-                        {
-                        }
-                        else
-                        {
-                            $imagedetails = getimagesize($_FILES[$fileString]["tmp_name"]);
-                            $width = $imagedetails[0];
-                            $height = $imagedetails[1];
-
-                            $ratio = $width / $height;
-                            if($ratio < 0.6 || $ratio > 1.0) $warningMessage = " but with the following WARNING: Product image may be squashed/stretched";
-
-
-                            move_uploaded_file($_FILES[$fileString]["tmp_name"],
-                                "images/productimages/" . $s . "_".$i."." . $extension);
-                            copy("images/productimages/" . $s . "_".$i."." . $extension,
-                                "images/productimagesbackup/" . $s . "_".$i."." . $extension);
-                            $uploadedString = $uploadedString . $s . "_".$i."." . $extension;
-
-                            $imgsql[$i] = "'images/productimages/". $s . "_".$i."." . $extension . "', ";
-
-
-                            $uploadedString = $uploadedString . $_FILES[$fileString]["name"] . " uploaded\n";
-                        }
-                    }
-                }
-                else
-                {
-                    $errorMessage = "Invalid file - Must be a jpg or png and be less than 6MB in size";
-                }
+                copy("images/productimages/" . $s . "_".$i."." . $extension, "images/productimagesbackup/" . $s . "_".$i."." . $extension);
+                $imgsql[$i] = "'images/productimages/". $s . "_".$i."." . $extension . "', ";
             }
             else
             {
@@ -150,9 +163,8 @@ else
 
 
 
-
-
-
+        // Create connection
+        $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
 
         for ($j = 1; $j <= 5; $j++)
         {
@@ -236,7 +248,7 @@ else
 
         }
 
-    }
+
 
     //TODO: Finish this
     $e_body = 'Brand: ' . $username . ' have added a product:' . $s . '\n With the following information: \n\n

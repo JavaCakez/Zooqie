@@ -17,7 +17,7 @@ if (mysqli_connect_errno($con))
 else
 {
     //Get all POST variables
-    $name 			= mysqli_real_escape_string($con, $_POST['name']);
+    $item_name 			= mysqli_real_escape_string($con, $_POST['name']);
     $gender 		= mysqli_real_escape_string($con, $_POST['gender']);
     $price 			= str_replace('£','',mysqli_real_escape_string($con, $_POST['price']));
     $shipping 		= mysqli_real_escape_string($con, $_POST['shipping']);
@@ -118,6 +118,9 @@ else
     $serverdir				= $absolutedir.$dir;
     $filename				= array();
     $i = 1;
+
+
+
     foreach($_FILES as $name => $value) {
 
         $jsonData = stripslashes(html_entity_decode($_POST[$name.'_values']));
@@ -126,21 +129,20 @@ else
         $tmp					= explode(',',$json->data);
         $imgdata 				= base64_decode($tmp[1]);
 
-        $extension				= strtolower(end(explode('.',$json->name)));
-        $fname					= $s . "_".$i."." . $extension;
+        if ($json->name != '') {
+            $extension				= strtolower(end(explode('.',$json->name)));
+            $fname					= $s . "_".$i."." . $extension;
 
 
-        $handle					= fopen($serverdir.$fname,'w');
-        fwrite($handle, $imgdata);
-        fclose($handle);
+            $handle					= fopen($serverdir.$fname,'w');
+            fwrite($handle, $imgdata);
+            fclose($handle);
 
-        $filename[]				= $fname;
+            $filename[]				= $fname;
+        }
 
         $i++;
     }
-
-
-
 
 
 
@@ -199,7 +201,7 @@ else
             if($stock == '') $stock = 0;
             if($size != '')
             {
-                $sql = "INSERT INTO products VALUES ('" . $s . "', '" . $size . "', '" . $name . "', '" . $ID . "', '" . $brandName . "', ";
+                $sql = "INSERT INTO products VALUES ('" . $s . "', '" . $size . "', '" . $item_name . "', '" . $ID . "', '" . $brandName . "', ";
                 if($gender == 'Male') $sql = $sql . "'M',";
                 if($gender == 'Female') $sql = $sql . "'F',";
                 if($gender == 'Unisex') $sql = $sql . "'U',";
@@ -253,7 +255,7 @@ else
     //TODO: Finish this
     $e_body = 'Brand: ' . $username . ' have added a product:' . $s . '\n With the following information: \n\n
 
-    Name = '.$name.'\n
+    Name = '.$item_name.'\n
     Gender = '.gender.'\n
     Price = '.$price.'\n
     Shipping = '.$shipping.'\n

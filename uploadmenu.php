@@ -240,8 +240,28 @@ else
 
             if( ltrim(rtrim(form.elements['desc'].value,' '),' ')=="e.g. \nStripped Chino shorts\nZip and Button closure\n\n100% cotton\nColour: Grey\n\nModel in image wears size: 32R" ) form.elements['desc'].value = "";
 
-            if ($('.tools').css("display")!= 'none') {
-                alert('Please press green click to save image editing.');
+            if ($('#js-dropzone1 .tools').length && $('#js-dropzone1 .tools').css("display")!= 'none') {
+                alert('Please press green tick to save image editing.');
+                return false;
+            }
+
+            if ($('#js-dropzone2 .tools').length && $('#js-dropzone2 .tools').css("display")!= 'none') {
+                alert('Please press green tick to save image editing.');
+                return false;
+            }
+
+            if ($('#js-dropzone3 .tools').length && $('#js-dropzone3 .tools').css("display")!= 'none') {
+                alert('Please press green tick to save image editing.');
+                return false;
+            }
+
+            if ($('#js-dropzone4 .tools').length && $('#js-dropzone4 .tools').css("display")!= 'none') {
+                alert('Please press green tick to save image editing.');
+                return false;
+            }
+
+            if ($('#js-dropzone5 .tools').length && $('#js-dropzone5 .tools').css("display")!= 'none') {
+                alert('Please press green tick to save image editing.');
                 return false;
             }
 
@@ -1440,25 +1460,82 @@ else
     border-color: #4cae4c;
 }
                         </style>
-                        <div id="js-addProduct-images" style="display:none;" >
+                        <div id="js-addProduct-images1" style="display:none;" >
                             <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
                                 <p style="font-size:20px;font-weight:bold;">Upload a primary image</p>
                                 <p style="font-size:18px;">This will be the main image used for this product throughout the site.</p>
                             </div>
                             <div style="width:352px; height:452px;margin:auto;padding-top:35px;">
-                                <div class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-url="upload_product_imgs.php" data-resize="false" style="width: 352px; height: 452px;">
+                                <div id="js-dropzone1" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" style="width: 352px; height: 452px;">
                                     <input type="file" name="file1" required />
-                                    <input id="js-img-left" type="hidden" name="img_left" />
-                                    <input id="js-img-top" type="hidden" name="img_top" />
-                                    <input id="js-img-width" type="hidden" name="img_width" />
-                                    <input id="js-img-height" type="hidden" name="img_height" />
-                                    <input type="hidden" name="target_width" value="352" />
-                                    <input type="hidden" name="target_height" value="452" />
                                 </div>
                             </div>
                             <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
-                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton" value="Back" >
-                            <input class="button large blue" type="button" style="color:white;width:130px;height:30px;float:right;margin:0;margin-right:110px;margin-bottom:-30px;top:-30px;" id="js-addProduct-addAnother" value="Add another Image" >
+                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton1" value="Back" >
+                            <input class="button large blue" type="button" style="color:white;width:130px;height:30px;float:right;margin:0;margin-right:110px;margin-bottom:-30px;top:-30px;" id="js-addProduct-addAnother1" value="Add another Image" >
+                        </div>
+
+                        <div id="js-addProduct-images2" style="display:none;" >
+                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
+                                <p style="font-size:20px;font-weight:bold;">Upload optional secondary image(s)</p>
+                                <p style="font-size:18px; font-weight:bold; color: #E52B50;">Image 2</p>
+                                <p style="font-size:18px;">Secondary images will only be shown on the page of this product. You can have up to 4 secondary images.</p>
+                            </div>
+                            <div style="width:352px; height:452px;margin:auto;padding-top:35px;">
+                                <div id="js-dropzone2" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" style="width: 352px; height: 452px;">
+                                    <input type="file" name="file2" />
+                                </div>
+                            </div>
+                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
+                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton2" value="Back" >
+                            <input class="button large blue" type="button" style="color:white;width:130px;height:30px;float:right;margin:0;margin-right:110px;margin-bottom:-30px;top:-30px;" id="js-addProduct-addAnother2" value="Add another Image" >
+                        </div>
+
+                        <div id="js-addProduct-images3" style="display:none;" >
+                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
+                                <p style="font-size:20px;font-weight:bold;">Upload optional secondary image(s)</p>
+                                <p style="font-size:18px; font-weight:bold; color: #E52B50;">Image 3</p>
+                                <p style="font-size:18px;">Secondary images will only be shown on the page of this product. You can have up to 4 secondary images.</p>
+                            </div>
+                            <div style="width:352px; height:452px;margin:auto;padding-top:35px;">
+                                <div id="js-dropzone3" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" style="width: 352px; height: 452px;">
+                                    <input type="file" name="file3" />
+                                </div>
+                            </div>
+                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
+                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton3" value="Back" >
+                            <input class="button large blue" type="button" style="color:white;width:130px;height:30px;float:right;margin:0;margin-right:110px;margin-bottom:-30px;top:-30px;" id="js-addProduct-addAnother3" value="Add another Image" >
+                        </div>
+
+                        <div id="js-addProduct-images4" style="display:none;" >
+                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
+                                <p style="font-size:20px;font-weight:bold;">Upload optional secondary image(s)</p>
+                                <p style="font-size:18px; font-weight:bold; color: #E52B50;">Image 4</p>
+                                <p style="font-size:18px;">Secondary images will only be shown on the page of this product. You can have up to 4 secondary images.</p>
+                            </div>
+                            <div style="width:352px; height:452px;margin:auto;padding-top:35px;">
+                                <div id="js-dropzone4" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" style="width: 352px; height: 452px;">
+                                    <input type="file" name="file4" />
+                                </div>
+                            </div>
+                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
+                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton4" value="Back" >
+                            <input class="button large blue" type="button" style="color:white;width:130px;height:30px;float:right;margin:0;margin-right:110px;margin-bottom:-30px;top:-30px;" id="js-addProduct-addAnother4" value="Add another Image" >
+                        </div>
+
+                        <div id="js-addProduct-images5" style="display:none;" >
+                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
+                                <p style="font-size:20px;font-weight:bold;">Upload optional secondary image(s)</p>
+                                <p style="font-size:18px; font-weight:bold; color: #E52B50;">Image 5</p>
+                                <p style="font-size:18px;">Secondary images will only be shown on the page of this product. You can have up to 4 secondary images.</p>
+                            </div>
+                            <div style="width:352px; height:452px;margin:auto;padding-top:35px;">
+                                <div id="js-dropzone5" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" style="width: 352px; height: 452px;">
+                                    <input type="file" name="file5" />
+                                </div>
+                            </div>
+                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
+                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton5" value="Back" >
                         </div>
 
 
@@ -1746,23 +1823,76 @@ else
         				
                         <script>
                             $(document).ready(function(){
-
-                                $("#butn_95").click(function(){
-                                    $("#js-img-left").val($(".cropWrapper img").css("left"));
-                                    $("#js-img-top").val($(".cropWrapper img").css("top"));
-                                    $("#js-img-width").val($(".cropWrapper img").css("width"));
-                                    $("#js-img-height").val($(".cropWrapper img").css("height"));
-                                });
-
                                 $("#js-addProduct-nextButton").click(function(){
                                     $("#js-addProduct-details").css("display", "none");
-                                    $("#js-addProduct-images").css("display", "block");
+                                    $("#js-addProduct-images1").css("display", "block");
                                 });
 
-                                $("#js-addProduct-backButton").click(function(){
+                                $("#js-addProduct-backButton1").click(function(){
                                     $("#js-addProduct-details").css("display", "block");
-                                    $("#js-addProduct-images").css("display", "none");
+                                    $("#js-addProduct-images1").css("display", "none");
                                 });
+
+                                $("#js-addProduct-backButton2").click(function(){
+                                    $("#js-addProduct-images1").css("display", "block");
+                                    $("#js-addProduct-images2").css("display", "none");
+                                });
+
+                                $("#js-addProduct-backButton3").click(function(){
+                                    $("#js-addProduct-images2").css("display", "block");
+                                    $("#js-addProduct-images3").css("display", "none");
+                                });
+
+                                $("#js-addProduct-backButton4").click(function(){
+                                    $("#js-addProduct-images3").css("display", "block");
+                                    $("#js-addProduct-images4").css("display", "none");
+                                });
+
+                                $("#js-addProduct-backButton5").click(function(){
+                                    $("#js-addProduct-images4").css("display", "block");
+                                    $("#js-addProduct-images5").css("display", "none");
+                                });
+
+                                $("#js-addProduct-addAnother1").click(function(){
+                                    if ($(".tools").length) {
+                                        if ($("#js-dropzone1 .tools").css("display")!= "none") {
+                                            alert("Please press green tick to save image editing.");
+                                        } else {
+                                            $("#js-addProduct-images2").css("display", "block");
+                                            $("#js-addProduct-images1").css("display", "none");
+                                        }
+                                    } else {
+                                        alert("Please upload a primary image.");
+                                    }
+                                });
+
+                                $("#js-addProduct-addAnother2").click(function(){
+                                    if ($("#js-dropzone2 .tools").length && $("#js-dropzone2 .tools").css("display")!= "none") {
+                                            alert("Please press green tick to save image editing.");
+                                        } else {
+                                            $("#js-addProduct-images3").css("display", "block");
+                                            $("#js-addProduct-images2").css("display", "none");
+                                        }
+                                });
+
+                                $("#js-addProduct-addAnother3").click(function(){
+                                    if ($("#js-dropzone3 .tools").length && $("#js-dropzone3 .tools").css("display")!= "none") {
+                                            alert("Please press green tick to save image editing.");
+                                        } else {
+                                            $("#js-addProduct-images4").css("display", "block");
+                                            $("#js-addProduct-images3").css("display", "none");
+                                        }
+                                });
+
+                                $("#js-addProduct-addAnother4").click(function(){
+                                    if ($("#js-dropzone4 .tools").length && $("#js-dropzone4 .tools").css("display")!= "none") {
+                                            alert("Please press green tick to save image editing.");
+                                        } else {
+                                            $("#js-addProduct-images5").css("display", "block");
+                                            $("#js-addProduct-images4").css("display", "none");
+                                        }
+                                });
+
                             });
                         </script>
         				

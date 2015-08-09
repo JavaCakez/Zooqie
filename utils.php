@@ -980,14 +980,13 @@ nav ul li a:hover {
 //TODO: methods for colourstrings, categorystrings, colourcount (not done on all pages yet)
 //TODO: Clean up all scripts, put them nicely in folders (e.g. userMade, 3rd party etc)
 //TODO: merge nav348 to styles.css
-//TODO: MASSIVELY clean up all css!!
 //TODO: remove all old unused html files (inc uploadmenu2 and alert.txt)
 
 //TODO: New header categories dynamically
 //TODO: Change search so it will find brands, products or categories. Only in 1 column, stacked on top of eachother
-//TODO: clean up, move styles etc
 
-//TODO: cleanup search-results/index, it's pretty messy as fuck.
+//TODO: MASSIVELY clean up all css!! No more inline styles
+//TODO: clean up all code, no more id="txt_123" bullshit etc
 
 //TODO: clean up database calls. Make sure only 1 call to database is done per page and everything needed is collected once. Then close connection.
 
@@ -995,10 +994,38 @@ nav ul li a:hover {
 
 //TODO: do audit of Harabara font, overused sometimes
 
-//TODO: refinement forms no longer need to reload page
+//TODO: refinement forms no longer need to reload page (ajax)
+
 //TODO: don't allow brand to add a product if they dont have any shipping price sets
 //TODO: make upload tool step by step.
-
 //TODO: get rid of all alerts (e.g. mainly on upload tool), find alternative
-
 //TODO: make buttons on upload tool flat style.
+//TODO: make brand upload notifications better.
+
+//TODO: Brand sale notification. Email either automatically after paypal, or after manual force sale. Paypal IPN
+
+//TODO: users can log in / CRM database
+
+//TODO: SEO audit. I.e. alt tags for all images etc.
+
+//TODO set up google analytics event pushing
+
+//TODO promo code functionality
+//TODO: friend referral?
+
+//TODO: big restyle??
+
+//TODO: checkout overhaul
+//TODO: embed paypal in site??
+
+//TODO: basket & multiple item checkout
+
+//TODO: reword returns page
+
+//TODO: image load times overhaul
+
+//TODO: nav bar change to brands drop down
+
+//TODO: 'no search results found' message
+
+//TODO: PUT XAV ON ABOUT PAGAE. SET UP XAV A 1P product

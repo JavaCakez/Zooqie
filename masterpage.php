@@ -183,9 +183,11 @@ echoNavBar(0, array('Home', 'Masterpage'), array('index.php', 'masterpage.php'))
 <form id="form_35" action="update_lookbooks.php" accept-charset="UTF-8" method="post" target="_self" enctype="application/x-www-form-urlencoded" style="margin:0;position:absolute;left:780px;top:223px;width:296px;height:46px;">
 <input type="submit" style="position:absolute; left:8px; top:8px; width:200px; height:22px;" id="butn_12" value="Update lookbooks">
 </form>
+<form id="form_35" action="update_thumbnails.php" accept-charset="UTF-8" method="post" target="_self" enctype="application/x-www-form-urlencoded" style="margin:0;position:absolute;left:780px;top:253px;width:296px;height:46px;">
+	<input type="submit" style="position:absolute; left:8px; top:8px; width:200px; height:22px;" id="butn_12" value="Update Product Thumbnails">
+</form>
 
-
-<form action="add_brand.php" accept-charset="UTF-8" method="post" target="_self" enctype="application/x-www-form-urlencoded" style="margin:0;position:absolute;left:500px;top:253px;width:500px;height:46px;">
+<form action="add_brand.php" accept-charset="UTF-8" method="post" target="_self" enctype="application/x-www-form-urlencoded" style="margin:0;position:absolute;left:500px;top:253px;width:250px;height:46px;">
     ID: <input type="text" name="id" style="width:25px;"> <br/>
     Brand Name: <input type="text" name="brandname"> <br/>
     Commission: <input type="text" name="commission" style="width:25px;"> <br/>

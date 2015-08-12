@@ -977,6 +977,611 @@ nav ul li a:hover {
         echo "<script type='text/javascript'>alert('{$var}');</script>";
     }
 
+    function echoAddEditProductForm($id, $brandName, $con) {
+        echo'
+        			<script type="text/javascript">
+
+        function validate_form_29( form )
+        {
+            if( ltrim(rtrim(form.elements["name"].value," ")," ")=="e.g. Zero Graphic Tee" ) form.elements["name"].value = "";
+            if( ltrim(rtrim(form.elements["name"].value," ")," ")=="" ) { alert("Clothing Item Name is required"); form.elements["name"].focus(); return false; }
+
+            if( ltrim(rtrim(form.elements["gender"].value," ")," ")=="" ) { alert("You Must Select a Gender"); form.elements["gender"].focus(); return false; }
+
+            if( ltrim(rtrim(form.elements["category"].value," ")," ")=="" ) { alert("The Category is required"); form.elements["category"].focus(); return false; }
+
+            if( ltrim(rtrim(form.elements["colour"].value," ")," ")=="" ) { alert("You Must Select a Colour"); form.elements["colour"].focus(); return false; }
+
+            if( ltrim(rtrim(form.elements["price"].value," ")," ")=="e.g. 14.99" ) form.elements["price"].value = "";
+            if( ltrim(rtrim(form.elements["price"].value," ")," ")=="" ) { alert("The Price is required"); form.elements["price"].focus(); return false; }
+
+            n = parseFloat(ltrim(ltrim(rtrim(form.elements["price"].value," ")," "),"£"));
+            if(isNaN(n) || n < 0){ alert("The Price must be a positive number"); form.elements["price"].focus(); return false; }
+
+            if( ltrim(rtrim(form.elements["shipping"].value," ")," ")=="" ) { alert("The Shipping Prices are required. If you have not created any Shipping Price Sets please do so first and try again."); form.elements["shipping"].focus(); return false; }
+
+            if( ltrim(rtrim(form.elements["size1"].value," ")," ")=="e.g. Red Small" ) form.elements["size1"].value = "";
+            if( ltrim(rtrim(form.elements["size1"].value," ")," ")=="" ) { alert("You must input at least one Size"); form.elements["size1"].focus(); return false; }
+
+            if( ltrim(rtrim(form.elements["desc"].value," ")," ")=="e.g. \nStripped Chino shorts\nZip and Button closure\n\n100% cotton\nColour: Grey\n\nModel in image wears size: 32R" ) form.elements["desc"].value = "";
+
+            if ($("#js-dropzone1 .tools").length && $("#js-dropzone1 .tools").css("display")!= "none") {
+                alert("Please finish editing Image 1. Press green tick to finish editing.");
+                return false;
+            }
+
+            if ($("#js-dropzone2 .tools").length && $("#js-dropzone2 .tools").css("display")!= "none") {
+                alert("Please finish editing Image 2. Press green tick to finish editing.");
+                return false;
+            }
+
+            if ($("#js-dropzone3 .tools").length && $("#js-dropzone3 .tools").css("display")!= "none") {
+                alert("Please finish editing Image 3. Press green tick to finish editing.");
+                return false;
+            }
+
+            if ($("#js-dropzone4 .tools").length && $("#js-dropzone4 .tools").css("display")!= "none") {
+                alert("Please finish editing Image 4. Press green tick to finish editing.");
+                return false;
+            }
+
+            if ($("#js-dropzone5 .tools").length && $("#js-dropzone5 .tools").css("display")!= "none") {
+                alert("Please finish editing Image 5. Press green tick to finish editing.");
+                return false;
+            }
+
+            if (!$("#js-dropzone1 .tools").length) {
+                alert("Please add a primary image");
+                return false;
+            }
+
+            $("#butn_95").hide();
+            $("#loading_image4").show();
+
+
+
+            return true;
+        }
+    </script>
+
+        			<div style="display:none;">
+        			<div id="inline_content" style="padding:10px; background:#fff;">
+        			<form id="form_29" onsubmit="return validate_form_29(this)" action="add_product.php" accept-charset="UTF-8" method="post" target="_self" enctype="multipart/form-data">
+        				<input type="hidden" name="username" value="' . $_SESSION['username'] . '">
+        				<input type="hidden" name="ID" value="' . $id . '">
+        				<input type="hidden" name="Item_number" value="">
+        				<input type="hidden" name="brandname" value="' . $brandName . '">
+
+                        <style>
+@font-face {
+  font-family: "Glyphicons Halflings";
+  src: url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.eot");
+  src: url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.woff") format("woff"), url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: "Glyphicons Halflings";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-resize-full:before {
+    content: "\e096";
+}
+
+.glyphicon-pencil:before {
+  content: "\270f";
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open>.dropdown-toggle.btn-info {
+    color: #fff;
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+
+.glyphicon-trash:before {
+  content: "\e020";
+}
+
+.glyphicon-fullscreen:before {
+    content: "\e140";
+}
+
+.glyphicon-resize-small:before {
+    content: "\e097";
+}
+
+.glyphicon-remove:before {
+    content: "\e014";
+}
+
+.glyphicon-ok:before {
+    content: "\e013";
+}
+
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.btn:hover, .btn:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open>.dropdown-toggle.btn-danger {
+    color: #fff;
+    background-color: #c9302c;
+    border-color: #ac2925;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open>.dropdown-toggle.btn-success {
+    color: #fff;
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+                        </style>
+                        <div id="js-addProduct-images1" style="display:none;" >
+                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
+                                <p style="font-size:20px;font-weight:bold;">Upload a primary image</p>
+                                <p style="font-size:18px;">This will be the main image used for this product throughout the site.</p>
+                            </div>
+                            <div style="width:352px; height:452px;margin:auto;padding-top:20px;">
+                                <div id="js-dropzone1" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 352px; height: 452px;">
+                                    <input type="file" name="file1" />
+                                </div>
+                            </div>
+                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
+                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton1" value="Back" >
+                            <input class="button large blue" type="button" style="color:white;width:130px;height:30px;float:right;margin:0;margin-right:110px;margin-bottom:-30px;top:-30px;" id="js-addProduct-addAnother1" value="Add another Image" >
+                        </div>
+
+                        <div id="js-addProduct-images2" style="display:none;" >
+                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
+                                <p style="font-size:20px;font-weight:bold;">Upload optional secondary image(s)</p>
+                                <p style="font-size:18px; font-weight:bold; color: #E52B50;">Image 2</p>
+                                <p style="font-size:18px;">Secondary images will only be shown on the page of this product. You can have up to 4 secondary images.</p>
+                            </div>
+                            <div style="width:352px; height:452px;margin:auto;padding-top:20px;">
+                                <div id="js-dropzone2" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 352px; height: 452px;">
+                                    <input type="file" name="file2" />
+                                </div>
+                            </div>
+                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
+                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton2" value="Back" >
+                            <input class="button large blue" type="button" style="color:white;width:130px;height:30px;float:right;margin:0;margin-right:110px;margin-bottom:-30px;top:-30px;" id="js-addProduct-addAnother2" value="Add another Image" >
+                        </div>
+
+                        <div id="js-addProduct-images3" style="display:none;" >
+                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
+                                <p style="font-size:20px;font-weight:bold;">Upload optional secondary image(s)</p>
+                                <p style="font-size:18px; font-weight:bold; color: #E52B50;">Image 3</p>
+                                <p style="font-size:18px;">Secondary images will only be shown on the page of this product. You can have up to 4 secondary images.</p>
+                            </div>
+                            <div style="width:352px; height:452px;margin:auto;padding-top:20px;">
+                                <div id="js-dropzone3" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 352px; height: 452px;">
+                                    <input type="file" name="file3" />
+                                </div>
+                            </div>
+                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
+                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton3" value="Back" >
+                            <input class="button large blue" type="button" style="color:white;width:130px;height:30px;float:right;margin:0;margin-right:110px;margin-bottom:-30px;top:-30px;" id="js-addProduct-addAnother3" value="Add another Image" >
+                        </div>
+
+                        <div id="js-addProduct-images4" style="display:none;" >
+                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
+                                <p style="font-size:20px;font-weight:bold;">Upload optional secondary image(s)</p>
+                                <p style="font-size:18px; font-weight:bold; color: #E52B50;">Image 4</p>
+                                <p style="font-size:18px;">Secondary images will only be shown on the page of this product. You can have up to 4 secondary images.</p>
+                            </div>
+                            <div style="width:352px; height:452px;margin:auto;padding-top:20px;">
+                                <div id="js-dropzone4" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 352px; height: 452px;">
+                                    <input type="file" name="file4" />
+                                </div>
+                            </div>
+                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
+                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton4" value="Back" >
+                            <input class="button large blue" type="button" style="color:white;width:130px;height:30px;float:right;margin:0;margin-right:110px;margin-bottom:-30px;top:-30px;" id="js-addProduct-addAnother4" value="Add another Image" >
+                        </div>
+
+                        <div id="js-addProduct-images5" style="display:none;" >
+                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
+                                <p style="font-size:20px;font-weight:bold;">Upload optional secondary image(s)</p>
+                                <p style="font-size:18px; font-weight:bold; color: #E52B50;">Image 5</p>
+                                <p style="font-size:18px;">Secondary images will only be shown on the page of this product. You can have up to 4 secondary images.</p>
+                            </div>
+                            <div style="width:352px; height:452px;margin:auto;padding-top:20px;">
+                                <div id="js-dropzone5" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 352px; height: 452px;">
+                                    <input type="file" name="file5" />
+                                </div>
+                            </div>
+                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
+                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton5" value="Back" >
+                        </div>
+
+
+        				<div id="js-addProduct-details">
+
+        					<div style="float:left;">
+        						<div id="txt_417">
+        							<p class="Wp-Body-P"><label for="text_5">
+        								<span class="Body-C-C4">Clothing Item Name: </span></label>
+        							</p>
+        						</div>
+        						<textarea placeholder="e.g. Zero Graphic Tee" style="height:20px;width:200px" id="text_name" name="name" rows="2" cols="41" ></textarea>
+        						<br/><br/>
+
+
+        						<div id="txt_461" >
+        							<p class="Wp-Body-P">
+        								<label for="combo_29"><span class="Body-C-C4">Category:</span></label>
+        							</p>
+        						</div>
+        						<select style="width:212px" id="combo_29" name="category" size="1"  >
+        							<option value="" selected>Please Select One</option>
+        						    <option value="Accessories" >Accessories</option>
+        						    <option value="Bags" >Bags</option>
+        						    <option value="Caps" >Caps</option>
+        						    <option value="Cardigans" >Cardigans</option>
+        						    <option value="Coats and Jackets" >Coats and Jackets</option>
+        						    <option value="Dresses" >Dresses</option>
+        						    <option value="Girls Tops" >Girls Tops</option>
+        						    <option value="Hats and Beanies" >Hats and Beanies</option>
+        						    <option value="Hoodies and Jumpers" >Hoodies and Jumpers</option>
+        						    <option value="Jeans" >Jeans</option>
+        						    <option value="Jewellery and Watches" >Jewellery and Watches</option>
+        						    <option value="Jumpsuits and Playsuits" >Jumpsuits and Playsuits</option>
+        						    <option value="Leggings" >Leggings</option>
+        						    <option value="Onesies" >Onesies</option>
+        						    <option value="Polo Shirts" >Polo Shirts</option>
+        						    <option value="Shirts" >Shirts</option>
+        						    <option value="Shoes" >Shoes</option>
+        						    <option value="Shorts" >Shorts</option>
+        						    <option value="Skirts" >Skirts</option>
+        						    <option value="Socks" >Socks</option>
+        						    <option value="Swimwear and Beachwear" >Swimwear and Beachwear</option>
+        						    <option value="Tees" >Tees</option>
+        						    <option value="Tights" >Tights</option>
+        						    <option value="Trousers" >Trousers</option>
+        						    <option value="Underwear" >Underwear</option>
+        						    <option value="Vests" >Vests</option>
+        						</select>
+        						<br/><br/>
+
+
+        						<div id="txt_461" >
+        							<p class="Wp-Body-P">
+        								<label for="combo_29"><span class="Body-C-C4">Gender:</span></label>
+        							</p>
+        						</div>
+        						<select style="width:212px" id="combo_29" name="gender" size="1"  >
+        							<option value="" selected>Please Select One</option>
+        						    <option value="Male" >Male</option>
+        						    <option value="Female" >Female</option>
+        						    <option value="Unisex" >Unisex</option>
+        						</select>
+        						<br/><br/>
+
+        						<div>
+        							<p class="Wp-Body-P"><label for="text_5">
+        								<span class="Body-C-C4">Colour:</span></label>
+        								<img src="images/info.png" border="0" width="17" height="17" title="Please select the dominant colour of the product. If the product is not clearly one colour please select Multi." alt="Information Badge" >
+        							</p>
+        						</div>
+        						<select style="width:212px" id="combo_29" name="colour" size="1"  >
+        							<option value="" selected>Please Select One</option>
+        						    <option value="Beige" >Beige</option>
+        						    <option value="Black" >Black</option>
+        						    <option value="Blue" >Blue</option>
+        						    <option value="Brown" >Brown</option>
+        						    <option value="Copper" >Copper</option>
+        						    <option value="Cream" >Cream</option>
+        						    <option value="Gold" >Gold</option>
+        						    <option value="Green" >Green</option>
+        						    <option value="Grey" >Grey</option>
+        						    <option value="Maroon" >Maroon</option>
+        						    <option value="Multi" >Multi</option>
+        						    <option value="Navy" >Navy</option>
+        						    <option value="Orange" >Orange</option>
+        						    <option value="Pink" >Pink</option>
+        						    <option value="Purple" >Purple</option>
+        						    <option value="Red" >Red</option>
+        						    <option value="Silver" >Silver</option>
+        						    <option value="Tan" >Tan</option>
+        						    <option value="White" >White</option>
+        						    <option value="Yellow" >Yellow</option>
+        						</select>
+        						<br/><br/>
+
+
+        							<div>
+        								<p class="Wp-Body-P"><label for="text_5">
+        									<span class="Body-C-C4">Sizing Guide: </span></label>
+        									<img src="images/info.png" border="0" width="17" height="17" title="It is optional to add a sizing guide. If you want to add a sizing guide, click the Sizing Guides tab." alt="Information Badge" >
+        								</p>
+        							</div>
+
+        							<select style="width:212px" name="guide" size="1">
+        							<option value="" selected>Optionally Select One</option>
+        						';
+
+
+
+        $result = mysqli_query($con,"SELECT * FROM sizingguides WHERE Brand = '". $id . "'");
+
+        while($row = mysqli_fetch_array($result))
+        {
+            $guidename = $row['Name'];
+
+            echo '
+                                        <option value="'.$guidename.'">'.$guidename.'</option>
+                                    ';
+        }
+
+
+        echo '
+        							</select>
+        							<br/><br/>
+
+
+
+
+        					</div>
+
+
+
+
+        					<div style="float:left;margin-left:55px">
+
+
+        								<div id="txt_418"  >
+        									<p class="Wp-Body-P">
+        										<label for="combo_29"><span class="Body-C-C4">Price:</span></label>
+        									</p>
+        								</div>
+        								<textarea placeholder="e.g. 14.99" style="height:20px;width:200px" id="text_price" name="price" rows="2" cols="10" ></textarea>
+        								<br/><br/>
+        								';
+
+        echo '
+        							<div>
+        								<p class="Wp-Body-P"><label for="text_5">
+        									<span class="Body-C-C4">Shipping Prices: </span></label>
+        									<img src="images/info.png" border="0" width="17" height="17" title="If you want to add a Shipping Price Set, click the Shipping Prices tab." alt="Information Badge" >
+        								</p>
+        							</div>
+
+        							<select style="width:212px" name="shipping" size="1">
+        							<option value="" selected>Please Select One</option>
+        						';
+
+
+
+
+        $result = mysqli_query($con,"SELECT * FROM shippingprices WHERE Brand = '". $id . "'");
+
+        while($row = mysqli_fetch_array($result))
+        {
+            $shippingname = $row['Name'];
+
+            echo '
+                                        <option value="'.$shippingname.'">'.$shippingname.'</option>
+                                    ';
+        }
+
+
+        echo '
+        							</select>
+        							<br/><br/>
+
+        						<div id="txt_419" >
+        							<p class="Wp-Body-P">
+        								<label for="combo_29"><span class="Body-C-C4">Available Sizes:</span></label>
+        							</p>
+        						</div>
+
+        						<div>
+        							<p>
+        								<textarea placeholder="e.g. Small / One Size" style="width: 200px;height:20px;" id="text_size" name="size1" rows="2" cols="10"></textarea>
+        							</p>
+        						</div>
+        						<div>
+        							<p>
+        								<textarea style="width: 200px;height:20px;" name="size2" rows="2" cols="10"></textarea>
+        							</p>
+        						</div>
+        						<div>
+        							<p>
+        								<textarea style="width: 200px;height:20px;" name="size3" rows="2" cols="10"></textarea>
+        							</p>
+        						</div>
+        						<div>
+        							<p>
+        								<textarea style="width: 200px;height:20px;" name="size4" rows="2" cols="10"></textarea>
+        							</p>
+        						</div>
+        						<br/><br/>
+
+        					</div>
+
+
+
+
+        					<div style="float:left;margin-left:55px">
+
+
+        						<div id="txt_419" >
+        							<p class="Wp-Body-P">
+        								<label for="combo_29"><span class="Body-C-C4">Description:</span></label>
+        							</p>
+        						</div>
+        						<textarea placeholder="e.g.
+Stripped Chino shorts
+Zip and Button closure
+
+100% cotton
+Colour: Grey
+
+Model in image wears size: 32R" style="height:170px;width:300px" id="text_description" name="desc" ></textarea>
+        						<br/><br/>
+
+
+        					<!--
+        						<div>
+        							<p class="Wp-Body-P">
+        								<label for="combo_29"><span class="Body-C-C4">Product Images:</span></label>
+        								<img src="images/info.png" border="0" width="17" height="17" title="Item Image 1 will be the primary image used for the product and will be used in listings." alt="Information Badge" >
+        							</p>
+        						</div>
+        						<div id="txt_423">
+        						<p class="Wp-Body-P"><label for="file_5"><span class="Body-C-C3">Item Image 1: </span></label><input type="file" id="file_5" name="file1" size="32"></p>
+        						</div>
+
+        						<div id="txt_424" >
+        						<p class="Wp-Body-P"><label for="file_6"><span class="Body-C-C3">Item Image 2: </span></label><input type="file" id="file_6" name="file2" size="32"></p>
+        						</div>
+
+        						<div id="txt_425">
+        						<p class="Wp-Body-P"><label for="file_7"><span class="Body-C-C3">Item Image 3: </span></label><input type="file" id="file_7" name="file3" size="32" ></p>
+        						</div>
+
+        						<div id="txt_426" >
+        						<p class="Wp-Body-P"><label for="file_8"><span class="Body-C-C3">Item Image 4: </span></label><input type="file" id="file_8" name="file4" size="32" ></p>
+        						</div>
+
+        						<div id="txt_427" >
+        						<p class="Wp-Body-P"><label for="file_9"><span class="Body-C-C3">Item Image 5: </span></label><input type="file" id="file_9" name="file5" size="32" ></p>
+        						</div>
+
+        						<br/>
+        						-->
+        						<!--<input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;" id="butn_95" value="Submit" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">-->
+        					    <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:right;" id="js-addProduct-nextButton" value="Next" >
+        					</div>
+        				</div>
+
+                        <script>
+                            $(document).ready(function(){
+                                $("#js-addProduct-nextButton").click(function(){
+                                    $("#js-addProduct-details").css("display", "none");
+                                    $("#js-addProduct-images1").css("display", "block");
+                                });
+
+                                $("#js-addProduct-backButton1").click(function(){
+                                    $("#js-addProduct-details").css("display", "block");
+                                    $("#js-addProduct-images1").css("display", "none");
+                                });
+
+                                $("#js-addProduct-backButton2").click(function(){
+                                    $("#js-addProduct-images1").css("display", "block");
+                                    $("#js-addProduct-images2").css("display", "none");
+                                });
+
+                                $("#js-addProduct-backButton3").click(function(){
+                                    $("#js-addProduct-images2").css("display", "block");
+                                    $("#js-addProduct-images3").css("display", "none");
+                                });
+
+                                $("#js-addProduct-backButton4").click(function(){
+                                    $("#js-addProduct-images3").css("display", "block");
+                                    $("#js-addProduct-images4").css("display", "none");
+                                });
+
+                                $("#js-addProduct-backButton5").click(function(){
+                                    $("#js-addProduct-images4").css("display", "block");
+                                    $("#js-addProduct-images5").css("display", "none");
+                                });
+
+                                $("#js-addProduct-addAnother1").click(function(){
+                                    if ($(".tools").length) {
+                                        $("#js-addProduct-images2").css("display", "block");
+                                        $("#js-addProduct-images1").css("display", "none");
+                                        $("#js-dropzone1 .btn.btn-success").click();
+                                    } else {
+                                        alert("Please add a primary image before adding more.");
+                                    }
+                                });
+
+                                $("#js-addProduct-addAnother2").click(function(){
+                                    $("#js-addProduct-images3").css("display", "block");
+                                    $("#js-addProduct-images2").css("display", "none");
+                                    $("#js-dropzone2 .btn.btn-success").click();
+                                });
+
+                                $("#js-addProduct-addAnother3").click(function(){
+                                    $("#js-addProduct-images4").css("display", "block");
+                                    $("#js-addProduct-images3").css("display", "none");
+                                    $("#js-dropzone3 .btn.btn-success").click();
+                                });
+
+                                $("#js-addProduct-addAnother4").click(function(){
+                                    $("#js-addProduct-images5").css("display", "block");
+                                    $("#js-addProduct-images4").css("display", "none");
+                                    $("#js-dropzone4 .btn.btn-success").click();
+                                });
+
+                            });
+                        </script>
+
+        				</form>
+
+        				<script type="text/javascript" src="js/jsValidation.js"></script>
+        			</div>
+        			</div>
+        		';
+    }
+
 //TODO: methods for colourstrings, categorystrings, colourcount (not done on all pages yet)
 //TODO: Clean up all scripts, put them nicely in folders (e.g. userMade, 3rd party etc)
 //TODO: merge nav348 to styles.css
@@ -1029,3 +1634,13 @@ nav ul li a:hover {
 //TODO: 'no search results found' message
 
 //TODO: PUT XAV ON ABOUT PAGAE. SET UP XAV A 1P product
+
+//TODO: weekly email to brands on masterpage
+
+//TODO: remove STOCKS. add functionality to make a product live or not. Make colour non required?
+
+//TODO: redesign home,men,women. Play around with blue wood backdrop
+
+//TODO: make contact form able to contact brands directly
+
+//TODO: make 404 page

@@ -179,100 +179,7 @@ else
     </script>
 
 
-    <script type="text/javascript">
 
-        function validate_form_29( form )
-        {
-            if( ltrim(rtrim(form.elements['name'].value,' '),' ')=="e.g. Zero Graphic Tee" ) form.elements['name'].value = "";
-            if( ltrim(rtrim(form.elements['name'].value,' '),' ')=="" ) { alert("Clothing Item Name is required"); form.elements['name'].focus(); return false; }
-
-            if( ltrim(rtrim(form.elements['gender'].value,' '),' ')=="" ) { alert("You Must Select a Gender"); form.elements['gender'].focus(); return false; }
-
-            if( ltrim(rtrim(form.elements['category'].value,' '),' ')=="" ) { alert("The Category is required"); form.elements['category'].focus(); return false; }
-
-            if( ltrim(rtrim(form.elements['colour'].value,' '),' ')=="" ) { alert("You Must Select a Colour"); form.elements['colour'].focus(); return false; }
-
-            if( ltrim(rtrim(form.elements['price'].value,' '),' ')=="e.g. 14.99" ) form.elements['price'].value = "";
-            if( ltrim(rtrim(form.elements['price'].value,' '),' ')=="" ) { alert("The Price is required"); form.elements['price'].focus(); return false; }
-
-            n = parseFloat(ltrim(ltrim(rtrim(form.elements['price'].value,' '),' '),'£'));
-            if(isNaN(n) || n < 0){ alert("The Price must be a positive number"); form.elements['price'].focus(); return false; }
-
-            if( ltrim(rtrim(form.elements['shipping'].value,' '),' ')=="" ) { alert("The Shipping Prices are required. If you have not created any Shipping Price Sets please do so first and try again."); form.elements['shipping'].focus(); return false; }
-
-            if( ltrim(rtrim(form.elements['size1'].value,' '),' ')=="e.g. Red Small" ) form.elements['size1'].value = "";
-            if( ltrim(rtrim(form.elements['size1'].value,' '),' ')=="" ) { alert("You must input at least one Size"); form.elements['size1'].focus(); return false; }
-
-            n = parseInt(ltrim(ltrim(rtrim(form.elements['stock1'].value,' '),' '),'£'));
-            if(isNaN(n) || n < 0){ alert("The stock must be a positive number"); form.elements['stock1'].focus(); return false; }
-
-
-
-
-            if( (ltrim(rtrim(form.elements['stock2'].value,' '),' ')!="") ||  ltrim(rtrim(form.elements['size2'].value,' '),' ')!="" )
-            {
-                if( ltrim(rtrim(form.elements['size2'].value,' '),' ')=="" ) { alert("You must input a corresponding Size for that stock"); form.elements['size2'].focus(); return false; }
-
-                if( ltrim(rtrim(form.elements['stock2'].value,' '),' ')=="" ) { alert("You must input a corresponding Stock for that Size"); form.elements['stock2'].focus(); return false; }
-                n = parseInt(ltrim(ltrim(rtrim(form.elements['stock2'].value,' '),' '),'£'));
-                if(form.elements['stock2'].value != ''){if(isNaN(n) || n < 0){ alert("The stock must be a positive number"); form.elements['stock2'].focus(); return false; }}
-            }
-
-            if( (ltrim(rtrim(form.elements['stock3'].value,' '),' ')!="") ||  ltrim(rtrim(form.elements['size3'].value,' '),' ')!="" )
-            {
-                if( ltrim(rtrim(form.elements['size3'].value,' '),' ')=="" ) { alert("You must input a corresponding Size for that stock"); form.elements['size3'].focus(); return false; }
-
-                if( ltrim(rtrim(form.elements['stock3'].value,' '),' ')=="" ) { alert("You must input a corresponding Stock for that Size"); form.elements['stock3'].focus(); return false; }
-                n = parseInt(ltrim(ltrim(rtrim(form.elements['stock3'].value,' '),' '),'£'));
-                if(form.elements['stock3'].value != ''){if(isNaN(n) || n < 0){ alert("The stock must be a positive number"); form.elements['stock3'].focus(); return false; }}
-            }
-
-            if( (ltrim(rtrim(form.elements['stock4'].value,' '),' ')!="") ||  ltrim(rtrim(form.elements['size4'].value,' '),' ')!="" )
-            {
-                if( ltrim(rtrim(form.elements['size4'].value,' '),' ')=="" ) { alert("You must input a corresponding Size for that stock"); form.elements['size4'].focus(); return false; }
-
-                if( ltrim(rtrim(form.elements['stock4'].value,' '),' ')=="" ) { alert("You must input a corresponding Stock for that Size"); form.elements['stock4'].focus(); return false; }
-                n = parseInt(ltrim(ltrim(rtrim(form.elements['stock4'].value,' '),' '),'£'));
-                if(form.elements['stock4'].value != ''){if(isNaN(n) || n < 0){ alert("The stock must be a positive number"); form.elements['stock4'].focus(); return false; }}
-            }
-
-//            if( ltrim(rtrim(form.elements['file1'].value,' '),' ')=="" ) { alert("Item Image 1 is required"); form.elements['file1'].focus(); return false; }
-
-            if( ltrim(rtrim(form.elements['desc'].value,' '),' ')=="e.g. \nStripped Chino shorts\nZip and Button closure\n\n100% cotton\nColour: Grey\n\nModel in image wears size: 32R" ) form.elements['desc'].value = "";
-
-            if ($('#js-dropzone1 .tools').length && $('#js-dropzone1 .tools').css("display")!= 'none') {
-                alert('Please press green tick to save image editing.');
-                return false;
-            }
-
-            if ($('#js-dropzone2 .tools').length && $('#js-dropzone2 .tools').css("display")!= 'none') {
-                alert('Please press green tick to save image editing.');
-                return false;
-            }
-
-            if ($('#js-dropzone3 .tools').length && $('#js-dropzone3 .tools').css("display")!= 'none') {
-                alert('Please press green tick to save image editing.');
-                return false;
-            }
-
-            if ($('#js-dropzone4 .tools').length && $('#js-dropzone4 .tools').css("display")!= 'none') {
-                alert('Please press green tick to save image editing.');
-                return false;
-            }
-
-            if ($('#js-dropzone5 .tools').length && $('#js-dropzone5 .tools').css("display")!= 'none') {
-                alert('Please press green tick to save image editing.');
-                return false;
-            }
-
-            $('#butn_95').hide();
-            $('#loading_image4').show();
-
-
-
-            return true;
-        }
-    </script>
 
     <script type="text/javascript">
 
@@ -1319,589 +1226,70 @@ else
         $b = $y + ($r * $h);
         echo '<img src="images/Plus.jpg" border="0" width="' . $width . '" height="' . $height . '" alt="" style="border-style:solid;border-width:1px;position:absolute;left:' . $a . 'px;top:' . $b . 'px; " >';
 
+        echo '
+                    <script>
+                        function clearForm() {
+                            $("#form_29 input[name=Item_number]").val("");
+                            $("#form_29 textarea[name=name]").val("");
+                            $("#form_29 select[name=category]").val("");
+                            $("#form_29 select[name=gender]").val("");
+                            $("#form_29 select[name=colour]").val("");
+                            $("#form_29 select[name=guide]").val("");
+                            $("#form_29 textarea[name=price]").val("");
+                            $("#form_29 select[name=shipping]").val("");
+                            $("#form_29 textarea[name=desc]").val("");
+                            $("#js-dropzone1 .btn.btn-danger").click();
+                            $("#js-dropzone2 .btn.btn-danger").click();
+                            $("#js-dropzone3 .btn.btn-danger").click();
+                            $("#js-dropzone4 .btn.btn-danger").click();
+                            $("#js-dropzone5 .btn.btn-danger").click();
+                            $("#form_29 #js-dropzone1").data("image", "");
+                            $("#form_29 #js-dropzone2").data("image", "");
+                            $("#form_29 #js-dropzone3").data("image", "");
+                            $("#form_29 #js-dropzone4").data("image", "");
+                            $("#form_29 #js-dropzone5").data("image", "");
+                            $("#form_29 #js-dropzone1").data("editstart", "false");
+                            $("#form_29 #js-dropzone2").data("editstart", "false");
+                            $("#form_29 #js-dropzone3").data("editstart", "false");
+                            $("#form_29 #js-dropzone4").data("editstart", "false");
+                            $("#form_29 #js-dropzone5").data("editstart", "false");
+                            $("#form_29 #js-addProduct-addAnother1").val("Add Another Image");
+                            $("#form_29 #js-addProduct-addAnother2").val("Add Another Image");
+                            $("#form_29 #js-addProduct-addAnother3").val("Add Another Image");
+                            $("#form_29 #js-addProduct-addAnother4").val("Add Another Image");
+                            $("#form_29 #js-addProduct-images1").css("display", "none");
+                            $("#form_29 #js-addProduct-images2").css("display", "none");
+                            $("#form_29 #js-addProduct-images3").css("display", "none");
+                            $("#form_29 #js-addProduct-images4").css("display", "none");
+                            $("#form_29 #js-addProduct-images5").css("display", "none");
+                            $("#form_29 #js-addProduct-details").css("display", "block");
+                            $("#form_29 textarea[name=size1]").val("");
+                            $("#form_29 textarea[name=size2]").val("");
+                            $("#form_29 textarea[name=size3]").val("");
+                            $("#form_29 textarea[name=size4]").val("");
+                            $(".dropzone").html5imageupload();
+                        }
+
+                        $(document).ready(function() {
+        				   $( "#js-add" ).click(function() {
+                              clearForm();
+                           });
+        				});
+                    </script>
+                    ';
 
         echo '<a class="inline" href="#inline_content">
-        			  <img src="images/QS.png" border="0" width="' . $width . '" height="' . $height . '" title="" alt="' . $itemname . '" onload="OnLoadPngFix()" style="position:absolute;left:' . $a . 'px;top:' . $b . 'px; " class="fader_img"></a>';
-
-        echo'
-        			<script type="text/javascript">
-        			  $(document).ready(function(){    
-        				   $("#text_name").Watermark("e.g. Zero Graphic Tee");
-        				   $("#text_price").Watermark("e.g. 14.99");
-        				   $("#text_size").Watermark("e.g. Red Small");
-        				   $("#text_stock").Watermark("e.g. 14");
-        				   $("#text_description").Watermark("e.g. \nStripped Chino shorts\nZip and Button closure\n\n100% cotton\nColour: Grey\n\nModel in image wears size: 32R");
-        				});
-        			</script>
-        			<div style="display:none;">
-        			<div id="inline_content" style="padding:10px; background:#fff;">
-        			<form id="form_29" onsubmit="return validate_form_29(this)" action="add_product.php" accept-charset="UTF-8" method="post" target="_self" enctype="multipart/form-data">
-        				<input type="hidden" name="username" value="' . $_SESSION['username'] . '">
-        				<input type="hidden" name="ID" value="' . $id . '">
-        				<input type="hidden" name="brandname" value="' . $brandName . '">
-
-                        <style>
-@font-face {
-  font-family: "Glyphicons Halflings";
-  src: url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.eot");
-  src: url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.woff") format("woff"), url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("image-upload-tool/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
-}
-
-.glyphicon {
-    position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: "Glyphicons Halflings";
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.glyphicon-resize-full:before {
-    content: "\e096";
-}
-
-.glyphicon-pencil:before {
-  content: "\270f";
-}
-
-.btn-info {
-    color: #fff;
-    background-color: #5bc0de;
-    border-color: #46b8da;
-}
-
-.btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open>.dropdown-toggle.btn-info {
-    color: #fff;
-    background-color: #31b0d5;
-    border-color: #269abc;
-}
-
-.glyphicon-trash:before {
-  content: "\e020";
-}
-
-.glyphicon-fullscreen:before {
-    content: "\e140";
-}
-
-.glyphicon-resize-small:before {
-    content: "\e097";
-}
-
-.glyphicon-remove:before {
-    content: "\e014";
-}
-
-.glyphicon-ok:before {
-    content: "\e013";
-}
-
-.btn-default {
-    color: #333;
-    background-color: #fff;
-    border-color: #ccc;
-}
-
-.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
-    color: #333;
-    background-color: #e6e6e6;
-    border-color: #adadad;
-}
-
-.btn:hover, .btn:focus {
-    color: #333;
-    text-decoration: none;
-}
-
-.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open>.dropdown-toggle.btn-danger {
-    color: #fff;
-    background-color: #c9302c;
-    border-color: #ac2925;
-}
-
-.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open>.dropdown-toggle.btn-success {
-    color: #fff;
-    background-color: #449d44;
-    border-color: #398439;
-}
-
-.btn {
-    display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
-}
-
-.btn-danger {
-    color: #fff;
-    background-color: #d9534f;
-    border-color: #d43f3a;
-}
-
-.btn-success {
-    color: #fff;
-    background-color: #5cb85c;
-    border-color: #4cae4c;
-}
-                        </style>
-                        <div id="js-addProduct-images1" style="display:none;" >
-                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
-                                <p style="font-size:20px;font-weight:bold;">Upload a primary image</p>
-                                <p style="font-size:18px;">This will be the main image used for this product throughout the site.</p>
-                            </div>
-                            <div style="width:352px; height:452px;margin:auto;padding-top:35px;">
-                                <div id="js-dropzone1" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" style="width: 352px; height: 452px;">
-                                    <input type="file" name="file1" required />
-                                </div>
-                            </div>
-                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
-                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton1" value="Back" >
-                            <input class="button large blue" type="button" style="color:white;width:130px;height:30px;float:right;margin:0;margin-right:110px;margin-bottom:-30px;top:-30px;" id="js-addProduct-addAnother1" value="Add another Image" >
-                        </div>
-
-                        <div id="js-addProduct-images2" style="display:none;" >
-                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
-                                <p style="font-size:20px;font-weight:bold;">Upload optional secondary image(s)</p>
-                                <p style="font-size:18px; font-weight:bold; color: #E52B50;">Image 2</p>
-                                <p style="font-size:18px;">Secondary images will only be shown on the page of this product. You can have up to 4 secondary images.</p>
-                            </div>
-                            <div style="width:352px; height:452px;margin:auto;padding-top:35px;">
-                                <div id="js-dropzone2" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" style="width: 352px; height: 452px;">
-                                    <input type="file" name="file2" />
-                                </div>
-                            </div>
-                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
-                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton2" value="Back" >
-                            <input class="button large blue" type="button" style="color:white;width:130px;height:30px;float:right;margin:0;margin-right:110px;margin-bottom:-30px;top:-30px;" id="js-addProduct-addAnother2" value="Add another Image" >
-                        </div>
-
-                        <div id="js-addProduct-images3" style="display:none;" >
-                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
-                                <p style="font-size:20px;font-weight:bold;">Upload optional secondary image(s)</p>
-                                <p style="font-size:18px; font-weight:bold; color: #E52B50;">Image 3</p>
-                                <p style="font-size:18px;">Secondary images will only be shown on the page of this product. You can have up to 4 secondary images.</p>
-                            </div>
-                            <div style="width:352px; height:452px;margin:auto;padding-top:35px;">
-                                <div id="js-dropzone3" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" style="width: 352px; height: 452px;">
-                                    <input type="file" name="file3" />
-                                </div>
-                            </div>
-                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
-                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton3" value="Back" >
-                            <input class="button large blue" type="button" style="color:white;width:130px;height:30px;float:right;margin:0;margin-right:110px;margin-bottom:-30px;top:-30px;" id="js-addProduct-addAnother3" value="Add another Image" >
-                        </div>
-
-                        <div id="js-addProduct-images4" style="display:none;" >
-                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
-                                <p style="font-size:20px;font-weight:bold;">Upload optional secondary image(s)</p>
-                                <p style="font-size:18px; font-weight:bold; color: #E52B50;">Image 4</p>
-                                <p style="font-size:18px;">Secondary images will only be shown on the page of this product. You can have up to 4 secondary images.</p>
-                            </div>
-                            <div style="width:352px; height:452px;margin:auto;padding-top:35px;">
-                                <div id="js-dropzone4" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" style="width: 352px; height: 452px;">
-                                    <input type="file" name="file4" />
-                                </div>
-                            </div>
-                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
-                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton4" value="Back" >
-                            <input class="button large blue" type="button" style="color:white;width:130px;height:30px;float:right;margin:0;margin-right:110px;margin-bottom:-30px;top:-30px;" id="js-addProduct-addAnother4" value="Add another Image" >
-                        </div>
-
-                        <div id="js-addProduct-images5" style="display:none;" >
-                            <div style="position: relative;display:inline-block;left: 28px;top: 16px;font-family: Lato;float:left;width:250px;">
-                                <p style="font-size:20px;font-weight:bold;">Upload optional secondary image(s)</p>
-                                <p style="font-size:18px; font-weight:bold; color: #E52B50;">Image 5</p>
-                                <p style="font-size:18px;">Secondary images will only be shown on the page of this product. You can have up to 4 secondary images.</p>
-                            </div>
-                            <div style="width:352px; height:452px;margin:auto;padding-top:35px;">
-                                <div id="js-dropzone5" class="dropzone" data-width="352" data-height="452" data-ghost="false" data-ajax="false" data-resize="false" style="width: 352px; height: 452px;">
-                                    <input type="file" name="file5" />
-                                </div>
-                            </div>
-                            <input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;margin:0;margin-bottom:-30px;top:-30px;" id="butn_95" value="Finish" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">
-                            <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:left;margin:0;margin-left:20px;margin-bottom:-30px;top:-30px;" id="js-addProduct-backButton5" value="Back" >
-                        </div>
-
-
-        				<div id="js-addProduct-details">
-        				
-        					<div style="float:left;">
-        						<div id="txt_417">
-        							<p class="Wp-Body-P"><label for="text_5">
-        								<span class="Body-C-C4">Clothing Item Name: </span></label>
-        							</p>
-        						</div>
-        						<textarea style="height:20px;width:200px" id="text_name" name="name" rows="2" cols="41" ></textarea>
-        						<br/><br/>
-        						
-        						
-        						<div id="txt_461" >
-        							<p class="Wp-Body-P">
-        								<label for="combo_29"><span class="Body-C-C4">Category:</span></label>
-        							</p>
-        						</div>
-        						<select style="width:200px" id="combo_29" name="category" size="1"  >
-        							<option value="" selected>Please Select One</option>
-        						    <option value="Accessories" >Accessories</option>
-        						    <option value="Bags" >Bags</option>
-        						    <option value="Caps" >Caps</option>
-        						    <option value="Cardigans" >Cardigans</option>
-        						    <option value="Coats and Jackets" >Coats and Jackets</option>
-        						    <option value="Dresses" >Dresses</option>
-        						    <option value="Girls Tops" >Girls Tops</option>
-        						    <option value="Hats and Beanies" >Hats and Beanies</option>
-        						    <option value="Hoodies and Jumpers" >Hoodies and Jumpers</option>
-        						    <option value="Jeans" >Jeans</option>
-        						    <option value="Jewellery and Watches" >Jewellery and Watches</option>
-        						    <option value="Jumpsuits and Playsuits" >Jumpsuits and Playsuits</option>
-        						    <option value="Leggings" >Leggings</option>
-        						    <option value="Onesies" >Onesies</option>
-        						    <option value="Polo Shirts" >Polo Shirts</option>
-        						    <option value="Shirts" >Shirts</option>
-        						    <option value="Shoes" >Shoes</option>
-        						    <option value="Shorts" >Shorts</option>
-        						    <option value="Skirts" >Skirts</option>
-        						    <option value="Socks" >Socks</option>
-        						    <option value="Swimwear and Beachwear" >Swimwear and Beachwear</option>
-        						    <option value="Tees" >Tees</option>
-        						    <option value="Tights" >Tights</option>
-        						    <option value="Trousers" >Trousers</option>
-        						    <option value="Underwear" >Underwear</option>
-        						    <option value="Vests" >Vests</option>
-        						</select>
-        						<br/><br/>
-        						
-        						
-        						<div id="txt_461" >
-        							<p class="Wp-Body-P">
-        								<label for="combo_29"><span class="Body-C-C4">Gender:</span></label>
-        							</p>
-        						</div>
-        						<select style="width:200px" id="combo_29" name="gender" size="1"  >
-        							<option value="" selected>Please Select One</option>
-        						    <option value="Male" >Male</option>
-        						    <option value="Female" >Female</option>
-        						    <option value="Unisex" >Unisex</option>
-        						</select>
-        						<br/><br/>
-        						
-        						<div>
-        							<p class="Wp-Body-P"><label for="text_5">
-        								<span class="Body-C-C4">Colour:</span></label>
-        								<img src="images/info.png" border="0" width="17" height="17" title="Please select the dominant colour of the product. If the product is not clearly one colour, or you are adding a product which comes in a variety of colours, please select Multi." alt="Information Badge" >
-        							</p>
-        						</div>
-        						<select style="width:200px" id="combo_29" name="colour" size="1"  >
-        							<option value="" selected>Please Select One</option>
-        						    <option value="Beige" >Beige</option>
-        						    <option value="Black" >Black</option>
-        						    <option value="Blue" >Blue</option>
-        						    <option value="Brown" >Brown</option>
-        						    <option value="Copper" >Copper</option>
-        						    <option value="Cream" >Cream</option>
-        						    <option value="Gold" >Gold</option>
-        						    <option value="Green" >Green</option>
-        						    <option value="Grey" >Grey</option>
-        						    <option value="Maroon" >Maroon</option>
-        						    <option value="Multi" >Multi</option>
-        						    <option value="Navy" >Navy</option>
-        						    <option value="Orange" >Orange</option>
-        						    <option value="Pink" >Pink</option>
-        						    <option value="Purple" >Purple</option>
-        						    <option value="Red" >Red</option>
-        						    <option value="Silver" >Silver</option>
-        						    <option value="Tan" >Tan</option>
-        						    <option value="White" >White</option>
-        						    <option value="Yellow" >Yellow</option>
-        						</select>
-        						<br/><br/>
-        						
-        						
-        							<div>
-        								<p class="Wp-Body-P"><label for="text_5">
-        									<span class="Body-C-C4">Sizing Guide: </span></label>
-        									<img src="images/info.png" border="0" width="17" height="17" title="It is optional to add a sizing guide. If you want to add a sizing guide, click the Sizing Guides tab." alt="Information Badge" >
-        								</p>
-        							</div>
-        						
-        							<select style="width:200px" name="guide" size="1">
-        							<option value="" selected>Optionally Select One</option>
-        						';
+        			  <img id="js-add" src="images/QS.png" border="0" width="' . $width . '" height="' . $height . '" title="" alt="' . $itemname . '" onload="OnLoadPngFix()" style="position:absolute;left:' . $a . 'px;top:' . $b . 'px; " class="fader_img"></a>';
 
         // Create connection
-        include("db_settings.php");
+        if(file_exists("db_settings.php")) {include("db_settings.php");}
+        if(file_exists("../db_settings.php")) {include("../db_settings.php");}
+        if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
+        if(file_exists("db_settings.php")) {include("db_settings.php");}
+
         $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-
-        // Check connection
-        if (mysqli_connect_errno($con))
-        {
-            echo '<div> Failed to connect to products database, please try again later.  </div>';
-        }
-        else
-        {
-            $result = mysqli_query($con,"SELECT * FROM sizingguides WHERE Brand = '". $id . "'");
-
-            while($row = mysqli_fetch_array($result))
-            {
-                $guidename = $row['Name'];
-
-                echo '
-        							    	<option value="'.$guidename.'">'.$guidename.'</option>
-        								';
-            }
-        }
-
-        echo '
-        							</select>
-        							<br/><br/>
-        						
-        
-        						
-        						
-        					</div>
-        					
-        					
-        					
-        					
-        					<div style="float:left;margin-left:55px">
-        						
-        						
-        								<div id="txt_418"  >
-        									<p class="Wp-Body-P">
-        										<label for="combo_29"><span class="Body-C-C4">Price:</span></label>
-        									</p>
-        								</div>
-        								<textarea style="height:20px;width:200px" id="text_price" name="price" rows="2" cols="10" ></textarea>
-        								<br/><br/>
-        								';
-
-        echo '
-        							<div>
-        								<p class="Wp-Body-P"><label for="text_5">
-        									<span class="Body-C-C4">Shipping Prices: </span></label>
-        									<img src="images/info.png" border="0" width="17" height="17" title="If you want to add a Shipping Price Set, click the Shipping Prices tab." alt="Information Badge" >
-        								</p>
-        							</div>
-        						
-        							<select style="width:200px" name="shipping" size="1">
-        							<option value="" selected>Please Select One</option>
-        						';
-
-        // Create connection
-        include("db_settings.php");
-        $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-
-        // Check connection
-        if (mysqli_connect_errno($con))
-        {
-            echo '<div> Failed to connect to products database, please try again later.  </div>';
-        }
-        else
-        {
-            $result = mysqli_query($con,"SELECT * FROM shippingprices WHERE Brand = '". $id . "'");
-
-            while($row = mysqli_fetch_array($result))
-            {
-                $shippingname = $row['Name'];
-
-                echo '
-        							    	<option value="'.$shippingname.'">'.$shippingname.'</option>
-        								';
-            }
-        }
-
-        echo '
-        							</select>
-        							<br/><br/>
-        						
-        						<div id="txt_419" >
-        							<p class="Wp-Body-P">
-        								<label for="combo_29"><span class="Body-C-C4">Sizes and Stocks:</span></label>
-        								<img src="images/info.png" border="0" width="17" height="17" title="The available sizes with available stocks per size. For example:
-        								Small: 14
-        								One Size: 3
-        								Size 8: 34
-        								If you are adding a product which has multiple colour variations of the same product, make it clear in the stock names. For example:
-        								Red Small: 5
-        								Blue Small: 8
-        								Note: If you need more than 4 stocks, you can edit the product later to add more." alt="Information Badge" >
-        							</p>
-        						</div>
-        						
-        						<div>
-        							<p>
-        								<textarea style="width: 140px;height:20px;" id="text_size" name="size1" rows="2" cols="10"></textarea>
-        								<textarea style="width: 50px;height:20px;" id="text_stock" name="stock1" rows="2" cols="10"></textarea>
-        							</p>
-        						</div>
-        						<div>
-        							<p>
-        								<textarea style="width: 140px;height:20px;" name="size2" rows="2" cols="10"></textarea>
-        								<textarea style="width: 50px;height:20px;" name="stock2" rows="2" cols="10"></textarea>
-        							</p>
-        						</div>
-        						<div>
-        							<p>
-        								<textarea style="width: 140px;height:20px;" name="size3" rows="2" cols="10"></textarea>
-        								<textarea style="width: 50px;height:20px;" name="stock3" rows="2" cols="10"></textarea>
-        							</p>
-        						</div>
-        						<div>
-        							<p>
-        								<textarea style="width: 140px;height:20px;" name="size4" rows="2" cols="10"></textarea>
-        								<textarea style="width: 50px;height:20px;" name="stock4" rows="2" cols="10"></textarea>
-        							</p>
-        						</div>
-        						<br/><br/>
-        						
-        					</div>
-        				
-        				
-        				
-        				
-        					<div style="float:left;margin-left:55px">
-        					
-        						
-        						<div id="txt_419" >
-        							<p class="Wp-Body-P">
-        								<label for="combo_29"><span class="Body-C-C4">Description:</span></label>
-        							</p>
-        						</div>
-        						<textarea style="height:170px;width:300px" id="text_description" name="desc" ></textarea>
-        						<br/><br/>
-        						
-        						
-        					<!--
-        						<div>
-        							<p class="Wp-Body-P">
-        								<label for="combo_29"><span class="Body-C-C4">Product Images:</span></label>
-        								<img src="images/info.png" border="0" width="17" height="17" title="Item Image 1 will be the primary image used for the product and will be used in listings." alt="Information Badge" >
-        							</p>
-        						</div>
-        						<div id="txt_423">
-        						<p class="Wp-Body-P"><label for="file_5"><span class="Body-C-C3">Item Image 1: </span></label><input type="file" id="file_5" name="file1" size="32"></p>
-        						</div>
-        						
-        						<div id="txt_424" >
-        						<p class="Wp-Body-P"><label for="file_6"><span class="Body-C-C3">Item Image 2: </span></label><input type="file" id="file_6" name="file2" size="32"></p>
-        						</div>
-        						
-        						<div id="txt_425">
-        						<p class="Wp-Body-P"><label for="file_7"><span class="Body-C-C3">Item Image 3: </span></label><input type="file" id="file_7" name="file3" size="32" ></p>
-        						</div>
-        						
-        						<div id="txt_426" >
-        						<p class="Wp-Body-P"><label for="file_8"><span class="Body-C-C3">Item Image 4: </span></label><input type="file" id="file_8" name="file4" size="32" ></p>
-        						</div>
-        						
-        						<div id="txt_427" >
-        						<p class="Wp-Body-P"><label for="file_9"><span class="Body-C-C3">Item Image 5: </span></label><input type="file" id="file_9" name="file5" size="32" ></p>
-        						</div>
-        						
-        						<br/>
-        						-->
-        						<!--<input class="button large blue" type="submit" style="color:white;width:100px;height:30px;float:right;" id="butn_95" value="Submit" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image4">-->
-        					    <input class="button large blue" type="button" style="color:white;width:100px;height:30px;float:right;" id="js-addProduct-nextButton" value="Next" >
-        					</div>
-        				</div>
-        				
-                        <script>
-                            $(document).ready(function(){
-                                $("#js-addProduct-nextButton").click(function(){
-                                    $("#js-addProduct-details").css("display", "none");
-                                    $("#js-addProduct-images1").css("display", "block");
-                                });
-
-                                $("#js-addProduct-backButton1").click(function(){
-                                    $("#js-addProduct-details").css("display", "block");
-                                    $("#js-addProduct-images1").css("display", "none");
-                                });
-
-                                $("#js-addProduct-backButton2").click(function(){
-                                    $("#js-addProduct-images1").css("display", "block");
-                                    $("#js-addProduct-images2").css("display", "none");
-                                });
-
-                                $("#js-addProduct-backButton3").click(function(){
-                                    $("#js-addProduct-images2").css("display", "block");
-                                    $("#js-addProduct-images3").css("display", "none");
-                                });
-
-                                $("#js-addProduct-backButton4").click(function(){
-                                    $("#js-addProduct-images3").css("display", "block");
-                                    $("#js-addProduct-images4").css("display", "none");
-                                });
-
-                                $("#js-addProduct-backButton5").click(function(){
-                                    $("#js-addProduct-images4").css("display", "block");
-                                    $("#js-addProduct-images5").css("display", "none");
-                                });
-
-                                $("#js-addProduct-addAnother1").click(function(){
-                                    if ($(".tools").length) {
-                                        if ($("#js-dropzone1 .tools").css("display")!= "none") {
-                                            alert("Please press green tick to save image editing.");
-                                        } else {
-                                            $("#js-addProduct-images2").css("display", "block");
-                                            $("#js-addProduct-images1").css("display", "none");
-                                        }
-                                    } else {
-                                        alert("Please upload a primary image.");
-                                    }
-                                });
-
-                                $("#js-addProduct-addAnother2").click(function(){
-                                    if ($("#js-dropzone2 .tools").length && $("#js-dropzone2 .tools").css("display")!= "none") {
-                                            alert("Please press green tick to save image editing.");
-                                        } else {
-                                            $("#js-addProduct-images3").css("display", "block");
-                                            $("#js-addProduct-images2").css("display", "none");
-                                        }
-                                });
-
-                                $("#js-addProduct-addAnother3").click(function(){
-                                    if ($("#js-dropzone3 .tools").length && $("#js-dropzone3 .tools").css("display")!= "none") {
-                                            alert("Please press green tick to save image editing.");
-                                        } else {
-                                            $("#js-addProduct-images4").css("display", "block");
-                                            $("#js-addProduct-images3").css("display", "none");
-                                        }
-                                });
-
-                                $("#js-addProduct-addAnother4").click(function(){
-                                    if ($("#js-dropzone4 .tools").length && $("#js-dropzone4 .tools").css("display")!= "none") {
-                                            alert("Please press green tick to save image editing.");
-                                        } else {
-                                            $("#js-addProduct-images5").css("display", "block");
-                                            $("#js-addProduct-images4").css("display", "none");
-                                        }
-                                });
-
-                            });
-                        </script>
-        				
-        				</form>
-        				
-        				<script type="text/javascript" src="js/jsValidation.js"></script>
-        			</div>
-        			</div>
-        		';
+        echoAddEditProductForm($id, $brandName, $con);
+        //TODO: Check what happens if a brand has LOTS of products (i.e. does pagination work?)
 
         $c++;
 
@@ -1938,9 +1326,24 @@ else
         {
             $itemno = $row['Item_number'];
 
+
             $res = mysqli_query($con,"SELECT * FROM products WHERE Item_number = '". $itemno . "'");
+            $sizeCounter = 0;
             while($row = mysqli_fetch_array($res))
             {
+                $sizeCounter = 0;
+                $res5 = mysqli_query($con,"SELECT * FROM products WHERE Brand = '". $id . "' AND Item_number ='". $itemno . "'");
+                $size[0] = "";
+                $size[1] = "";
+                $size[2] = "";
+                $size[3] = "";
+                $size[4] = "";
+                while($row5 = mysqli_fetch_array($res5))
+                {
+                    $size[$sizeCounter] = $row5['Size'];
+                    $sizeCounter++;
+                }
+
                 $prevno[$i] = $itemno;
                 $i++;
 
@@ -1950,6 +1353,10 @@ else
                 $img4 = $row['Image_URL4'];
                 $img5 = $row['Image_URL5'];
                 $gender = $row['Gender'];
+                $gender2 = '';
+                if (strtolower($gender) == 'm') $gender2 = 'Male';
+                if (strtolower($gender) == 'f') $gender2 = 'Female';
+                if (strtolower($gender) == 'u') $gender2 = 'Unisex';
                 $shipping = $row['Shipping_charge'];
                 $description = stripslashes($row['Details']);
                 $itemno = strtolower($row['Item_number']);
@@ -1978,360 +1385,68 @@ else
                     $b = $y + ($r * $h);
 
 
-                    echo '<img src="' . $img1 . '" border="0" width="' . $width . '" height="' . $height . '" alt="" style="border-style:solid;border-width:1px;position:absolute;left:' . $a . 'px;top:' . $b . 'px; " >';
-
-                    echo '<a class="inline" href="#'. $itemno . '">
-        						  <img src="images/QS.png" border="0" width="' . $width . '" height="' . $height . '" title="" alt="' . $itemname . '" onload="OnLoadPngFix()" style="position:absolute;left:' . $a . 'px;top:' . $b . 'px; " class="fader_img"></a>';
-
-
-                    $buttona = $a + $w - $padding - 18;
+                    echo '<img src="' . $img1 . '" border="0" width="' . $width . '" height="' . $height . '" alt="" style="border-style:solid;border-width:1px;position:absolute;left:' . $a . 'px;top:' . $b . 'px; border-top-right-radius: 5px;" >';
                     echo '
-        					<form onsubmit="'; echo 'return confirm('; echo "'"; echo 'Are you sure?'; echo "'"; echo ');'; echo'" action="uploadmenu.php?Tab=3" accept-charset="UTF-8" method="post" target="_self" enctype="multipart/form-data">
-        						<input type="hidden" name="delete" value="'. $itemno . '">
-        						<input class="button large red" type="submit" style="position:absolute;left:' . $buttona . 'px;top:' . $b . 'px;color:white;width:20px;height:20px;" value="X" >
-        					</form>
-        					';
+                    <script>
+                        $(document).ready(function(){
+                            $( "#js-' . $itemno . '" ).click(function() {
+                                clearForm();
 
-                    $sizeCounter = 0;
-                    $res = mysqli_query($con,"SELECT * FROM products WHERE Brand = '". $id . "' AND Item_number ='". $itemno . "'");
-                    while($row = mysqli_fetch_array($res))
-                    {
-                        $sizeString[$sizeCounter] = $row['Size'];
-                        $stock[$sizeCounter] = $row['stock'];
-                        $sizeCounter++;
-                    }
+                                $("#form_29 input[name=Item_number]").val("' . strtoupper($itemno) . '");
+                                $("#form_29 textarea[name=name]").val("' . $itemname . '");
+                                $("#form_29 textarea[name=name]").focus();
+                                $("#form_29 select[name=category]").val("' . $category . '");
+                                $("#form_29 select[name=gender]").val("' . $gender2 . '");
+                                $("#form_29 select[name=colour]").val("' . $colour . '");
+                                $("#form_29 select[name=guide]").val("' . $guide . '");
+                                $("#form_29 textarea[name=price]").val("' . $price . '");
+                                $("#form_29 textarea[name=price]").focus();
+                                $("#form_29 select[name=shipping]").val("' . $shipping . '");
+                                $("#form_29 textarea[name=desc]").val(' . json_encode($description) . ');
+                                $("#form_29 textarea[name=desc]").focus();
+                                $("#form_29 #js-dropzone1").data("image", "'.$img1.'");
+                                $("#form_29 #js-dropzone1").data("editstart", "true");
+                                $("#form_29 #js-dropzone2").data("image", "'.$img2.'");
+                                $("#form_29 #js-dropzone2").data("editstart", "true");
+                                $("#form_29 #js-dropzone3").data("image", "'.$img3.'");
+                                $("#form_29 #js-dropzone3").data("editstart", "true");
+                                $("#form_29 #js-dropzone4").data("image", "'.$img4.'");
+                                $("#form_29 #js-dropzone4").data("editstart", "true");
+                                $("#form_29 #js-dropzone5").data("image", "'.$img5.'");
+                                $("#form_29 #js-dropzone5").data("editstart", "true");
+                                $("#form_29 #js-addProduct-addAnother1").val("Next Image");
+                                $("#form_29 #js-addProduct-addAnother2").val("Next Image");
+                                $("#form_29 #js-addProduct-addAnother3").val("Next Image");
+                                $("#form_29 #js-addProduct-addAnother4").val("Next Image");
+                                $("#form_29 textarea[name=size1]").val("' . $size[0] . '");
+                                $("#form_29 textarea[name=size2]").val("' . $size[1] . '");
+                                $("#form_29 textarea[name=size3]").val("' . $size[2] . '");
+                                $("#form_29 textarea[name=size4]").val("' . $size[3] . '");
 
+                                $(".dropzone").html5imageupload();
+                            });
+        				});
+                    </script>
+                    ';
+                    echo '<a class="inline" href="#inline_content">
+        						  <img id="js-' . $itemno . '" src="images/QS.png" border="0" width="' . $width . '" height="' . $height . '" title="" alt="' . $itemname . '" onload="OnLoadPngFix()" style="position:absolute;left:' . $a . 'px;top:' . $b . 'px; " class="fader_img">
+        				    </a>';
+
+                    $buttona = $a + $w - $padding - 24;
                     echo '
-        						<div style="display:none;">
-        						<div id="'. $itemno . '" style="padding:10px; background:#fff;height:500px;">
-        							<form id="form_52" onsubmit="return validate_form_52(this)" action="edit_product.php" accept-charset="UTF-8" method="post" target="_self" enctype="multipart/form-data">
-        								<input type="hidden" name="username" value="' . $_SESSION['username'] . '">
-        								<input type="hidden" name="ID" value="' . $id . '">
-        								<input type="hidden" name="itemno" value="' . $itemno . '">
-        								<input type="hidden" name="nosizes" value="' . $sizeCounter . '">
-        								<input type="hidden" name="brandname" value="' . $brandName . '">
-        								
-        								<div id="tabs'.$itemcounter.'">
-        								  <ul style="font-size:0.9em;">
-        								    <li style="font-size:0.9em;"><a href="#tabs-1">Details</a></li>
-        								    <li style="font-size:0.9em;"><a href="#tabs-2">Stocks and Sizes</a></li>
-        								    <li style="font-size:0.9em;"><a href="#tabs-3">Images</a></li>
-        								  </ul>
-        								  
-        								  <div id="tabs-1">
-        								    
-        								    <div>
-        
-        								    	<div style="width:45%;float:left">
-        								    		<div id="txt_417">
-        												<span class="Body-C-C4">Clothing Item Name: </span>
-        												<textarea style="width:100%;height:45px;" id="text_5" name="name" >'. $itemname . '</textarea>
-        											</div>
-        											<br/>
-        											
-        											<div id="txt_461" >
-        												<span class="Body-C-C4">Gender:</span>
-        
-        												<select style="width:100%" id="combo_29" name="gender" size="1"  >';
-                    if($gender == 'M')
-                    {
-                        echo '
-        														<option value="Male" selected>Male</option>
-        											    		<option value="Female">Female</option>
-        											    		<option value="Unisex">Unisex</option>
-        													';
-                    }
-                    else if($gender == 'F')
-                    {
-                        echo '
-        														<option value="Male">Male</option>
-        											    		<option value="Female" selected>Female</option>
-        											    		<option value="Unisex">Unisex</option>
-        													';
-                    }
-                    else if($gender == 'U')
-                    {
-                        echo '
-        														<option value="Male">Male</option>
-        											    		<option value="Female">Female</option>
-        											    		<option value="Unisex" selected>Unisex</option>
-        													';
-                    }
+                        <script>
+                            $(document).ready(function(){
+                                $( "#js-delete'. $itemno . 'Button" ).click(function() {
+                                    $( "#js-delete'. $itemno . 'Form" ).submit();
+                                });
+                            });
+                        </script>
 
-
-                    echo '
-        												</select>
-        											</div>
-        											<br/>
-        											
-        											<div>
-        												<span class="Body-C-C4">Category: </span>
-        
-        												<select style="width:100%" name="category" size="1"  >';
-
-                    echo '
-        													<option value="Accessories" ';if($category == 'Accessories') echo'selected'; echo'>Accessories</option>
-        												    <option value="Bags" ';if($category == 'Bags') echo'selected'; echo'>Bags</option>
-        												    <option value="Caps" ';if($category == 'Caps') echo'selected'; echo'>Caps</option>
-        												    <option value="Cardigans" ';if($category == 'Cardigans') echo'selected'; echo'>Cardigans</option>
-        												    <option value="Coats and Jackets" ';if($category == 'Coats and Jackets') echo'selected'; echo'>Coats and Jackets</option>
-        												    <option value="Dresses" ';if($category == 'Dresses') echo'selected'; echo'>Dresses</option>
-        												    <option value="Girls Tops" ';if($category == 'Girls Tops') echo'selected'; echo'>Girls Tops</option>
-        												    <option value="Hats and Beanies" ';if($category == 'Hats and Beanies') echo'selected'; echo'>Hats and Beanies</option>
-        												    <option value="Hoodies and Jumpers" ';if($category == 'Hoodies and Jumpers') echo'selected'; echo'>Hoodies and Jumpers</option>
-        												    <option value="Jeans" ';if($category == 'Jeans') echo'selected'; echo'>Jeans</option>
-        												    <option value="Jewellery and Watches" ';if($category == 'Jewellery and Watches') echo'selected'; echo'>Jewellery and Watches</option>
-        												    <option value="Jumpsuits and Playsuits" ';if($category == 'Jumpsuits and Playsuits') echo'selected'; echo'>Jumpsuits and Playsuits</option>
-        												    <option value="Leggings" ';if($category == 'Leggings') echo'selected'; echo'>Leggings</option>
-        												    <option value="Onesies" ';if($category == 'Onesies') echo'selected'; echo'>Onesies</option>
-        												    <option value="Polo Shirts" ';if($category == 'Polo Shirts') echo'selected'; echo'>Polo Shirts</option>
-        												    <option value="Shirts" ';if($category == 'Shirts') echo'selected'; echo'>Shirts</option>
-        												    <option value="Shoes" ';if($category == 'Shoes') echo'selected'; echo'>Shoes</option>
-        												    <option value="Shorts" ';if($category == 'Shorts') echo'selected'; echo'>Shorts</option>
-        												    <option value="Skirts" ';if($category == 'Skirts') echo'selected'; echo'>Skirts</option>
-        												    <option value="Socks" ';if($category == 'Socks') echo'selected'; echo'>Socks</option>
-        												    <option value="Swimwear and Beachwear" ';if($category == 'Swimwear and Beachwear') echo'selected'; echo'>Swimwear and Beachwear</option>
-        												    <option value="Tees" ';if($category == 'Tees') echo'selected'; echo'>Tees</option>
-        												    <option value="Tights" ';if($category == 'Tights') echo'selected'; echo'>Tights</option>
-        												    <option value="Trousers" ';if($category == 'Trousers') echo'selected'; echo'>Trousers</option>
-        												    <option value="Underwear" ';if($category == 'Underwear') echo'selected'; echo'>Underwear</option>
-        												    <option value="Vests" ';if($category == 'Vests') echo'selected'; echo'>Vests</option>
-        												';
-
-
-                    echo '
-        												</select>
-        											</div>
-        											<br/>
-        											
-        											<div>
-        												<span class="Body-C-C4">Colour: </span><img src="images/info.png" border="0" width="17" height="17" title="Please select the dominant colour of the product. If the product is not clearly one colour, or you are adding a product which comes in a variety of colours, please select Multi." alt="Information Badge" >
-        								
-        												<select style="width:100%" name="colour" size="1"  >';
-
-                    echo '
-        													<option value="Beige" ';if($colour == 'Beige') echo'selected'; echo'>Beige</option>
-        													<option value="Black" ';if($colour == 'Black') echo'selected'; echo'>Black</option>
-        													<option value="Blue" ';if($colour == 'Blue') echo'selected'; echo'>Blue</option>
-        													<option value="Brown" ';if($colour == 'Brown') echo'selected'; echo'>Brown</option>
-        													<option value="Copper" ';if($colour == 'Copper') echo'selected'; echo'>Copper</option>
-        													<option value="Cream" ';if($colour == 'Cream') echo'selected'; echo'>Cream</option>
-        													<option value="Gold" ';if($colour == 'Gold') echo'selected'; echo'>Gold</option>
-        													<option value="Green" ';if($colour == 'Green') echo'selected'; echo'>Green</option>
-        													<option value="Grey" ';if($colour == 'Grey') echo'selected'; echo'>Grey</option>
-        													<option value="Maroon" ';if($colour == 'Maroon') echo'selected'; echo'>Maroon</option>
-        													<option value="Multi" ';if($colour == 'Multi') echo'selected'; echo'>Multi</option>
-        													<option value="Navy" ';if($colour == 'Navy') echo'selected'; echo'>Navy</option>
-        													<option value="Orange" ';if($colour == 'Orange') echo'selected'; echo'>Orange</option>
-        													<option value="Pink" ';if($colour == 'Pink') echo'selected'; echo'>Pink</option>
-        													<option value="Purple" ';if($colour == 'Purple') echo'selected'; echo'>Purple</option>
-        													<option value="Red" ';if($colour == 'Red') echo'selected'; echo'>Red</option>
-        													<option value="Silver" ';if($colour == 'Silver') echo'selected'; echo'>Silver</option>
-        													<option value="Tan" ';if($colour == 'Tan') echo'selected'; echo'>Tan</option>
-        													<option value="White" ';if($colour == 'White') echo'selected'; echo'>White</option>
-        													<option value="Yellow" ';if($colour == 'Yellow') echo'selected'; echo'>Yellow</option>
-        												';
-
-
-                    echo '
-        												</select>
-        											</div>
-        											<br/>
-        											
-        												
-        											<div>
-        												<span class="Body-C-C4">Sizing Guide: </span><img src="images/info.png" border="0" width="17" height="17" title="It is optional to add a sizing guide. If you want to add a sizing guide, click the Sizing Guides tab." alt="Information Badge" >
-        											
-        												<select style="width:100%" name="guide" size="1">
-        												<option value="">None</option>
-        												';
-
-                    $result2 = mysqli_query($con,"SELECT * FROM sizingguides WHERE Brand = '". $id . "'");
-
-                    while($row2 = mysqli_fetch_array($result2))
-                    {
-                        $guidename = $row2['Name'];
-
-                        echo '
-        												    	<option value="'.$guidename.'"';
-                        if($guidename == $guide) echo 'selected';
-                        echo '>'.$guidename.'</option>
-        													';
-                    }
-
-
-                    echo '
-        													</select>
-        											</div>
-        								    	</div>
-        								    	
-        								    	
-        								    	
-        								    	<div style="width:45%;float:right">
-        								    		<div id="txt_418"  >
-        												<span class="Body-C-C4">Price:</span>
-        											
-        												<textarea style="width:100%;height:25px;" id="text_6" name="price" >&#163;'. $price .'</textarea>
-        											</div>
-        											<br/>
-        											';
-
-
-                    echo '
-        											
-        												
-        											<div>
-        												<span class="Body-C-C4">Shipping Prices: </span><img src="images/info.png" border="0" width="17" height="17" title="If you want to add a Shipping Price Set, click the Shipping Prices tab." alt="Information Badge" >
-        											
-        												<select style="width:100%" name="shipping" size="1">
-        												<option value="">None Selected</option>
-        												';
-
-                    $result2 = mysqli_query($con,"SELECT * FROM shippingprices WHERE Brand = '". $id . "'");
-
-                    while($row2 = mysqli_fetch_array($result2))
-                    {
-                        $shippingname = $row2['Name'];
-
-                        echo '
-        												    	<option value="'.$shippingname.'"';
-                        if($shippingname == $shipping) echo 'selected';
-                        echo '>'.$shippingname.'</option>
-        													';
-                    }
-
-
-                    echo '
-        												</select>
-        											</div>
-        											<br/>
-        											
-        											<div id="txt_419" >
-        												<span class="Body-C-C4">Description:</span>
-        												<textarea style="width:100%;height:165px;" id="text_7" name="desc" >'. $description . '</textarea>
-        											</div>
-        											<br/>
-        											<input class="button large blue" type="submit" style="float:right;color:white;width:100px;height:30px;" id="butn_55" value="Submit" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right" id="loading_image10">
-        								    	</div>
-        
-        								    </div>
-        								    
-        								    
-        									
-        									
-        
-        								  </div>
-        								  
-        								  <div id="tabs-2">
-        									<div style="float:left;">
-        										<span class="Body-C-C4">Size&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stock </span>
-        										<br/>
-        										';
-
-                    for ($i = 0; $i < $sizeCounter; $i++)
-                    {
-                        echo '
-        										    	<textarea style="width: 150px;" name="size'.$i.'" rows="1" cols="10">'.$sizeString[$i].'</textarea>
-        										    	<input type="hidden" name="oldsize'.$i.'" value="' . $sizeString[$i] . '">
-        												<textarea style="width: 50px;" name="stock'.$i.'" rows="1" cols="3">'.$stock[$i].'</textarea>
-        												<input type="hidden" name="oldstock'.$i.'" value="'.$stock[$i].'">
-        												<br/>
-        										    ';
-                    }
-                    echo '
-        											
-        								  	</div>
-        								  	
-        								  	<div style="float:right;">';
-                    echo '
-        										    	<span class="Body-C-C4">Add new Size </span><img src="images/info.png" border="0" width="17" height="17" title="The available sizes with available stocks per size. For example:
-        								Small: 14
-        								One Size: 3
-        								Size 8: 34
-        								If you are adding a product which has multiple colour variations of the same product, make it clear in the stock names. For example:
-        								Red Small: 5
-        								Blue Small: 8
-        								Note: If you need more than 4 stocks, you can edit the product later to add more." alt="Information Badge" >
-        												<br/>
-        										    	<textarea style="width: 150px;" name="newsize0" rows="1" cols="10"></textarea>
-        												<textarea style="width: 50px;" name="newstock0" rows="1" cols="3"></textarea>
-        												<br/>
-        										    ';
-
-                    echo '
-        										    	<textarea style="width: 150px;" name="newsize1" rows="1" cols="10"></textarea>
-        												<textarea style="width: 50px;" name="newstock1" rows="1" cols="3"></textarea>
-        												<br/>
-        										    ';
-
-                    echo '
-        										    	<textarea style="width: 150px;" name="newsize2" rows="1" cols="10"></textarea>
-        												<textarea style="width: 50px;" name="newstock2" rows="1" cols="3"></textarea>
-        												<br/>
-        										    ';
-
-                    echo '
-        										<br/>
-        										<br/>
-        										<input class="button large blue" type="submit" style="float:right;color:white;width:100px;height:30px;" id="butn_56" value="Submit" ><img src="/css/images/ajax-loader.gif" style="display: none;float:right;" id="loading_image11">
-        								  	</div>
-        								  </div>
-        								  
-        								  <div id="tabs-3">
-        									<div class="Body-C-C1">
-        									<img src="images/info.png" border="0" width="17" height="17" title="Item Image 1 will be the primary image used for the product and will be used in listings." alt="Information Badge" >
-        									
-        									<p class="Wp-Body-P"><span class="Body-C-C4">Image 1: </span><input type="file" name="file1"></p>
-        									</div>
-        									
-        									<div class="Body-C-C1">
-        									<p class="Wp-Body-P"><span class="Body-C-C4">Image 2: </span><input type="file" name="file2"></p>
-        									</div>
-        									
-        									<div class="Body-C-C1">
-        									<p class="Wp-Body-P"><span class="Body-C-C4">Image 3: </span><input type="file" name="file3"></p>
-        									</div>
-        									
-        									<div class="Body-C-C1">
-        									<p class="Wp-Body-P"><span class="Body-C-C4">Image 4: </span><input type="file" name="file4"></p>
-        									</div>
-        									
-        									<div class="Body-C-C1">
-        									<p class="Wp-Body-P"><span class="Body-C-C4">Image 5: </span><input type="file" name="file5"></p>
-        									</div>
-        								    <br/>
-        								    <div style="position:absolute;left:550px;top:30px; ">
-        										<img src="' . $img1 . '" border="0" width="189" height="244" id="pic_258" alt="" style="position:absolute;left:49px;top:0px; " >
-        										<img src="' . $img2 . '" border="0" width="45" height="58" id="pic_259" alt="" style="position:absolute;left:0px;top:0px; " >
-        										<img src="' . $img3 . '" border="0" width="45" height="58" id="pic_260" alt="" style="position:absolute;left:0px;top:62px; " >
-        										<img src="' . $img4 . '" border="0" width="45" height="58" id="pic_261" alt="" style="position:absolute;left:0px;top:124px; " >
-        										<img src="' . $img5 . '" border="0" width="45" height="58" id="pic_262" alt="" style="position:absolute;left:0px;top:186px; " >
-        									</div>
-        									<input class="button large blue" type="submit" style="color:white;width:100px;height:30px;" id="butn_57" value="Submit" ><img src="/css/images/ajax-loader.gif" style="display: none;" id="loading_image12">
-        							</form>
-        							<script type="text/javascript" src="js/jsValidation.js"></script>
-        								  	';
-
-                    if($_POST['resetimgs'] == $itemno)
-                    {
-                        $_POST['resetimgs'] = '';
-                        $updatesql = "UPDATE products SET Image_URL1=NULL,Image_URL2=NULL,Image_URL3=NULL,Image_URL4=NULL,Image_URL5=NULL WHERE Item_number='" . $itemno . "'";
-                        $updateres = mysqli_query($con,$updatesql);
-                    }
-
-                    echo '
-        									<form onsubmit="'; echo 'return confirm('; echo "'"; echo 'Are you sure?'; echo "'"; echo ');'; echo'" action="uploadmenu.php?Tab=3" accept-charset="UTF-8" method="post" target="_self" enctype="multipart/form-data">
-        										<input type="hidden" name="resetimgs" value="'.$itemno.'">
-        										<input class="button large red" type="submit" style="color:white;width:100px;height:30px;" value="Reset" >
-        									</form>
-        								  </div>
-        							</div>
-        							
-        							
-        						</div>
-        					</div>
-        					
-        					';
+                        <form id="js-delete'. $itemno . 'Form" onsubmit="'; echo 'return confirm('; echo "'"; echo 'Are you sure?'; echo "'"; echo ');'; echo'" action="uploadmenu.php?Tab=3" accept-charset="UTF-8" method="post" target="_self" enctype="multipart/form-data">
+                            <input type="hidden" name="delete" value="'. $itemno . '">
+                            <div id="js-delete'. $itemno . 'Button" class="btn btn-danger btn-cancel" style="position:absolute;left:' . $buttona . 'px;top:' . $b . 'px;color:white;width:20px;height:20px;padding:4px 2px 0px 2px;border-bottom-right-radius:0;""><i class="glyphicon glyphicon-remove"></i></div>
+                        </form>
+                    ';
                     $itemcounter++;
                     $c++;
                 }

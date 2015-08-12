@@ -17,21 +17,22 @@ if (mysqli_connect_errno($con))
 else
 {
     //Get all POST variables
-    $item_name 			= mysqli_real_escape_string($con, $_POST['name']);
+    $item_name 		= mysqli_real_escape_string($con, $_POST['name']);
+    $item_number 	= mysqli_real_escape_string($con, $_POST['Item_number']);
     $gender 		= mysqli_real_escape_string($con, $_POST['gender']);
     $price 			= str_replace('£','',mysqli_real_escape_string($con, $_POST['price']));
     $shipping 		= mysqli_real_escape_string($con, $_POST['shipping']);
     $description 	= mysqli_real_escape_string($con, $_POST['desc']);
     $size1 			= mysqli_real_escape_string($con, $_POST['size1']);
-    $stock1 		= mysqli_real_escape_string($con, $_POST['stock1']);
+    $stock1 		= 999;
     $size2 			= mysqli_real_escape_string($con, $_POST['size2']);
-    $stock2 		= mysqli_real_escape_string($con, $_POST['stock2']);
+    $stock2 		= 999;
     $size3 			= mysqli_real_escape_string($con, $_POST['size3']);
-    $stock3 		= mysqli_real_escape_string($con, $_POST['stock3']);
+    $stock3 		= 999;
     $size4 			= mysqli_real_escape_string($con, $_POST['size4']);
-    $stock4 		= mysqli_real_escape_string($con, $_POST['stock4']);
+    $stock4 		= 999;
     $size5 			= mysqli_real_escape_string($con, $_POST['size5']);
-    $stock5 		= mysqli_real_escape_string($con, $_POST['stock5']);
+    $stock5 		= 999;
     $file1 			= mysqli_real_escape_string($con, $_POST['file1']);
     $file2 			= mysqli_real_escape_string($con, $_POST['file2']);
     $file3 			= mysqli_real_escape_string($con, $_POST['file3']);
@@ -44,18 +45,24 @@ else
     $category		= mysqli_real_escape_string($con, $_POST["category"]);
     $guide			= mysqli_real_escape_string($con, $_POST["guide"]);
 
-    //Find next available ID
-    for ($i = 1; $i <= 999; $i++)
-    {
-        $s = $ID . str_pad(strval($i), 3, "0", STR_PAD_LEFT);
-        $result = mysqli_query($con,"SELECT * FROM products WHERE Brand = '". $ID . "' AND Item_number = '" . $s . "'");
-        $counter = 0;
-        while($row = mysqli_fetch_array($result))
+    if($item_number == "") {
+        //Find next available ID
+        for ($i = 1; $i <= 999; $i++)
         {
-            $counter++;
+            $s = $ID . str_pad(strval($i), 3, "0", STR_PAD_LEFT);
+            $result = mysqli_query($con,"SELECT * FROM products WHERE Brand = '". $ID . "' AND Item_number = '" . $s . "'");
+            $counter = 0;
+            while($row = mysqli_fetch_array($result))
+            {
+                $counter++;
+            }
+            if($counter == 0) break;
         }
-        if($counter == 0) break;
+    } else {
+        $s = $item_number;
+        $result = mysqli_query($con,"DELETE FROM products WHERE Item_number = '" . $s . "'");
     }
+
     if(file_exists("utils.php")) {include("utils.php");}
     else if(file_exists("../utils.php")) {include("../utils.php");}
     else if(file_exists("../../utils.php")) {include("../../utils.php");}

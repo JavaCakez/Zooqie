@@ -622,21 +622,48 @@ echoGoogleAnalyticsScript();
     		$imgURL5 = 'NULL';
     		while($row = mysqli_fetch_array($result))
     		{
-    			$imgURL1 = $row['Image_URL1'];
+				$imgURL1 = $row['Image_URL1'];
+				$largeimgURL1 = str_replace('.', '_large.', $imgURL1);
     			$imgURL2 = $row['Image_URL2'];
+				$largeimgURL2 = str_replace('.', '_large.', $imgURL2);
     			$imgURL3 = $row['Image_URL3'];
+				$largeimgURL3 = str_replace('.', '_large.', $imgURL3);
     			$imgURL4 = $row['Image_URL4'];
+				$largeimgURL4 = str_replace('.', '_large.', $imgURL4);
     			$imgURL5 = $row['Image_URL5'];
+				$largeimgURL5 = str_replace('.', '_large.', $imgURL5);
     		}
     	
     	
     	echo '<ul id="ecom">';
-    	if($imgURL1 != "") echo '<li><img class="etalage_source_image" src="../../' . $imgURL1 . '" /></li>';
-    	if($imgURL2 != "") echo '<li><img class="etalage_source_image" src="../../' . $imgURL2 . '" /></li>';
-    	if($imgURL3 != "") echo '<li><img class="etalage_source_image" src="../../' . $imgURL3 . '" /></li>';
-    	if($imgURL4 != "") echo '<li><img class="etalage_source_image" src="../../' . $imgURL4 . '" /></li>';
-    	if($imgURL5 != "") echo '<li><img class="etalage_source_image" src="../../' . $imgURL5 . '" /></li>';
-    	echo '</ul>';
+    	if($largeimgURL1 != "" && file_exists('../../'.$largeimgURL1)) {
+			echo '<li><img class="etalage_source_image" src="../../' . $largeimgURL1 . '" /></li>';
+		} else if($imgURL1 != "") {
+			echo '<li><img class="etalage_source_image" src="../../' . $imgURL1 . '" /></li>';
+		}
+		if($largeimgURL2 != "" && file_exists('../../'.$largeimgURL2)) {
+			echo '<li><img class="etalage_source_image" src="../../' . $largeimgURL2 . '" /></li>';
+		} else if($imgURL2 != "") {
+			echo '<li><img class="etalage_source_image" src="../../' . $imgURL2 . '" /></li>';
+		}
+		if($largeimgURL3 != "" && file_exists('../../'.$largeimgURL3)) {
+			echo '<li><img class="etalage_source_image" src="../../' . $largeimgURL3 . '" /></li>';
+		} else if($imgURL3 != "") {
+			echo '<li><img class="etalage_source_image" src="../../' . $imgURL3 . '" /></li>';
+		}
+		if($largeimgURL4 != "" && file_exists('../../'.$largeimgURL4)) {
+			echo '<li><img class="etalage_source_image" src="../../' . $largeimgURL4 . '" /></li>';
+		} else if($imgURL4 != "") {
+			echo '<li><img class="etalage_source_image" src="../../' . $imgURL4 . '" /></li>';
+		}
+		if($largeimgURL5 != "" && file_exists('../../'.$largeimgURL5)) {
+			echo '<li><img class="etalage_source_image" src="../../' . $largeimgURL5 . '" /></li>';
+		} else if($imgURL5 != "") {
+			echo '<li><img class="etalage_source_image" src="../../' . $imgURL5 . '" /></li>';
+		}
+
+
+	echo '</ul>';
     	
     ?>
 </div>

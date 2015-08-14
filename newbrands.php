@@ -308,7 +308,7 @@
                     <div class = "dark">
                         <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>
                         <h2 class="subheaderRight">5. DASHBOARD ANALYTICS</h2>
-                        <p class="paragraphRight">Zooqie provides a suite of analytics tools allowing you to track your product views, sales and stock levels. This real-time information will give you more control in making informed business decisions.</p>
+                        <p class="paragraphRight">Zooqie provides a suite of analytics tools allowing you to track your product views and sales. This real-time information will give you more control in making informed business decisions.</p>
 						<p class="paragraphRight">"This feature is ideal for our business as it allows us to see which items are more popular and selling well and therefore enables us to see what to produce more of. We can also see which items aren't selling so well and can therefore make better informed stock orders, meaning we are left with less surplus stock. With the ability to see the views on our brand we can gauge popularity and see whether more needs to be invested in advertising." - <a href="www.zooqie.com/brands/lostandwild/">Lost & Wild</a></p>
 
 					</div>
@@ -375,9 +375,7 @@
                     <div class = "light">
                         <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>
                         <h2 class="subheader">4. STOCK</h2>
-                        <p class="paragraphLeft">Our site will keep track of your stock so you don't accidentally over-sell.</p>
-                        <p class="paragraphLeft">If you are also selling from other sites, we ask that you either set aside some stock exclusively to sell on our site, or if you don't want to do this, ensure you update your stock on our site regularly to avoid upsetting customers.</p>
-                        <p class="paragraphLeft">If you make to order, that's even better as there is no possibility of overselling and we can set your Zooqie-stock to be unlimited.</p>
+                        <p class="paragraphLeft">When you run out of stock of a product or a particular size of that product, we ask that you remove that product or edit the product to remove that particular size. This will avoid customers buying products you are out of stock on.</p>
                     </div>
                 </section>
             </li>

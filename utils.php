@@ -1000,8 +1000,10 @@ nav ul li a:hover {
 
             if( ltrim(rtrim(form.elements["shipping"].value," ")," ")=="" ) { alert("The Shipping Prices are required. If you have not created any Shipping Price Sets please do so first and try again."); form.elements["shipping"].focus(); return false; }
 
-            if( ltrim(rtrim(form.elements["size1"].value," ")," ")=="e.g. Red Small" ) form.elements["size1"].value = "";
-            if( ltrim(rtrim(form.elements["size1"].value," ")," ")=="" ) { alert("You must input at least one Size"); form.elements["size1"].focus(); return false; }
+            if( ltrim(rtrim(form.elements["size1"].value," ")," ")=="" &&
+            ltrim(rtrim(form.elements["size2"].value," ")," ")=="" &&
+            ltrim(rtrim(form.elements["size3"].value," ")," ")=="" &&
+            ltrim(rtrim(form.elements["size4"].value," ")," ")=="") { alert("You must input at least one Size"); form.elements["size1"].focus(); return false; }
 
             if( ltrim(rtrim(form.elements["desc"].value," ")," ")=="e.g. \nStripped Chino shorts\nZip and Button closure\n\n100% cotton\nColour: Grey\n\nModel in image wears size: 32R" ) form.elements["desc"].value = "";
 
@@ -1644,3 +1646,5 @@ Model in image wears size: 32R" style="height:170px;width:300px" id="text_descri
 //TODO: make contact form able to contact brands directly
 
 //TODO: make 404 page
+
+//TODO: review T&Cs before re-launch

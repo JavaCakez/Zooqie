@@ -647,8 +647,8 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 						<th>Date</th><th>Item Name</th><th title= 'Product Price plus Shipping Price'>Total</th>
 					</tr>";
 					
-					//display and format the 3 most recent sales
-					$result = mysqli_query($con,"SELECT Price, Shipping, Date, Item_name FROM sales WHERE BrandUsername = '$userID' ORDER BY Date DESC LIMIT 3");
+					//display and format the 2 most recent sales
+					$result = mysqli_query($con,"SELECT Price, Shipping, Date, Item_name FROM sales WHERE BrandUsername = '$userID' ORDER BY Date DESC LIMIT 2");
 					$tablecount = 0;
 					while($row = mysqli_fetch_array($result))
 					{
@@ -667,7 +667,7 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 					}
 					
 					//enter default table data if no data is given
-					for ($x=$tablecount; $x<=2; $x++){
+					for ($x=$tablecount; $x<=1; $x++){
 						echo "<tr onmouseover=\"this.style.backgroundColor='#B3C8CB';\" onmouseout=\"this.style.backgroundColor='#d4e3e5';\">";
 						echo "<td>" . "--" . "</td>";
 						echo "<td>" . "--" . "</td>";
@@ -862,7 +862,7 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 		<!--STOCK-->
 		
 		<!--Make entire box clickable to navigate to stocks dashboard-->
-		<a href="dashboardstocks.php">
+		<a style="display: none" href="dashboardstocks.php">
 			<div style = "position:absolute; top: 292.5px; left: 687.5px; width:250px; height: 198px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 				
 				<!--Make entire box clickable to navigate to views dashboard-->

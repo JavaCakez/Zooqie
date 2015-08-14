@@ -1442,9 +1442,9 @@ else
                             });
                         </script>
 
-                        <form id="js-delete'. $itemno . 'Form" onsubmit="'; echo 'return confirm('; echo "'"; echo 'Are you sure?'; echo "'"; echo ');'; echo'" action="uploadmenu.php?Tab=3" accept-charset="UTF-8" method="post" target="_self" enctype="multipart/form-data">
+                        <form title="Delete product" id="js-delete'. $itemno . 'Form" onsubmit="'; echo 'return confirm('; echo "'"; echo 'Are you sure you want to delete this product?'; echo "'"; echo ');'; echo'" action="uploadmenu.php?Tab=3" accept-charset="UTF-8" method="post" target="_self" enctype="multipart/form-data">
                             <input type="hidden" name="delete" value="'. $itemno . '">
-                            <div id="js-delete'. $itemno . 'Button" class="btn btn-danger btn-cancel" style="position:absolute;left:' . $buttona . 'px;top:' . $b . 'px;color:white;width:20px;height:20px;padding:4px 2px 0px 2px;border-bottom-right-radius:0;""><i class="glyphicon glyphicon-remove"></i></div>
+                            <div title="Delete product" id="js-delete'. $itemno . 'Button" class="btn btn-danger btn-cancel" style="position:absolute;left:' . $buttona . 'px;top:' . $b . 'px;color:white;width:20px;height:20px;padding:4px 2px 0px 2px;border-bottom-right-radius:0;""><i title="Delete product" class="glyphicon glyphicon-trash"></i></div>
                         </form>
                     ';
                     $itemcounter++;
@@ -1963,14 +1963,14 @@ else
         <div id="frag_15" style="position:absolute;left:18px;top:92px;width:793px;height:339px;">
             <div class="accordion">
 
-                <section id="one">
+                <!--<section id="one">
                     <h2><a href="#one">How do i add more than 4 stocks when uploading a new product?</a></h2>
                     <div>
                         <p>
                             If you want to add more than 4 stocks, simply upload the product with 4 stocks, then after, edit the product and you can add more.
                         </p>
                     </div>
-                </section>
+                </section>-->
 
                 <section id="two">
                     <h2><a href="#two">How do I change my password? Is my password secure?</a></h2>
@@ -2075,7 +2075,7 @@ else
                         </p>
                     </div>
                 </section>
-
+                <!--
                 <section id="eleven">
                     <h2><a href="#eleven">How do I add more stock to a product?</a></h2>
                     <div>
@@ -2084,12 +2084,12 @@ else
                         </p>
                     </div>
                 </section>
-
+                -->
                 <section id="twelve">
-                    <h2><a href="#twelve">How do I remove an item or make an item out of stock?</a></h2>
+                    <h2><a href="#twelve">How do I remove an item?</a></h2>
                     <div>
                         <p>
-                            You can delete any product within the Products tab, simply pressing the red cross on the corner of the desired product. However, if you wish to keep the item on the site, but make it unavaiable to purchase, you could instead set all the stock for that item to 0. This can be done by editing the product within the Products tab.
+                            You can delete any product within the Products tab, simply pressing the red cross on the corner of the desired product.
                         </p>
                     </div>
                 </section>

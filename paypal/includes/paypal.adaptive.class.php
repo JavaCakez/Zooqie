@@ -3,7 +3,7 @@
  * 	Angell EYE PayPal Adaptive Payments Class
  *	An open source PHP library written to easily work with PayPal's API's
  *
- *  Copyright © 2012  Andrew K. Angell
+ *  Copyright ï¿½ 2012  Andrew K. Angell
  *	Email:  andrew@angelleye.com
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -21,7 +21,7 @@
  *
  * @package			Angell_EYE_PayPal_Adaptive_Class_Library
  * @author			Andrew K. Angell
- * @copyright       Copyright © 2012 Angell EYE, LLC
+ * @copyright       Copyright ï¿½ 2012 Angell EYE, LLC
  * @link			http://www.angelleye.com
  * @since			Version 1.5
  * @updated			10.31.2012
@@ -475,7 +475,6 @@ class PayPal_Adaptive extends PayPal
 		$ReverseAllParallelPaymentsOnError = isset($PayRequestFields['ReverseAllParallelPaymentsOnError']) ? $PayRequestFields['ReverseAllParallelPaymentsOnError'] : '';
 		$SenderEmail = isset($PayRequestFields['SenderEmail']) ? $PayRequestFields['SenderEmail'] : '';
 		$TrackingID = isset($PayRequestFields['TrackingID']) ? $PayRequestFields['TrackingID'] : '';
-	
 		// ClientDetails Fields
 		$ClientDetailsFields = isset($DataArray['ClientDetailsFields']) ? $DataArray['ClientDetailsFields'] : array();
 		$CustomerID = isset($ClientDetailsFields['CustomerID']) ? $ClientDetailsFields['CustomerID'] : '';
@@ -483,10 +482,8 @@ class PayPal_Adaptive extends PayPal
 		$GeoLocation = isset($ClientDetailsFields['GeoLocation']) ? $ClientDetailsFields['GeoLocation'] : '';
 		$Model = isset($ClientDetailsFields['Model']) ? $ClientDetailsFields['Model'] : '';
 		$PartnerName = isset($ClientDetailsFields['PartnerName']) ? $ClientDetailsFields['PartnerName'] : '';
-	
 		// FundingConstraint Fields
 		$FundingTypes = isset($DataArray['FundingTypes']) ? $DataArray['FundingTypes'] : array();
-	
 		// Receivers Fields
 		$Receivers = isset($DataArray['Receivers']) ? $DataArray['Receivers'] : array();
 		$Amount = isset($Receivers['Amount']) ? $Receivers['Amount'] : '';
@@ -496,11 +493,9 @@ class PayPal_Adaptive extends PayPal
 		$PaymentSubType = isset($Receivers['PaymentSubType']) ? $Receivers['PaymentSubType'] : '';
 		$Phone = isset($Receivers['Phone']) ? $Receivers['Phone'] : '';
 		$Primary = isset($Receivers['Primary']) ? strtolower($Receivers['Primary']) : '';
-	
 		// SenderIdentifier Fields
 		$SenderIdentifierFields = isset($DataArray['SenderIdentifierFields']) ? $DataArray['SenderIdentifierFields'] : array();
 		$UseCredentials = isset($SenderIdentifierFields['UseCredentials']) ? $SenderIdentifierFields['UseCredentials'] : '';
-	
 		// AccountIdentifierFields Fields
 		$AccountIdentifierFields = isset($DataArray['AccountIdentifierFields']) ? $DataArray['AccountIdentifierFields'] : array();
 		$AccountEmail = isset($AccountIdentifierFields['Email']) ? $AccountIdentifierFields['Email'] : '';
@@ -512,7 +507,6 @@ class PayPal_Adaptive extends PayPal
 		$XMLRequest .= $this -> GetXMLRequestEnvelope();
 		$XMLRequest .= $ActionType != '' ? '<actionType xmlns="">' . $ActionType . '</actionType>' : '';
 		$XMLRequest .= $CancelURL != '' ? '<cancelUrl xmlns="">' . $CancelURL . '</cancelUrl>' : '';
-	
 		if(count($ClientDetailsFields) > 0)
 		{
 			$XMLRequest .= '<clientDetails xmlns="">';
@@ -621,6 +615,9 @@ class PayPal_Adaptive extends PayPal
 		// Parse XML values
 		$Fault = $DOM -> getElementsByTagName('FaultMessage') -> length > 0 ? true : false;
 		$Errors = $this -> GetErrors($XMLResponse);
+
+		// UNCOMMENT THIS FOR DEBUGGING
+//		print_r($Errors);
 		$Ack = $DOM -> getElementsByTagName('ack') -> length > 0 ? $DOM -> getElementsByTagName('ack') -> item(0) -> nodeValue : '';
 		$Build = $DOM -> getElementsByTagName('build') -> length > 0 ? $DOM -> getElementsByTagName('build') -> item(0) -> nodeValue : '';
 		$CorrelationID = $DOM -> getElementsByTagName('correlationId') -> length > 0 ? $DOM -> getElementsByTagName('correlationId') -> item(0) -> nodeValue : '';

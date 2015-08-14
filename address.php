@@ -668,7 +668,7 @@ echoNavBar(0, array('Home', 'Checkout'), array('index.php', 'address.php'));
 		<br/>
 	
 	
-	<form id="form_25" autocomplete="off" name="userinfo_2" onsubmit="return validate_form_25(this)" action="/paypal/class/PayWithOptions2.php" accept-charset="UTF-8" method="post" target="_self" enctype="multipart/form-data" >
+	<form id="form_25" autocomplete="off" name="userinfo_2" onsubmit="return validate_form_25(this)" action="paypal/class/PayWithOptions2.php" accept-charset="UTF-8" method="post" target="_self" enctype="multipart/form-data" >
 
 		<input type="hidden" name="bn" value="Serif.WebPlus">
 		<input type="hidden" name="cmd" value="_xclick">

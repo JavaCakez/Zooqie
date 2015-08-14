@@ -67,8 +67,6 @@ else
 
 
 
-
-
 // Include required library files.
 require_once('../includes/config3.php');
 require_once('../includes/paypal.class.php');
@@ -103,6 +101,8 @@ else
 	$zookieamt = round($_POST["amount"] * $zookiecut,2);
 }
 
+
+
 if(!isset($_POST["ship"])) $_POST["ship"] = 0;
 $brand_account_email = $sandbox ? 'tmx2000@hotmail.com' : $_POST["business"];
 
@@ -134,24 +134,24 @@ $FundingTypes = array('ECHECK', 'BALANCE', 'CREDITCARD');					// Funding constra
 
 $Receivers = array();
 $Receiver = array(
-				'Amount' => $_POST["amount"]+$_POST["ship"], 											// Required.  Amount to be paid to the receiver.
-				'Email' => $brand_account_email, 												// Receiver's email address. 127 char max.
-				'InvoiceID' => '', 											// The invoice number for the payment.  127 char max.
-				'PaymentType' => '', 										// Transaction type.  Values are:  GOODS, SERVICE, PERSONAL, CASHADVANCE, DIGITALGOODS
-				'PaymentSubType' => '', 									// The transaction subtype for the payment.
-				'Phone' => array('CountryCode' => '', 'PhoneNumber' => '', 'Extension' => ''), // Receiver's phone number.   Numbers only.
-				'Primary' => 'TRUE'												// Whether this receiver is the primary receiver.  Values are boolean:  TRUE, FALSE
-				);
+	'Amount' => $_POST["amount"]+$_POST["ship"], 											// Required.  Amount to be paid to the receiver.
+	'Email' => $brand_account_email, 												// Receiver's email address. 127 char max.
+	'InvoiceID' => '', 											// The invoice number for the payment.  127 char max.
+	'PaymentType' => '', 										// Transaction type.  Values are:  GOODS, SERVICE, PERSONAL, CASHADVANCE, DIGITALGOODS
+	'PaymentSubType' => '', 									// The transaction subtype for the payment.
+	'Phone' => array('CountryCode' => '', 'PhoneNumber' => '', 'Extension' => ''), // Receiver's phone number.   Numbers only.
+	'Primary' => 'TRUE'												// Whether this receiver is the primary receiver.  Values are boolean:  TRUE, FALSE
+);
 array_push($Receivers,$Receiver);
 
 $Receiver = array(
-		'Amount' => $zookieamt, 											// Required.  Amount to be paid to the receiver.
-		'Email' => $paypal_account_email, 												// Receiver's email address. 127 char max.
-		'InvoiceID' => '', 											// The invoice number for the payment.  127 char max.
-		'PaymentType' => '', 										// Transaction type.  Values are:  GOODS, SERVICE, PERSONAL, CASHADVANCE, DIGITALGOODS
-		'PaymentSubType' => '', 									// The transaction subtype for the payment.
-		'Phone' => array('CountryCode' => '', 'PhoneNumber' => '', 'Extension' => ''), // Receiver's phone number.   Numbers only.
-		'Primary' => 'FALSE'												// Whether this receiver is the primary receiver.  Values are boolean:  TRUE, FALSE
+	'Amount' => $zookieamt, 											// Required.  Amount to be paid to the receiver.
+	'Email' => $paypal_account_email, 												// Receiver's email address. 127 char max.
+	'InvoiceID' => '', 											// The invoice number for the payment.  127 char max.
+	'PaymentType' => '', 										// Transaction type.  Values are:  GOODS, SERVICE, PERSONAL, CASHADVANCE, DIGITALGOODS
+	'PaymentSubType' => '', 									// The transaction subtype for the payment.
+	'Phone' => array('CountryCode' => '', 'PhoneNumber' => '', 'Extension' => ''), // Receiver's phone number.   Numbers only.
+	'Primary' => 'FALSE'												// Whether this receiver is the primary receiver.  Values are boolean:  TRUE, FALSE
 );
 array_push($Receivers,$Receiver);
 
@@ -197,18 +197,7 @@ $SenderOptions = array(
 // Begin loop to populate receiver options.
 $ReceiverOptions = array();
 $ReceiverOption = array(
-        'Description' => 'You have received a sale from Zooqie.com. See details below or log into your Zooqie dashboard for more information.'.
-            'Item Number: ' . $_POST["item_number"] .
-        '      Item Name: '.$_POST["item_name"].
-		'      Size: '.$_POST["os0"].
-		'      Name: '.$_POST["firstname"]. 
-		'      Email: '.$_POST["email"]. 
-		'     Address:' .$_POST["line1"]. ',
-		' .$_POST["line2"]. ',
-		' .$_POST["town"]. ',
-		' .$_POST["state"]. ',
-		' .$_POST["postcode"]. ',
-		' .$_POST["country"], 					// A description you want to associate with the payment.  1000 char max.
+		'Description' => $_POST["item_number"].','.$_POST["item_name"].','.$_POST["os0"].','.$_POST["firstname"].','.$_POST["email"].','.$_POST["line1"].','.$_POST["line2"].','.$_POST["town"].','.$_POST["state"].','.$_POST["postcode"].','.$_POST["country"].','.$_POST["ship"], 					// A description you want to associate with the payment.  1000 char max.
 		'CustomID' => '' 						// An external reference number you want to associate with the payment.  1000 char max.
 );
 	
@@ -240,18 +229,7 @@ $ReceiverOption['ReceiverIdentifier'] = $ReceiverIdentifier;
 array_push($ReceiverOptions,$ReceiverOption);
 
 $ReceiverOption = array(
-		'Description' => 'You have a sale from Zooqie.com. See details below or log into your Zooqie dashboard for more information.'.
-            'Item Number: ' . $_POST["item_number"] .
-        '      Item Name: '.$_POST["item_name"].
-		'      Size: '.$_POST["os0"]. 
-		'      Name: '.$_POST["firstname"]. 
-		'      Email: '.$_POST["email"]. 
-		'     Address:' .$_POST["line1"]. ',
-		' .$_POST["line2"]. ',
-		' .$_POST["town"]. ',
-		' .$_POST["state"]. ',
-		' .$_POST["postcode"]. ',
-		' .$_POST["country"], 					// A description you want to associate with the payment.  1000 char max.
+		'Description' => $_POST["item_number"].','.$_POST["item_name"].','.$_POST["os0"].','.$_POST["firstname"].','.$_POST["email"].','.$_POST["line1"].','.$_POST["line2"].','.$_POST["town"].','.$_POST["state"].','.$_POST["postcode"].','.$_POST["country"].','.$_POST["ship"], 					// A description you want to associate with the payment.  1000 char max
 		'CustomID' => '' 						// An external reference number you want to associate with the payment.  1000 char max.
 );
 	
@@ -297,7 +275,7 @@ $PayPalRequestData = array(
 		'ReceiverOptions' => $ReceiverOptions 
 		);
 
-		
+
 // Pass data into class for processing with PayPal and load the response array into $PayPalResult
 $PayPalResult = $PayPal->PayWithOptions($PayPalRequestData);
 
@@ -340,8 +318,8 @@ fwrite($fh, $stringData);
 fclose($fh);
 
 //Automatic Redirect
-$URL=$PayPalResult['RedirectURL']; 
-header ("Location: $URL"); 
+$URL=$PayPalResult['RedirectURL'];
+header ("Location: $URL");
 
 // Write the contents of the response array to the screen for demo purposes.
 //echo '<pre />';

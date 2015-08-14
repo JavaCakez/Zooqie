@@ -414,7 +414,7 @@ echoGoogleAnalyticsScript();
 		}
 		
 		//Correctly set all size stocks to correct value
-		$result = mysqli_query($con,"SELECT * FROM products WHERE Brand IN (SELECT ID FROM brands Where Live = '1') AND Item_number = '". $pageName . "'");
+		$result = mysqli_query($con,"SELECT * FROM products WHERE Brand IN (SELECT ID FROM brands Where (Live = '1' || Brand='TST')) AND Item_number = '". $pageName . "'");
 		while($row = mysqli_fetch_array($result))
 		{
 			for ($j = 0; $j < $totalSizes; $j++)
@@ -443,7 +443,7 @@ echoGoogleAnalyticsScript();
 			
 			for ($j = $totalSizes; $j > 0; $j--)
 			{
-				if($sizeStocks[$totalSizes - $j] > 0) echo '<option value="' . $sizeStrings[$totalSizes - $j] . '" >' . $sizeStrings[$totalSizes - $j] . ' - ' . $sizeStocks[$totalSizes - $j] . ' left </option>';
+				if($sizeStocks[$totalSizes - $j] > 0) echo '<option value="' . $sizeStrings[$totalSizes - $j] . '" >' . $sizeStrings[$totalSizes - $j] . ' </option>';
 			}
 			
 			echo '</select>';

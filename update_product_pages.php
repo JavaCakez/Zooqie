@@ -24,9 +24,10 @@ if(file_exists("db_settings.php")) {include("db_settings.php");}
             while($row3 = mysqli_fetch_array($result3))
             {
                 $live = $row3['Live'];
+                $brandId = $row3['ID'];
             }
 
-            if($live == 1)
+            if($live == 1 || $brandId == 'TST')
             {
                 $result2 = mysqli_query($con,"SELECT * FROM brandfolders WHERE ID = '" . $ID . "'");
                 while($row2 = mysqli_fetch_array($result2))

@@ -1648,3 +1648,5 @@ Model in image wears size: 32R" style="height:170px;width:300px" id="text_descri
 //TODO: make 404 page
 
 //TODO: review T&Cs before re-launch
+
+//TODO: on brand upload tool, highlight which tab you are currently on (black borders instead of grey?)

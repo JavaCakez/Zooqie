@@ -295,7 +295,7 @@ a.hlink_1:active {color:#2c2c2c;}
 
 <?
 //height of page excluding footer
-$pageHeight = 850;
+$pageHeight = 800;
 // 222 is footer height
 $tmpHeight = $pageHeight + 222;
 ?>
@@ -799,8 +799,7 @@ echoNavBar(0, array('Home', 'Checkout'), array('index.php', 'address.php'));
 
 <ul class="Body-P">
 	<h3 class="Wp-Heading-2-P"><span class="Heading-3-C">Paypal</span></h3>
-    <li class="Body-P-P0"><span class="Body-C">All Payments are made securely through PayPal. Payments are made directly to the
-        independent clothing brand.</span></li></ul>
+    <li class="Body-P-P0"><span class="Body-C">All Payments are made securely through PayPal.</span></li></ul>
 </div>
 
 
@@ -815,7 +814,7 @@ echoNavBar(0, array('Home', 'Checkout'), array('index.php', 'address.php'));
 <ul class="Body-P">
 	<h3 class="Wp-Heading-2-P"><span class="Heading-3-C">Delivery</span></h3>
     <li class="Body-P-P0"><span class="Body-C">Many of our brands are relatively small and/or new and their delivery times may be
-        slightly longer than may be expected from other more commercial brands/websites.</span></li></ul>
+        slightly longer than may be expected from other websites.</span></li></ul>
 </div>
 
 

@@ -1645,9 +1645,7 @@ else
         echo 'visibility:hidden;';
     }?>">
         <div id="frag_53" style="position:absolute;left:17px;top:92px;width:792px;height:217px;">
-            <!--Body-->
 
-            <!-- Form form_30 -->
             <div class="accordion">
 
                 <section id="one">
@@ -1674,6 +1672,33 @@ else
                 <input type="hidden" name="ID" value="<?echo $id;?>">
 
 
+                <div style="width:228px; height:228px;padding-top:500px;">
+                    <div id="js-dropzone1" class="dropzone" data-width="190" data-height="190" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 228px; height: 228px;">
+                        <input type="file" name="file1" />
+                    </div>
+                </div>
+
+                <div style="width:378px; height:228px;padding-top:100px;">
+                    <div id="js-dropzone1" class="dropzone" data-width="252" data-height="152" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 378px; height: 228px;">
+                        <input type="file" name="file1" />
+                    </div>
+                </div>
+
+                <div style="width:800px; height:155px;padding-top:100px;">
+                    <div id="js-dropzone1" class="dropzone" data-width="983" data-height="191" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 800px; height: 155px;">
+                        <input type="file" name="file1" />
+                    </div>
+                </div>
+
+
+                <div style="width:800px; height:450px;padding-top:100px;">
+                    <div id="js-dropzone1" class="dropzone" data-width="1920" data-height="1080" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 800px; height: 450px;">
+                        <input type="file" name="file1" />
+                    </div>
+                </div>
+
+
+                <!--
                 <div id="txt_434" style="position:absolute;left:8px;top:8px;width:46px;height:25px;overflow:hidden; " >
                     <p class="Wp-Body-P"><label for="file_10"><span class="Heading-3-Ca">Logo:</span></label></p>
                 </div>
@@ -1697,6 +1722,7 @@ else
                     <p class="Wp-Body-P"><span class="Heading-3-Ca">Storefront:</span></p>
                 </div>
                 <input type="file" id="file_12" name="file4" size="17" style="position:absolute; left:112px; top:98px; width:208px;  " >
+                -->
 
 
 

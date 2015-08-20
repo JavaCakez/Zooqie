@@ -41,28 +41,6 @@ else
 	$Contact        = mysqli_real_escape_string($con, $_POST['email']);
 
 
-	//Insert brand into brand table
-	$sql = "INSERT INTO unhandledtransactions (Date, Price, Shipping, Brand_username, Item_number, Item_name, Description, Name, Address1, Address2, Town, Region, Postcode, Contact)
-    VALUES (" .
-		"now(), " .
-		$Price . ", " .
-		$Shipping . ", '" .
-		$Brand_username . "', '" .
-		$Item_number . "', '" .
-		$Item_name . "', '" .
-		$Description . "', '" .
-		$Name . "', '" .
-		$Address1 . "', '" .
-		$Address2 . "', '" .
-		$Town . "', '" .
-		$Region . "', '" .
-		$Postcode . "', '" .
-		$Contact . "');";
-
-	if (!mysqli_query($con,$sql)) {
-		die('An Error occurred, please try again later.');
-	}
-
 }
 
 
@@ -113,7 +91,7 @@ $PayRequestFields = array(
 	'CurrencyCode' => 'GBP', 								// Required.  3 character currency code.
 	'FeesPayer' => 'EACHRECEIVER', 						// The payer of the fees.  Values are:  SENDER, PRIMARYRECEIVER, EACHRECEIVER, SECONDARYONLY
 	'IPNNotificationURL' => 'http://www.zooqie.com/ipnlistener.php', 						// The URL to which you want all IPN messages for this payment to be sent.  1024 char max.
-	'Memo' => $_POST["item_number"].','.$_POST["item_name"].','.$_POST["os0"].','.$_POST["firstname"].','.$_POST["email"].','.$_POST["line1"].','.$_POST["line2"].','.$_POST["town"].','.$_POST["state"].','.$_POST["postcode"].','.$_POST["country"].','.$_POST["ship"], 										// A note associated with the payment (text, not HTML).  1000 char max
+	'Memo' => $_POST["item_number"].'|'.$_POST["item_name"].'|'.$_POST["os0"].'|'.$_POST["firstname"].'|'.$_POST["email"].'|'.$_POST["line1"].'|'.$_POST["line2"].'|'.$_POST["town"].'|'.$_POST["state"].'|'.$_POST["postcode"].'|'.$_POST["country"].'|'.$_POST["ship"], 										// A note associated with the payment (text, not HTML).  1000 char max
 	'Pin' => '', 										// The sener's personal id number, which was specified when the sender signed up for the preapproval
 	'PreapprovalKey' => '', 							// The key associated with a preapproval for this payment.  The preapproval is required if this is a preapproved payment.
 	'ReturnURL' => $domain.'paymentsuccess.php', 		// Required.  The URL to which the sener's browser is redirected after approvaing a payment on paypal.com.  1024 char max.
@@ -174,11 +152,12 @@ $SPOFields = array(
 	'ShippingAddressID' => '' 					// Sender's shipping address ID.
 );
 
-//TODO: make email header images
+//TODO: make email images
+//TODO: header image not working
 $DisplayOptions = array(
 	'EmailHeaderImageURL' => '', 			// The URL of the image that displays in the header of customer emails.  1,024 char max.  Image dimensions:  43 x 240
 	'EmailMarketingImageURL' => '', 		// The URL of the image that displays in the customer emails.  1,024 char max.  Image dimensions:  80 x 530
-	'HeaderImageURL' => 'http://www.zooqie.com/images/zooqie_email2.png', 				// The URL of the image that displays in the header of a payment page.  1,024 char max.  Image dimensions:  750 x 90
+	'HeaderImageURL' => 'http://www.zooqie.com/images/zooqie_email3.png', 				// The URL of the image that displays in the header of a payment page.  1,024 char max.  Image dimensions:  750 x 90
 	'BusinessName' => 'Zooqie'					// The business name to display.  128 char max.
 );
 

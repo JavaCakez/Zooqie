@@ -129,9 +129,7 @@
                     //Build an email to the shop owner
                     if (true)
                     {
-                        $pieces = explode(",", $memo);
-
-//TODO: FAIRLY URGENT, commas cant be allowed in address.php fields
+                        $pieces = explode("|", $memo);
 
                         // Create connection
                         $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
@@ -237,6 +235,7 @@
                         $mail_message .= "Hi guys," . "\r\n\r\n";
                         $mail_message .= "You've sold an item on Zooqie." . "\r\n\r\n";
                         $mail_message .= $pieces[1] . " - " . $pieces[2] . " (" . $pieces[0] . ")" . "\r\n\r\n";
+                        $mail_message .= "Buyer:\r\n\r\n";
                         $mail_message .= $pieces[3]."\r\n";
                         $mail_message .= $pieces[5]."\r\n";
                         $mail_message .= $pieces[6]."\r\n";
@@ -253,7 +252,6 @@
                         //$buyer_email -> this is the brand email
                         mail($mail_To, $mail_Subject, $mail_message, $headers);
 
-
                         //Build an email to the buyer
                         $mail_Subject2 = "Thank you for your Zooqie purchase";
 
@@ -264,7 +262,8 @@
                         $mail_message2 .= $pieces[1] . " - " . $pieces[2] ."\r\n"."\r\n";
                         $mail_message2 .= "Item: £" . $Price ."\r\n";
                         $mail_message2 .= "Shipping: £" . $pieces[11] ."\r\n" ."\r\n";
-                        $mail_message2 .= "Total: £" . $Price + $pieces[11] ."\r\n"."\r\n";
+                        $total = $Price + $pieces[11];
+                        $mail_message2 .= "Total: £" . $total ."\r\n"."\r\n";
                         $mail_message2 .= "Regards,\rTeam Zooqie";
 
                         mail($mail_To, $mail_Subject2, $mail_message2, $headers);

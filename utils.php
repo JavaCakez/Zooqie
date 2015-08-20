@@ -1650,3 +1650,9 @@ Model in image wears size: 32R" style="height:170px;width:300px" id="text_descri
 //TODO: review T&Cs before re-launch
 
 //TODO: on brand upload tool, highlight which tab you are currently on (black borders instead of grey?)
+
+//TODO: validate so | cant be allowed in address.php fields (its used as delimeter for ipn listener)
+
+//TODO: make paypal errors handled gracefully
+
+//TODO: NEED TO REMEMBER TO CHANGE IPNLISTENER TO MAKE IT ACTUALLY EMAIL BRAND AND CUSTOMER WHEN THIS ALL GOES LIVE

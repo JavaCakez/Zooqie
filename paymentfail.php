@@ -11,8 +11,8 @@
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/superfish.js"></script>
-<script type="text/javascript" src="js/jquery.prettyphoto.js" charset="utf-8"></script>
+
+
 <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
 
 <meta http-equiv="Content-Style-Type" content="text/css">
@@ -36,7 +36,6 @@
 
 
 
-<script src="js/jquery.watermarkinput.js" type="text/javascript"></script>
 <style type="text/css">
 body{margin:0;padding:0;}
 .wpfixed{position:absolute;}
@@ -68,11 +67,8 @@ a.hlink_1:active {color:#2c2c2c;}
 
 
 </style>
-<script type="text/javascript" src="js/jspngfix.js"></script>
-<link rel="stylesheet" href="css/wpstyles.css" type="text/css">
-<script type="text/javascript">var blankSrc = "js/blank.gif";
-</script>
-<script type="text/javascript" src="js/jsRollover.js"></script>
+
+
 <script type="text/javascript">
 
 
@@ -119,11 +115,6 @@ echoNavBar(0, array('Home', 'Payment Failed'), array('index.php', 'paymentfail.p
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="js/totop.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto({ theme:'facebook', allow_resize: false });
-  });
-</script>
 <!--Page Body End-->
 
 <!--Fullsize Background Image-->

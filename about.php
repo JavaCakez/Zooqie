@@ -10,8 +10,7 @@
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/superfish.js"></script>
-<script type="text/javascript" src="js/jquery.prettyphoto.js" charset="utf-8"></script>
+
 <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
 
 <meta http-equiv="Content-Style-Type" content="text/css">
@@ -32,8 +31,6 @@
 
 
 
-
-<script src="js/jquery.watermarkinput.js" type="text/javascript"></script>
 
 <style type="text/css">
 body{margin:0;padding:0;}
@@ -95,15 +92,8 @@ a.hlink_1:active {color:#2c2c2c;}
 
 
 </style>
-<script type="text/javascript" src="js/jspngfix.js"></script>
-<link rel="stylesheet" href="css/wpstyles.css" type="text/css">
-<script type="text/javascript">var blankSrc = "js/blank.gif";
-</script>
-<script type="text/javascript" src="js/jsRollover.js"></script>
-<script type="text/javascript">
 
 
-</script>
 </head>
 
 <?
@@ -142,7 +132,7 @@ echoNavBar(0, array('Home', 'About Us'), array('index.php', 'about.php'));
 
 
 <img src="images/about_background.jpg" border="0" width="997" height="1505" id="pic_234" alt="" style="position:absolute;left:0px;top:129px;">
-<img src="images/grey_box.png" border="0" width="600" height="999" id="qs_337" alt="" onload="OnLoadPngFix()" style="position:absolute;left:200px;top:129px;">
+<img src="images/grey_box.png" border="0" width="600" height="999" id="qs_337" alt=""  style="position:absolute;left:200px;top:129px;">
 <div id="txt_173" style="position:absolute;left:273px;top:260px;width:460px;height:173px;overflow:hidden;">
 <h1 class="Heading-1-P" style="margin-top:0px"><span class="Heading-1-C">Sell</span></h1>
 <p class="Body-P"><span class="Body-C-C0">At Zooqie, we want to help independent clothing brands get started and </span><span class="Body-C-C1">selling</span><span class="Body-C-C0"> quickly.
@@ -161,9 +151,9 @@ echoNavBar(0, array('Home', 'About Us'), array('index.php', 'about.php'));
 <p class="Body-P"><span class="Body-C-C0">At Zooqie, we want to brings the brands and customers together.</span></p>
 <p class="Body-P"><span class="Body-C-C0">We want to </span><span class="Body-C-C1">share</span><span class="Body-C-C0"> brands amongst customers and </span><span class="Body-C-C1">share</span><span class="Body-C-C0"> customers amongst brands.</span></p>
 </div>
-<img src="images/black_line.png" border="0" width="441" height="2" id="pcrv_12" alt="" onload="OnLoadPngFix()" style="position:absolute;left:283px;top:260px;">
-<img src="images/little_tom.png" border="0" width="153" height="134" id="pic_225" alt="" onload="OnLoadPngFix()" style="position:absolute;left:332px;top:995px;">
-<img src="images/big_tom.png" border="0" width="150" height="157" id="pic_226" alt="" onload="OnLoadPngFix()" style="position:absolute;left:486px;top:973px;">
+<img src="images/black_line.png" border="0" width="441" height="2" id="pcrv_12" alt=""  style="position:absolute;left:283px;top:260px;">
+<img src="images/little_tom.png" border="0" width="153" height="134" id="pic_225" alt=""  style="position:absolute;left:332px;top:995px;">
+<img src="images/big_tom.png" border="0" width="150" height="157" id="pic_226" alt=""  style="position:absolute;left:486px;top:973px;">
 <div id="txt_162" style="position:absolute;left:291px;top:818px;width:419px;height:185px;overflow:hidden;">
 <p class="Wp-Body-P"><span class="Body-C-C3">We started Zooqie because we have a whole bunch of friends who have started clothing
     brands and we’ve always loved the uniqueness of independent clothing labels. We’ve
@@ -175,21 +165,16 @@ echoNavBar(0, array('Home', 'About Us'), array('index.php', 'about.php'));
 <div id="txt_286" style="position:absolute;left:291px;top:761px;width:434px;height:39px;overflow:hidden;">
 <p class="Wp-Body-P"><span class="Body-C-C4">Message From The Authors</span></p>
 </div>
-<img src="images/black_line.png" border="0" width="441" height="2" id="pcrv_10" alt="" onload="OnLoadPngFix()" style="position:absolute;left:283px;top:590px;">
-<img src="images/black_line.png" border="0" width="441" height="2" id="pcrv_11" alt="" onload="OnLoadPngFix()" style="position:absolute;left:283px;top:431px;">
-<img src="images/black_line.png" border="0" width="441" height="2" id="pcrv_5" alt="" onload="OnLoadPngFix()" style="position:absolute;left:283px;top:750px;">
-<img src="images/zooqie.png" border="0" width="360" height="83" id="pic_235" alt="" onload="OnLoadPngFix()" style="position:absolute;left:320px;top:154px;">
+<img src="images/black_line.png" border="0" width="441" height="2" id="pcrv_10" alt=""  style="position:absolute;left:283px;top:590px;">
+<img src="images/black_line.png" border="0" width="441" height="2" id="pcrv_11" alt=""  style="position:absolute;left:283px;top:431px;">
+<img src="images/black_line.png" border="0" width="441" height="2" id="pcrv_5" alt=""  style="position:absolute;left:283px;top:750px;">
+<img src="images/zooqie.png" border="0" width="360" height="83" id="pic_235" alt=""  style="position:absolute;left:320px;top:154px;">
 <!--Master Page End-->
 <div id="nav-bar"></div>
 </div>
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="js/totop.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto({ theme:'facebook', allow_resize: false });
-  });
-</script>
 <!--Page Body End-->
 
 <!--Fullsize Background Image-->

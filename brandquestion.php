@@ -17,7 +17,6 @@ body{margin:0;padding:0;}
     font-family:"Harabara", serif; color:#656565; font-size:24px; line-height:1.50em;
 }
 </style>
-<link rel="stylesheet" href="css/wpstyles.css" type="text/css">
 </head>
 <body text="#000000" style="background:#ffffff; height:450px;">
 <div style="background-color:transparent;margin-left:auto;margin-right:auto;position:relative;width:590px;height:450px;">

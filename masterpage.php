@@ -20,8 +20,8 @@ else
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/superfish.js"></script>
-<script type="text/javascript" src="js/jquery.prettyphoto.js" charset="utf-8"></script>
+
+
 <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
 
 <meta http-equiv="Content-Style-Type" content="text/css">
@@ -56,7 +56,6 @@ y
     }
 
     ?>
-<script src="js/jquery.watermarkinput.js" type="text/javascript"></script>
 <style type="text/css">
 body{margin:0;padding:0;}
 .wpfixed{position:absolute;}
@@ -127,11 +126,6 @@ table.hovertable td {
 
 
 </style>
-<script type="text/javascript" src="wpscripts/jspngfix.js"></script>
-<link rel="stylesheet" href="css/wpstyles.css" type="text/css">
-<script type="text/javascript">var blankSrc = "wpscripts/blank.gif";
-</script>
-<script type="text/javascript" src="wpscripts/jsRollover.js"></script>
 <script type="text/javascript">
 
 </script>
@@ -216,7 +210,7 @@ echoNavBar(0, array('Home', 'Masterpage'), array('index.php', 'masterpage.php'))
 			<div style = "position:absolute; top: 10px; left: 30px; width:150px; height: 100px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 
 				<!--Highlight the box on mouse over-->
-				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:0px;" class="fader_img">
+				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
 
 				<!--Show the number of sales this week-->
 				<div class = "dashSales" style = "position:absolute; top: 37px; width:100%; text-align: center;">
@@ -253,7 +247,7 @@ echoNavBar(0, array('Home', 'Masterpage'), array('index.php', 'masterpage.php'))
 			<div style = "position:absolute; top: 10px; left: 210px; width:150px; height: 100px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 
 				<!--Highlight the box on mouse over-->
-				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:0px;" class="fader_img">
+				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
 
 				<!--Show the number of sales this week-->
 				<div class = "dashSales" style = "position:absolute; top: 37px; width:100%; text-align: center;">
@@ -283,7 +277,7 @@ echoNavBar(0, array('Home', 'Masterpage'), array('index.php', 'masterpage.php'))
 			<div style = "position:absolute; top: 10px; left: 390px; width:150px; height: 100px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 
 				<!--Highlight the box on mouse over-->
-				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:0px;" class="fader_img">
+				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
 
 				<!--Show the number of sales this week-->
 				<div class = "dashSales" style = "position:absolute; top: 37px; width:100%; text-align: center;">
@@ -317,7 +311,7 @@ echoNavBar(0, array('Home', 'Masterpage'), array('index.php', 'masterpage.php'))
 			<div style = "position:absolute; top: 10px; left: 570px; width:150px; height: 100px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 
 				<!--Highlight the box on mouse over-->
-				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:0px;" class="fader_img">
+				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
 
 				<!--Show the number of sales this week-->
 				<div class = "dashSales" style = "position:absolute; top: 37px; width:100%; text-align: center;">
@@ -349,7 +343,7 @@ echoNavBar(0, array('Home', 'Masterpage'), array('index.php', 'masterpage.php'))
 			<div style = "position:absolute; top: 130px; left: 30px; width:150px; height: 100px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 
 				<!--Highlight the box on mouse over-->
-				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:0px;" class="fader_img">
+				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
 
 				<!--Show the number of views this week-->
 				<div class = "dashViews" style = "position:absolute; top: 37px; width:100%; text-align: center;">
@@ -383,7 +377,7 @@ echoNavBar(0, array('Home', 'Masterpage'), array('index.php', 'masterpage.php'))
 			<div style = "position:absolute; top: 130px; left: 210px; width:150px; height: 100px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 
 				<!--Highlight the box on mouse over-->
-				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:0px;" class="fader_img">
+				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
 
 				<!--Show the number of views this week-->
 				<div class = "dashViews" style = "position:absolute; top: 37px; width:100%; text-align: center;">
@@ -483,11 +477,6 @@ echoNavBar(0, array('Home', 'Masterpage'), array('index.php', 'masterpage.php'))
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="js/totop.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto({ theme:'facebook', allow_resize: false });
-  });
-</script>
 <!--Page Body End-->
 
 <!--Fullsize Background Image-->

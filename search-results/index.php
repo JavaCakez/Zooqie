@@ -19,8 +19,7 @@ ob_start (); // Buffer output
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
         <script type="text/javascript" src="../js/jquery.js"></script>
-        <script type="text/javascript" src="../js/superfish.js"></script>
-        <script type="text/javascript" src="../js/jquery.prettyphoto.js" charset="utf-8"></script>
+
         <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
 
 
@@ -183,11 +182,8 @@ ob_start (); // Buffer output
 
 
 
-        <script type="text/javascript" src="../js/jspngfix.js"></script>
-        <link rel="stylesheet" href="../css/wpstyles.css" type="text/css"><script type="text/javascript">
-            var blankSrc = "../js/blank.gif";
-        </script>
-        <script type="text/javascript" src="../js/jsRollover.js"></script>
+
+
     </head>
 
 
@@ -206,9 +202,9 @@ ob_start (); // Buffer output
 
 
 
-    <img src="../images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:80px;" >
+    <img src="../images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar" style="position:absolute;left:0px;top:80px;" >
     <!--NAVBAR-->
-    <img src="../images/grey_bar.png" border="0" width="784" height="43" id="qs_288" alt="" onload="OnLoadPngFix()" style="position:absolute;left:208px;top:142px; " >
+    <img src="../images/grey_bar.png" border="0" width="784" height="43" id="qs_288" alt="" style="position:absolute;left:208px;top:142px; " >
 
     <div style="position:absolute;left:229px;top:149px;width:82px;height:36px;overflow:hidden; " >
         <h1 class="Wp-Heading-1-P" style="margin-top:0px"><span class="Heading-1-C">Sort by:</span></h1>
@@ -616,13 +612,13 @@ ob_start (); // Buffer output
 
 
                     echo '<a href="../brands/'.$brandfolder.'/' . $itemno . '.php" >
-						  <img src="../images/QS.png" border="0" width="189" height="235" title="" alt="' . $itemname . '" onload="OnLoadPngFix()" style="position:absolute;left:' . $a . 'px;top:' . $b . 'px; " class="fader_img"></a>';
+						  <img src="../images/QS.png" border="0" width="189" height="235" title="" alt="' . $itemname . '" style="position:absolute;left:' . $a . 'px;top:' . $b . 'px; " class="fader_img"></a>';
 
 
 
                     if($Live != 'yes')
                     {
-                        echo '<img src="../images/comingsoon.png" border="0" width="189" height="235" title="" alt="' . $itemname . '" onload="OnLoadPngFix()" style="position:absolute;left:' . $a . 'px;top:' . $b . 'px; " class="fader_img">';
+                        echo '<img src="../images/comingsoon.png" border="0" width="189" height="235" title="" alt="' . $itemname . '" style="position:absolute;left:' . $a . 'px;top:' . $b . 'px; " class="fader_img">';
                     }
 
                     $b = $y2 + ($r * $h);
@@ -693,11 +689,6 @@ ob_start (); // Buffer output
     <script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="../js/totop.min.js"></script>
     <script type="text/javascript" src="../js/custom.js"></script>
-    <script type="text/javascript" charset="utf-8">
-        $(document).ready(function(){
-            $("a[rel^='prettyPhoto']").prettyPhoto({ theme:'facebook', allow_resize: false });
-        });
-    </script>
     <!--Page Body End-->
 
     <!--Fullsize Background Image-->

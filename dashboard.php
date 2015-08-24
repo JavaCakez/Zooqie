@@ -44,8 +44,8 @@ else
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/superfish.js"></script>
-<script type="text/javascript" src="js/jquery.prettyphoto.js" charset="utf-8"></script>
+
+
 <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
 
 
@@ -308,11 +308,8 @@ a.hlink_1:active {color:#2c2c2c;}
 .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 
 </style>
-<script type="text/javascript" src="js/jspngfix.js"></script>
-<link rel="stylesheet" href="css/wpstyles.css" type="text/css"><script type="text/javascript">
-var blankSrc = "js/blank.gif";
-</script>
-<script type="text/javascript" src="js/jsRollover.js"></script>
+
+
 <script type="text/javascript">
 
 		
@@ -337,7 +334,7 @@ echoSocialMediaFollowButtons();
 echoGoogleAnalyticsScript();
 ?>
 
-<img src="images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:80px;" >
+<img src="images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar"  style="position:absolute;left:0px;top:80px;" >
 <!--NAVBAR-->
 
 
@@ -489,7 +486,7 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 			<div style = "position:absolute; top: 80px; left: 62.5px; width:250px; height: 150px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 				
 				<!--Highlight the box on mouse over-->
-				<img src="images/QS.png" border="0" width="100%" height="100%" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:0px;" class="fader_img">
+				<img src="images/QS.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
 				
 				<!--Show the number of sales this week-->
 				<div class = "dashSales" style = "position:absolute; top: 20px; width:100%; text-align: center;">
@@ -525,7 +522,7 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 			<div style = "position:absolute; top: 80px; left: 375px; width:250px; height: 150px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 				
 				<!--Highlight the box on mouse over-->
-				<img src="images/QS.png" border="0" width="100%" height="100%" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:0px;" class="fader_img">
+				<img src="images/QS.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
 				
 				<!--Show the number of views this week-->
 				<div class = "dashViews" style = "position:absolute; top: 20px; width:100%; text-align: center;">
@@ -561,7 +558,7 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 			<div style = "position:absolute; top: 80px; left: 687.5px; width:250px; height: 150px; background-color:#D1D1D1; opacity: .9;">
 				
 				<!--Highlight the box on mouse over-->
-				<img src="images/QS.png" border="0" width="100%" height="100%" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:0px;" class="fader_img">
+				<img src="images/QS.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
 				
 				<!--Box title-->
 				<div style = "position:absolute; top: 10px; width:100%; text-align: center;">
@@ -631,7 +628,7 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 			<div style = "position:absolute; top: 292.5px; left: 62.5px; width:250px; height: 198px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 				
 				<!--Highlight the box on mouse over-->
-				<img src="images/QS.png" border="0" width="100%" height="100%" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:0px;" class="fader_img">
+				<img src="images/QS.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
 				
 				<!--Box title-->
 				<div style = "position:absolute; top: 10px; width:100%; text-align: center;">
@@ -755,7 +752,7 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 			<div style = "position:absolute; top: 292.5px; left: 375px; width:250px; height: 198px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 				
 				<!--Highlight the box on mouse over-->
-				<img src="images/QS.png" border="0" width="100%" height="100%" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:0px;" class="fader_img">
+				<img src="images/QS.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
 				
 				<!--Box title-->
 				<div style = "position:absolute; top: 10px; width:100%; text-align: center;">
@@ -866,7 +863,7 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 			<div style = "position:absolute; top: 292.5px; left: 687.5px; width:250px; height: 198px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 				
 				<!--Make entire box clickable to navigate to views dashboard-->
-				<img src="images/QS.png" border="0" width="100%" height="100%" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:0px;" class="fader_img">
+				<img src="images/QS.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
 				
 				<!--Box title-->
 				<div style = "position:absolute; top: 10px; width:100%; text-align: center;">
@@ -922,11 +919,6 @@ To edit products on your store or your stores appearance click 'Manage Store' in
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="js/totop.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto({ theme:'facebook', allow_resize: false });
-  });
-</script>
 <!--Page Body End-->
 
 <!--Fullsize Background Image-->

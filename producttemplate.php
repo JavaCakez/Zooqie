@@ -12,8 +12,7 @@ ob_start (); // Buffer output
 <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="../../css/styles.css">
 <script type="text/javascript" src="../../js/jquery.js"></script>
-<script type="text/javascript" src="../../js/superfish.js"></script>
-<script type="text/javascript" src="../../js/jquery.prettyphoto.js" charset="utf-8"></script>
+
 <!--[if lt IE 9]><script src="../../js/html5.js"></script><![endif]-->
 
 
@@ -172,11 +171,8 @@ a.hlink_1:active {color:#2c2c2c;}
 #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
 .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 </style>
-<script type="text/javascript" src="../../js/jspngfix.js"></script>
-<link rel="stylesheet" href="../../css/wpstyles.css" type="text/css"><script type="text/javascript">
-var blankSrc = "../../js/blank.gif";
-</script>
-<script type="text/javascript" src="../../js/jsRollover.js"></script>
+
+
 <script type="text/javascript">
 
 
@@ -203,7 +199,7 @@ echoSocialMediaFollowButtons();
 echoGoogleAnalyticsScript();
 ?>
 
-<img src="../../images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:80px;">
+<img src="../../images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar" style="position:absolute;left:0px;top:80px;">
 <!--NAVBAR-->
 
 
@@ -220,8 +216,8 @@ echoGoogleAnalyticsScript();
 <div id="txt_40" style="position:absolute;left:20px;top:647px;width:441px;height:40px;overflow:hidden;">
 <h2 class="Wp-Heading-2-P" style="margin-top:0px"><span class="Heading-2-C">You may also like</span></h2>
 </div>
-<img src="../../images/line.png" border="0" width="441" height="1" id="pcrv_6" alt="" onload="OnLoadPngFix()" style="position:absolute;left:20px;top:691px;">
-<img src="../../images/line.png" border="0" width="441" height="1" id="pcrv_5" alt="" onload="OnLoadPngFix()" style="position:absolute;left:20px;top:628px;">
+<img src="../../images/line.png" border="0" width="441" height="1" id="pcrv_6" alt="" style="position:absolute;left:20px;top:691px;">
+<img src="../../images/line.png" border="0" width="441" height="1" id="pcrv_5" alt="" style="position:absolute;left:20px;top:628px;">
 
 
 <!--Body-->
@@ -481,7 +477,7 @@ echoGoogleAnalyticsScript();
 		    
 	    <div> 
 			<a href="../../<?echo $questionstring;?>" onclick="window.open('../../<?echo $questionstring;?>', 'newwindow', 'width=590, height=450'); return false;">
-				<img src="../../images/mail.png" style="float:left" height="46" width="46" id="pic_256" alt="" onload="OnLoadPngFix()"/>
+				<img src="../../images/mail.png" style="float:left" height="46" width="46" id="pic_256" alt=""/>
 			</a>
 			<p class="Wp-Body-P" style="padding-top:13px;margin-left:50px;"><span class="Body-C"><strong>Ask seller a question</strong></span></p>
 		</div>
@@ -494,7 +490,7 @@ echoGoogleAnalyticsScript();
 		    
 	    <div> 
 			<a href="../../<?echo $questionstring;?>" onclick="window.open('../../<?echo $questionstring;?>', 'newwindow', 'width=590, height=450'); return false;">
-				<img src="../../images/mail.png" style="float:left" height="46" width="46" id="pic_256" alt="" onload="OnLoadPngFix()"/>
+				<img src="../../images/mail.png" style="float:left" height="46" width="46" id="pic_256" alt="" />
 			</a>
 			<p class="Wp-Body-P" style="padding-top:13px;margin-left:50px;"><span class="Body-C"><strong>Ask seller a question</strong></span></p>
 		</div>
@@ -511,7 +507,7 @@ echoGoogleAnalyticsScript();
 		    
 	    <div> 
 			<a href="../../<?echo $questionstring;?>" onclick="window.open('../../<?echo $questionstring;?>', 'newwindow', 'width=590, height=450'); return false;">
-				<img src="../../images/mail.png" style="float:left" height="46" width="46" id="pic_256" alt="" onload="OnLoadPngFix()"/>
+				<img src="../../images/mail.png" style="float:left" height="46" width="46" id="pic_256" alt=""/>
 			</a>
 			<p class="Wp-Body-P" style="padding-top:13px;margin-left:50px;"><span class="Body-C"><strong>Ask seller a question</strong></span></p>
 		</div>
@@ -589,7 +585,7 @@ echoGoogleAnalyticsScript();
 		
 		<div> 
 			<a href="../../<?echo $questionstring;?>" onclick="window.open('../../<?echo $questionstring;?>', 'newwindow', 'width=590, height=450'); return false;">
-				<img src="../../images/mail.png" style="float:left" height="46" width="46" id="pic_256" alt="" onload="OnLoadPngFix()"/>
+				<img src="../../images/mail.png" style="float:left" height="46" width="46" id="pic_256" alt=""/>
 			</a>
 			<p class="Wp-Body-P" style="padding-top:13px;margin-left:50px;"><span class="Body-C"><strong>Ask seller a question</strong></span></p>
 		</div>
@@ -726,7 +722,7 @@ echoGoogleAnalyticsScript();
 					<img src="../../' . $img . '" border="1" width="208" height="245" id="pic_38" alt="" style="position:absolute;left:' . $left . 'px;top:727px; " >
 					
 					<a href="../../'.$r_folderName.'/' . $itemno . '.php">
-					<img src="../../images/QS.png" border="0" width="208" height="245" title="" alt="' . $name . '" onload="OnLoadPngFix()" style="position:absolute;left:' . $left . 'px;top:727px; " class="fader_img"></a>
+					<img src="../../images/QS.png" border="0" width="208" height="245" title="" alt="' . $name . '" style="position:absolute;left:' . $left . 'px;top:727px; " class="fader_img"></a>
 	
 					
 					
@@ -749,11 +745,6 @@ echoGoogleAnalyticsScript();
 <script type="text/javascript" src="../../js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="../../js/totop.min.js"></script>
 <script type="text/javascript" src="../../js/custom.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto({ theme:'facebook', allow_resize: false });
-  });
-</script>
 <!--Page Body End-->
 
 <!--Fullsize Background Image-->

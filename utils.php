@@ -874,20 +874,20 @@ nav ul li a:hover {
             <div id="txt_27" style="position:absolute;left:520px;top:'.$pageHeightVal2.'px;width:220px;height:40px;overflow:hidden; " >
             <h2 class="Wp-Heading-2-P" style="margin-top:0px"><span class="Heading-2-C">Customer Services</span></h2>
             </div>
-            <img src="'.$folderString.'images/line.png" border="0" width="960" height="1" id="pcrv_3" alt="" onload="OnLoadPngFix()" style="position:absolute;left:20px;top:'.$pageHeightVal0.'px; " >
-            <img src="'.$folderString.'images/line.png" border="0" width="960" height="1" id="pcrv_4" alt="" onload="OnLoadPngFix()" style="position:absolute;left:20px;top:'.$pageHeightVal4.'px; " >
+            <img src="'.$folderString.'images/line.png" border="0" width="960" height="1" id="pcrv_3" alt=""  style="position:absolute;left:20px;top:'.$pageHeightVal0.'px; " >
+            <img src="'.$folderString.'images/line.png" border="0" width="960" height="1" id="pcrv_4" alt=""  style="position:absolute;left:20px;top:'.$pageHeightVal4.'px; " >
             <!-- facebook.png - Emb. Bitmap pic_30 -->
             <map id="map0" name="map0">
                 <area shape="poly" coords="23,34,31,29,35,23,35,12,30,4,23,0,12,0,4,5,0,12,0,23,5,31,12,35,23,35" href="https://www.facebook.com/zooqie" target="_blank" alt="" >
             </map>
-            <img src="'.$folderString.'images/grey_facebook.png" border="0" width="35" height="35" id="pic_30" alt="" onload="OnLoadPngFix()" usemap="#map0" style="position:absolute;left:760px;top:'.$pageHeightVal3.'px; " >
+            <img src="'.$folderString.'images/grey_facebook.png" border="0" width="35" height="35" id="pic_30" alt=""  usemap="#map0" style="position:absolute;left:760px;top:'.$pageHeightVal3.'px; " >
             <!-- twitter.png - Emb. Bitmap pic_33 -->
             <map id="map1" name="map1">
                 <area shape="poly" coords="23,34,31,29,35,23,35,12,30,4,23,0,12,0,4,5,0,12,0,23,5,31,12,35,23,35" href="https://twitter.com/zooqie_uk" target="_blank" alt="" >
             </map>
-            <img src="'.$folderString.'images/grey_twitter.png" border="0" width="35" height="35" id="pic_33" alt="" onload="OnLoadPngFix()" usemap="#map1" style="position:absolute;left:814px;top:'.$pageHeightVal3.'px; " >
+            <img src="'.$folderString.'images/grey_twitter.png" border="0" width="35" height="35" id="pic_33" alt=""  usemap="#map1" style="position:absolute;left:814px;top:'.$pageHeightVal3.'px; " >
 
-            <a href="http://instagram.com/zooqieuk" target="_blank"><img src="'.$folderString.'images/instagram.png" border="0" width="40" height="40" id="pic_30" alt="" onload="OnLoadPngFix()"  style="position:absolute;left:868px;top:'.$pageHeightVal3.'px; margin-top: -3px; " ></a>
+            <a href="http://instagram.com/zooqieuk" target="_blank"><img src="'.$folderString.'images/instagram.png" border="0" width="40" height="40" id="pic_30" alt=""   style="position:absolute;left:868px;top:'.$pageHeightVal3.'px; margin-top: -3px; " ></a>
 
 
             <div id="txt_23" style="position:absolute;left:20px;top:'.$pageHeightVal3.'px;width:220px;height:85px;overflow:hidden; " >
@@ -898,11 +898,11 @@ nav ul li a:hover {
             <div id="txt_26" style="position:absolute;left:20px;top:'.$pageHeightVal2.'px;width:220px;height:40px;overflow:hidden; " >
             <h2 class="Wp-Heading-2-P" style="margin-top:0px"><span class="Heading-2-C">Information</span></h2>
             </div>
-            <img src="'.$folderString.'images/american_express.png" border="0" width="45" height="45" id="pic_60" alt="" onload="OnLoadPngFix()" style="position:absolute;left:141px;top:'.$pageHeightVal5.'px; " >
-            <img src="'.$folderString.'images/delta.png" border="0" width="45" height="45" id="pic_61" alt="" onload="OnLoadPngFix()" style="position:absolute;left:81px;top:'.$pageHeightVal5.'px; " >
-            <img src="'.$folderString.'images/mastercard.png" border="0" width="45" height="45" id="pic_62" alt="" onload="OnLoadPngFix()" style="position:absolute;left:202px;top:'.$pageHeightVal5.'px; " >
-            <img src="'.$folderString.'images/visa.png" border="0" width="45" height="45" id="pic_64" alt="" onload="OnLoadPngFix()" style="position:absolute;left:262px;top:'.$pageHeightVal5.'px; " >
-            <img src="'.$folderString.'images/paypal.png" border="0" width="45" height="45" id="pic_63" alt="" onload="OnLoadPngFix()" style="position:absolute;left:20px;top:'.$pageHeightVal5.'px; " >
+            <img src="'.$folderString.'images/american_express.png" border="0" width="45" height="45" id="pic_60" alt=""  style="position:absolute;left:141px;top:'.$pageHeightVal5.'px; " >
+            <img src="'.$folderString.'images/delta.png" border="0" width="45" height="45" id="pic_61" alt=""  style="position:absolute;left:81px;top:'.$pageHeightVal5.'px; " >
+            <img src="'.$folderString.'images/mastercard.png" border="0" width="45" height="45" id="pic_62" alt=""  style="position:absolute;left:202px;top:'.$pageHeightVal5.'px; " >
+            <img src="'.$folderString.'images/visa.png" border="0" width="45" height="45" id="pic_64" alt=""  style="position:absolute;left:262px;top:'.$pageHeightVal5.'px; " >
+            <img src="'.$folderString.'images/paypal.png" border="0" width="45" height="45" id="pic_63" alt=""  style="position:absolute;left:20px;top:'.$pageHeightVal5.'px; " >
             <div id="txt_163" style="position:absolute;left:760px;top:'.$pageHeightVal6.'px;width:220px;height:35px;overflow:hidden; " >
             <h2 class="Wp-Heading-2-P" style="margin-top:0px"><span class="Heading-2-C-C0">GET SOCIAL</span></h2>
             </div>
@@ -954,7 +954,7 @@ nav ul li a:hover {
     function echoNavBar($folderLevel, $names, $links) {
         $folderString = createFolderString($folderLevel);
         echo '
-            <img src="'.$folderString.'images/navbar.png" border="0" width="1000" height="40" id="qs_1" title="" alt="Navigation Bar" onload="OnLoadPngFix()" style="position:absolute;left:0px;top:80px;">
+            <img src="'.$folderString.'images/navbar.png" border="0" width="1000" height="40" id="qs_1" title="" alt="Navigation Bar" style="position:absolute;left:0px;top:80px;">
             <div class="nav_348style" style="left: 20px; top: 91px;; width: 960px; height: 26px; position: absolute;">
 
         ';
@@ -1653,6 +1653,6 @@ Model in image wears size: 32R" style="height:170px;width:300px" id="text_descri
 
 //TODO: validate so | cant be allowed in address.php fields (its used as delimeter for ipn listener)
 
-//TODO: make paypal errors handled gracefully
+//TODO: make paypal errors handled gracefully (e.g. if paypal email not recognised)
 
 //TODO: NEED TO REMEMBER TO CHANGE IPNLISTENER TO MAKE IT ACTUALLY EMAIL BRAND AND CUSTOMER WHEN THIS ALL GOES LIVE

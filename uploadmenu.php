@@ -23,8 +23,8 @@ else
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/superfish.js"></script>
-    <script type="text/javascript" src="js/jquery.prettyphoto.js" charset="utf-8"></script>
+
+
     <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
 
     <meta http-equiv="Content-Style-Type" content="text/css">
@@ -592,15 +592,6 @@ else
 
 
     </style>
-    <script type="text/javascript" src="js/jspngfix.js"></script>
-    <link rel="stylesheet" href="css/wpstyles.css" type="text/css">
-    <script type="text/javascript">var blankSrc = "js/blank.gif";
-    </script>
-    <script type="text/javascript" src="js/jsRollover.js"></script>
-    <script type="text/javascript">
-        PPImgInit('roll_5','images/search.jpg','images/search-over.jpg','','',0,0);
-
-    </script>
     </head>
 
     <?
@@ -639,7 +630,7 @@ else
     <div id="txt_470" style="position:absolute;left:16px;top:27px;width:227px;height:33px;overflow:hidden;">
         <p class="Wp-Body-P"><span class="Body-C-C0">Create Sizing Guides</span></p>
     </div>
-    <img src="images/line.png" border="0" width="793" height="1" id="pcrv_17" alt="" onload="OnLoadPngFix()" style="position:absolute;left:17px;top:69px;">
+    <img src="images/line.png" border="0" width="793" height="1" id="pcrv_17" alt="" style="position:absolute;left:17px;top:69px;">
     <script type="text/javascript">
         $(document).ready(function(){
             $("#text_guidename").Watermark("e.g. Tees/Vests Sizing");
@@ -974,7 +965,7 @@ else
     <?php
 
     echo '
-        		<img src="images/grey_bar.png" border="0" width="592" height="43" id="qs_288" alt="" onload="OnLoadPngFix()" style="position:absolute;left:200px;top:0px; " >
+        		<img src="images/grey_bar.png" border="0" width="592" height="43" id="qs_288" alt="" style="position:absolute;left:200px;top:0px; " >
         		<div id="txt_225" style="position:absolute;left:223px;top:0px;width:82px;height:36px;overflow:hidden; " >
         			<h1 class="Wp-Heading-1-P" style="margin-top:10px"><span class="Heading-1-C-C0">Sort by:</span></h1>
         		</div>
@@ -1298,7 +1289,7 @@ else
                     ';
 
         echo '<a class="inline" href="#inline_content">
-        			  <img id="js-add" src="images/QS.png" border="0" width="' . $width . '" height="' . $height . '" title="" alt="' . $itemname . '" onload="OnLoadPngFix()" style="position:absolute;left:' . $a . 'px;top:' . $b . 'px; " class="fader_img"></a>';
+        			  <img id="js-add" src="images/QS.png" border="0" width="' . $width . '" height="' . $height . '" title="" alt="' . $itemname . '" style="position:absolute;left:' . $a . 'px;top:' . $b . 'px; " class="fader_img"></a>';
 
         // Create connection
         if(file_exists("db_settings.php")) {include("db_settings.php");}
@@ -1448,7 +1439,7 @@ else
                     </script>
                     ';
                     echo '<a class="inline" href="#inline_content">
-        						  <img id="js-' . $itemno . '" src="images/QS.png" border="0" width="' . $width . '" height="' . $height . '" title="" alt="' . $itemname . '" onload="OnLoadPngFix()" style="position:absolute;left:' . $a . 'px;top:' . $b . 'px; " class="fader_img">
+        						  <img id="js-' . $itemno . '" src="images/QS.png" border="0" width="' . $width . '" height="' . $height . '" title="" alt="' . $itemname . '" style="position:absolute;left:' . $a . 'px;top:' . $b . 'px; " class="fader_img">
         				    </a>';
 
                     $buttona = $a + $w - $padding - 24;
@@ -1481,7 +1472,7 @@ else
     <div id="txt_452" style="position:absolute;left:17px;top:27px;width:229px;height:33px;overflow:hidden;">
         <p class="Wp-Body-P"><span class="Body-C-C0">Add or Edit Products</span></p>
     </div>
-    <img src="images/line.png" border="0" width="793" height="1" id="pcrv_6" alt="" onload="OnLoadPngFix()" style="position:absolute;left:17px;top:69px;">
+    <img src="images/line.png" border="0" width="793" height="1" id="pcrv_6" alt="" style="position:absolute;left:17px;top:69px;">
     </div>
     <div id="Shipping" style="position:absolute;left:170px;top:130px;width:827px;height:629px; <?if($tab != '5')
     {
@@ -1490,7 +1481,7 @@ else
         <div id="txt_471" style="position:absolute;left:17px;top:27px;width:227px;height:33px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Body-C-C0">Set Custom Shipping Prices</span></p>
         </div>
-        <img src="images/line.png" border="0" width="793" height="1" id="pcrv_18" alt="" onload="OnLoadPngFix()" style="position:absolute;left:17px;top:69px;">
+        <img src="images/line.png" border="0" width="793" height="1" id="pcrv_18" alt="" style="position:absolute;left:17px;top:69px;">
         <div id="frag_60" style="position:absolute;left:18px;top:92px;width:333px;height:327px;">
 
 
@@ -1617,7 +1608,7 @@ else
 
                 <div style="width:400px;height:60px;">
                     <p class="Wp-Normal-P"><span class="Heading-3-C">*</span><label for="edit_2"><span class="Heading-3-Ca">Shipping Set Name:</span></label><textarea id="text_shippingname" style="float:right;width:250px;height:20px;position:relative;top:-10px;" value="<?echo $setname;?>" name="Setname" ><?echo $setname;?></textarea></p>
-                    <img style="margin-top:10px;margin-left:10px;" src="images/line.png" border="0" width="380" height="1" id="pcrv_3" alt="" onload="OnLoadPngFix()" >
+                    <img style="margin-top:10px;margin-left:10px;" src="images/line.png" border="0" width="380" height="1" id="pcrv_3" alt="" >
                 </div>
 
                 <br/>
@@ -1838,7 +1829,7 @@ else
         <div id="txt_453" style="position:absolute;left:16px;top:27px;width:232px;height:33px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Body-C-C0">Upload Store Images</span></p>
         </div>
-        <img src="images/line.png" border="0" width="792" height="1" id="pcrv_13" alt="" onload="OnLoadPngFix()" style="position:absolute;left:16px;top:69px;">
+        <img src="images/line.png" border="0" width="792" height="1" id="pcrv_13" alt="" style="position:absolute;left:16px;top:69px;">
     </div>
     <div id="brand_info_panel" style="position:absolute;left:170px;top:130px;width:827px;height:643px; <?if($tab != '1')
     {
@@ -1975,7 +1966,7 @@ else
         <div id="txt_454" style="position:absolute;left:16px;top:26px;width:227px;height:33px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Body-C-C0">Update Brand Information</span></p>
         </div>
-        <img src="images/line.png" border="0" width="793" height="1" id="pcrv_14" alt="" onload="OnLoadPngFix()" style="position:absolute;left:16px;top:68px;">
+        <img src="images/line.png" border="0" width="793" height="1" id="pcrv_14" alt="" style="position:absolute;left:16px;top:68px;">
     </div>
     <!-- TODO: this one loads slowly -->
     <div id="panel_8" style="position:absolute;left:0px;top:395px;width:170px;height:68px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
@@ -2014,7 +2005,7 @@ else
         <div id="txt_480" style="position:absolute;left:17px;top:27px;width:229px;height:33px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Body-C-C0">Frequently Asked Questions</span></p>
         </div>
-        <img src="images/line.png" border="0" width="793" height="1" id="pcrv_19" alt="" onload="OnLoadPngFix()" style="position:absolute;left:17px;top:69px;">
+        <img src="images/line.png" border="0" width="793" height="1" id="pcrv_19" alt="" style="position:absolute;left:17px;top:69px;">
         <div id="frag_15" style="position:absolute;left:18px;top:92px;width:793px;height:339px;">
             <div class="accordion">
 
@@ -2172,11 +2163,6 @@ else
     <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="js/totop.min.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
-    <script type="text/javascript" charset="utf-8">
-        $(document).ready(function(){
-            $("a[rel^='prettyPhoto']").prettyPhoto({ theme:'facebook', allow_resize: false });
-        });
-    </script>
     <!--Page Body End-->
 
     <?

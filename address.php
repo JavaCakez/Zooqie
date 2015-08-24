@@ -11,8 +11,8 @@
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/superfish.js"></script>
-<script type="text/javascript" src="js/jquery.prettyphoto.js" charset="utf-8"></script>
+
+
 <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
 
 <meta http-equiv="Content-Style-Type" content="text/css">
@@ -33,7 +33,6 @@
 
 
 
-<script src="js/jquery.watermarkinput.js" type="text/javascript"></script>
 <!--Header code for HTML frag_68 -->
 <?
 // Create connection
@@ -283,11 +282,8 @@ a.hlink_1:active {color:#2c2c2c;}
 
 
 </style>
-<script type="text/javascript" src="js/jspngfix.js"></script>
-<link rel="stylesheet" href="css/wpstyles.css" type="text/css">
-<script type="text/javascript">var blankSrc = "wpscripts/blank.gif";
-</script>
-<script type="text/javascript" src="js/jsRollover.js"></script>
+
+
 <script type="text/javascript">
 
 </script>
@@ -758,7 +754,7 @@ echoNavBar(0, array('Home', 'Checkout'), array('index.php', 'address.php'));
 		<p class="Wp-Normal-P"><span class="Heading-3-Ca">Shipping: </span><span style="float:right;" class="Heading-3-Ca">(<?echo $geo;?>)&nbsp;&nbsp;&nbsp;&nbsp; &pound;<?echo $shipprice;?></span></p>
 		</div>
 		
-		<img src="images/line.png" border="0" width="370" height="1" id="pcrv_3" alt="" onload="OnLoadPngFix()" >
+		<img src="images/line.png" border="0" width="370" height="1" id="pcrv_3" alt="" >
 		
 		<?$total = $_POST['amount'] + $shipprice;?>
 		<?$total = number_format($total, 2, '.', '');?>
@@ -824,11 +820,6 @@ echoNavBar(0, array('Home', 'Checkout'), array('index.php', 'address.php'));
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="js/totop.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto({ theme:'facebook', allow_resize: false });
-  });
-</script>
 
 <!--Fullsize Background Image-->
 <script src="js/jquery.backstretch.js"></script>

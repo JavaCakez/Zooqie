@@ -11,8 +11,7 @@
 <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="../css/styles.css">
 <script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/superfish.js"></script>
-<script type="text/javascript" src="../js/jquery.prettyphoto.js" charset="utf-8"></script>
+
 <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
 
 <meta http-equiv="Content-Style-Type" content="text/css">
@@ -33,7 +32,6 @@
 
 
 
-<script src="../js/jquery.watermarkinput.js" type="text/javascript"></script>
 <!--Header code for HTML frag_58 -->
 
 <style type="text/css">
@@ -67,11 +65,8 @@ a.hlink_1:active {color:#2c2c2c;}
 
 
 </style>
-<script type="text/javascript" src="../js/jspngfix.js"></script>
-<link rel="stylesheet" href="../css/wpstyles.css" type="text/css">
-<script type="text/javascript">var blankSrc = "../js/blank.gif";
-</script>
-<script type="text/javascript" src="../js/jsRollover.js"></script>
+
+
 <script type="text/javascript">
 
 
@@ -103,18 +98,18 @@ echoNavBar(1, array('Home', 'Women'), array('../index.php', '../women'));
 
 
 <img src="../images/womentees.png" border="0" width="407" height="299" id="pic_315" alt="" style="position:absolute;left:173px;top:140px;">
-<a href="tees.php"><img src="../images/QS.png" border="0" width="406" height="298" id="qs_314" alt="" onload="OnLoadPngFix()" style="position:absolute;left:173px;top:140px;" class="fader_img"></a>
+<a href="tees.php"><img src="../images/QS.png" border="0" width="406" height="298" id="qs_314" alt=""  style="position:absolute;left:173px;top:140px;" class="fader_img"></a>
 <img src="../images/womenjumpers.png" border="0" width="407" height="300" id="pic_314" alt="" style="position:absolute;left:173px;top:447px;">
 <img src="../images/womenvests.png" border="0" width="406" height="607" id="pic_317" alt="" style="position:absolute;left:586px;top:140px;">
-<img src="../images/grey_box.png" border="0" width="159" height="46" id="qs_287" alt="" onload="OnLoadPngFix()" style="position:absolute;left:8px;top:140px;">
-<a href="vests.php"><img src="../images/QS.png" border="0" width="413" height="606" id="qs_317" alt="" onload="OnLoadPngFix()" style="position:absolute;left:587px;top:140px;" class="fader_img"></a>
+<img src="../images/grey_box.png" border="0" width="159" height="46" id="qs_287" alt=""  style="position:absolute;left:8px;top:140px;">
+<a href="vests.php"><img src="../images/QS.png" border="0" width="413" height="606" id="qs_317" alt=""  style="position:absolute;left:587px;top:140px;" class="fader_img"></a>
 <div id="txt_264" style="position:absolute;left:8px;top:140px;width:159px;height:46px;overflow:hidden;text-align: center">
     <h2 class="Heading-2-P" style="margin-top:0px; margin-left:-5px;"><span class="Heading-2-C-C1">Women</span></h2>
 </div>
-<img src="../images/line.png" border="0" width="94" height="1" id="pcrv_5" alt="" onload="OnLoadPngFix()" style="position:absolute;left:20px;top:240px;">
-<img src="../images/line.png" border="0" width="94" height="1" id="pcrv_15" alt="" onload="OnLoadPngFix()" style="position:absolute;left:20px;top:350px;">
+<img src="../images/line.png" border="0" width="94" height="1" id="pcrv_5" alt=""  style="position:absolute;left:20px;top:240px;">
+<img src="../images/line.png" border="0" width="94" height="1" id="pcrv_15" alt=""  style="position:absolute;left:20px;top:350px;">
 
-<a href="jumpers.php"><img src="../images/QS.png" border="0" width="406" height="298" id="qs_434" alt="" onload="OnLoadPngFix()" style="position:absolute;left:173px;top:448px;" class="fader_img"></a>
+<a href="jumpers.php"><img src="../images/QS.png" border="0" width="406" height="298" id="qs_434" alt=""  style="position:absolute;left:173px;top:448px;" class="fader_img"></a>
 
 
 
@@ -250,11 +245,6 @@ a.hlink_6:active {color:#cdcfd2;}
 <script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="../js/totop.min.js"></script>
 <script type="text/javascript" src="../js/custom.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto({ theme:'facebook', allow_resize: false });
-  });
-</script>
 <!--Page Body End-->
 
 <!--Fullsize Background Image-->

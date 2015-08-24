@@ -1,153 +1,110 @@
 <?php
 
-$errorMessage = "NULL";
-$warningMessage = "";
 $uploadedString = "";
 
+if(file_exists("utils.php")) {include("utils.php");}
+else if(file_exists("../utils.php")) {include("../utils.php");}
+else if(file_exists("../../utils.php")) {include("../../utils.php");}
+
+// Create connection
+if(file_exists("db_settings.php")) {include("db_settings.php");}
+if(file_exists("../db_settings.php")) {include("../db_settings.php");}
+if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
+if(file_exists("db_settings.php")) {include("db_settings.php");}
+$con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
 
 
-//Upload image files
-for ($i = 1; $i <= 4; $i++)
+$error					= false;
+$absolutedir			= dirname(__FILE__);
+$dir					= '/images/storeimages/';
+$serverdir				= $absolutedir.$dir;
+$filename				= array();
+$i = 1;
+
+
+
+foreach($_FILES as $name => $value) {
+
+    $jsonData = stripslashes(html_entity_decode($_POST[$name.'_values']));
+    $jsonData = rtrim($jsonData, "\0");
+    $json					= json_decode($jsonData);
+    $tmp					= explode(',',$json->data);
+    $imgdata 				= base64_decode($tmp[1]);
+
+    if ($json->name != '') {
+        $extension[$i]				= strtolower(end(explode('.',$json->name)));
+        $str = '';
+        if ($i == 1) $str = 'sbb';
+        if ($i == 2) $str = 'banner';
+        if ($i == 3) $str = 'logo';
+        if ($i == 4) $str = 'background';
+        $fname					= $_POST["username"] . "_".$str."." . $extension[$i];
+
+
+        $handle					= fopen($serverdir.$fname,'w');
+        fwrite($handle, $imgdata);
+        fclose($handle);
+
+        $filename[]				= $fname;
+    }
+
+    $i++;
+}
+
+for ($i = 1; $i <= 5; $i++)
 {
     $fileString = "file" . $i;
-    if($_FILES[$fileString]["name"] == "") break;
 
-    $allowedExts = array("gif", "jpeg", "jpg", "png");
-    $temp = explode(".", $_FILES[$fileString]["name"]);
-    $extension = end($temp);
-    if ($_FILES[$fileString]["size"] < 6144000)
+    if($i == 3)
     {
-        if ($_FILES[$fileString]["error"] > 0)
-        {
-            $errorMessage = "Return Code: " . $_FILES[$fileString]["error"] . "<br>";
+        if($_POST[$fileString.'_values'] != "") {
+            copy("images/storeimages/" . $_POST["username"] . "_logo." . $extension[$i], "images/storeimagesbackup/" . $_POST["username"] . "_logo." . $extension[$i]);
+            $uploadedString = $uploadedString . "Logo: ";
+            $updatesql = "UPDATE brands SET logo_URL= 'images/storeimages/" . $_POST["username"] . "_logo." . $extension[$i] . "' WHERE Username='" . $_POST["username"] . "'";
+        } else {
+            $updatesql = "UPDATE brands SET logo_URL= 'NULL' WHERE Username='" . $_POST["username"] . "'";
         }
     }
-    else
+    else if($i == 2)
     {
-        $errorMessage = "Invalid file - Must be a jpg or png and be less than 6MB in size";
-    }
-}
-
-
-
-if($errorMessage == "NULL")
-{
-    //Upload image files
-    for ($i = 1; $i <= 4; $i++)
-    {
-        $fileString = "file" . $i;
-        if($_FILES[$fileString]["name"] != "")
-        {
-            $allowedExts = array("gif", "jpeg", "jpg", "png");
-            $temp = explode(".", $_FILES[$fileString]["name"]);
-            $extension = end($temp);
-            if ($_FILES[$fileString]["size"] < 6144000)
-            {
-                if ($_FILES[$fileString]["error"] > 0)
-                {
-                    $errorMessage = "Return Code: " . $_FILES[$fileString]["error"] . "<br>";
-                }
-                else
-                {
-
-                    // Create connection
-                    if(file_exists("db_settings.php")) {include("db_settings.php");}
-                    if(file_exists("../db_settings.php")) {include("../db_settings.php");}
-                    if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
-                    if(file_exists("db_settings.php")) {include("db_settings.php");}
-                    $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-
-                    // Check connection
-                    if (mysqli_connect_errno($con))
-                    {
-                    }
-                    else
-                    {
-                        if($i == 1)
-                        {
-                            $imagedetails = getimagesize($_FILES[$fileString]["tmp_name"]);
-                            $width = $imagedetails[0];
-                            $height = $imagedetails[1];
-
-                            $ratio = $width / $height;
-                            if($ratio < 0.8 || $ratio > 1.2) $warningMessage .= "Warning: Logo may be squashed/stretched";
-
-                            move_uploaded_file($_FILES[$fileString]["tmp_name"],
-                            "images/storeimages/" . $_POST["username"]."_logo.". $extension);
-                            copy("images/storeimages/" . $_POST["username"]."_logo.". $extension,
-                                "images/storeimagesbackup/" . $_POST["username"]."_logo.". $extension);
-                            $uploadedString = $uploadedString . "Logo: ";
-                            $updatesql = "UPDATE brands SET logo_URL= 'images/storeimages/" . $_POST["username"]."_logo." . $extension . "' WHERE Username='" . $_POST["username"] . "'";
-                        }
-                        else if($i == 2)
-                        {
-                            $imagedetails = getimagesize($_FILES[$fileString]["tmp_name"]);
-                            $width = $imagedetails[0];
-                            $height = $imagedetails[1];
-
-                            $ratio = $width / $height;
-                            if($ratio < 3.0 || $ratio > 8.0) $warningMessage .= " Warning: Banner may be squashed/stretched";
-
-                            move_uploaded_file($_FILES[$fileString]["tmp_name"],
-                            "images/storeimages/" . $_POST["username"]."_banner.". $extension);
-                            copy("images/storeimages/" . $_POST["username"]."_banner.". $extension,
-                                "images/storeimagesbackup/" . $_POST["username"]."_banner.". $extension);
-                            $uploadedString = $uploadedString . "Banner: ";
-                            $updatesql = "UPDATE brands SET banner_URL= 'images/storeimages/" . $_POST["username"]."_banner." . $extension . "' WHERE Username='" . $_POST["username"] . "'";
-                        }
-                        else if($i == 3)
-                        {
-                            move_uploaded_file($_FILES[$fileString]["tmp_name"],
-                                "images/storeimages/" . $_POST["username"]."_background.". $extension);
-                            copy("images/storeimages/" . $_POST["username"]."_background.". $extension,
-                                "images/storeimagesbackup/" . $_POST["username"]."_background.". $extension);
-                            $uploadedString = $uploadedString . "Background: ";
-                            $updatesql = "UPDATE brands SET background_URL= 'images/storeimages/" . $_POST["username"]."_background." . $extension . "' WHERE Username='" . $_POST["username"] . "'";
-                        }
-                        else if($i == 4)
-                        {
-                            $imagedetails = getimagesize($_FILES[$fileString]["tmp_name"]);
-                            $width = $imagedetails[0];
-                            $height = $imagedetails[1];
-
-                            $ratio = $width / $height;
-                            if($ratio < 1.2 || $ratio > 1.8) $warningMessage .= " Warning: Storefront may be squashed/stretched";
-
-                            move_uploaded_file($_FILES[$fileString]["tmp_name"],
-                                "images/storeimages/" . $_POST["username"]."_sbb.". $extension);
-                            copy("images/storeimages/" . $_POST["username"]."_sbb.". $extension,
-                                "images/storeimagesbackup/" . $_POST["username"]."_sbb.". $extension);
-                            $uploadedString = $uploadedString . "Background: ";
-                            $updatesql = "UPDATE brands SET shopbybrand_URL= 'images/storeimages/" . $_POST["username"]."_sbb." . $extension . "' WHERE Username='" . $_POST["username"] . "'";
-                        }
-
-                        $result = mysqli_query($con,$updatesql);
-                        $uploadedString = $uploadedString . $_FILES[$fileString]["name"] . " uploaded\n";
-                    }
-                }
-            }
-            else
-            {
-                $errorMessage = "Invalid file - Must be a jpg or png and be less than 6MB in size";
-            }
+        if($_POST[$fileString.'_values'] != "") {
+            copy("images/storeimages/" . $_POST["username"] . "_banner." . $extension[$i], "images/storeimagesbackup/" . $_POST["username"] . "_banner." . $extension[$i]);
+            $uploadedString = $uploadedString . "Banner: ";
+            $updatesql = "UPDATE brands SET banner_URL= 'images/storeimages/" . $_POST["username"] . "_banner." . $extension[$i] . "' WHERE Username='" . $_POST["username"] . "'";
+        } else {
+            $updatesql = "UPDATE brands SET banner_URL= 'NULL' WHERE Username='" . $_POST["username"] . "'";
         }
     }
+    else if($i == 4)
+    {
+        if($_POST[$fileString.'_values'] != "") {
+            copy("images/storeimages/" . $_POST["username"] . "_background." . $extension[$i], "images/storeimagesbackup/" . $_POST["username"] . "_background." . $extension[$i]);
+            $uploadedString = $uploadedString . "Background: ";
+            $updatesql = "UPDATE brands SET background_URL= 'images/storeimages/" . $_POST["username"] . "_background." . $extension[$i] . "' WHERE Username='" . $_POST["username"] . "'";
+        } else {
+            $updatesql = "UPDATE brands SET background_URL= 'NULL' WHERE Username='" . $_POST["username"] . "'";
+        }
+    }
+    else if($i == 1)
+    {
+        if($_POST[$fileString.'_values'] != "") {
+            copy("images/storeimages/" . $_POST["username"] . "_sbb." . $extension[$i], "images/storeimagesbackup/" . $_POST["username"] . "_sbb." . $extension[$i]);
+            $uploadedString = $uploadedString . "Background: ";
+            $updatesql = "UPDATE brands SET shopbybrand_URL= 'images/storeimages/" . $_POST["username"] . "_sbb." . $extension[$i] . "' WHERE Username='" . $_POST["username"] . "'";
+        } else {
+            $updatesql = "UPDATE brands SET shopbybrand_URL= 'NULL' WHERE Username='" . $_POST["username"] . "'";
+        }
+    }
+
+    $result = mysqli_query($con,$updatesql);
+    $uploadedString = $uploadedString . $_FILES[$fileString]["name"] . " uploaded\n";
 }
+
 
 
 //Automatic Redirect
-if($errorMessage != "NULL")
-{
-    $Message = $errorMessage;
-}
-else if($warningMessage != "")
-{
-    $Message = $warningMessage;
-}
-else
-{
-    $Message = "Upload Successful";
-}
+$Message = "Upload Successful";
+
 $URL = "uploadmenu.php?Message=" . urlencode($Message) . "&Tab=2";
 //Reload without cache (for new images)
 header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');
@@ -164,7 +121,7 @@ header ("Location: $URL");
 
 
 //Notify success
-$address = "zookie.org.uk@gmail.com";
+$address = "zooqieuk@gmail.com";
 $e_subject = 'Brand upload notification';
 
 
@@ -172,18 +129,8 @@ $e_subject = 'Brand upload notification';
 // You can change this if you feel that you need to.
 // Developers, you may wish to add more fields to the form, in which case you must be sure to add them here.
 
-if($errorMessage != "NULL")
-{
-    $e_body = 'Brand: ' . $_POST["username"] . ' attempted to uploaded store images but it failed. Error message: ' . $errorMessage;
-}
-else if($warningMessage != "")
-{
-    $e_body = 'Brand: ' . $_POST["username"] . ' have uploaded store images with warnings: ' . $warningMessage;
-}
-else
-{
-    $e_body = 'Brand: ' . $_POST["username"] . ' have uploaded store images with files: ' . $uploadedString;
-}
+
+$e_body = 'Brand: ' . $_POST["username"] . ' have uploaded store images with files: ' . $uploadedString;
 $e_content = "";
 $e_reply = "";
 

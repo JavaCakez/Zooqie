@@ -1008,27 +1008,27 @@ nav ul li a:hover {
             if( ltrim(rtrim(form.elements["desc"].value," ")," ")=="e.g. \nStripped Chino shorts\nZip and Button closure\n\n100% cotton\nColour: Grey\n\nModel in image wears size: 32R" ) form.elements["desc"].value = "";
 
             if ($("#js-dropzone1 .tools").length && $("#js-dropzone1 .tools").css("display")!= "none") {
-                alert("Please finish editing Image 1. Press green tick to finish editing.");
+                alert("Please click green tick to finish editing Image 1.");
                 return false;
             }
 
             if ($("#js-dropzone2 .tools").length && $("#js-dropzone2 .tools").css("display")!= "none") {
-                alert("Please finish editing Image 2. Press green tick to finish editing.");
+                alert("Please click green tick to finish editing Image 2.");
                 return false;
             }
 
             if ($("#js-dropzone3 .tools").length && $("#js-dropzone3 .tools").css("display")!= "none") {
-                alert("Please finish editing Image 3. Press green tick to finish editing.");
+                alert("Please click green tick to finish editing Image 3.");
                 return false;
             }
 
             if ($("#js-dropzone4 .tools").length && $("#js-dropzone4 .tools").css("display")!= "none") {
-                alert("Please finish editing Image 4. Press green tick to finish editing.");
+                alert("Please click green tick to finish editing Image 4.");
                 return false;
             }
 
             if ($("#js-dropzone5 .tools").length && $("#js-dropzone5 .tools").css("display")!= "none") {
-                alert("Please finish editing Image 5. Press green tick to finish editing.");
+                alert("Please click green tick to finish editing Image 5.");
                 return false;
             }
 

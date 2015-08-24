@@ -337,9 +337,28 @@ else
 
         function validate_form_30( form )
         {
+            if ($("#js-dropzone-store1 .tools").length && $("#js-dropzone-store1 .tools").css("display")!= "none") {
+                alert("Please click green tick to finish editing Banner Image.");
+                return false;
+            }
+
+            if ($("#js-dropzone-store2 .tools").length && $("#js-dropzone-store2 .tools").css("display")!= "none") {
+                alert("Please click green tick to finish editing Logo Image.");
+                return false;
+            }
+
+            if ($("#js-dropzone-store3 .tools").length && $("#js-dropzone-store3 .tools").css("display")!= "none") {
+                alert("Please click green tick to finish editing Background Image.");
+                return false;
+            }
+
+            if ($("#js-dropzone-store4 .tools").length && $("#js-dropzone-store4 .tools").css("display")!= "none") {
+                alert("Please click green tick to finish editing Storefront Image.");
+                return false;
+            }
+
             $('#butn_7').hide();
             $('#loading_image2').show();
-
             return true;
         }
     </script>
@@ -1667,35 +1686,118 @@ else
             </div>
             <br/>
 
-            <form id="form_30" onsubmit="return validate_form_30(this)" action="upload_store_imgs.php?Tab=2" accept-charset="UTF-8" method="post" target="_self" enctype="multipart/form-data" style="margin:0;position:relative;left:0px;top:0px;width:360px;height:136px; " >
+            <form id="form_30" onsubmit="return validate_form_30(this)" action="upload_store_imgs.php" accept-charset="UTF-8" method="post" target="_self" enctype="multipart/form-data" style="margin:0;position:relative;left:0px;top:0px;width:360px;height:136px; " >
                 <input type="hidden" name="username" value="<?echo $_SESSION['username'];?>">
                 <input type="hidden" name="ID" value="<?echo $id;?>">
 
+                <?
+                    // Create connection
+                    include("db_settings.php");
+                    $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
 
-                <div style="width:228px; height:228px;padding-top:500px;">
-                    <div id="js-dropzone1" class="dropzone" data-width="190" data-height="190" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 228px; height: 228px;">
+                    // Check connection
+                    if (mysqli_connect_errno($con))
+                    {
+                        echo '<div style="position:absolute;left:458px;top:265px;"> Failed to connect to products database, please try again later.  </div>';
+                    }
+                    else
+                    {
+                        $result = mysqli_query($con,"SELECT * FROM brands WHERE Username = '". $_SESSION['username'] . "' OR ID = '". $_SESSION['username'] . "' OR Brand_name = '". $_SESSION['username'] . "'");
+
+                        while($row = mysqli_fetch_array($result))
+                        {
+                            $logo = $row['logo_URL'];
+                            $background = $row['background_URL'];
+                            $banner = $row['banner_URL'];
+                            $sbb = $row['shopbybrand_URL'];
+                        }
+                    }
+
+//                    if($logo == '') $logo = 'images/white.jpg';
+//                    if($background == '') $background = 'images/white.jpg';
+//                    if($banner == '') $banner = 'images/white.jpg';
+                ?>
+                <div style="float:left;">
+                    <p style="display: inline;font-family:Lato;font-size:18px;">
+                        Use the uploaders to upload a:
+                        <ul>
+                        <li>Logo (similar to Facebook profile picture)</li>
+                        <li>Banner (similar to Facebook cover picture)</li>
+                        <li>Background</li>
+                        <li>Storefront Image (An image which leads customers to your store)</li>
+                        </ul>
+                        When you're finished make sure to click the green ticks to finish image editing for every image then press the Submit button.
+                    </p>
+                </div>
+                <input type="submit" class="button large blue" style="position:absolute; left:260px; top:200px; width:100px; height:30px; color:white" id="butn_7" value="Submit" ><img style="position:absolute; left:302px; top:208px; display: none; color:white" src="/css/images/ajax-loader.gif" id="loading_image2">
+
+
+
+
+                <style>
+                    .dropzone.store1:after {
+                        content: 'Click to add a banner image.';
+                        width: 350px;
+                        margin-left: 200px;
+                        bottom: 25%;
+                    }
+
+                    .dropzone.store2:after {
+                        content: 'Click to add a logo image.';
+                        bottom: 35%;
+                    }
+
+                    .dropzone.store3:after {
+                        content: 'Click to add a background image.';
+                        bottom: 92%;
+                        font-size: 26px;
+                    }
+
+                    .dropzone.store4:after {
+                        content: 'Click to add a storefront image.';
+                        bottom: 35%;
+                    }
+                </style>
+
+
+                <div style="width:378px; height:228px;padding-left:418px;">
+                    <div id="js-dropzone-store4" class="dropzone store4" data-image="<?echo $sbb;?>" data-editstart="true" data-width="252" data-height="152" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 378px; height: 228px;border:solid 2px black;">
                         <input type="file" name="file1" />
                     </div>
                 </div>
 
-                <div style="width:378px; height:228px;padding-top:100px;">
-                    <div id="js-dropzone1" class="dropzone" data-width="252" data-height="152" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 378px; height: 228px;">
-                        <input type="file" name="file1" />
+
+                <div style="width:655px; height:127px;padding-top:70px;margin-left:75px;">
+                    <div id="js-dropzone-store1" class="dropzone store1" data-image="<?echo $banner;?>" data-editstart="true" data-width="983" data-height="191" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 655px; height: 127px; z-index:200; border:solid 2px black;">
+                        <input type="file" name="file2" />
                     </div>
                 </div>
 
-                <div style="width:800px; height:155px;padding-top:100px;">
-                    <div id="js-dropzone1" class="dropzone" data-width="983" data-height="191" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 800px; height: 155px;">
-                        <input type="file" name="file1" />
+                <div style="width:127px; height:127px;margin-top:-100px;margin-left:95px;">
+                    <div id="js-dropzone-store2" class="dropzone store2" data-image="<?echo $logo;?>" data-editstart="true" data-width="190" data-height="190" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 127px; height: 127px; z-index:300; border:solid 2px black;">
+                        <input type="file" name="file3" />
                     </div>
                 </div>
 
-
-                <div style="width:800px; height:450px;padding-top:100px;">
-                    <div id="js-dropzone1" class="dropzone" data-width="1920" data-height="1080" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 800px; height: 450px;">
-                        <input type="file" name="file1" />
+                <div style="width:800px; height:450px;margin-top:-200px;margin-left: -6px;">
+                    <div id="js-dropzone-store3" class="dropzone store3" data-image="<?echo $background;?>" data-editstart="true" data-width="1920" data-height="1080" data-ghost="false" data-ajax="false" data-resize="false" data-originalsize="false" style="width: 800px; height: 450px; border:solid 2px black;">
+                        <input type="file" name="file4" />
                     </div>
                 </div>
+
+                <div style="
+                    width: 659px;
+                    height: 275px;
+                    z-index: 100;
+                    background: url('images/white.jpg');
+                    background-repeat: repeat;
+                    margin-top: -271px;
+                    margin-left: 75px;
+                    border: solid 2px black;
+                    position: relative;
+                "></div>
+
+
 
 
                 <!--
@@ -1726,86 +1828,12 @@ else
 
 
 
-                <input type="submit" class="button large blue" style="position:absolute; left:8px; top:135px; width:81px; height:22px; color:white" id="butn_7" value="Submit" ><img style="position:absolute; left:8px; top:135px; display: none; color:white" src="/css/images/ajax-loader.gif" id="loading_image2">
 
             </form>
             <script type="text/javascript" src="js/jsValidation.js"></script>
 
 
-            <?
-            // Create connection
-            include("db_settings.php");
-            $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
 
-            // Check connection
-            if (mysqli_connect_errno($con))
-            {
-                echo '<div style="position:absolute;left:458px;top:265px;"> Failed to connect to products database, please try again later.  </div>';
-            }
-            else
-            {
-                $result = mysqli_query($con,"SELECT * FROM brands WHERE Username = '". $_SESSION['username'] . "' OR ID = '". $_SESSION['username'] . "' OR Brand_name = '". $_SESSION['username'] . "'");
-
-                while($row = mysqli_fetch_array($result))
-                {
-                    $logo = $row['logo_URL'];
-                    $background = $row['background_URL'];
-                    $banner = $row['banner_URL'];
-                    $sbb = $row['shopbybrand_URL'];
-                }
-            }
-
-            if($logo == '') $logo = 'images/white.jpg';
-            if($background == '') $background = 'images/white.jpg';
-            if($banner == '') $banner = 'images/white.jpg';
-            $white = 'images/white.jpg';
-
-            echo '
-        		<div style="position:relative;">
-        		<img src="'. $sbb .'" border="1" width="252" height="152" style="position:absolute;left:8px;top:70px; " >
-        
-        		<div style="position:absolute;left:8px;top:40px; >
-        		<p class="Wp-Body-P"><span class="Heading-3-Ca">Storefront Image Preview</span></p>
-        		</div>
-        		';
-
-            $x = -98;
-            echo '
-        		<img src="'. $background .'" border="0" width="474" height="384" id="pic_258" alt="" style="position:absolute;left:317px;top:'.$x.'px; " >
-        		';
-
-            $tmp = $x + 322;
-            echo '
-        		<img src="'.$white.'" border="0" width="474" height="63" id="qs_393" alt="" style="position:absolute;left:317px;top:'.$tmp.'px; " >
-        		<img src="'.$white.'" border="0" width="474" height="65" id="qs_394" alt="" style="position:absolute;left:317px;top:'.$x.'px; " >
-        		';
-
-            $tmp = $x + 137;
-            echo '
-        		<img src="'.$white.'" border="1" width="248" height="183" id="qs_355" alt="" style="position:absolute;left:437px;top:'.$tmp.'px; " >
-        		';
-
-            $tmp = $x + 89;
-            echo '
-        		<img src="'. $banner .'" border="1" width="249" height="51" id="pic_57" alt="" style="position:absolute;left:436px;top:'.$tmp.'px; " >
-        		';
-
-            $tmp = $x + 103;
-            echo '
-        		<img src="'. $logo .'" border="1" width="49" height="51" id="pic_69" alt="" style="position:absolute;left:440px;top:'.$tmp.'px; " >
-        		';
-
-            $tmp = $x + 30;
-            echo '
-        		<div style="position:absolute;left:317px;top:'.$tmp.'px; >
-        		<p class="Wp-Body-P"><span class="Heading-3-Ca">Store (Logo, Banner, Background) Preview</span></p>
-        		</div>
-        		
-        		</div>
-        
-        	';
-
-            ?>
         </div>
         <div id="txt_453" style="position:absolute;left:16px;top:27px;width:232px;height:33px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Body-C-C0">Upload Store Images</span></p>
@@ -1949,34 +1977,35 @@ else
         </div>
         <img src="images/line.png" border="0" width="793" height="1" id="pcrv_14" alt="" onload="OnLoadPngFix()" style="position:absolute;left:16px;top:68px;">
     </div>
-    <div id="panel_8" style="position:absolute;left:0px;top:405px;width:170px;height:68px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
+    <!-- TODO: this one loads slowly -->
+    <div id="panel_8" style="position:absolute;left:0px;top:395px;width:170px;height:68px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
         <div id="txt_449" style="position:absolute;left:20px;top:23px;width:129px;height:21px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Heading-3-Ca">Products</span></p>
         </div>
     </div>
-    <div id="panel_7" style="position:absolute;left:0px;top:199px;width:170px;height:69px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
+    <div id="panel_7" style="position:absolute;left:0px;top:189px;width:170px;height:69px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
         <div id="txt_450" style="position:absolute;left:20px;top:23px;width:129px;height:22px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Heading-3-Ca">Store Images</span></p>
         </div>
     </div>
-    <div id="panel_6" style="position:absolute;left:0px;top:130px;width:170px;height:68px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
+    <div id="panel_6" style="position:absolute;left:0px;top:120px;width:170px;height:68px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
         <div id="txt_451" style="position:absolute;left:20px;top:26px;width:129px;height:22px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Heading-3-Ca">Brand Info</span></p>
         </div>
     </div>
     <img src="images/vertical_grey_line.png" border="0" width="1" height="2528" id="pcrv_5" alt="" style="position:absolute;left:171px;top:130px;">
-    <a name="panel_9" style="position:absolute; left:0px; top:337px"></a>
-    <div id="panel_9" style="position:absolute;left:0px;top:337px;width:170px;height:67px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
+    <a name="panel_9" style="position:absolute; left:0px; top:327px"></a>
+    <div id="panel_9" style="position:absolute;left:0px;top:327px;width:170px;height:67px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
         <div id="txt_469" style="position:absolute;left:20px;top:23px;width:129px;height:21px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Heading-3-Ca">Sizing Guides</span></p>
         </div>
     </div>
-    <div id="panel_10" style="position:absolute;left:0px;top:269px;width:170px;height:67px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2; /*MainDivStyle*/">
+    <div id="panel_10" style="position:absolute;left:0px;top:259px;width:170px;height:67px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2; /*MainDivStyle*/">
         <div id="txt_478" style="position:absolute;left:20px;top:23px;width:129px;height:22px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Heading-3-Ca">Shipping Prices</span></p>
         </div>
     </div>
-    <div id="panel_11" style="position:absolute;left:0px;top:474px;width:170px;height:70px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2; /*MainDivStyle*/">
+    <div id="panel_11" style="position:absolute;left:0px;top:464px;width:170px;height:70px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2; /*MainDivStyle*/">
         <div id="txt_479" style="position:absolute;left:20px;top:23px;width:129px;height:21px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Heading-3-Ca">FAQs</span></p>
         </div>

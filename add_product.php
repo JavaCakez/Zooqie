@@ -1,7 +1,5 @@
 <?php
 
-$errorMessage = "NULL";
-
 // Create connection
 if(file_exists("db_settings.php")) {include("db_settings.php");}
 if(file_exists("../db_settings.php")) {include("../db_settings.php");}
@@ -137,8 +135,8 @@ else
         $imgdata 				= base64_decode($tmp[1]);
 
         if ($json->name != '') {
-            $extension				= strtolower(end(explode('.',$json->name)));
-            $fname					= $s . "_".$i."." . $extension;
+            $extension[$i]				= strtolower(end(explode('.',$json->name)));
+            $fname					= $s . "_".$i."." . $extension[$i];
 
 
             $handle					= fopen($serverdir.$fname,'w');
@@ -160,8 +158,8 @@ else
             $fileString = "file" . $i;
             if($_POST[$fileString.'_values'] != "")
             {
-                copy("images/productimages/" . $s . "_".$i."." . $extension, "images/productimagesbackup/" . $s . "_".$i."." . $extension);
-                $imgsql[$i] = "'images/productimages/". $s . "_".$i."." . $extension . "', ";
+                copy("images/productimages/" . $s . "_".$i."." . $extension[$i], "images/productimagesbackup/" . $s . "_".$i."." . $extension[$i]);
+                $imgsql[$i] = "'images/productimages/". $s . "_".$i."." . $extension[$i] . "', ";
             }
             else
             {
@@ -292,7 +290,7 @@ else
 }
 
 //Notify success
-$address = "zookie.org.uk@gmail.com";
+$address = "zooqieuk@gmail.com";
 $e_subject = 'Brand product upload';
 
 
@@ -329,8 +327,7 @@ if(mail($address, $e_subject, $msg, $headers)) {
 
 
 //Automatic Redirect
-if($errorMessage == "NULL") $Message = 'Upload successful' . $warningMessage;;
-if($errorMessage != "NULL") $Message = $errorMessage;
+$Message = 'Upload successful' . $warningMessage;;
 $URL = "uploadmenu.php?Message=" . urlencode($Message) . "&Tab=3";
 //Reload without cache (for new images)
 header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');

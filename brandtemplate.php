@@ -258,7 +258,7 @@ a.hlink_1:active {color:#2c2c2c;}
 <?php
 echoFooter(2, '<!--PAGEHEIGHTVAL-->');
 echoFacebookScript();
-echoHeader(2, 1000, '<!--PAGEHEIGHTVAL1-->');
+echoHeader(2, '<!--PAGEHEIGHTVAL1-->');
 echoSocialMediaFollowButtons();
 echoGoogleAnalyticsScript();
 ?>

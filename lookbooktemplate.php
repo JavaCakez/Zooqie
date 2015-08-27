@@ -74,7 +74,7 @@ div > .wpfixed{position:fixed;}
 <?php
 echoFooter(2, '<!--PAGEHEIGHTVAL-->');
 echoFacebookScript();
-echoHeader(2, 450, '<!--PAGEHEIGHTVAL1-->');
+echoHeader(2, '<!--PAGEHEIGHTVAL1-->');
 echoSocialMediaFollowButtons();
 echoGoogleAnalyticsScript();
 ?>

@@ -269,7 +269,7 @@ ob_start (); // Buffer output
     <?php
     echoFooter(1, '<!--PAGEHEIGHTVAL-->');
     echoFacebookScript();
-    echoHeader(1, 1000, '<!--PAGEHEIGHTVAL1-->');
+    echoHeader(1, '<!--PAGEHEIGHTVAL1-->');
     echoSocialMediaFollowButtons();
     echoGoogleAnalyticsScript();
     ?>

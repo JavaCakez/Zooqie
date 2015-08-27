@@ -437,417 +437,229 @@
               js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
               fjs.parentNode.insertBefore(js, fjs);
             }(document, "script", "facebook-jssdk"));</script>
-
-
-            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         ';
-        /*TODO: font awesome shouldn't be here */
     }
 
-    function echoHeader($folderLevel, $pageWidth, $pageHeight) {
+    function echoHeader($folderLevel, $pageHeight) {
         $folderString = createFolderString($folderLevel);
         if (isDev()) {
             $url = 'http://www.zooqie.com/development/';
         } else {
             $url = 'http://www.zooqie.com/';
         }
-        echo '
-            <div style="background-color:#ffffff;margin-left:auto;margin-right:auto;position:relative;width:'.$pageWidth.'px;height:'.$pageHeight.'px;min-height:100%;">
-                <div id="nav-panel" class="wpfixed" style="left:50%;margin-left:-500px;top:0px;width:1000px;height:80px; z-index: 199; margin-top:5px;">
 
-                <script type="text/javascript">
-                    $(function(){
-                        $(".search").keyup(function()
-                        {
-                            var searchid = $(this).val();
-                            var dataString = "search="+ searchid;
-                            if(searchid!="")
-                            {
-                                $.ajax({
-                                    type: "POST",
-                                    url: "'.$folderString.'search.php",
-                                    data: dataString,
-                                    cache: false,
-                                    success: function(html)
+        echo '
+
+                <div id="nav-bar">
+                    <div id="nav-panel" style="position:absolute;left:50%;margin-left:-500px;top:0px;width:1000px;height:80px;">
+                        <div class="header-logo">
+                            <a href="'.$folderString.'index.php"><img src="'.$folderString.'images/zooqie_white.png" onmouseover="this.src=\''.$folderString.'images/zooqie_red.png\';" onmouseout="this.src=\''.$folderString.'images/zooqie_white.png\';" width="150" alt="Home" style="position:absolute;top:27px;"></a>
+                        </div>
+
+                        <script type="text/javascript">
+                            $(function(){
+                                $(".search").keyup(function()
+                                {
+                                    var searchid = $(this).val();
+                                    var dataString = "search="+ searchid;
+                                    if(searchid!="")
                                     {
-                                        $("#result").html(html).show();
-                                    }
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "'.$folderString.'search.php",
+                                            data: dataString,
+                                            cache: false,
+                                            success: function(html)
+                                            {
+                                                $("#result").html(html).show();
+                                            }
+                                        });
+                                    }return false;
                                 });
-                            }return false;
+
+                            jQuery(document).live("click", function(e) {
+                                var $clicked = $(e.target);
+                                if (! $clicked.hasClass("search")){
+                                    jQuery("#result").fadeOut();
+                                }
+                            });
+                            $("#searchid").click(function(){
+                                jQuery("#result").fadeIn();
+                            });
                         });
+                        </script>
 
-                    jQuery(document).live("click", function(e) {
-                        var $clicked = $(e.target);
-                        if (! $clicked.hasClass("search")){
-                            jQuery("#result").fadeOut();
-                        }
-                    });
-                    $("#searchid").click(function(){
-                        jQuery("#result").fadeIn();
-                    });
-                });
-                </script>
+                        <div class="content" style="position: absolute; top:30px; left:170px; width:225px; height:25px;margin: 0; padding: 0; background:#1f1f1f">
+                            <form id="searchForm" action="'.$url.'search-results/" method="post">
+                                <input type="text" name="search" class="search" id="searchid" placeholder="Search brands or products" autocomplete="off" style="width:185px; height:15px; padding-right:30px; "/>
+                                <input type="hidden" name="headerSearch" value="true">
 
-                <div class="content" style="position: absolute; top:30px; left:170px; width:225px; height:25px;margin: 0; padding: 0; background:#1f1f1f">
-                    <form id="searchForm" action="'.$url.'search-results/" method="post">
-                        <input type="text" name="search" class="search" id="searchid" placeholder="Search brands or products" autocomplete="off" style="width:185px; height:15px; padding-right:30px; "/>
-                        <input type="hidden" name="headerSearch" value="true">
+                                <style>
+                                    .searchFormButton {
+                                        position: absolute;
+                                        top: 6px;
+                                        right: 3px;
+                                        background-color:#fff;
+                                        border:none;
+                                    }
+                                    .searchFormButton:focus {
+                                        outline: none;
+                                    }
+                                    .searchFormButton:hover {
+                                        cursor: pointer;
+                                    }
+                                    .searchFormButton:hover .fa {
+                                        color: #e52b50;
+                                    }
 
-                        <style>
-                            .searchFormButton {
-                                position: absolute;
-                                top: 6px;
-                                right: 3px;
-                                background-color:#fff;
-                                border:none;
-                            }
-                            .searchFormButton:focus {
-                                outline: none;
-                            }
-                            .searchFormButton:hover {
-                                cursor: pointer;
-                            }
-                            .searchFormButton:hover .fa {
-                                color: #e52b50;
-                            }
+                                </style>
+                                <button type="submit" class="searchFormButton">
+                                    <i class="fa fa-search" style="font-size:12px"></i>
+                                </button>
+                            </form>
 
-                        </style>
-                        <button type="submit" class="searchFormButton">
-                            <i class="fa fa-search" style="font-size:12px"></i>
-                        </button>
-                    </form>
+                            <div id="result" style="margin-top: 6px;"></div>
+                        </div>
 
-                    <div id="result" style="margin-top: 6px;"></div>
-                </div>
+                        <div style="position:absolute;left:395px;top:0px;width:605px;height:80px;">
 
-                <div style="position:absolute;left:395px;top:0px;width:605px;height:80px;">
-<link href="http://fonts.googleapis.com/css?family=Cousine" rel="stylesheet" type="text/css">
-<style>
-.home4 .nav-menu {
-	margin-right: -15px !important;
-}
+                            <nav class="no320">
+                                <ul>
+                                    <li><a href="'.$folderString.'index.php">Home</a></li>
+                                    <li class="dropdown_mmenu">
+                                        <a class="parent" href="'.$folderString.'men/index.php">Men</a>
+                                        <div class="megamenu">
+                                            <div class="megamenu1">
+                                                <span>
+                                                    <em>Categories</em>
+                                                    <a href="'.$folderString.'men/all.php">All Men\'s</a>
+                                                    <a href="'.$folderString.'men/all.php?na=on">New Arrivals</a>
+                                                    <a href="'.$folderString.'men/all.php?mp=on">Most Popular</a>
+                                                </span>
 
-nav ul {
-	padding: 0px;
-	margin: 0px;
-	display: table;
-	float: right;
-	padding-top: 38px;
-}
+                                                <span>
+                                                    <em>By Product</em>
+                                                    <a href="'.$folderString.'men/accessories.php">Accessories</a>
+                                                    <a href="'.$folderString.'men/bags.php">Bags</a>
+                                                    <a href="'.$folderString.'men/caps.php">Caps</a>
+                                                    <a href="'.$folderString.'men/coats.php">Jackets</a>
+                                                    <a href="'.$folderString.'men/hats.php">Hats</a>
+                                                </span>
 
-nav ul li {
-	float: left;
-	margin: 0;
-	text-transform: uppercase;
-	list-style: none;
-	font-size: 15px;
-	font-weight: bold;
-}
+                                                <span>
+                                                    <a style="margin-top: 46px;" href="'.$folderString.'men/jumpers.php">Jumpers</a>
+                                                    <a href="'.$folderString.'men/onesies.php">Onesies</a>
+                                                    <a href="'.$folderString.'men/shirts.php">Shirts</a>
+                                                    <a href="'.$folderString.'men/shorts.php">Shorts</a>
+                                                    <a href="'.$folderString.'men/swimwear.php">Swimwear</a>
+                                                </span>
 
-.no320 ul li a {
-    color: #eeeeee;
-}
+                                                <span>
+                                                    <a style="margin-top: 46px;" href="'.$folderString.'men/tees.php">Tees</a>
+                                                    <a href="'.$folderString.'men/vests.php">Vests</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown_mmenu">
+                                        <a class="parent" href="'.$folderString.'women/index.php">Women</a>
+                                        <div class="megamenu">
+                                            <div class="megamenu1">
+                                                <span>
+                                                    <em>Categories</em>
+                                                    <a href="'.$folderString.'women/all.php">All Women\'s</a>
+                                                    <a href="'.$folderString.'women/all.php?na=on">New Arrivals</a>
+                                                    <a href="'.$folderString.'women/all.php?mp=on">Most Popular</a>
+                                                </span>
 
-nav ul li a {
-	color: #565656;
-	font-family: Cousine;
-	text-decoration: none;
-	font-weight: bold;
-	padding: 15px 16px 35px;
-	position: relative;
-	z-index: 999;
-}
+                                                <span>
+                                                    <em>By Product</em>
+                                                    <a href="'.$folderString.'women/accessories.php">Accessories</a>
+                                                    <a href="'.$folderString.'women/bags.php">Bags</a>
+                                                    <a href="'.$folderString.'women/caps.php">Caps</a>
+                                                    <a href="'.$folderString.'women/coats.php">Coats</a>
+                                                    <a href="'.$folderString.'women/dresses.php">Dresses</a>
+                                                </span>
 
-.home2 nav ul li a {
-	padding: 30px 0 30px;
-}
+                                                <span>
+                                                    <a style="margin-top: 46px;" href="'.$folderString.'women/tops.php">Girls Tops</a>
+                                                    <a href="'.$folderString.'women/hats.php">Hats</a>
+                                                    <a href="'.$folderString.'women/jumpers.php">Jumpers</a>
+                                                    <a href="'.$folderString.'women/jewellery.php">Jewellery</a>
+                                                    <a href="'.$folderString.'women/onesies.php">Onesies</a>
+                                                </span>
 
-nav ul li a:hover {
-	color: #e52b50;
-}
+                                                <span>
+                                                    <a style="margin-top: 46px;" href="'.$folderString.'women/shorts.php">Shorts</a>
+                                                    <a href="'.$folderString.'women/skirts.php">Skirts</a>
+                                                    <a href="'.$folderString.'women/tees.php">Tees</a>
+                                                    <a href="'.$folderString.'women/vests.php">Vests</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>';
 
-.megamenu {
-	position: absolute;
-	width: 499px;
-	margin-left: -11px;
-	top: 60px;
-	right: 0px;
-	left: 0px;
-	background: #fff;
-	margin: 0 auto;
-	padding: 10px 10px 0px 50px;
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: top 0.3s, opacity .3s ease-in-out;
-	-moz-transition: top 0.3s, opacity .3s ease-in-out;
-	-o-transition: top 0.3s, opacity .3s ease-in-out;
-	transition: top 0.3s, opacity .3s ease-in-out;
-	border-top: 1px solid #bbbbbb;
-}
+                                    echo '
+                                    <li class="dropdown_mmenu">
+                                        <a class="parent" href="'.$folderString.'brands">Brands</a>
+                                        <div class="megamenu">
+                                            <div class="megamenu1">
+                                                <span>
+                                                    <em>Work With Us</em>
+                                                    <a href="'.$folderString.'newbrands.php">Joining Zooqie</a>
+                                                    <a href="'.$folderString.'contact.php">Contact Us</a>
+                                                </span>
 
-.megamenu {
-    background-color: #1f1f1f;
-}
+                                                <span style="width: 75%;">
+                                                    <em>Featured Brands</em>
+                                                </span>
+                                                <span style="width: 75%">
+                                            ';
 
-.megamenu1 span {
-	width: 25%;
-	float: left;
-}
+                                    // Create connection
+                                    if(file_exists("db_settings.php")) {include("db_settings.php");}
+                                    if(file_exists("../db_settings.php")) {include("../db_settings.php");}
+                                    if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
+                                    if(file_exists("db_settings.php")) {include("db_settings.php");}
 
-.megamenu1 span a {
-	width: 100%;
-	text-transform: none;
-	color: #555555;
-	font-family: Arial;
-	margin-bottom: 13px;
-	font-weight: normal;
-	font-size: 14px;
-	display: table;
-	padding: 0px !important;
-}
+                                    $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
 
-.megamenu1 em {
-	font-size: 15px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 1.1;
-	font-family: Cousine;
-	color: #eeeeee;
-	margin: 10px 0 20px;
-	display: table;
-}
+                                    //Brand query
+                                    $sql_res=mysqli_query($con, "select * from brands where Live = '1' AND (Brand_name = 'HazelleDoll' || Brand_name = 'Thunder Apparel')");
 
-.megamenu1 {
-	display: table;
-	width: 100%;
-}
+                                    while($row=mysqli_fetch_array($sql_res))
+                                    {
+                                        $username=stripslashes($row['Brand_name']);
+                                        $s = $row['ID'];
+                                        $img = $url . $row['shopbybrand_URL'];
 
-.megamenu1 span:nth-child(5) img {
-	display: table;
-	float: right;
-	margin: 12px 0 0;
-}
+                                        $result2 = mysqli_query($con,"SELECT * FROM brandfolders WHERE ID = '" . $s . "'");
+                                        while($row2 = mysqli_fetch_array($result2))
+                                        {
+                                            $foldername = $url . 'brands/' . $row2['Folder_name'];
+                                        }
+                                        echo '
+                                                <div style="display:inline-block;width:49%;text-align:center;">
+                                                    <a href="'.$foldername.'">
+                                                        <img src="'.$img.'" class="img-responsive" width=172 height=104 alt="'.$username.'" style="border: solid 1px;">
+                                                        <p>'.$username.'</p>
+                                                    </a>
+                                                </div>
+                                        ';
+                                    }
 
-.megamenu2 {
-	display: table;
-	width: 100%;
-	margin: 40px 0 5px;
-}
-
-.megamenu2 span {
-	width: 31%;
-	margin-right: 3.5%;
-	float: left;
-}
-
-.megamenu2 span:nth-child(3) {
-	margin-right: 0%;
-}
-
-.dropdown_menu {
-	position: relative;
-}
-
-.d_menu {
-	width: 220px;
-	display: table;
-	background: #fff;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	opacity: 0;
-	visibility: hidden;
-	border-top: 1px solid #bbb;
-}
-
-.d_menu span a {
-	font-family: Arial;
-	color: #555;
-	font-size: 13px;
-	padding: 10px 25px !important;
-	border-bottom: 1px solid #e5e5e5;
-	float: none;
-	font-weight: normal;
-	text-transform: none;
-	width: 100%;
-	display: table;
-}
-
-.megamenu1 span a:hover,
-.d_menu span a:hover {
-	color: #e52b50;
-}
-
-.dropdown_mmenu:hover .parent {
-    color: #e52b50;
-}
-
-.dropdown_mmenu:hover .megamenu {
-	position: absolute;
-	margin-left: -11px;
-	top: 75px;
-	width: 499px;
-	height: 200px;
-	opacity: 1;
-	visibility: visible;
-	-webkit-transition: opacity .3s ease-in-out;
-	-moz-transition: opacity .3s ease-in-out;
-	-o-transition: opacity .3s ease-in-out;
-	transition: opacity .3s ease-in-out;
-}
-
-.dropdown_menu:hover .d_menu {
-	position: absolute;
-	top: 36px;
-	margin-top: 16px;
-	opacity: 1;
-	visibility: visible;
-	-webkit-transition: all 0.3s, opacity .3s ease-in-out;
-	-moz-transition: all 0.3s, opacity .3s ease-in-out;
-	-o-transition: all 0.3s, opacity .3s ease-in-out;
-	transition: all 0.3s, opacity .3s ease-in-out;
-}
-
-</style>
-<nav class="no320">
-	<ul>
-		<li><a href="'.$folderString.'index.php">Home</a></li>
-		<li class="dropdown_mmenu">
-			<a class="parent" href="'.$folderString.'men/index.php">Men</a>
-			<div class="megamenu">
-				<div class="megamenu1">
-					<span>
-						<em>Categories</em>
-						<a href="'.$folderString.'men/all.php">All Men\'s</a>
-						<a href="'.$folderString.'men/all.php?na=on">New Arrivals</a>
-						<a href="'.$folderString.'men/all.php?mp=on">Most Popular</a>
-					</span>
-
-					<span>
-						<em>By Product</em>
-						<a href="'.$folderString.'men/accessories.php">Accessories</a>
-						<a href="'.$folderString.'men/bags.php">Bags</a>
-						<a href="'.$folderString.'men/caps.php">Caps</a>
-						<a href="'.$folderString.'men/coats.php">Jackets</a>
-						<a href="'.$folderString.'men/hats.php">Hats</a>
-					</span>
-
-					<span>
-						<a style="margin-top: 46px;" href="'.$folderString.'men/jumpers.php">Jumpers</a>
-						<a href="'.$folderString.'men/onesies.php">Onesies</a>
-						<a href="'.$folderString.'men/shirts.php">Shirts</a>
-						<a href="'.$folderString.'men/shorts.php">Shorts</a>
-						<a href="'.$folderString.'men/swimwear.php">Swimwear</a>
-					</span>
-
-					<span>
-						<a style="margin-top: 46px;" href="'.$folderString.'men/tees.php">Tees</a>
-						<a href="'.$folderString.'men/vests.php">Vests</a>
-					</span>
-				</div>
-			</div>
-		</li>
-		<li class="dropdown_mmenu">
-			<a class="parent" href="'.$folderString.'women/index.php">Women</a>
-			<div class="megamenu">
-				<div class="megamenu1">
-					<span>
-						<em>Categories</em>
-						<a href="'.$folderString.'women/all.php">All Women\'s</a>
-						<a href="'.$folderString.'women/all.php?na=on">New Arrivals</a>
-						<a href="'.$folderString.'women/all.php?mp=on">Most Popular</a>
-					</span>
-
-					<span>
-						<em>By Product</em>
-						<a href="'.$folderString.'women/accessories.php">Accessories</a>
-						<a href="'.$folderString.'women/bags.php">Bags</a>
-						<a href="'.$folderString.'women/caps.php">Caps</a>
-						<a href="'.$folderString.'women/coats.php">Coats</a>
-						<a href="'.$folderString.'women/dresses.php">Dresses</a>
-					</span>
-
-					<span>
-						<a style="margin-top: 46px;" href="'.$folderString.'women/tops.php">Girls Tops</a>
-						<a href="'.$folderString.'women/hats.php">Hats</a>
-						<a href="'.$folderString.'women/jumpers.php">Jumpers</a>
-						<a href="'.$folderString.'women/jewellery.php">Jewellery</a>
-						<a href="'.$folderString.'women/onesies.php">Onesies</a>
-					</span>
-
-					<span>
-						<a style="margin-top: 46px;" href="'.$folderString.'women/shorts.php">Shorts</a>
-						<a href="'.$folderString.'women/skirts.php">Skirts</a>
-						<a href="'.$folderString.'women/tees.php">Tees</a>
-						<a href="'.$folderString.'women/vests.php">Vests</a>
-					</span>
-				</div>
-			</div>
-		</li>';
-
-
-		echo '
-        <li class="dropdown_mmenu">
-			<a class="parent" href="'.$folderString.'brands">Brands</a>
-			<div class="megamenu">
-				<div class="megamenu1">
-					<span>
-						<em>Work With Us</em>
-						<a href="'.$folderString.'newbrands.php">Joining Zooqie</a>
-						<a href="'.$folderString.'contact.php">Contact Us</a>
-					</span>
-
-					<span style="width: 75%;">
-						<em>Featured Brands</em>
-					</span>
-					<span style="width: 75%">
-				';
-
-        // Create connection
-        if(file_exists("db_settings.php")) {include("db_settings.php");}
-        if(file_exists("../db_settings.php")) {include("../db_settings.php");}
-        if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
-        if(file_exists("db_settings.php")) {include("db_settings.php");}
-
-        $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-
-        //Brand query
-        $sql_res=mysqli_query($con, "select * from brands where Live = '1' AND (Brand_name = 'HazelleDoll' || Brand_name = 'Thunder Apparel')");
-
-        while($row=mysqli_fetch_array($sql_res))
-        {
-            $username=stripslashes($row['Brand_name']);
-            $s = $row['ID'];
-            $img = $url . $row['shopbybrand_URL'];
-
-            $result2 = mysqli_query($con,"SELECT * FROM brandfolders WHERE ID = '" . $s . "'");
-            while($row2 = mysqli_fetch_array($result2))
-            {
-                $foldername = $url . 'brands/' . $row2['Folder_name'];
-            }
-            echo '
-                    <div style="display:inline-block;width:49%;text-align:center;">
-						<a href="'.$foldername.'">
-							<img src="'.$img.'" class="img-responsive" width=172 height=104 alt="'.$username.'" style="border: solid 1px;">
-							<p>'.$username.'</p>
-						</a>
+                                echo '
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href="'.$folderString.'blog/">Blog</a></li>
+                                <li><a href="'.$folderString.'about.php">About</a></li>
+                                <li><a href="'.$folderString.'contact.php">Contact</a></li>
+                            </ul>
+                        </nav>
                     </div>
-			';
-        }
-
-        echo '
-				    </span>
-				</div>
-			</div>
-		</li>
-		<li><a href="'.$folderString.'blog/">Blog</a></li>
-		<li><a href="'.$folderString.'about.php">About</a></li>
-		<li><a href="'.$folderString.'contact.php">Contact</a></li>
-	</ul>
-</nav>
                 </div>
-                <a href="'.$folderString.'index.php"><img src="'.$folderString.'images/zooqie_white.png" onmouseover="this.src=\''.$folderString.'images/zooqie_red.png\';" onmouseout="this.src=\''.$folderString.'images/zooqie_white.png\';" border="0" width="150" id="pic_255" title="" alt="Home" style="position:absolute;top:27px;"></a>
             </div>
         ';
     }
@@ -1003,22 +815,11 @@ nav ul li a:hover {
 
     function echoSocialMediaFollowButtons() {
         echo '
-            <script>(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src="http://instagramfollowbutton.com/components/instagram/v2/js/ig-follow.js";s.parentNode.insertBefore(g,s);}(document,"script"));</script>
-            <div style="position:absolute;left:875px;top:90px;height:20px;z-index:2; " >
-                <span class="ig-follow" data-id="54a009d105" data-count="false" data-size="small" data-username="true"></span>
-            </div>
 
-            <div id="frag_56" style="position:absolute;left:788px;top:90px;width:80px;height:20px;z-index:2; " >
-                <div class="fb-like" data-href="https://www.facebook.com/zooqie" data-width="50" data-layout="button_count" data-show-faces="false" data-send="false"></div>
-            </div>
-
-            <div id="frag_57" style="position:absolute;left:650px;top:90px;width:127px;height:20px;z-index:2; " >
-                <a href="https://twitter.com/zooqie_uk" class="twitter-follow-button" data-show-count="false">Follow @zooqie_uk</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\'://platform.twitter.com/widgets.js\';fjs.parentNode.insertBefore(js,fjs);}}(document, \'script\', \'twitter-wjs\');</script>
-            </div>
         ';
     }
 
+    //TODO: Remove
     function echoGoogleAnalyticsScript() {
         echo '
             <script>
@@ -1035,12 +836,45 @@ nav ul li a:hover {
         ';
     }
 
+    function echoHead() {
+        echo '
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <meta http-equiv="Content-Style-Type" content="text/css">
+                <meta http-equiv="Content-Script-Type" content="text/javascript">
+                <meta name="viewport" content="width=1000">
+                <meta http-equiv="Content-Language" content="en-gb">
+                <meta name="keywords" content="brands,independent,clothing">
+                <meta name="robots" content="index,follow">
+
+                <link rel="icon" href="favicon.ico" type="image/x-icon">
+                <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+                <link rel="stylesheet" type="text/css" href="css/styles.css">
+                <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+                <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+                <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+                <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+                <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
+
+                <script>
+                    (function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,\'script\',\'//www.google-analytics.com/analytics.js\',\'ga\');
+
+                    ga(\'create\', \'UA-52539537-1\', \'auto\');
+                    ga(\'require\', \'displayfeatures\');
+                    ga(\'send\', \'pageview\');
+                </script>
+            ';
+    }
+
     /* TODO: this doesn't seem to be used everywhere? */
     function echoNavBar($folderLevel, $names, $links) {
         $folderString = createFolderString($folderLevel);
         echo '
-            <img src="'.$folderString.'images/white.jpg" border="0" width="1000" height="40" id="qs_1" title="" alt="Navigation Bar" style="position:absolute;left:0px;top:80px;">
-            <div class="nav_348style" style="left: 20px; top: 91px;; width: 960px; height: 26px; position: absolute;">
+            <div class="navigationBar" style="background: url(\''.$folderString.'images/navbar.png\'); " >
+
 
         ';
 
@@ -1054,6 +888,23 @@ nav ul li a:hover {
         }
 
         echo '
+
+                <div class="navigationBar-socialMedia">
+                    <div class="navigationBar-socialMedia-button">
+                        <a href="https://twitter.com/zooqie_uk" class="twitter-follow-button" data-show-count="false">Follow @zooqie_uk</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\'://platform.twitter.com/widgets.js\';fjs.parentNode.insertBefore(js,fjs);}}(document, \'script\', \'twitter-wjs\');</script>
+                    </div>
+
+                    <div class="navigationBar-socialMedia-button">
+                        <div class="fb-like" data-href="https://www.facebook.com/zooqie" data-width="50" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+                    </div>
+
+                    <div class="navigationBar-socialMedia-button">
+                        <script>(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src="http://instagramfollowbutton.com/components/instagram/v2/js/ig-follow.js";s.parentNode.insertBefore(g,s);}(document,"script"));</script>
+                        <span class="ig-follow" data-id="54a009d105" data-count="false" data-size="small" data-username="true"></span>
+                    </div>
+                </div>
+
             </div>
         ';
     }

@@ -179,7 +179,7 @@ $tmpHeight = $pageHeight + 222;
 <?php
 echoFooter(1, $pageHeight);
 echoFacebookScript();
-echoHeader(1, 1000, $tmpHeight);
+echoHeader(1, $tmpHeight);
 echoSocialMediaFollowButtons();
 echoGoogleAnalyticsScript();
 echoNavBar(1, array('Home', 'Brands'), array('../index.php', '../brands'));

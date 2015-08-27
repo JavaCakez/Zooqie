@@ -34,39 +34,6 @@
     ?>
 
 
-
-
-
-
-
-<script type="text/javascript" src="js/nivo.slider.js"></script>
-<script type="text/javascript">
-jQuery(function() {
-    jQuery('#slider').nivoSlider({
-        effect: 'sliceDownLeft', // Specify sets like: 'fold,fade,sliceDown'
-        slices: 15, // For slice animations
-        boxCols: 8, // For box animations
-        boxRows: 4, // For box animations
-        animSpeed: 550, // Slide transition speed
-        pauseTime: 7000, // How long each slide will show
-        startSlide: 0, // Set starting Slide (0 index)
-        directionNav: true, // Next & Prev navigation
-        directionNavHide: true, // Only show on hover
-        controlNav: true, // 1,2,3... navigation
-        controlNavThumbs: false, // Use thumbnails for Control Nav
-        pauseOnHover: true, // Stop animation while hovering
-        manualAdvance: false, // Force manual transitions
-        prevText: 'Prev', // Prev directionNav text
-        nextText: 'Next', // Next directionNav text
-        randomStart: false, // Start on a random slide
-        beforeChange: function(){}, // Triggers before a slide transition
-        afterChange: function(){}, // Triggers after a slide transition
-        slideshowEnd: function(){}, // Triggers after all slides have been shown
-        lastSlide: function(){}, // Triggers when last slide is shown
-        afterLoad: function(){} // Triggers when slider has loaded
-    });
-});
-</script>
 <style type="text/css">
 body{margin:0;padding:0;}
 .wpfixed{position:absolute;}
@@ -152,39 +119,6 @@ echoNavBar(0, array('Home'), array('index.php'));
 <img style="position:absolute;left:0px;top:129px;width:998px;height:500px;border: 1px solid #1f1f1f" src="images/hero4.png" alt="About Us | Who we are and what we're about | ZOOQIE" title="#htmlcaption1">
 <img src="images/landingbanner3.png" width="300"  style="position:absolute;left:360px; top:300px;">
 
-<!---->
-<!--<div id="frag_2" >-->
-<!--    <div class="slider-wrapper theme-default">-->
-<!--      <div id="slider" class="nivoSlider">-->
-<!--        <a href="about.php"><img src="parallaxImages/img40e.png" alt="About Us | Who we are and what we're about | ZOOQIE" title="#htmlcaption1"></a>-->
-<!--        <a href="blog\"><img src="parallaxImages/img999b.png" alt="Looking Fresh | Lookbook of this months favourites | ZOOQIE" title="#htmlcaption4"></a>-->
-<!--        <a href="/brands"><img src="parallaxImages/img51b.png" alt ="Brands | New up and coming independent brands from around the UK | ZOOQIE" title="#htmlcaption3"></a>-->
-<!---->
-<!--      </div>-->
-<!---->
-<!--      <div id="htmlcaption1" class="nivo-html-caption">-->
-<!--       <h1>What is Zooqie?</h1>-->
-<!--       <p>Zooqie showcases some of the best up and coming independent clothing brands from around the UK.</p>-->
-<!--      </div>-->
-<!---->
-<!--      <div id="htmlcaption4" class="nivo-html-caption">-->
-<!--        <h1>Looking Fresh Lookbooks</h1>-->
-<!--        <p>Check out zooqie's favourite picks of each month!</p>-->
-<!--      </div>-->
-<!---->
-<!---->
-<!---->
-<!--      <div id="htmlcaption3" class="nivo-html-caption">-->
-<!--        <h1>Visit Brand Shops</h1>-->
-<!--        <p>Browse through all the brand shops on our site.</p>-->
-<!--      </div>-->
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!--    </div>-->
-<!--</div>-->
 
 <img src="images/shop_men.png" width="324" height="196" alt="Shop men&#39;s clothes | zooqie" style="position:absolute;left:0px;top:649px;border: 1px solid #1f1f1f;">
 <a href="men/"><img src="images/QS.png" width="326" height="196" alt="Shop men&#39;s clothes | zooqie"  style="position:absolute;left:0px;top:649px;" class="fader_img"></a>

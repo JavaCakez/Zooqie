@@ -223,7 +223,6 @@ function validate_form_123( form )
 </script>
 	
 <style type="text/css">
-body{margin:0;padding:0;}
 .wpfixed{position:absolute;}
 div > .wpfixed{position:fixed;}
 a.hlink_1:link {color:#2c2c2c;}
@@ -251,12 +250,8 @@ a.hlink_1:active {color:#2c2c2c;}
     font-family:"Lato", sans-serif; font-size:13.0px; line-height:1.23em;
 }
 
-#nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
-#nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
-.button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 </style>
 <style type="text/css">
-body{margin:0;padding:0;}
 .wpfixed{position:absolute;}
 div > .wpfixed{position:fixed;}
 a.hlink_1:link {color:#2c2c2c;}
@@ -276,9 +271,6 @@ a.hlink_1:active {color:#2c2c2c;}
     font-family:"Harabara", serif; color:#656565; font-size:21.0px; line-height:1.48em;
 }
 
-#nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
-#nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
-.button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 
 
 </style>
@@ -297,13 +289,13 @@ $tmpHeight = $pageHeight + 222;
 ?>
 
 
-<body text="#000000" style="background:#ffffff url('images/backgrounds/grey.png') repeat fixed top center; height:<?echo $tmpHeight;?>px;  /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3);">
+<body text="#000000" style="background:#ffffff url('images/backgroundpattern.png') repeat fixed top center; height:<?echo $tmpHeight;?>px;  /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3);">
 <!--Master Page Body Start-->
 
 <?php
+echoFooter(0, $pageHeight);
 echoFacebookScript();
 echoHeader(0, 1000, $tmpHeight);
-echoFooter(0, $pageHeight);
 echoSocialMediaFollowButtons();
 echoGoogleAnalyticsScript();
 echoNavBar(0, array('Home', 'Checkout'), array('index.php', 'address.php'));
@@ -821,11 +813,6 @@ echoNavBar(0, array('Home', 'Checkout'), array('index.php', 'address.php'));
 <script type="text/javascript" src="js/totop.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 
-<!--Fullsize Background Image-->
-<script src="js/jquery.backstretch.js"></script>
-<script>
-    jQuery.backstretch("images/backgrounds/sbackground3.jpg");
-</script>
 </body>
 </html>
 

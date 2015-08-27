@@ -128,7 +128,7 @@ ob_start (); // Buffer output
 
         <style>
             .ui-slider-range { background: #cbcbcb; }
-            .ui-slider-horizontal .ui-slider-handle { background: #656565; }
+            .ui-slider-horizontal .ui-slider-handle { background: #656565; width: 10px; height: 21px; }
 
         </style>
 
@@ -161,10 +161,6 @@ ob_start (); // Buffer output
                 font-family:"Harabara", serif; color:#2c2c2c; font-size:32px; line-height:1.47em;
             }
 
-            #nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
-            #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
-            .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
-
         </style>
 
         <?php
@@ -187,15 +183,15 @@ ob_start (); // Buffer output
     </head>
 
 
-    <body text="#000000" style="background:#ffffff url('../images/backgrounds/grey.png') repeat fixed top center; height:<!--PAGEHEIGHTVAL1-->px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3); "  >
+    <body text="#000000" style="background:#ffffff url('../images/backgroundpattern.png') repeat fixed top center; height:<!--PAGEHEIGHTVAL1-->px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3); "  >
 
     <!--Master Page Body Start-->
 
 
     <?php
+    echoFooter(1, '<!--PAGEHEIGHTVAL-->');
     echoFacebookScript();
     echoHeader(1, 1000, '<!--PAGEHEIGHTVAL1-->');
-    echoFooter(1, '<!--PAGEHEIGHTVAL-->');
     echoSocialMediaFollowButtons();
     echoGoogleAnalyticsScript();
     ?>
@@ -691,12 +687,7 @@ ob_start (); // Buffer output
     <script type="text/javascript" src="../js/custom.js"></script>
     <!--Page Body End-->
 
-    <!--Fullsize Background Image-->
-    <script src="../js/jquery.backstretch.js"></script>
-    <script>
-        jQuery.backstretch("../images/backgrounds/sbackground3.jpg");
-    </script>
-    <!--Fullsize Background Image End-->
+
     </body>
     </html>
 

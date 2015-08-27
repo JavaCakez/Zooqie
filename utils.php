@@ -452,7 +452,7 @@
             $url = 'http://www.zooqie.com/';
         }
         echo '
-            <div style="background-color:#ffffff;margin-left:auto;margin-right:auto;position:relative;width:'.$pageWidth.'px;height:'.$pageHeight.'px;">
+            <div style="background-color:#ffffff;margin-left:auto;margin-right:auto;position:relative;width:'.$pageWidth.'px;height:'.$pageHeight.'px;min-height:100%;">
                 <div id="nav-panel" class="wpfixed" style="left:50%;margin-left:-500px;top:0px;width:1000px;height:80px; z-index: 199; margin-top:5px;">
 
                 <script type="text/javascript">
@@ -488,14 +488,16 @@
                 });
                 </script>
 
-                <div class="content" style="position: absolute; top:30px; left:170px; width:540px; height:22px;margin: 0; padding: 0; background:#ffffff">
+                <div class="content" style="position: absolute; top:30px; left:170px; width:225px; height:25px;margin: 0; padding: 0; background:#1f1f1f">
                     <form id="searchForm" action="'.$url.'search-results/" method="post">
-                        <input type="text" name="search" class="search" id="searchid" placeholder="Search brands or products" autocomplete="off" style="width:250px; height:15px; "/>
+                        <input type="text" name="search" class="search" id="searchid" placeholder="Search brands or products" autocomplete="off" style="width:185px; height:15px; padding-right:30px; "/>
                         <input type="hidden" name="headerSearch" value="true">
 
                         <style>
                             .searchFormButton {
-                                margin-left:-30px;
+                                position: absolute;
+                                top: 6px;
+                                right: 3px;
                                 background-color:#fff;
                                 border:none;
                             }
@@ -506,7 +508,7 @@
                                 cursor: pointer;
                             }
                             .searchFormButton:hover .fa {
-                                color: #cf4647;
+                                color: #e52b50;
                             }
 
                         </style>
@@ -518,7 +520,7 @@
                     <div id="result" style="margin-top: 6px;"></div>
                 </div>
 
-                <div style="position:absolute;left:450px;top:0px;width:550px;height:80px;">
+                <div style="position:absolute;left:395px;top:0px;width:605px;height:80px;">
 <link href="http://fonts.googleapis.com/css?family=Cousine" rel="stylesheet" type="text/css">
 <style>
 .home4 .nav-menu {
@@ -542,6 +544,10 @@ nav ul li {
 	font-weight: bold;
 }
 
+.no320 ul li a {
+    color: #eeeeee;
+}
+
 nav ul li a {
 	color: #565656;
 	font-family: Cousine;
@@ -557,13 +563,14 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-	color: #cf4647;
+	color: #e52b50;
 }
 
 .megamenu {
 	position: absolute;
-	width: 1140px;
-	top: 75px;
+	width: 499px;
+	margin-left: -11px;
+	top: 60px;
 	right: 0px;
 	left: 0px;
 	background: #fff;
@@ -571,11 +578,15 @@ nav ul li a:hover {
 	padding: 10px 10px 0px 50px;
 	opacity: 0;
 	visibility: hidden;
-	-webkit-transition: top 0.3s ease-in-out;
-	-moz-transition: top 0.3s ease-in-out;
-	-o-transition: top 0.3s ease-in-out;
-	transition: top 0.3s ease-in-out;
-	border: 1px solid #bbbbbb;
+	-webkit-transition: top 0.3s, opacity .3s ease-in-out;
+	-moz-transition: top 0.3s, opacity .3s ease-in-out;
+	-o-transition: top 0.3s, opacity .3s ease-in-out;
+	transition: top 0.3s, opacity .3s ease-in-out;
+	border-top: 1px solid #bbbbbb;
+}
+
+.megamenu {
+    background-color: #1f1f1f;
 }
 
 .megamenu1 span {
@@ -601,7 +612,7 @@ nav ul li a:hover {
 	font-weight: 700;
 	line-height: 1.1;
 	font-family: Cousine;
-	color: #666666;
+	color: #eeeeee;
 	margin: 10px 0 20px;
 	display: table;
 }
@@ -665,11 +676,11 @@ nav ul li a:hover {
 
 .megamenu1 span a:hover,
 .d_menu span a:hover {
-	color: #cf4647;
+	color: #e52b50;
 }
 
 .dropdown_mmenu:hover .parent {
-    color: #cf4647;
+    color: #e52b50;
 }
 
 .dropdown_mmenu:hover .megamenu {
@@ -680,10 +691,10 @@ nav ul li a:hover {
 	height: 200px;
 	opacity: 1;
 	visibility: visible;
-	-webkit-transition: top 0.3s ease-in-out;
-	-moz-transition: top 0.3s ease-in-out;
-	-o-transition: top 0.3s ease-in-out;
-	transition: top 0.3s ease-in-out;
+	-webkit-transition: opacity .3s ease-in-out;
+	-moz-transition: opacity .3s ease-in-out;
+	-o-transition: opacity .3s ease-in-out;
+	transition: opacity .3s ease-in-out;
 }
 
 .dropdown_menu:hover .d_menu {
@@ -692,11 +703,12 @@ nav ul li a:hover {
 	margin-top: 16px;
 	opacity: 1;
 	visibility: visible;
-	-webkit-transition: top 0.3s ease-in-out;
-	-moz-transition: top 0.3s ease-in-out;
-	-o-transition: top 0.3s ease-in-out;
-	transition: top 0.3s ease-in-out;
+	-webkit-transition: all 0.3s, opacity .3s ease-in-out;
+	-moz-transition: all 0.3s, opacity .3s ease-in-out;
+	-o-transition: all 0.3s, opacity .3s ease-in-out;
+	transition: all 0.3s, opacity .3s ease-in-out;
 }
+
 </style>
 <nav class="no320">
 	<ul>
@@ -835,7 +847,7 @@ nav ul li a:hover {
 	</ul>
 </nav>
                 </div>
-                <a href="'.$folderString.'index.php"><img src="'.$folderString.'images/zooqie.png" border="0" width="150" id="pic_255" title="" alt="Home" style="position:absolute;top:27px;"></a>
+                <a href="'.$folderString.'index.php"><img src="'.$folderString.'images/zooqie_white.png" onmouseover="this.src=\''.$folderString.'images/zooqie_red.png\';" onmouseout="this.src=\''.$folderString.'images/zooqie_white.png\';" border="0" width="150" id="pic_255" title="" alt="Home" style="position:absolute;top:27px;"></a>
             </div>
         ';
     }
@@ -851,68 +863,141 @@ nav ul li a:hover {
     function echoFooter($folderLevel, $pageHeight) {
         $folderString = createFolderString($folderLevel);
 
+        $pageHeight = 0;
+
         $pageHeightVal0 = is_numeric($pageHeight) ? $pageHeight : '<!--PAGEHEIGHT-->';
-        $pageHeightVal1 = is_numeric($pageHeight) ? $pageHeight  + 222 : '<!--PAGEHEIGHTVAL1-->';
+        $pageHeightVal1 = is_numeric($pageHeight) ? $pageHeight  + 228 : '<!--PAGEHEIGHTVAL1-->';
         $pageHeightVal2 = is_numeric($pageHeight) ? $pageHeight  + 14 : '<!--PAGEHEIGHTVAL2-->';
-        $pageHeightVal3 = is_numeric($pageHeight) ? $pageHeight  + 65 : '<!--PAGEHEIGHTVAL3-->';
+        $pageHeightVal3 = is_numeric($pageHeight) ? $pageHeight  + 50 : '<!--PAGEHEIGHTVAL3-->';
         $pageHeightVal4 = is_numeric($pageHeight) ? $pageHeight  + 162 : '<!--PAGEHEIGHTVAL4-->';
         $pageHeightVal5 = is_numeric($pageHeight) ? $pageHeight  + 183 : '<!--PAGEHEIGHTVAL5-->';
         $pageHeightVal6 = is_numeric($pageHeight) ? $pageHeight  + 115 : '<!--PAGEHEIGHTVAL6-->';
 
 
         echo '
-            <div id="txt_15" style="position:absolute;left:760px;top:'.$pageHeightVal2.'px;width:220px;height:40px;overflow:hidden; " >
+            <div style="
+                background: #1f1f1f;
+                width: 100%;
+                height: 228;
+                position: absolute;
+                bottom: 0;
+                z-index:2;
+            ">
 
-            <h2 class="Wp-Heading-2-P" style="margin-top:0px"><span class="Heading-2-C">Follow Us</span></h2>
-            </div>
-            <div id="txt_24" style="position:absolute;left:520px;top:'.$pageHeightVal3.'px;width:220px;height:85px;overflow:hidden; " >
-            <p class="Wp-Body-P"><span class="Body-C"><a class="hlink_1" href="'.$folderString.'contact.php" style="text-decoration:none;">Contact Us</a></span></p>
-            <p class="Wp-Body-P"><span class="Body-C"><a class="hlink_1" href="'.$folderString.'returns.php" style="text-decoration:none;">Returns and Disputes</a></span></p>
-            <p class="Wp-Body-P"><span class="Body-C"><a class="hlink_1" href="'.$folderString.'login.php" style="text-decoration:none;">Brand Login</a> / <a class="hlink_1" href="'.$folderString.'logout.php" style="text-decoration:none;">Logout</a></span></p>
-            <p class="Wp-Body-P"><span class="Body-C"><br></span></p>
-            </div>
-            <div id="txt_27" style="position:absolute;left:520px;top:'.$pageHeightVal2.'px;width:220px;height:40px;overflow:hidden; " >
-            <h2 class="Wp-Heading-2-P" style="margin-top:0px"><span class="Heading-2-C">Customer Services</span></h2>
-            </div>
-            <img src="'.$folderString.'images/line.png" border="0" width="960" height="1" id="pcrv_3" alt=""  style="position:absolute;left:20px;top:'.$pageHeightVal0.'px; " >
-            <img src="'.$folderString.'images/line.png" border="0" width="960" height="1" id="pcrv_4" alt=""  style="position:absolute;left:20px;top:'.$pageHeightVal4.'px; " >
-            <!-- facebook.png - Emb. Bitmap pic_30 -->
-            <map id="map0" name="map0">
-                <area shape="poly" coords="23,34,31,29,35,23,35,12,30,4,23,0,12,0,4,5,0,12,0,23,5,31,12,35,23,35" href="https://www.facebook.com/zooqie" target="_blank" alt="" >
-            </map>
-            <img src="'.$folderString.'images/grey_facebook.png" border="0" width="35" height="35" id="pic_30" alt=""  usemap="#map0" style="position:absolute;left:760px;top:'.$pageHeightVal3.'px; " >
-            <!-- twitter.png - Emb. Bitmap pic_33 -->
-            <map id="map1" name="map1">
-                <area shape="poly" coords="23,34,31,29,35,23,35,12,30,4,23,0,12,0,4,5,0,12,0,23,5,31,12,35,23,35" href="https://twitter.com/zooqie_uk" target="_blank" alt="" >
-            </map>
-            <img src="'.$folderString.'images/grey_twitter.png" border="0" width="35" height="35" id="pic_33" alt=""  usemap="#map1" style="position:absolute;left:814px;top:'.$pageHeightVal3.'px; " >
+                <style>
+                    .footerHeading
+                    {
+                        font-family:"Harabara", serif; color:#eeeeee; font-size:19px; line-height:1.47em;
+                    }
+                    .footerText
+                    {
+                        font-family:"Lato", sans-serif; color:#eeeeee; font-size:14px; line-height:1.29em;
+                    }
 
-            <a href="http://instagram.com/zooqieuk" target="_blank"><img src="'.$folderString.'images/instagram.png" border="0" width="40" height="40" id="pic_30" alt=""   style="position:absolute;left:868px;top:'.$pageHeightVal3.'px; margin-top: -3px; " ></a>
+                    a.footerLink:link {color:#eeeeee;}
+                    a.footerLink:visited {color:#eeeeee;}
+                    a.footerLink:hover {color:#e52b50;}
+                    a.footerLink:active {color:#eeeeee;}
+                </style>
+                <div style="position:relative; width:1000px; margin:auto; bottom: 0; height: 228px; z-index:3;">
+                    <div style="position:absolute;left:760px;top:'.$pageHeightVal2.'px;width:220px;height:40px;overflow:hidden; " >
+
+                    <h2 style="margin-top:0px"><span class="footerHeading">Follow Us</span></h2>
+                    </div>
+                    <div style="position:absolute;left:520px;top:'.$pageHeightVal3.'px;width:220px;height:85px;" >
+                        <p><span class="footerText"><a class="footerLink" href="'.$folderString.'contact.php" style="text-decoration:none;">Contact Us</a></span></p>
+                        <p><span class="footerText"><a class="footerLink" href="'.$folderString.'returns.php" style="text-decoration:none;">Returns and Disputes</a></span></p>
+                        <p><span class="footerText"><a class="footerLink" href="'.$folderString.'login.php" style="text-decoration:none;">Brand Login</a> <span class="footerText">/</span> <a class="footerLink" href="'.$folderString.'logout.php" style="text-decoration:none;">Logout</a></span></p>
+                        <p><span class="footerText"><br></span></p>
+                    </div>
+                    <div style="position:absolute;left:520px;top:'.$pageHeightVal2.'px;width:220px;height:40px;overflow:hidden; " >
+                        <h2 style="margin-top:0px">
+                            <span class="footerHeading">Customer Services</span>
+                        </h2>
+                    </div>
+                    <img src="'.$folderString.'images/line.png" border="0" width="960" height="1" alt=""  style="position:absolute;left:20px;top:'.$pageHeightVal4.'px; " >
+
+                    <style>
+                        .footer-social {
+                            padding: 0px;
+                            display: table;
+                            float: right;
+                            margin: 16px 0;
+
+                        }
+
+                        .footer-social li {
+                            float: left;
+                            list-style: none;
+                            margin-right: 10px;
+                        }
+
+                        .footer-social li a {
+                            width: 40px;
+                            height: 40px;
+                            border: solid 2px #eee;
+                            display: table;
+                            line-height: 36px;
+                            text-align: center;
+                            color: #eee;
+                            font-size: 18px;
+                            -webkit-transition: all .3s ease-in-out;
+                            -moz-transition: all .3s ease-in-out;
+                            -o-transition: all .3s ease-in-out;
+                            transition: all .3s ease-in-out;
+                            text-decoration: none;
+                        }
+
+                        .footer-social li a.fa-facebook:hover {
+                            background: #3b5a9a;
+                            border-color: #3b5a9a;
+                            color: #fff;
+                        }
+
+                        .footer-social li a.fa-twitter:hover {
+                            background: #67b5d3;
+                            border-color: #67b5d3;
+                            color: #fff;
+                        }
+
+                        .footer-social li a.fa-instagram:hover {
+                            background: #957d60;
+                            border-color: #957d60;
+                            color: #fff;
+                        }
+                    </style>
+                    <ul class="footer-social" style="position:absolute;left:760px;top:'.$pageHeightVal3.'px; ">
+                        <li><a href="https://www.facebook.com/Zooqie" target="_blank" class="fa fa-facebook"></a></li>
+                        <li><a href="https://twitter.com/zooqie_uk" target="_blank" class="fa fa-twitter"></a></li>
+                        <li><a href="https://instagram.com/zooqieuk/" target="_blank" class="fa fa-instagram"></a></li>
+                    </ul>
+
+                    <div style="position:absolute;left:20px;top:'.$pageHeightVal3.'px;width:220px;height:85px;" >
+                        <p><span class="footerText"><a class="footerLink" href="'.$folderString.'about.php" style="text-decoration:none;">About Us</a></span></p>
+                        <p><span class="footerText"><a class="footerLink" href="'.$folderString.'newbrands.php" style="text-decoration:none;">New Brands</a></span></p>
+                        <p><span class="footerText"><a class="footerLink" href="'.$folderString.'faqs.php" style="text-decoration:none;">Frequently Asked Questions</a></span></p>
+                    </div>
+                    <div style="position:absolute;left:20px;top:'.$pageHeightVal2.'px;width:220px;height:40px;" >
+                        <h2 style="margin-top:0px"><span class="footerHeading">Information</span></h2>
+                    </div>
+                    <img src="'.$folderString.'images/american_express.png" border="0" width="45" height="45" id="pic_60" alt=""  style="position:absolute;left:141px;top:'.$pageHeightVal5.'px; " >
+                    <img src="'.$folderString.'images/delta.png" border="0" width="45" height="45" id="pic_61" alt=""  style="position:absolute;left:81px;top:'.$pageHeightVal5.'px; " >
+                    <img src="'.$folderString.'images/mastercard.png" border="0" width="45" height="45" id="pic_62" alt=""  style="position:absolute;left:202px;top:'.$pageHeightVal5.'px; " >
+                    <img src="'.$folderString.'images/visa.png" border="0" width="45" height="45" id="pic_64" alt=""  style="position:absolute;left:262px;top:'.$pageHeightVal5.'px; " >
+                    <img src="'.$folderString.'images/paypal.png" border="0" width="45" height="45" id="pic_63" alt=""  style="position:absolute;left:20px;top:'.$pageHeightVal5.'px; " >
+
+                    <div style="position:absolute;left:269px;top:'.$pageHeightVal3.'px;width:220px;height:85px;" >
+                        <p><span class="footerText"><a class="footerLink" href="'.$folderString.'privacy.php" style="text-decoration:none;">Privacy Policy &amp; Cookies</a></span></p>
+                        <p><span class="footerText"><a class="footerLink" href="'.$folderString.'terms.php" style="text-decoration:none;">Terms and Conditions</a></span></p>
+                    </div>
+                    <div style="position:absolute;left:269px;top:'.$pageHeightVal2.'px;width:220px;height:40px;" >
+                        <h2 style="margin-top:0px"><span class="footerHeading">Policies</span></h2>
+                    </div>
+                </div>
 
 
-            <div id="txt_23" style="position:absolute;left:20px;top:'.$pageHeightVal3.'px;width:220px;height:85px;overflow:hidden; " >
-            <p class="Wp-Body-P"><span class="Body-C"><a class="hlink_1" href="'.$folderString.'about.php" style="text-decoration:none;">About Us</a></span></p>
-            <p class="Wp-Body-P"><span class="Body-C"><a class="hlink_1" href="'.$folderString.'newbrands.php" style="text-decoration:none;">New Brands</a></span></p>
-            <p class="Wp-Body-P"><span class="Body-C"><a class="hlink_1" href="'.$folderString.'faqs.php" style="text-decoration:none;">Frequently Asked Questions</a></span></p>
             </div>
-            <div id="txt_26" style="position:absolute;left:20px;top:'.$pageHeightVal2.'px;width:220px;height:40px;overflow:hidden; " >
-            <h2 class="Wp-Heading-2-P" style="margin-top:0px"><span class="Heading-2-C">Information</span></h2>
-            </div>
-            <img src="'.$folderString.'images/american_express.png" border="0" width="45" height="45" id="pic_60" alt=""  style="position:absolute;left:141px;top:'.$pageHeightVal5.'px; " >
-            <img src="'.$folderString.'images/delta.png" border="0" width="45" height="45" id="pic_61" alt=""  style="position:absolute;left:81px;top:'.$pageHeightVal5.'px; " >
-            <img src="'.$folderString.'images/mastercard.png" border="0" width="45" height="45" id="pic_62" alt=""  style="position:absolute;left:202px;top:'.$pageHeightVal5.'px; " >
-            <img src="'.$folderString.'images/visa.png" border="0" width="45" height="45" id="pic_64" alt=""  style="position:absolute;left:262px;top:'.$pageHeightVal5.'px; " >
-            <img src="'.$folderString.'images/paypal.png" border="0" width="45" height="45" id="pic_63" alt=""  style="position:absolute;left:20px;top:'.$pageHeightVal5.'px; " >
-            <div id="txt_163" style="position:absolute;left:760px;top:'.$pageHeightVal6.'px;width:220px;height:35px;overflow:hidden; " >
-            <h2 class="Wp-Heading-2-P" style="margin-top:0px"><span class="Heading-2-C-C0">GET SOCIAL</span></h2>
-            </div>
-            <div id="txt_164" style="position:absolute;left:269px;top:'.$pageHeightVal3.'px;width:220px;height:85px;overflow:hidden; " >
-            <p class="Wp-Body-P"><span class="Body-C"><a class="hlink_1" href="'.$folderString.'privacy.php" style="text-decoration:none;">Privacy Policy &amp; Cookies</a></span></p>
-            <p class="Wp-Body-P"><span class="Body-C"><a class="hlink_1" href="'.$folderString.'terms.php" style="text-decoration:none;">Terms and Conditions</a></span></p>
-            </div>
-            <div id="txt_166" style="position:absolute;left:269px;top:'.$pageHeightVal2.'px;width:220px;height:40px;overflow:hidden; " >
-            <h2 class="Wp-Heading-2-P" style="margin-top:0px"><span class="Heading-2-C">Policies</span></h2>
-            </div>
+
         ';
     }
 
@@ -954,7 +1039,7 @@ nav ul li a:hover {
     function echoNavBar($folderLevel, $names, $links) {
         $folderString = createFolderString($folderLevel);
         echo '
-            <img src="'.$folderString.'images/navbar.png" border="0" width="1000" height="40" id="qs_1" title="" alt="Navigation Bar" style="position:absolute;left:0px;top:80px;">
+            <img src="'.$folderString.'images/white.jpg" border="0" width="1000" height="40" id="qs_1" title="" alt="Navigation Bar" style="position:absolute;left:0px;top:80px;">
             <div class="nav_348style" style="left: 20px; top: 91px;; width: 960px; height: 26px; position: absolute;">
 
         ';

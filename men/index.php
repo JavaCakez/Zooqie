@@ -69,10 +69,6 @@ a.hlink_1:active {color:#2c2c2c;}
     font-family:"Harabara", serif; color:#161616; font-size:32px; line-height:1.47em;
 }
 
-#nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
-#nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
-.button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
-
 
 </style>
 
@@ -90,13 +86,14 @@ $pageHeight = 769;
 $tmpHeight = $pageHeight + 222;
 ?>
 
-<body text="#000000" style="background:#ffffff url('../images/backgrounds/grey.png') repeat fixed top center; height:<?echo $tmpHeight;?>px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3);">
+<body text="#000000" style="background:#ffffff url('../images/backgroundpattern.png') repeat fixed top center; height:<?echo $tmpHeight;?>px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3);">
+
 <!--Master Page Body Start-->
 
 <?php
+echoFooter(1, $pageHeight);
 echoFacebookScript();
 echoHeader(1, 1000, $tmpHeight);
-echoFooter(1, $pageHeight);
 echoSocialMediaFollowButtons();
 echoGoogleAnalyticsScript();
 echoNavBar(1, array('Home', 'Men'), array('../index.php', '../menp'));
@@ -126,7 +123,6 @@ echoNavBar(1, array('Home', 'Men'), array('../index.php', '../menp'));
 
 <!--Preamble-->
 <style type="text/css">
-body{margin:0;padding:0;}
 .wpfixed{position:absolute;}
 div > .wpfixed{position:fixed;}
 a.hlink_5:link {color:#000000;}
@@ -174,10 +170,6 @@ a.hlink_6:active {color:#cdcfd2;}
 {
     font-family:"Lato", sans-serif; color:#2c2c2c; font-size:15px; line-height:1.33em;
 }
-
-#nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
-#nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
-.button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 
 </style>
 
@@ -260,12 +252,7 @@ a.hlink_6:active {color:#cdcfd2;}
 <script type="text/javascript" src="../js/custom.js"></script>
 <!--Page Body End-->
 
-<!--Fullsize Background Image-->
-<script src="../js/jquery.backstretch.js"></script>
-<script>
-    jQuery.backstretch("../images/backgrounds/sbackground3.jpg");
-</script>
-<!--Fullsize Background Image End-->
+
 </body>
 </html>
 

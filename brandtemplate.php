@@ -128,7 +128,7 @@ ob_start (); // Buffer output
   
   <style>
 	.ui-slider-range { background: #cbcbcb; }
-  	.ui-slider-horizontal .ui-slider-handle { background: #656565; }
+  	.ui-slider-horizontal .ui-slider-handle { background: #656565; width: 10px; height: 21px; }
 
   </style>
 
@@ -191,7 +191,6 @@ echoRefineByPriceScript($topPrice);
 
 
 <style type="text/css">
-body{margin:0;padding:0;}
 .wpfixed{position:absolute;}
 div > .wpfixed{position:fixed;}
 a.hlink_1:link {color:#2c2c2c;}
@@ -215,9 +214,6 @@ a.hlink_1:active {color:#2c2c2c;}
     font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
 }
 
-#nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
-#nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
-.button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 </style>
 
 
@@ -227,14 +223,42 @@ a.hlink_1:active {color:#2c2c2c;}
 
 
 
+<?
+	//initialise now date variable
+	$nowdate = date('Y-m-d');
 
-<body text="#000000" style="background:#ffffff url('../../images/backgrounds/grey.png') repeat fixed top center; height:<!--PAGEHEIGHTVAL1-->px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3);">
+	//initialise the brand ID variable
+	$brandID = substr($ID , 0, 3);
+
+	//VIEW COUNTER - check to see if a view today exists, if it does add 1 to count, if it doesn't then add record
+	$result = mysqli_query($con,"SELECT COUNT(*) FROM pageviews WHERE PageName = '$ID' AND Date = '$nowdate'");
+	$row = mysqli_fetch_array($result);
+	$total = $row[0];
+	if ($total > 0) {
+		//if result exists, increment count
+		mysqli_query($con,"UPDATE pageviews SET Count = Count + 1 WHERE PageName = '$ID' AND Date = '$nowdate'");
+	} else {
+		//if result doesn't exist yet today add it
+		mysqli_query($con,"INSERT INTO pageviews (PageName, BrandUsername, Date, Count) VALUES ('$ID', '$brandID', '$nowdate', 1)");
+	}
+
+	$result = mysqli_query($con,"SELECT * FROM brands WHERE ID = '". $ID . "'");
+	while($row = mysqli_fetch_array($result))
+	{
+		$background = $row['background_URL'];
+		break;
+	}
+
+	mysqli_close($con);
+?>
+
+<body text="#000000" style="background:#ffffff url('../../<?echo $background;?>') fixed top center; height:<!--PAGEHEIGHTVAL1-->px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3); background-size: cover;">
 <!--Master Page Body Start-->
 
 <?php
+echoFooter(2, '<!--PAGEHEIGHTVAL-->');
 echoFacebookScript();
 echoHeader(2, 1000, '<!--PAGEHEIGHTVAL1-->');
-echoFooter(2, '<!--PAGEHEIGHTVAL-->');
 echoSocialMediaFollowButtons();
 echoGoogleAnalyticsScript();
 ?>
@@ -581,59 +605,6 @@ echoGoogleAnalyticsScript();
 <!--Page Body End-->
 
 
-<?
-
-    // Create connection
-    $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-    $result = mysqli_query($con,"SELECT * FROM brandfolders WHERE Folder_name = '" . $folderName . "'");
-    while($row = mysqli_fetch_array($result))
-    {
-        $ID = $row['ID'];
-    }
-
-
-// Check connection
-	if (mysqli_connect_errno($con))
-	{
-	  echo '<div style="position:absolute;left:508px;top:265px;"> Failed to connect to products database, please try again later.  </div>';
-	}
-	else
-	{
-		
-		//initialise now date variable
-		$nowdate = date('Y-m-d');
-		
-		//initialise the brand ID variable
-		$brandID = substr($ID , 0, 3);
-		
-		//VIEW COUNTER - check to see if a view today exists, if it does add 1 to count, if it doesn't then add record
-		$result = mysqli_query($con,"SELECT COUNT(*) FROM pageviews WHERE PageName = '$ID' AND Date = '$nowdate'");
-		$row = mysqli_fetch_array($result);
-		$total = $row[0];
-		if ($total > 0) {
-			//if result exists, increment count
-			mysqli_query($con,"UPDATE pageviews SET Count = Count + 1 WHERE PageName = '$ID' AND Date = '$nowdate'");
-		} else {
-			//if result doesn't exist yet today add it
-			mysqli_query($con,"INSERT INTO pageviews (PageName, BrandUsername, Date, Count) VALUES ('$ID', '$brandID', '$nowdate', 1)");
-		}
-		
-		$result = mysqli_query($con,"SELECT * FROM brands WHERE ID = '". $ID . "'");
-		while($row = mysqli_fetch_array($result))
-		{
-			$background = $row['background_URL'];
-			break;
-		}
-	}
-
-	mysqli_close($con);
-?>
-<!--Fullsize Background Image-->
-<script src="../../js/jquery.backstretch.js"></script>
-<script>
-    jQuery.backstretch("../../<?echo $background;?>");
-</script>
-<!--Fullsize Background Image End-->
 </body>
 </html>
 
@@ -650,7 +621,7 @@ if($ph < $minHeight) $ph = $minHeight;
 $pageHeight = $ph ;
 $pageHeightVal1 = $ph  + 222;
 $pageHeightVal2 = $ph  + 14;
-$pageHeightVal3 = $ph  + 65;
+$pageHeightVal3 = $ph  + 50;
 $pageHeightVal4 = $ph  + 162;
 $pageHeightVal5 = $ph  + 183;
 $pageHeightVal6 = $ph  + 115;

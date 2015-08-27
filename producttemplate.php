@@ -167,9 +167,6 @@ a.hlink_1:active {color:#2c2c2c;}
     font-family:"Harabara", serif; color:#656565; font-size:24px; line-height:1.50em;
 }
 
-#nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
-#nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
-.button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
 </style>
 
 
@@ -188,13 +185,13 @@ a.hlink_1:active {color:#2c2c2c;}
 ?>
 
 
-<body text="#000000" style="background:#ffffff; height:<?echo $tmpHeight;?>px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3);">
+<body text="#000000" style="background:#ffffff url('../../images/backgroundpattern.png') repeat fixed top center; height:<?echo $tmpHeight;?>px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3);">
 <!--Master Page Body Start-->
 
 <?php
+echoFooter(2, $pageHeight);
 echoFacebookScript();
 echoHeader(2, 1000, $tmpHeight);
-echoFooter(2, $pageHeight);
 echoSocialMediaFollowButtons();
 echoGoogleAnalyticsScript();
 ?>
@@ -747,26 +744,6 @@ echoGoogleAnalyticsScript();
 <script type="text/javascript" src="../../js/custom.js"></script>
 <!--Page Body End-->
 
-<!--Fullsize Background Image-->
-
-<?
-
-		$result = mysqli_query($con,"SELECT * FROM brands WHERE ID = '". $brandID . "'");
-		while($row = mysqli_fetch_array($result))
-		{
-			$background = $row['background_URL'];
-			break;
-		}
-	
-
-	mysqli_close($con);
-?>
-
-<script src="../../js/jquery.backstretch.js"></script>
-<script>
-    jQuery.backstretch("../../<?echo $background;?>");
-</script>
-<!--Fullsize Background Image End-->
 </body>
 </html>
 <?

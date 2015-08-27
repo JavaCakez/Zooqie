@@ -11,7 +11,6 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.jigowatt.review.js"></script>
 <style type="text/css">
-body{margin:0;padding:0;}
 .Heading-1-C
 {
     font-family:"Harabara", serif; color:#656565; font-size:24px; line-height:1.50em;

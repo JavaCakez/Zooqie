@@ -586,10 +586,6 @@ else
             font-family:"Harabara", serif; color:#2c2c2c; font-size:14px; line-height:1.50em;
         }
 
-        #nav-bar {  min-height: 80px; background: #fff; }        /* Top bar height and colour */
-        #nav > li:hover > a { border-top: 3px solid #E52B50; }    /* Navigation bar top border hover state colour */
-        .button.amaranth { background-color: #E52B50; }           /* Button colour throughout site */
-
 
     </style>
     </head>
@@ -601,14 +597,14 @@ else
     $tmpHeight = $pageHeight + 222;
     ?>
 
-    <body text="#000000" style="background:#ffffff url('images/backgrounds/grey.png') repeat fixed top center; height:<?echo $tmpHeight;?>px;  /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3);">
+    <body text="#000000" style="background:#ffffff url('images/backgroundpattern.png') repeat fixed top center; height:<?echo $tmpHeight;?>px;  /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3);">
     <!--Master Page Body Start-->
 
 
     <?php
+    echoFooter(0, $pageHeight);
     echoFacebookScript();
     echoHeader(0, 1000, $tmpHeight);
-    echoFooter(0, $pageHeight);
     echoSocialMediaFollowButtons();
     echoNavBar(0, array('Home', 'Upload Tool'), array('index.php', 'uploadmenu.php'));
     ?>
@@ -2182,11 +2178,6 @@ else
 
 
 
-    <!--Fullsize Background Image End-->
-    <script src="js/jquery.backstretch.js"></script>
-    <script>
-        jQuery.backstretch("images/backgrounds/sbackground3.jpg");
-    </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

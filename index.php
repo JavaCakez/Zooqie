@@ -5,6 +5,7 @@
         <meta name="description" content="Discover the best up and coming independent clothing brands from around the UK. Shop from skate, surf, snow, urban, vintage and many more styles from many different brands with more being added every day. zooqie is home to independent clothing brands you won&#39;t find anywhere else all in one place.">
         <?
             //Variable declarations
+            //TODO: Make html lang all en-gb or en
             //TODO: Messy having  a folder level, and string then it gets recomputed a few times. Sort it out son
             $folderLevel = 0;
             $folderString = '';

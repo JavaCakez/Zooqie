@@ -261,7 +261,7 @@
             <li>
                 <section id="slide1">
                     <div class = "light">
-                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>
+<!--                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>-->
                         <h2 class="subheaderRight">1. SET UP SHOP AND SELL INSTANTLY.</h2>
                         <p class="paragraphRight">Quick, easy and free to set up.</p>
                         <p class="paragraphRight">Intuitive tools allow you to easily manage your store design and products.</p>
@@ -272,7 +272,7 @@
             <li>
                 <section id="slide2">
                     <div class = "dark">
-                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>
+<!--                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>-->
                         <h2 class="subheader">2. SELL NOTHING. PAY NOTHING.</h2>
                         <p class="paragraphLeft">No upfront or monthly costs, Zooqie only takes an instant commission on each sale.</p>
                         <p class="paragraphLeft">This ensures that using Zooqie is always profitable for your brand and will improve your customer outreach, no matter how many sales you make.</p>
@@ -283,7 +283,7 @@
             <li>
                 <section id="slide3">
                     <div class = "light">
-                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>
+<!--                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>-->
                         <h2 class="subheaderRight">3. MAKE A NAME FOR YOURSELF!</h2>
                         <p class="paragraphRight">Zooqie provides promotional and marketing support through our well-established social media channels and fashion bloggers.</p>
                         <p class="paragraphRight">We will broaden your visibility by advertising you to a whole new pool of your target market.</p>
@@ -295,7 +295,7 @@
             <li>
                 <section id="slide4">
                     <div class = "light">
-                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/darkIcon.png" alt="Home icon" /></a>
+<!--                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/darkIcon.png" alt="Home icon" /></a>-->
                         <h2 class="subheader">4. YOUR BRAND. YOUR STORE.</h2>
                         <p class="paragraphLeft">Customise your store front to sell your brand's personality. </p>
 						<p class="paragraphLeft">Include links to your brand's social media accounts to build followers and retain customers. </p>
@@ -306,7 +306,7 @@
             <li>
                 <section id="slide5">
                     <div class = "dark">
-                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>
+<!--                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>-->
                         <h2 class="subheaderRight">5. DASHBOARD ANALYTICS</h2>
                         <p class="paragraphRight">Zooqie provides a suite of analytics tools allowing you to track your product views and sales. This real-time information will give you more control in making informed business decisions.</p>
 						<p class="paragraphRight">"This feature is ideal for our business as it allows us to see which items are more popular and selling well and therefore enables us to see what to produce more of. We can also see which items aren't selling so well and can therefore make better informed stock orders, meaning we are left with less surplus stock. With the ability to see the views on our brand we can gauge popularity and see whether more needs to be invested in advertising." - <a href="www.zooqie.com/brands/lostandwild/">Lost & Wild</a></p>
@@ -318,7 +318,7 @@
             <li>
                 <section id="slide6">
                     <div class = "dark">
-                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>
+<!--                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>-->
                         <h2 class="subheader">6.'POP-UP SHOP' OPPORTUNITIES</h2>
                         <p class="paragraphLeft">To add further publicity, we operate pop-up shops at festivals and universities around the UK. </p>
 						<p class="paragraphLeft">We will be shouting about your brand (literally) to new customers in new places.</p>
@@ -329,7 +329,7 @@
             <li>
                 <section id="slide7">
                     <div class = "dark">
-                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>
+<!--                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>-->
                         <h2 class="headerRight">Liking Zooqie so far? </h2>
                         <h2 class="header2Right">Let's run through how it works for you in 5 simple points:</h2>
                     </div>
@@ -339,7 +339,7 @@
             <li>
                 <section id="slide8">
                     <div class = "dark">
-                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>
+<!--                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>-->
                         <h2 class="subheader">1. ORDERS</h2>
                         <p class="paragraphLeft">You hold all your stock (or make to order) as normal. </p>
                         <p class="paragraphLeft">When an order is placed through Zooqie, you will receive an email from us and from PayPal notifying you of the order, the product details and the customer's details. </p>
@@ -350,7 +350,7 @@
             <li>
                 <section id="slide9">
                     <div class = "dark">
-                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>
+<!--                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>-->
                         <h2 class="subheader">2. SHIPPING</h2>
                         <p class="paragraphLeft">You can set your own shipping charges for the UK, Europe and beyond.</p>
                         <p class="paragraphLeft">You ship the items to the customer as you normally would.</p>
@@ -362,7 +362,7 @@
             <li>
                 <section id="slide10">
                     <div class = "light">
-                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/darkIcon.png" alt="Home icon" /></a>
+<!--                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/darkIcon.png" alt="Home icon" /></a>-->
                         <h2 class="subheaderRight">3. PAYMENTS</h2>
                         <p class="paragraphRight">All payments are made via PayPal. </p>
                         <p class="paragraphRight">Our commission is taken automatically = No hassle with monthly invoices etc. </p>
@@ -373,7 +373,7 @@
             <li>
                 <section id="slide11">
                     <div class = "light">
-                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>
+<!--                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>-->
                         <h2 class="subheader">4. STOCK</h2>
                         <p class="paragraphLeft">When you run out of stock of a product or a particular size of that product, we ask that you remove that product or edit the product to remove that particular size. This will avoid customers buying products you are out of stock on.</p>
                     </div>
@@ -383,7 +383,7 @@
             <li>
                 <section id="slide12">
                     <div class = "light">
-                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>
+<!--                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>-->
                         <h2 class="subheaderRight">5. RETURNS</h2>
                         <p class="paragraphRight">If a customer wishes to return an item of clothing, we encourage them to contact you directly to sort out any issues.</p>
                     </div>
@@ -393,7 +393,7 @@
             <li>
                 <section id="slide13">
                     <div class = "dark">
-                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>
+<!--                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/icon.png" alt="Home icon" /></a>-->
                         <h2 class="header">Keen to work with Zooqie?</h2>
                         <p class="header2">Then please do the following:</p>
                         <p class="paragraphLeft">First, have a read of our <a target="_blank" href="TermsandConditions.pdf">T&amp;Cs</a> (they're quite short - don't worry!) and make sure you're happy with everything.</p>
@@ -404,7 +404,7 @@
             <li>
                 <section id="slide14">
                     <div class = "light">
-                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/darkIcon.png" alt="Home icon" /></a>
+<!--                        <a href="http://www.zooqie.com"><img class="tab" src="parallaxImages/darkIcon.png" alt="Home icon" /></a>-->
                         <p class="subheaderRight">GET IN CONTACT</p>
                         <p class="paragraphRight">If you're happy with the T&amp;Cs, then get in contact with us via our Facebook or email <a href="contact.php">(brands@zooqie.com)</a> and we can set you up with a login and you can create your store straight away!</p>
                         <a href="http://www.facebook.com/zooqie" target="_blank"><img class="imgRight" src="images/facebook.png" alt="Facebook icon" /></a>

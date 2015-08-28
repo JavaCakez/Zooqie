@@ -14,6 +14,9 @@ $pageHeightVal6 = is_numeric($pageHeight) ? $pageHeight  + 115 : '<!--PAGEHEIGHT
 
 
 echo '
+            <script type="text/javascript" src="'.$folderString.'js/jquery.easing.1.3.js"></script>
+            <script type="text/javascript" src="'.$folderString.'js/totop.min.js"></script>
+            <script type="text/javascript" src="'.$folderString.'js/custom.js"></script>
             <div style="
                 background: #1f1f1f;
                 width: 100%;

@@ -1592,3 +1592,6 @@ Model in image wears size: 32R" style="height:170px;width:300px" id="text_descri
 //TODO: make paypal errors handled gracefully (e.g. if paypal email not recognised)
 
 //TODO: NEED TO REMEMBER TO CHANGE IPNLISTENER TO MAKE IT ACTUALLY EMAIL BRAND AND CUSTOMER WHEN THIS ALL GOES LIVE
+
+//TODO: remove all inline styles (first header, footer etc)
+//TODO: dont absolutely position everything on pages (and remove hard coded height)

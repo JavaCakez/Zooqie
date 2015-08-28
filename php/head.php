@@ -1,4 +1,17 @@
 <?
+    //Include utilities
+    if(file_exists("utils.php")) {include_once("utils.php");}
+    else if(file_exists("../utils.php")) {include_once("../utils.php");}
+    else if(file_exists("../../utils.php")) {include_once("../../utils.php");}
+
+    //Include database settings
+    if(file_exists("db_settings.php")) {include_once("db_settings.php");}
+    if(file_exists("../db_settings.php")) {include_once("../db_settings.php");}
+    if(file_exists("../../db_settings.php")) {include_once("../../db_settings.php");}
+    if(file_exists("db_settings.php")) {include_once("db_settings.php");}
+
+    $folderString = createFolderString($folderLevel);
+
     echo '
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="Content-Style-Type" content="text/css">
@@ -8,9 +21,9 @@
         <meta name="keywords" content="brands,independent,clothing">
         <meta name="robots" content="index,follow">
 
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="icon" href="'.$folderString.'favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="'.$folderString.'favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="'.$folderString.'css/styles.css">
         <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
@@ -29,15 +42,4 @@
             ga(\'send\', \'pageview\');
         </script>
         ';
-
-    //Include utilities
-    if(file_exists("utils.php")) {include_once("utils.php");}
-    else if(file_exists("../utils.php")) {include_once("../utils.php");}
-    else if(file_exists("../../utils.php")) {include_once("../../utils.php");}
-
-    //Include database settings
-    if(file_exists("db_settings.php")) {include_once("db_settings.php");}
-    if(file_exists("../db_settings.php")) {include_once("../db_settings.php");}
-    if(file_exists("../../db_settings.php")) {include_once("../../db_settings.php");}
-    if(file_exists("db_settings.php")) {include_once("db_settings.php");}
 ?>

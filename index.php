@@ -3,24 +3,26 @@
     <head>
         <title>ZOOQIE | Shop men &amp; women&#39;s clothing from independent brands</title>
         <meta name="description" content="Discover the best up and coming independent clothing brands from around the UK. Shop from skate, surf, snow, urban, vintage and many more styles from many different brands with more being added every day. zooqie is home to independent clothing brands you won&#39;t find anywhere else all in one place.">
-        <? include('php/head.php');?>
-    </head>
+        <?
+            //Variable declarations
+            //TODO: Messy having  a folder level, and string then it gets recomputed a few times. Sort it out son
+            $folderLevel = 0;
+            $folderString = '';
+            $names = array('Home');
+            $links = array('index.php');
+            //height of page (222 footer)
+            $pageHeight = 1140 + 222;
 
-    <?
-        //Variable declarations
-        $folderLevel = 0;
-        $names = array('Home');
-        $links = array('index.php');
-        //height of page (222 footer)
-        $pageHeight = 1140 + 222;
-    ?>
+            include($folderString . 'php/head.php');
+        ?>
+    </head>
 
     <body>
 
         <div class="pageWrapper">
-            <? include('php/header.php'); ?>
+            <? include($folderString . 'php/header.php'); ?>
             <div class="pageContent">
-                <? include('php/navBar.php'); ?>
+                <? include($folderString . 'php/navBar.php'); ?>
 
                 <div class="homePage-heroBanner">
                     <img class="homePage-heroBanner-image" src="images/hero4.png" alt="About Us | Who we are and what we're about | ZOOQIE">
@@ -118,11 +120,7 @@
                     </div>
                 </div>
             </div>
-            <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-            <script type="text/javascript" src="js/totop.min.js"></script>
-            <script type="text/javascript" src="js/custom.js"></script>
-
-            <? include('php/footer.php'); ?>
+            <? include($folderString . 'php/footer.php'); ?>
         </div>
     </body>
 </html>

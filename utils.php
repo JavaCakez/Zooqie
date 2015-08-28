@@ -1595,3 +1595,5 @@ Model in image wears size: 32R" style="height:170px;width:300px" id="text_descri
 
 //TODO: remove all inline styles (first header, footer etc)
 //TODO: dont absolutely position everything on pages (and remove hard coded height)
+
+//TODO: give each page individual meta descriptions

@@ -80,34 +80,38 @@
                 }
                 ?>
 
-                <div style="width: 1000px; height: 355px; padding-bottom: 20px">
-                    <div style="float: left; width: 500px;">
-                        <h2 class="homePage-heading">Most Popular This Week</h2>
+                <div class="homePage-dynamicContent">
+                    <div class="homePage-dynamicContent-column">
+                        <h2 class="homePage-dynamicContent-heading">Most Popular This Week</h2>
 
-                        <div style="width:250px;float:left;">
-                            <img src="<?echo $image[0]?>" width="208" height="259" style="border: solid 1px #E8E8E8;">
-                            <a href="brands/<?echo $Foldername[0]?>/<?echo strtolower($Itemnumber[0])?>.php"><img src="images/QS.png" width="208" height="259" alt="<?echo $Itemname[0];?>" style="position:absolute;left:0;" class="fader_img"></a>
-                            <h3 class="homePage-popularItems-heading" style="margin:0; float:left; width: 208px; text-align:center;">
+                        <div class="homePage-popularItems-column">
+                            <img src="<?echo $image[0]?>" class="homePage-popularItems-image" alt="<?echo $Itemname[0];?>">
+                            <a href="brands/<?echo $Foldername[0]?>/<?echo strtolower($Itemnumber[0])?>.php">
+                                <img src="images/QS.png" alt="<?echo $Itemname[0];?>" class="homePage-popularItems-imageOverlay left fader_img">
+                            </a>
+                            <h3 class="homePage-popularItems-heading">
                                 <a href="brands/<?echo $Foldername[0]?>/"><?echo $Brandname[0]?></a>
                             </h3>
-                            <h3 class="homePage-popularItems-subHeading" style="margin:0; float:left; width: 208px; text-align:center;">
+                            <h3 class="homePage-popularItems-subHeading">
                                 <?echo $Itemname[0]?>
                             </h3>
                         </div>
-                        <div style="width:250px;float:left;">
-                            <img src="<?echo $image[1]?>" width="208" height="259" style="border: solid 1px #E8E8E8;">
-                            <a href="brands/<?echo $Foldername[1]?>/<?echo strtolower($Itemnumber[1])?>.php"><img src="images/QS.png" width="208" height="259" alt="<?echo $Itemname[1];?>" style="position:absolute;left:250px;" class="fader_img"></a>
-                            <h3 class="homePage-popularItems-heading" style="margin:0; float:left; width: 208px; text-align:center;">
+                        <div class="homePage-popularItems-column">
+                            <img src="<?echo $image[1]?>" class="homePage-popularItems-image" alt="<?echo $Itemname[1];?>">
+                            <a href="brands/<?echo $Foldername[1]?>/<?echo strtolower($Itemnumber[1])?>.php">
+                                <img src="images/QS.png" alt="<?echo $Itemname[1];?>" class="homePage-popularItems-imageOverlay right fader_img">
+                            </a>
+                            <h3 class="homePage-popularItems-heading">
                                 <a href="brands/<?echo $Foldername[1]?>/"><?echo $Brandname[1]?></a>
                             </h3>
-                            <h3 class="homePage-popularItems-subHeading" style="margin:0; float:left; width: 208px; text-align:center;">
+                            <h3 class="homePage-popularItems-subHeading">
                                 <?echo $Itemname[1]?>
                             </h3>
                         </div>
                     </div>
 
-                    <div style="float: left; width: 500px; height:89px;">
-                        <h2 class="homePage-heading">Social</h2>
+                    <div class="homePage-dynamicContent-column">
+                        <h2 class="homePage-dynamicContent-heading">Social</h2>
 
                         <a class="twitter-timeline" href="https://twitter.com/zooqie_uk" data-widget-id="389399212783177730">Tweets by @zooqie_uk</a>
                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

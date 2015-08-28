@@ -1,5 +1,5 @@
 <?
-
+//TODO: Remove inline styles from here once brands drop down has been redesigned
 $folderString = createFolderString($folderLevel);
 if (isDev()) {
     $url = 'http://www.zooqie.com/development/';

@@ -114,14 +114,6 @@ body {
 
 /* HOME PAGE */
 
-	.homePage-heading
-	{
-		font-family:"Harabara", serif;
-		color:#1f1f1f; font-size:21px;
-		line-height:1.48em;
-		margin-top: 0;
-	}
-
 	.homePage-heroBanner {
 		width: 1000px;
 		height: 500px;
@@ -169,12 +161,31 @@ body {
 		top: 0;
 	}
 
+	.homePage-dynamicContent {
+		width: 1000px;
+		height: 355px;
+		padding-bottom: 20px;
+	}
+
+	.homePage-dynamicContent-column {
+		float: left;
+		width: 500px;
+	}
+
+
+	.homePage-dynamicContent-heading
+	{
+		font-family:"Harabara", serif;
+		color:#1f1f1f; font-size:21px;
+		line-height:1.48em;
+		margin-top: 0;
+	}
+
 	.homePage-popularItems-heading {
 		font-family:"Harabara", serif;
 		font-weight:700; color:#656565;
 		font-size:16px;
 		line-height:1.50em;
-		margin-top: 0;
 	}
 
 	.homePage-popularItems-subHeading {
@@ -183,6 +194,41 @@ body {
 		font-size:13px;
 		line-height:1.54em;
 		margin-top: 0;
+	}
+
+	.homePage-popularItems-heading,
+	.homePage-popularItems-subHeading {
+		margin: 0;
+		float:left;
+		width: 208px;
+		text-align: center;
+	}
+
+	.homePage-popularItems-column {
+		width: 250px;
+		float: left;
+	}
+
+	.homePage-popularItems-image {
+		width: 208px;
+		height: 259px;
+		border: solid 1px #E8E8E8;
+	}
+
+	.homePage-popularItems-imageOverlay {
+		width: 208px;
+		height: 259px;
+		position: absolute;
+		left: 0px;
+		opacity: 0;
+	}
+
+	.homePage-popularItems-imageOverlay.left {
+		left: 0px;
+	}
+
+	.homePage-popularItems-imageOverlay.right {
+		left: 250px;
 	}
 
 /* HOME PAGE END */

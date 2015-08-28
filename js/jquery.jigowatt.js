@@ -8,7 +8,7 @@ jQuery(document).ready(function(){
 		$('#message').hide();
 
  		$('#submit')
-			.after('<img src="http://www.zooqie.com/css/http://www.zooqie.com/images/ajax-loader.gif" class="loader" />')
+			.after('<img src="http://www.zooqie.com/css/images/ajax-loader.gif" class="loader" />')
 			.attr('disabled','disabled');
 
 		$.post(action, {

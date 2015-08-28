@@ -10,8 +10,6 @@
             $folderString = '';
             $names = array('Home');
             $links = array('index.php');
-            //height of page (222 footer)
-            $pageHeight = 1140 + 222;
 
             include($folderString . 'php/head.php');
         ?>

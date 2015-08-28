@@ -9,10 +9,9 @@
 			$folderString = '../';
 			$names = array('Home', 'Men');
 			$links = array('../index.php', '../men');
-			//height of page
 			$pageHeight = 690;
 
-		include($folderString . 'php/head.php');
+			include($folderString . 'php/head.php');
 		?>
 
 		<style type="text/css">

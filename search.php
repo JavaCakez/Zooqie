@@ -169,7 +169,7 @@ if($_POST && trim($_POST['search']) != '')
         ?>
 
         <a class="search" href="<?php echo $foldername; ?>" style="text-decoration: none;  "  >
-            <div id="show" class="show" align="left" style="text-align:center; height:50px; width:100%
+            <div id="show" class="header-search-results" align="left" style="text-align:center; height:50px; width:100%
             <?php if ($counter == $numResults && $numResults2 == 0) { echo "border-bottom: 0px solid #ccc;
                 border-right: 0px solid #ccc;
                 border-left: 0px solid #ccc;
@@ -234,7 +234,7 @@ if($_POST && trim($_POST['search']) != '')
         ?>
 
             <a class="search" href="<?php echo $foldername . '/' . $itemno . '.php' ; ?>" style="text-decoration: none; "  >
-                <div id="show" class="show" align="left" style="text-align:center; height:50px; width:100%;
+                <div id="show" class="header-search-results" align="left" style="text-align:center; height:50px; width:100%;
                 <?php if ($counter == $numResults2) { echo "border-bottom: 0px solid #ccc;
                 border-right: 0px solid #ccc;
                 border-left: 0px solid #ccc;

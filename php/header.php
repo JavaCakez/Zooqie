@@ -6,7 +6,7 @@ if (isDev()) {
 } else {
     $url = 'http://www.zooqie.com/';
 }
-
+//NOTE: AJAX SEARCH SUGGESTION CURRENTLY DISABLED
 echo '
                 <div id="fb-root"></div>
                 <script>(function(d, s, id) {
@@ -17,15 +17,15 @@ echo '
                   fjs.parentNode.insertBefore(js, fjs);
                 }(document, "script", "facebook-jssdk"));</script>
 
-                <div id="nav-bar">
-                    <div id="nav-panel" style="position:absolute;left:50%;margin-left:-500px;top:0px;width:1000px;height:80px;">
-                        <div class="header-logo">
-                            <a href="'.$folderString.'index.php"><img src="'.$folderString.'images/zooqie_white.png" onmouseover="this.src=\''.$folderString.'images/zooqie_red.png\';" onmouseout="this.src=\''.$folderString.'images/zooqie_white.png\';" width="150" alt="Home" style="position:absolute;top:27px;"></a>
-                        </div>
+                <div class="header-background">
+                    <div class="header-content">
+                        <a href="'.$folderString.'index.php">
+                            <img class="header-logo" src="'.$folderString.'images/zooqie_white.png" onmouseover="this.src=\''.$folderString.'images/zooqie_red.png\';" onmouseout="this.src=\''.$folderString.'images/zooqie_white.png\';"  alt="Home">
+                        </a>
 
                         <script type="text/javascript">
                             $(function(){
-                                $(".search").keyup(function()
+                                $("#searchid DISABLE").keyup(function()
                                 {
                                     var searchid = $(this).val();
                                     var dataString = "search="+ searchid;
@@ -56,31 +56,12 @@ echo '
                         });
                         </script>
 
-                        <div class="content" style="position: absolute; top:30px; left:170px; width:225px; height:25px;margin: 0; padding: 0; background:#1f1f1f">
-                            <form id="searchForm" action="'.$url.'search-results/" method="post">
-                                <input type="text" name="search" class="search" id="searchid" placeholder="Search brands or products" autocomplete="off" style="width:185px; height:15px; padding-right:30px; "/>
+                        <div class="header-search">
+                            <form action="'.$url.'search-results/" method="post">
+                                <input type="text" name="search" class="header-search-input" id="searchid" placeholder="Search brands or products" autocomplete="off" style="width:185px; height:15px; padding-right:30px; "/>
                                 <input type="hidden" name="headerSearch" value="true">
 
-                                <style>
-                                    .searchFormButton {
-                                        position: absolute;
-                                        top: 6px;
-                                        right: 3px;
-                                        background-color:#fff;
-                                        border:none;
-                                    }
-                                    .searchFormButton:focus {
-                                        outline: none;
-                                    }
-                                    .searchFormButton:hover {
-                                        cursor: pointer;
-                                    }
-                                    .searchFormButton:hover .fa {
-                                        color: #e52b50;
-                                    }
-
-                                </style>
-                                <button type="submit" class="searchFormButton">
+                                <button type="submit" class="header-search-button">
                                     <i class="fa fa-search" style="font-size:12px"></i>
                                 </button>
                             </form>
@@ -88,9 +69,8 @@ echo '
                             <div id="result" style="margin-top: 6px;"></div>
                         </div>
 
-                        <div style="position:absolute;left:395px;top:0px;width:605px;height:80px;">
-
-                            <nav class="no320">
+                        <div class="header-navigationMenu">
+                            <nav class="header-navigationMenu-nav">
                                 <ul>
                                     <li><a href="'.$folderString.'index.php">Home</a></li>
                                     <li class="dropdown_mmenu">

@@ -108,6 +108,7 @@ body {
 	min-height: 100%;
 	padding-bottom: 228px; 	/* footer height */
 	padding-top: 80px;		/* header height */
+	border: 1px #CDCFD2 solid;
 }
 
 /* PAGE STRUCTURE END */
@@ -169,7 +170,8 @@ body {
 
 	.homePage-dynamicContent-column {
 		float: left;
-		width: 500px;
+		width: 480px;
+		padding: 10px;
 	}
 
 
@@ -205,14 +207,13 @@ body {
 	}
 
 	.homePage-popularItems-column {
-		width: 250px;
+		width: 240px;
 		float: left;
 	}
 
 	.homePage-popularItems-image {
 		width: 208px;
 		height: 259px;
-		border: solid 1px #E8E8E8;
 	}
 
 	.homePage-popularItems-imageOverlay {
@@ -357,7 +358,7 @@ nav ul li a {
 	font-family: Cousine;
 	text-decoration: none;
 	font-weight: bold;
-	padding: 15px 16px 35px;
+	padding: 15px 16px 22px;
 	position: relative;
 	z-index: 999;
 }
@@ -443,7 +444,7 @@ nav ul li a:hover {
 .dropdown_mmenu:hover .megamenu {
 	position: absolute;
 	margin-left: -11px;
-	top: 75px;
+	top: 74px;
 	width: 499px;
 	height: 200px;
 	opacity: 1;
@@ -496,7 +497,7 @@ nav ul li a:hover {
 .navigationBar-socialMedia-button {
 	float: left;
 	text-indent: 0;
-	margin-left: 10px;
+	margin-right: 10px;
 }
 
 

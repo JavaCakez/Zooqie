@@ -190,7 +190,7 @@
 			<div id="js-slidingHeader-'.$slidingDivNumber.'" style="border-bottom: 1px solid #000000;overflow:hidden; " >
 				<a href="#" class="show_hide'.$slidingDivNumber.'" style="text-decoration: none">
 					<p>
-						<img id="arrow'.$slidingDivNumber.'" src="../images/downarrow.png" width="24" height="24" style="float:left;"/>
+						<img id="arrow'.$slidingDivNumber.'" src="http://www.zooqie.com/images/downarrow.png" width="24" height="24" style="float:left;"/>
 						<h1 class="Heading-1-P" style="margin-top:0px;float:left;">
 							<span class="Heading-1-C-C0">
 								'.$text.'

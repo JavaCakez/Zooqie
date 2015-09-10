@@ -4,41 +4,54 @@ ob_start (); // Buffer output
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><!--TITLE--></title>
-<meta name="viewport" content="width=1000">
-<link rel="icon" href="../../favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
-<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../../css/styles.css">
-<script type="text/javascript" src="../../js/jquery.js"></script>
-
-<!--[if lt IE 9]><script src="../../js/html5.js"></script><![endif]-->
-
-<meta http-equiv="Content-Style-Type" content="text/css">
-<meta http-equiv="Content-Script-Type" content="text/javascript">
 <meta content="<!--DESCRIPTION-->" name="description" property="og:description" />
+	<?
+		$folderLevel = 2;
+		$folderString = '../../';
+		include($folderString . 'php/head.php');
 
-<?php
-    //Include database settings
-    if(file_exists("db_settings.php")) {include("db_settings.php");}
-    else if(file_exists("../db_settings.php")) {include("../db_settings.php");}
-    else if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
+		$folderName = curFolderName();
 
-    //Include utilities
-    if(file_exists("utils.php")) {include("utils.php");}
-    else if(file_exists("../utils.php")) {include("../utils.php");}
-    else if(file_exists("../../utils.php")) {include("../../utils.php");}
-    ?>
+		// Create connection
+		$con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
+
+		$result = mysqli_query($con,"SELECT * FROM brandfolders WHERE Folder_name = '" . $folderName . "'");
+		while($row = mysqli_fetch_array($result))
+		{
+			$ID = $row['ID'];
+		}
+
+		// Create connection
+		$con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
+
+		// Check connection
+		if (mysqli_connect_errno($con))
+		{
+			echo '<div style="position:absolute;left:508px;top:265px;"> Failed to connect to products database, please try again later.  </div>';
+		}
+		else
+		{
+			$result = mysqli_query($con,"SELECT * FROM brands WHERE ID = '". $ID . "'");
+			while($row = mysqli_fetch_array($result))
+			{
+				$brandName = stripslashes($row['Brand_name']);
+				$pageTitle = $brandName;
+				$logo = $row['logo_URL'];
+				$banner = $row['banner_URL'];
+				$facebook = $row['Facebook_URL'];
+				$twitter = $row['Twitter_URL'];
+				$desc = stripslashes($row['Description']);
+			}
+		}
+
+		//Variable declarations
+		$names = array('Home', 'Brands', $brandName);
+		$links = array('../../index.php', '../../brands', '');
+	?>
 
 
 
-
-
-
-
-
-<!--Header code for HTML frag_51 -->
 <style type ="text/css">
 .Heading-1-P
 {
@@ -100,6 +113,9 @@ ob_start (); // Buffer output
 {
     font-family:"Harabara", serif; font-size:15px; line-height:1.47em;
 }
+.Wp-Heading-3-P {
+	text-align: center;
+}
 </style>
 <script type="text/javascript">
     <?php
@@ -128,16 +144,6 @@ ob_start (); // Buffer output
   
 
 <?php
-$folderName = curFolderName();
-
-// Create connection
-$con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-
-$result = mysqli_query($con,"SELECT * FROM brandfolders WHERE Folder_name = '" . $folderName . "'");
-while($row = mysqli_fetch_array($result))
-{
-    $ID = $row['ID'];
-}
 
 
 // Check connection
@@ -248,22 +254,10 @@ a.hlink_1:active {color:#2c2c2c;}
 ?>
 
 <body text="#000000" style="background:#ffffff url('../../<?echo $background;?>') fixed top center; height:<!--PAGEHEIGHTVAL1-->px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3); background-size: cover;">
-<!--Master Page Body Start-->
-
-<?php
-echoFooter(2, '<!--PAGEHEIGHTVAL-->');
-echoFacebookScript();
-echoHeader(2, '<!--PAGEHEIGHTVAL1-->');
-echoSocialMediaFollowButtons();
-echoGoogleAnalyticsScript();
-?>
-
-
-<img src="../../images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar" style="position:absolute;left:0px;top:80px;">
-<!--NAVBAR-->
-
-
-
+<div class="pageWrapper">
+	<? include($folderString . 'php/header.php'); ?>
+	<div class="pageContent" style="height:<!--PAGEHEIGHTVAL1-->px;">
+		<? include($folderString . 'php/navBar.php'); ?>
 
 
 
@@ -283,28 +277,6 @@ echoGoogleAnalyticsScript();
 <form id="refineForm" name="refineForm" action="index.php" accept-charset="UTF-8" method="post" target="_self" enctype="application/x-www-form-urlencoded" style="margin:0;position:absolute;left:0px;top:0px;width:1035px;" >
 <?php
 
-	// Create connection
-	$con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-	
-	// Check connection
-	if (mysqli_connect_errno($con))
-	{
-	  echo '<div style="position:absolute;left:508px;top:265px;"> Failed to connect to products database, please try again later.  </div>';
-	}
-	else
-	{
-		$result = mysqli_query($con,"SELECT * FROM brands WHERE ID = '". $ID . "'");
-		while($row = mysqli_fetch_array($result))
-		{
-			$brandName = stripslashes($row['Brand_name']);
-			$pageTitle = $brandName;
-			$logo = $row['logo_URL'];
-			$banner = $row['banner_URL'];
-			$facebook = $row['Facebook_URL'];
-			$twitter = $row['Twitter_URL'];
-			$desc = stripslashes($row['Description']);
-		}
-	}
 
     if($_POST['Sort'] == '') $_POST['Sort'] = 'Asc';
     echoSortByComboBox(2, $_POST['Sort']);
@@ -591,13 +563,9 @@ echoGoogleAnalyticsScript();
 	
 ?>
 
-<!--Master Page End-->
-<div id="nav-bar"></div>
+	</div>
+	<? include($folderString . 'php/footer.php'); ?>
 </div>
-<script type="text/javascript" src="../../js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="../../js/totop.min.js"></script>
-<script type="text/javascript" src="../../js/custom.js"></script>
-<!--Page Body End-->
 
 
 </body>

@@ -12,23 +12,19 @@ else
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     <html lang="en">
     <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Brand Upload Tool | Zooqie</title>
-    <meta name="viewport" content="width=1000">
     <meta http-equiv="Expires" content="Tue, 01 Jan 1995 12:12:12 GMT">
     <meta http-equiv="Pragma" content="no-cache">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <?
+        //Variable declarations
+        $folderLevel = 0;
+        $folderString = '';
+        $names = array('Home', 'Upload Tool');
+        $links = array('index.php', 'uploadmenu.php');
+        $pageHeight = 2572;
 
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="js/jquery.js"></script>
-
-
-    <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
-
-    <meta http-equiv="Content-Style-Type" content="text/css">
-    <meta http-equiv="Content-Script-Type" content="text/javascript">
+        include($folderString . 'php/head.php');
+    ?>
 
     <!-------------------------------- Image upload tool ------------------------------------------------->
     <link href="image-upload-tool/assets/css/demo.html5imageupload.css?v1.3" rel="stylesheet">
@@ -39,42 +35,19 @@ else
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-
-
     <!-------------------------------- Image upload tool ------------------------------------------------->
 
-
-    <?php
-    //Include database settings
-    if(file_exists("db_settings.php")) {include("db_settings.php");}
-    else if(file_exists("../db_settings.php")) {include("../db_settings.php");}
-    else if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
-
-    //Include utilities
-    if(file_exists("utils.php")) {include("utils.php");}
-    else if(file_exists("../utils.php")) {include("../utils.php");}
-    else if(file_exists("../../utils.php")) {include("../../utils.php");}
-    ?>
-
-
-
-
-
     <?
-
-    if (isset($_GET['Tab']))
-    {
-        $tab = $_GET['Tab'];
-    }
-    else
-    {
-        $tab = '1';
-    }
-
+        if (isset($_GET['Tab']))
+        {
+            $tab = $_GET['Tab'];
+        }
+        else
+        {
+            $tab = '1';
+        }
     ?>
     <script src="js/jquery.watermarkinput.js" type="text/javascript"></script>
-    <!--Header code for HTML frag_66 -->
     <script type="text/javascript">
 
         function validate_form_99( form )
@@ -95,8 +68,6 @@ else
             return true;
         }
     </script>
-
-    <!--Header code for HTML frag_51 -->
 
 
 
@@ -180,7 +151,6 @@ else
 
 
 
-
     <script type="text/javascript">
 
         function validate_form_52( form )
@@ -215,7 +185,7 @@ else
             return true;
         }
     </script>
-    <!--Header code for HTML frag_60 -->
+
     <style type ="text/css">
         .Heading-1-P
         {
@@ -585,34 +555,52 @@ else
         {
             font-family:"Harabara", serif; color:#2c2c2c; font-size:14px; line-height:1.50em;
         }
+        .Wp-Body-P {
+            margin: 0;
+        }
 
 
     </style>
     </head>
 
-    <?
-    //height of page excluding footer
-    $pageHeight = 2672;
-    // 222 is footer height
-    $tmpHeight = $pageHeight + 222;
-    ?>
-
-    <body text="#000000" style="background:#ffffff url('images/backgroundpattern.png') repeat fixed top center; height:<?echo $tmpHeight;?>px;  /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3);">
-    <!--Master Page Body Start-->
-
-
-    <?php
-    echoFooter(0, $pageHeight);
-    echoFacebookScript();
-    echoHeader(0, $tmpHeight);
-    echoSocialMediaFollowButtons();
-    echoNavBar(0, array('Home', 'Upload Tool'), array('index.php', 'uploadmenu.php'));
-    ?>
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <body>
+    <div class="pageWrapper">
+        <? include($folderString . 'php/header.php'); ?>
+        <div class="pageContent" style="height:<?echo $pageHeight;?>px;">
+            <? include($folderString . 'php/navBar.php'); ?>
 
     <div style = "position:absolute; top: 160px; left: 845px; width:140px; height: 50px; text-align: center; z-index: 100">
         <a class="Body-C-C1" href = "dashboard.php" style = "text-decoration:none;color:#E52B50; font-size:16px;display:none;"><< Dashboard Home</a>
@@ -1965,34 +1953,34 @@ else
         <img src="images/line.png" border="0" width="793" height="1" id="pcrv_14" alt="" style="position:absolute;left:16px;top:68px;">
     </div>
     <!-- TODO: this one loads slowly -->
-    <div id="panel_8" style="position:absolute;left:0px;top:395px;width:170px;height:68px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
+    <div id="panel_8" style="position:absolute;left:-1px;top:395px;width:171px;height:68px; cursor:pointer; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
         <div id="txt_449" style="position:absolute;left:20px;top:23px;width:129px;height:21px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Heading-3-Ca">Products</span></p>
         </div>
     </div>
-    <div id="panel_7" style="position:absolute;left:0px;top:189px;width:170px;height:69px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
+    <div id="panel_7" style="position:absolute;left:-1px;top:189px;width:171px;height:69px; cursor:pointer; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
         <div id="txt_450" style="position:absolute;left:20px;top:23px;width:129px;height:22px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Heading-3-Ca">Store Images</span></p>
         </div>
     </div>
-    <div id="panel_6" style="position:absolute;left:0px;top:120px;width:170px;height:68px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
+    <div id="panel_6" style="position:absolute;left:-1px;top:120px;width:171px;height:68px; cursor:pointer; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
         <div id="txt_451" style="position:absolute;left:20px;top:26px;width:129px;height:22px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Heading-3-Ca">Brand Info</span></p>
         </div>
     </div>
     <img src="images/vertical_grey_line.png" border="0" width="1" height="2528" id="pcrv_5" alt="" style="position:absolute;left:171px;top:130px;">
     <a name="panel_9" style="position:absolute; left:0px; top:327px"></a>
-    <div id="panel_9" style="position:absolute;left:0px;top:327px;width:170px;height:67px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
+    <div id="panel_9" style="position:absolute;left:-1px;top:327px;width:171px;height:67px; cursor:pointer; border-style:solid;border:1px solid#CDCFD2;/*MainDivStyle*/">
         <div id="txt_469" style="position:absolute;left:20px;top:23px;width:129px;height:21px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Heading-3-Ca">Sizing Guides</span></p>
         </div>
     </div>
-    <div id="panel_10" style="position:absolute;left:0px;top:259px;width:170px;height:67px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2; /*MainDivStyle*/">
+    <div id="panel_10" style="position:absolute;left:-1px;top:259px;width:171px;height:67px; cursor:pointer; border-style:solid;border:1px solid#CDCFD2; /*MainDivStyle*/">
         <div id="txt_478" style="position:absolute;left:20px;top:23px;width:129px;height:22px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Heading-3-Ca">Shipping Prices</span></p>
         </div>
     </div>
-    <div id="panel_11" style="position:absolute;left:0px;top:464px;width:170px;height:70px; cursor:pointer; cursor:hand; border-style:solid;border:1px solid#CDCFD2; /*MainDivStyle*/">
+    <div id="panel_11" style="position:absolute;left:-1px;top:464px;width:171px;height:70px; cursor:pointer; border-style:solid;border:1px solid#CDCFD2; /*MainDivStyle*/">
         <div id="txt_479" style="position:absolute;left:20px;top:23px;width:129px;height:21px;overflow:hidden;">
             <p class="Wp-Body-P"><span class="Heading-3-Ca">FAQs</span></p>
         </div>
@@ -2153,13 +2141,7 @@ else
     <script type="text/javascript">
         wpmenustack.setRollovers([['panel_8','add_edit_products_panel',{"m_ispanel":true,"m_event":2,"m_fade":false}],['panel_8','brand_info_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_8','sotre_images_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_8','sizing_guides_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_8','Shipping',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_8','FAQs',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_7','sotre_images_panel',{"m_ispanel":true,"m_event":2,"m_fade":false}],['panel_7','add_edit_products_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_7','brand_info_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_7','sizing_guides_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_7','Shipping',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_7','FAQs',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_6','brand_info_panel',{"m_ispanel":true,"m_event":2,"m_fade":false}],['panel_6','add_edit_products_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_6','sotre_images_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_6','sizing_guides_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_6','Shipping',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_6','FAQs',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_9','add_edit_products_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_9','brand_info_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_9','sotre_images_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_9','sizing_guides_panel',{"m_ispanel":true,"m_event":2,"m_fade":false}],['panel_9','Shipping',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_9','FAQs',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_10','Shipping',{"m_ispanel":true,"m_event":2,"m_fade":false}],['panel_10','add_edit_products_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_10','brand_info_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_10','sizing_guides_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_10','sotre_images_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_10','FAQs',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_11','FAQs',{"m_ispanel":true,"m_event":2,"m_fade":false}],['panel_11','add_edit_products_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_11','brand_info_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_11','Shipping',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_11','sizing_guides_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}],['panel_11','sotre_images_panel',{"m_ispanel":true,"m_event":5,"m_fade":false}]]);
     </script>
-    <!--Master Page End-->
-    <div id="nav-bar"></div>
-    </div>
-    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="js/totop.min.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
-    <!--Page Body End-->
+
 
     <?
 
@@ -2224,6 +2206,9 @@ else
 
 
     </script>
+        </div>
+        <? include($folderString . 'php/footer.php'); ?>
+    </div>
     </body>
     </html>
 

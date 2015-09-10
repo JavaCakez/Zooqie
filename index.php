@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="homePage-navImages">
-                    <a href="men/" class="homePage-navImage">
+                    <a href="men/" class="homePage-navImage left">
                         <img src="images/shop_men.png" alt="Shop men&#39;s clothes | Zooqie" >
                         <img src="images/QS.png" alt="Shop men&#39;s clothes | Zooqie" class="fader_img">
                     </a>
@@ -39,7 +39,7 @@
                         <img src="images/QS.png" alt="Shop women&#39;s clothes | Zooqie"  class="fader_img">
                     </a>
 
-                    <a href="brands/" class="homePage-navImage">
+                    <a href="brands/" class="homePage-navImage right">
                         <img src="images/mainbanner10.png" alt="Shop by brand | Zooqie" >
                         <img src="images/QS.png" alt="Shop by brand | Zooqie" class="fader_img">
                     </a>

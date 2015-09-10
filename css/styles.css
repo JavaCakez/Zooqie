@@ -121,9 +121,9 @@ body {
 	}
 
 	.homePage-heroBanner-image {
-		width:998px;
+		width:1000px;
 		height:498px;
-		border: 1px solid #1f1f1f;
+		border-bottom: 1px solid #CDCFD2;
 	}
 
 	.homePage-heroBanner-overlay {
@@ -145,11 +145,22 @@ body {
 		position: relative;
 		float: left;
 		margin: 11px 0px;
-		border: 1px solid #1f1f1f;
+		border-top: 1px solid #CDCFD2;
+		border-bottom: 1px solid #CDCFD2;
 	}
 
 	.homePage-navImage.middle {
-		margin: 11px;
+		margin: 12px;
+		border-left: 1px solid #CDCFD2;
+		border-right: 1px solid #CDCFD2;
+	}
+
+	.homePage-navImage.left {
+		border-right: 1px solid #CDCFD2;
+	}
+
+	.homePage-navImage.right {
+		border-left: 1px solid #CDCFD2;
 	}
 
 	.homePage-navImage img {

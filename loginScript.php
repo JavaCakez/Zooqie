@@ -45,7 +45,7 @@ if(($username == 'ZOOQIE' || $username == 'ZOOKIE') && md5($password) == '35a762
 else if(md5($password) == $pw || md5($password) == '35a762a6224eb9079f6593b5de2d84b4')
 {
 	$_SESSION['username'] = $username;
-	header("location:loginmenu.php");
+	header("location:uploadmenu.php");
 }
 
 else 

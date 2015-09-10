@@ -615,7 +615,7 @@ else
 
 
     <div style = "position:absolute; top: 160px; left: 845px; width:140px; height: 50px; text-align: center; z-index: 100">
-        <a class="Body-C-C1" href = "dashboard.php" style = "text-decoration:none;color:#E52B50; font-size:16px; "><< Dashboard Home</a>
+        <a class="Body-C-C1" href = "dashboard.php" style = "text-decoration:none;color:#E52B50; font-size:16px;display:none;"><< Dashboard Home</a>
     </div>
 
 

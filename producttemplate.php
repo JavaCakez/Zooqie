@@ -4,35 +4,86 @@ ob_start (); // Buffer output
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><!--TITLE--></title>
-<meta name="viewport" content="width=1000">
-<link rel="icon" href="../../favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
-<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../../css/styles.css">
-<script type="text/javascript" src="../../js/jquery.js"></script>
-
-<!--[if lt IE 9]><script src="../../js/html5.js"></script><![endif]-->
-
-
-<meta http-equiv="Content-Style-Type" content="text/css">
-<meta http-equiv="Content-Script-Type" content="text/javascript">
 <meta content="<!--DESCRIPTION-->" name="description" property="og:description" />
-
-    <?php
-    //Include database settings
-    if(file_exists("db_settings.php")) {include("db_settings.php");}
-    else if(file_exists("../db_settings.php")) {include("../db_settings.php");}
-    else if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
-
-    //Include utilities
-    if(file_exists("utils.php")) {include("utils.php");}
-    else if(file_exists("../utils.php")) {include("../utils.php");}
-    else if(file_exists("../../utils.php")) {include("../../utils.php");}
-    ?>
+	<?
+	$folderLevel = 2;
+	$folderString = '../../';
+	include($folderString . 'php/head.php');
 
 
+	$pageName = curPageName();
+	// Create connection
+	$con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
+
+	// Check connection
+	if (mysqli_connect_errno($con))
+	{
+		echo '<div> Failed to connect to products database, please try again later.  </div>';
+	}
+	else
+	{
+		//initialise brand ID variable
+		$brandID = substr($pageName,0,-3);
+		//initialise now date variable
+		$nowdate = date('Y-m-d');
+
+		//VIEW COUNTER - check to see if a view today exists, if it does add 1 to count, if it doesn't then add record
+		$result = mysqli_query($con,"SELECT COUNT(*) FROM pageviews WHERE PageName = '$pageName' AND Date = '$nowdate'");
+		$row = mysqli_fetch_array($result);
+		$total = $row[0];
+		if ($total > 0) {
+			//if result exists, increment count
+			mysqli_query($con,"UPDATE pageviews SET Count = Count + 1 WHERE PageName = '$pageName' AND Date = '$nowdate'");
+		} else {
+			//if result doesn't exist yet today add it
+			mysqli_query($con,"INSERT INTO pageviews (PageName, BrandUsername, Date, Count) VALUES ('$pageName', '$brandID', '$nowdate', 1)");
+		}
+
+		$result = mysqli_query($con,"SELECT * FROM products WHERE Item_number = '". $pageName . "'");
+		while($row = mysqli_fetch_array($result))
+		{
+			$price = $row['Price'];
+			$shipping = $row['Shipping_charge'];
+			$name = stripslashes($row['Item_name']);
+			$pageTitle = $name;
+			$brand  = stripslashes($row['Brand']);
+			$brandPageURL = strtolower($brand) . '.php';
+			$details = stripslashes(str_replace(PHP_EOL, "<br/>", $row['Details']));
+			$shippinginfo = stripslashes(str_replace(PHP_EOL, "<br/>", $row['Shipping_info']));
+			$guide = $row['Sizing_guide'];
+			break;
+		}
+	}
+
+	$result = mysqli_query($con,"SELECT * FROM brands WHERE ID = '". $brand . "'");
+	while($row = mysqli_fetch_array($result))
+	{
+		$brandName = $row['Brand_name'];
+		$shippinginfo = stripslashes(str_replace(PHP_EOL, "<br/>", $row['Shipping_info']));
+		$paypalemail = $row['Paypal_email'];
+		$email = $row['Email'];
+		$questionstring = 'brandquestion.php?selleremail=' . $email;
+		$commission = $row['Commission'];
+		break;
+	}
+
+	$result = mysqli_query($con,"SELECT * FROM products WHERE Item_number = '". $pageName . "'");
+	while($row = mysqli_fetch_array($result))
+	{
+		$name = stripslashes($row['Item_name']);
+		$price = $row['Price'];
+		$gender = $row['Gender'];
+		if($gender == 'M') $gender = 'Male';
+		if($gender == 'F') $gender = 'Female';
+		if($gender == 'U') $gender = 'Unisex';
+	}
+
+	//Variable declarations
+	$names = array('Home', 'Brands', $brandName, $name);
+	$links = array('../../index.php', '../../brands', 'index.php', '');
+	$pageHeight = 1000;
+	?>
 
 
 
@@ -177,31 +228,11 @@ a.hlink_1:active {color:#2c2c2c;}
 </head>
 
 
-<?
-    //height of page excluding footer
-    $pageHeight = 1090;
-    // 222 is footer height
-    $tmpHeight = $pageHeight + 222;
-?>
-
-
-<body text="#000000" style="background:#ffffff url('../../images/backgroundpattern.png') repeat fixed top center; height:<?echo $tmpHeight;?>px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3);">
-<!--Master Page Body Start-->
-
-<?php
-echoFooter(2, $pageHeight);
-echoFacebookScript();
-echoHeader(2, $tmpHeight);
-echoSocialMediaFollowButtons();
-echoGoogleAnalyticsScript();
-?>
-
-<img src="../../images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar" style="position:absolute;left:0px;top:80px;">
-<!--NAVBAR-->
-
-
-
-
+<body>
+<div class="pageWrapper">
+	<? include($folderString . 'php/header.php'); ?>
+	<div class="pageContent" style="height:<?echo $pageHeight;?>px;">
+		<? include($folderString . 'php/navBar.php'); ?>
 
 
 
@@ -217,83 +248,9 @@ echoGoogleAnalyticsScript();
 <img src="../../images/line.png" border="0" width="441" height="1" id="pcrv_5" alt="" style="position:absolute;left:20px;top:628px;">
 
 
-<!--Body-->
-<?
-	$pageName = curPageName();
-	// Create connection
-	$con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-	
-	// Check connection
-	if (mysqli_connect_errno($con))
-	{
-	  echo '<div> Failed to connect to products database, please try again later.  </div>';
-	}
-	else
-	{
-		//initialise brand ID variable
-		$brandID = substr($pageName,0,-3);
-		//initialise now date variable
-		$nowdate = date('Y-m-d');
-		
-		//VIEW COUNTER - check to see if a view today exists, if it does add 1 to count, if it doesn't then add record
-		$result = mysqli_query($con,"SELECT COUNT(*) FROM pageviews WHERE PageName = '$pageName' AND Date = '$nowdate'");
-		$row = mysqli_fetch_array($result);
-		$total = $row[0];
-		if ($total > 0) {
-			//if result exists, increment count
-			mysqli_query($con,"UPDATE pageviews SET Count = Count + 1 WHERE PageName = '$pageName' AND Date = '$nowdate'");
-		} else {
-			//if result doesn't exist yet today add it
-			mysqli_query($con,"INSERT INTO pageviews (PageName, BrandUsername, Date, Count) VALUES ('$pageName', '$brandID', '$nowdate', 1)");
-		}
-		
-		$result = mysqli_query($con,"SELECT * FROM products WHERE Item_number = '". $pageName . "'");
-		while($row = mysqli_fetch_array($result))
-		{
-			$price = $row['Price'];
-			$shipping = $row['Shipping_charge'];
-			$name = stripslashes($row['Item_name']);
-			$pageTitle = $name;
-			$brand  = stripslashes($row['Brand']);
-			$brandPageURL = strtolower($brand) . '.php';
-			$details = stripslashes(str_replace(PHP_EOL, "<br/>", $row['Details']));
-			$shippinginfo = stripslashes(str_replace(PHP_EOL, "<br/>", $row['Shipping_info']));
-			$guide = $row['Sizing_guide'];
-			break;
-		}
-	}
-	
-	$result = mysqli_query($con,"SELECT * FROM brands WHERE ID = '". $brand . "'");
-	while($row = mysqli_fetch_array($result))
-	{
-		$brandName = $row['Brand_name'];
-		$shippinginfo = stripslashes(str_replace(PHP_EOL, "<br/>", $row['Shipping_info']));
-		$paypalemail = $row['Paypal_email'];
-		$email = $row['Email'];
-		$questionstring = 'brandquestion.php?selleremail=' . $email;
-		$commission = $row['Commission'];
-		break;
-	}
-?>
 
 <div style="position:absolute;left:509px;top:151px;width:447px;">
 
-<?
-
-			$result = mysqli_query($con,"SELECT * FROM products WHERE Item_number = '". $pageName . "'");
-			while($row = mysqli_fetch_array($result))
-			{
-				$name = stripslashes($row['Item_name']);
-				$price = $row['Price'];
-				$gender = $row['Gender'];
-				if($gender == 'M') $gender = 'Male';
-				if($gender == 'F') $gender = 'Female';
-				if($gender == 'U') $gender = 'Unisex';
-			}
-			
-		
-	
-?>
 
 <?
     	echo '<div style="float:right;">
@@ -736,13 +693,9 @@ echoGoogleAnalyticsScript();
 			}
 		
 ?>
-<!--Master Page End-->
-<div id="nav-bar"></div>
+	</div>
+	<? include($folderString . 'php/footer.php'); ?>
 </div>
-<script type="text/javascript" src="../../js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="../../js/totop.min.js"></script>
-<script type="text/javascript" src="../../js/custom.js"></script>
-<!--Page Body End-->
 
 </body>
 </html>

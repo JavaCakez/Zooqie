@@ -10,37 +10,18 @@ else
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Master Page | ZOOQIE</title>
-<meta name="viewport" content="width=1000">
 <meta name="description" content="Discover the best up and coming independent clothing brands from around the UK. Shop from skate, surf, snow, urban, vintage and many more styles from many different brands with more being added every day. Zooqie is home to independent clothing brands you won&#39;t find anywhere else all in one place.">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<?
+	//Variable declarations
+	$folderLevel = 0;
+	$folderString = '';
+	$names = array('Home', 'Masterpage');
+	$links = array('index.php', 'masterpage.php');
+	$pageHeight = 1100;
 
-<link rel="stylesheet" type="text/css" href="css/styles.css">
-<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="js/jquery.js"></script>
-
-
-<!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
-
-<meta http-equiv="Content-Style-Type" content="text/css">
-<meta http-equiv="Content-Script-Type" content="text/javascript">
-
-    <?php
-    //Include database settings
-    if(file_exists("db_settings.php")) {include("db_settings.php");}
-    else if(file_exists("../db_settings.php")) {include("../db_settings.php");}
-    else if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
-
-    //Include utilities
-    if(file_exists("utils.php")) {include("utils.php");}
-    else if(file_exists("../utils.php")) {include("../utils.php");}
-    else if(file_exists("../../utils.php")) {include("../../utils.php");}
-    ?>
-
-y
-
+	include($folderString . 'php/head.php');
+	?>
 
 
     <?
@@ -119,37 +100,17 @@ table.hovertable td {
     border-color: #a9c6c9;
 }
 
-
-
 </style>
-<script type="text/javascript">
 
-</script>
 </head>
 
-<?
-//height of page excluding footer
-$pageHeight = 1111;
-// 222 is footer height
-$tmpHeight = $pageHeight + 222;
-?>
-
-<body text="#000000" style="background:#ffffff url('images/backgroundpattern.png') repeat fixed top center; height:<?echo $tmpHeight;?>px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3);">
-<!--Master Page Body Start-->
-
-<?php
-echoFooter(0, $pageHeight);
-echoFacebookScript();
-echoHeader(0, $tmpHeight);
-echoSocialMediaFollowButtons();
-echoGoogleAnalyticsScript();
-echoNavBar(0, array('Home', 'Masterpage'), array('index.php', 'masterpage.php'));
-?>
 
 
-
-
-
+<body>
+<div class="pageWrapper">
+	<? include($folderString . 'php/header.php'); ?>
+	<div class="pageContent" style="height:<?echo $pageHeight;?>px;">
+		<? include($folderString . 'php/navBar.php'); ?>
 
 
 
@@ -160,7 +121,6 @@ echoNavBar(0, array('Home', 'Masterpage'), array('index.php', 'masterpage.php'))
 
 <!-- UPDATE BUTTONS -->
 
-<img src="wpimages/wp943e85e7_05_06.jpg" border="0" width="1000" height="1000" id="pic_257" alt="" style="position:absolute;left:0px;top:127px;">
 <form id="form_31" action="update_product_pages.php" accept-charset="UTF-8" method="post" target="_self" enctype="application/x-www-form-urlencoded" style="margin:0;position:absolute;left:780px;top:133px;width:296px;height:41px;">
 <input type="submit" style="position:absolute; left:8px; top:8px; width:200px; height:22px;" id="butn_8" value="Update product pages">
 </form>
@@ -195,7 +155,7 @@ echoNavBar(0, array('Home', 'Masterpage'), array('index.php', 'masterpage.php'))
 
 
 <!-- CREATE USABLE DASHBOARD AREA -->
-	<div style="position:relative; top:130px; width:100%;">
+	<div style="position:relative; width:100%;">
 
 
 
@@ -373,7 +333,7 @@ echoNavBar(0, array('Home', 'Masterpage'), array('index.php', 'masterpage.php'))
 			<div style = "position:absolute; top: 130px; left: 210px; width:150px; height: 100px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 
 				<!--Highlight the box on mouse over-->
-				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
+
 
 				<!--Show the number of views this week-->
 				<div class = "dashViews" style = "position:absolute; top: 37px; width:100%; text-align: center;">
@@ -423,58 +383,13 @@ echoNavBar(0, array('Home', 'Masterpage'), array('index.php', 'masterpage.php'))
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?
 }
 ?>
 
-<!--Master Page End-->
-<div id="nav-bar"></div>
+	</div>
+<? include($folderString . 'php/footer.php'); ?>
 </div>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/totop.min.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
-<!--Page Body End-->
-
 
 </body>
 </html>

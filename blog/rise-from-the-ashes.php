@@ -1,154 +1,61 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Rise From The Ashes | Zooqie </title>
-<meta name="viewport" content="width=1000">
-<meta name="description" content="Discover the best up and coming independent clothing brands from around the UK. Shop from skate, surf, snow, urban, vintage and many more styles from many different brands with more being added every day. zooqie is home to independent clothing brands you won&#39;t find anywhere else all in one place.">
-<link rel="icon" href="../favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <title>Rise From The Ashes | Zooqie </title>
+    <meta name="description" content="Discover the best up and coming independent clothing brands from around the UK. Shop from skate, surf, snow, urban, vintage and many more styles from many different brands with more being added every day. zooqie is home to independent clothing brands you won&#39;t find anywhere else all in one place.">
+    <?
+        //Variable declarations
+        $folderLevel = 1;
+        $folderString = '../';
+        $names = array('Home', 'Blog', 'First Steps');
+        $links = array('../index.php', '../blog', '../blog/rise-from-the-ashes.php');
+        $pageHeight = 1500;
 
-<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../css/styles.css">
-<script type="text/javascript" src="../js/jquery.js"></script>
-
-<!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
-
-<meta http-equiv="Content-Style-Type" content="text/css">
-<meta http-equiv="Content-Script-Type" content="text/javascript">
-
-    <?php
-    //Include database settings
-    if(file_exists("db_settings.php")) {include("db_settings.php");}
-    else if(file_exists("../db_settings.php")) {include("../db_settings.php");}
-    else if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
-
-    //Include utilities
-    if(file_exists("utils.php")) {include("utils.php");}
-    else if(file_exists("../utils.php")) {include("../utils.php");}
-    else if(file_exists("../../utils.php")) {include("../../utils.php");}
+        include($folderString . 'php/head.php');
     ?>
 
+    <style type="text/css">
+        .Body-C-yo
+        {
+            font-family:"Lato", sans-serif; color:#2c2c2c; font-size:16px; line-height:1.39em;
+        }
+        .Heading-2-C-C1
+        {
+            font-family:"Harabara", serif; color:#ffffff; font-size:19px; line-height:1.47em;
+        }
+        .Heading-2-C-C2
+        {
+            font-family:"Harabara", serif; color:#e6e7e8; font-size:16px; line-height:1.50em;
+        }
+        .Heading-1-C
+        {
+            font-family:"Harabara", serif; color:#656565; font-size:24px; line-height:1.50em;
+        }
+        .Body-C-C0
+        {
+            font-family:"Lato", sans-serif; color:#e52b50; font-size:14px; line-height:1.29em;
+        }
+        .Body-C-C1
+        {
+            font-family:"Lato", sans-serif; color:#e52b50; font-size:14px; line-height:1.07em; vertical-align:40%;
+        }
+        .Wp-Heading-1-P {
+            margin: 0;
+        }
+        .Wp-Body-P {
+            margin-top: 0;
+        }
+    </style>
 
-
-
-<style type="text/css">
-body{margin:0;padding:0;}
-.wpfixed{position:absolute;}
-div > .wpfixed{position:fixed;}
-a.hlink_1:link {color:#2c2c2c;}
-a.hlink_1:visited {color:#2c2c2c;}
-a.hlink_1:hover {color:#e52b50;}
-a.hlink_1:active {color:#2c2c2c;}
-.Body-P
-{
-    margin:0px 0px 12px 0px; text-align:center; font-weight:400;
-}
-.Heading-3-P
-{
-    margin:0px 0px 0px 0px; text-align:center; font-weight:400;
-}
-.Body-P-P0
-{
-    margin:0px 0px 12px 0px; padding-left:48px;
-    font-family:"Lato", sans-serif; color:#2c2c2c; font-size:14px; line-height:1.14em;text-align:left; font-weight:400;
-}
-.Body-P-P1
-{
-    margin:0px 0px 12px 0px; list-style-type: disc;
-    text-align:left; font-weight:400;
-}
-.Heading-3-P-P0
-{
-    margin:12px 0px 0px 0px; text-align:left; font-weight:400;
-}
-.Heading-2-C
-{
-    font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
-}
-.Body-C
-{
-    font-family:"Lato", sans-serif; color:#2c2c2c; font-size:14px; line-height:1.29em;
-}
-.Body-C-yo
-{
-    font-family:"Lato", sans-serif; color:#2c2c2c; font-size:18px; line-height:1.39em;
-}
-.Heading-2-C-C0
-{
-    font-family:"Harabara", serif; color:#656565; font-size:21px; line-height:1.48em;
-}
-.Heading-2-C-C1
-{
-    font-family:"Harabara", serif; color:#ffffff; font-size:19px; line-height:1.47em;
-}
-.Heading-2-C-C2
-{
-    font-family:"Harabara", serif; color:#e6e7e8; font-size:16px; line-height:1.50em;
-}
-.Heading-1-C
-{
-    font-family:"Harabara", serif; color:#656565; font-size:24px; line-height:1.50em;
-}
-.Body-C-C0
-{
-    font-family:"Lato", sans-serif; color:#e52b50; font-size:14px; line-height:1.29em;
-}
-.Body-C-C1
-{
-    font-family:"Lato", sans-serif; color:#e52b50; font-size:14px; line-height:1.07em; vertical-align:40%;
-}
-.Body-C-C2
-{
-    font-family:"Lato", sans-serif; color:#2c2c2c; font-size:14px; line-height:1.07em; vertical-align:40%;
-}
-.Body-C-C3
-{
-    font-family:"Lato", sans-serif; color:#e52b50; font-size:12px; line-height:1.50em;
-}
-.Heading-3-C
-{
-    font-family:"Harabara", serif; color:#e52b50; font-size:16px; line-height:1.50em;
-}
-.Heading-3-C-C0
-{
-    font-family:"Harabara", serif; color:#656565; font-size:16px; line-height:1.50em;
-}
-
-
-</style>
-
-
-<script type="text/javascript">
-
-
-</script>
 </head>
 
-<?
-//height of page excluding footer
-$pageHeight = 1458;
-// 222 is footer height
-$tmpHeight = $pageHeight + 222;
-?>
-
-<body text="#000000" style="background:#ffffff url('../images/backgroundpattern.png') repeat fixed top center; height:<?echo $tmpHeight;?>px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3);">
-<!--Master Page Body Start-->
-
-<?php
-echoFooter(1, $pageHeight);
-echoFacebookScript();
-echoHeader(1, $tmpHeight);
-echoSocialMediaFollowButtons();
-echoGoogleAnalyticsScript();
-echoNavBar(1, array('Home', 'Blog', 'Rise From The Ashes'), array('../index.php', '../blog', '../blog/rise-from-the-ashes.php'));
-?>
 
 
-
-
-
-
+<body>
+<div class="pageWrapper">
+    <? include($folderString . 'php/header.php'); ?>
+    <div class="pageContent" style="height:<?echo $pageHeight;?>px;">
+        <? include($folderString . 'php/navBar.php'); ?>
 
 
 <div id="txt_482" style="position:absolute;left:20px;top:152px;width:662px;height:35px;overflow:hidden; background:#333333; border-radius:5px 5px 0 0; /*BorderDivStyle*/">
@@ -219,17 +126,12 @@ longboards, and continue to showcase what young designers and independent brands
 
 </div>
 
-<img src="../images/nass.jpg" width="326" height="198" style="position:absolute; top:1146px; left:27px;"/>
-<img src="../images/boardmasters.jpg" width="326" height="198" style="position:absolute; top:1146px; left:353px;" />
-<!--Master Page End-->
-<div id="nav-bar"></div>
+<img src="../images/nass.jpg" width="326" height="198" style="position:absolute; top:1100px; left:27px;"/>
+<img src="../images/boardmasters.jpg" width="326" height="198" style="position:absolute; top:1100px; left:353px;" />
+
 </div>
-<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="../js/totop.min.js"></script>
-<script type="text/javascript" src="../js/custom.js"></script>
-<!--Page Body End-->
-
-
+<? include($folderString . 'php/footer.php'); ?>
+</div>
 </body>
 </html>
 

@@ -218,7 +218,7 @@
 
 
 
-	<body text="#000000" style="background:#ffffff url('images/backgroundpattern.png') repeat fixed top center; height:<?echo $tmpHeight;?>px;  /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3);">
+	<body>
 		<div class="pageWrapper">
 			<? include($folderString . 'php/header.php'); ?>
 			<div class="pageContent" style="height:<?echo $pageHeight;?>px;">

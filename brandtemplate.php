@@ -126,11 +126,6 @@ ob_start (); // Buffer output
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   
-  <style>
-	.ui-slider-range { background: #cbcbcb; }
-  	.ui-slider-horizontal .ui-slider-handle { background: #656565; width: 10px; height: 21px; }
-
-  </style>
 
 <?php
 $folderName = curFolderName();

@@ -1,42 +1,20 @@
 <?
 ob_start (); // Buffer output
 ?>
-
-
-
-
-
-
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     <html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><!--TITLE--></title>
-        <meta name="viewport" content="width=1000">
-        <link rel="icon" href="../favicon.ico" type="image/x-icon">
-        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-
-        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="../css/styles.css">
-        <script type="text/javascript" src="../js/jquery.js"></script>
-
-        <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
-
-
-        <meta http-equiv="Content-Style-Type" content="text/css">
-        <meta http-equiv="Content-Script-Type" content="text/javascript">
         <meta content="<!--DESCRIPTION-->" name="description" property="og:description" />
+        <?
+            //Variable declarations
+            $folderLevel = 1;
+            $folderString = '../';
+            $names = array('Home');
+            $links = array('index.php');
+            $pageHeight = 300;
 
-        <?php
-            //Include database settings
-            if(file_exists("db_settings.php")) {include("db_settings.php");}
-            else if(file_exists("../db_settings.php")) {include("../db_settings.php");}
-            else if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
-
-            //Include utilities
-            if(file_exists("utils.php")) {include("utils.php");}
-            else if(file_exists("../utils.php")) {include("../utils.php");}
-            else if(file_exists("../../utils.php")) {include("../../utils.php");}
+            include($folderString . 'php/head.php');
         ?>
 
         <style type ="text/css">
@@ -104,6 +82,29 @@ ob_start (); // Buffer output
             {
                 font-family:"Harabara", serif; font-size:15px; line-height:1.47em;
             }
+            .Heading-2-C
+            {
+                font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
+            }
+            .Body-C
+            {
+                font-family:"Lato", sans-serif; color:#2c2c2c; font-size:14px; line-height:1.29em;
+            }
+            .Heading-2-C-C0
+            {
+                font-family:"Harabara", serif; color:#656565; font-size:21px; line-height:1.48em;
+            }
+            .Heading-1-C
+            {
+                font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
+            }
+            .Body-C-C0
+            {
+                font-family:"Harabara", serif; color:#2c2c2c; font-size:32px; line-height:1.47em;
+            }
+            .Wp-Heading-3-P {
+                text-align: center;
+            }
         </style>
 
         <?
@@ -126,43 +127,6 @@ ob_start (); // Buffer output
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
-        <style>
-            .ui-slider-range { background: #cbcbcb; }
-            .ui-slider-horizontal .ui-slider-handle { background: #656565; width: 10px; height: 21px; }
-
-        </style>
-
-        <style type="text/css">
-            body{margin:0;padding:0;}
-            .wpfixed{position:absolute;}
-            div > .wpfixed{position:fixed;}
-            a.hlink_1:link {color:#2c2c2c;}
-            a.hlink_1:visited {color:#2c2c2c;}
-            a.hlink_1:hover {color:#e52b50;}
-            a.hlink_1:active {color:#2c2c2c;}
-            .Heading-2-C
-            {
-                font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
-            }
-            .Body-C
-            {
-                font-family:"Lato", sans-serif; color:#2c2c2c; font-size:14px; line-height:1.29em;
-            }
-            .Heading-2-C-C0
-            {
-                font-family:"Harabara", serif; color:#656565; font-size:21px; line-height:1.48em;
-            }
-            .Heading-1-C
-            {
-                font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
-            }
-            .Body-C-C0
-            {
-                font-family:"Harabara", serif; color:#2c2c2c; font-size:32px; line-height:1.47em;
-            }
-
-        </style>
-
         <?php
             $con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
 
@@ -173,33 +137,17 @@ ob_start (); // Buffer output
             echoRefineByPriceScript($topPrice)
         ?>
 
-
-
-
-
-
-
-
     </head>
 
 
-    <body text="#000000" style="background:#ffffff url('../images/backgroundpattern.png') repeat fixed top center; height:<!--PAGEHEIGHTVAL1-->px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3); "  >
-
-    <!--Master Page Body Start-->
 
 
-    <?php
-    echoFooter(1, '<!--PAGEHEIGHTVAL-->');
-    echoFacebookScript();
-    echoHeader(1, '<!--PAGEHEIGHTVAL1-->');
-    echoSocialMediaFollowButtons();
-    echoGoogleAnalyticsScript();
-    ?>
+    <body>
+        <div class="pageWrapper">
+            <? include($folderString . 'php/header.php'); ?>
+            <div class="pageContent" style="height:<!--PAGEHEIGHTVAL1-->px;">
+                <? include($folderString . 'php/navBar.php'); ?>
 
-
-
-    <img src="../images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar" style="position:absolute;left:0px;top:80px;" >
-    <!--NAVBAR-->
     <img src="../images/grey_bar.png" border="0" width="784" height="43" id="qs_288" alt="" style="position:absolute;left:208px;top:142px; " >
 
     <div style="position:absolute;left:229px;top:149px;width:82px;height:36px;overflow:hidden; " >
@@ -678,16 +626,9 @@ ob_start (); // Buffer output
 
 
 
-    <!--Master Page End-->
-    <div id="nav-bar"></div>
-
-    </div>
-    <script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="../js/totop.min.js"></script>
-    <script type="text/javascript" src="../js/custom.js"></script>
-    <!--Page Body End-->
-
-
+            </div>
+            <? include($folderString . 'php/footer.php'); ?>
+        </div>
     </body>
     </html>
 
@@ -702,7 +643,6 @@ ob_start (); // Buffer output
 $pageContents = ob_get_contents (); // Get all the page's HTML into a string
 ob_end_clean (); // Wipe the buffer
 
-$navBar = '<div class="nav_348style" id="nav_348" style="left: 20px; top: 91px;; width: 960px; height: 26px; position: absolute;"><a id="nav_348_I0" href="../index.php" target="_self"> Home </a> &gt; <a class=" currentpage" id="nav_348_I3" href="" target="_self"> Search Results </a></div>';
 
 $pageTitle = 'Search Results | ZOOQIE';
 

@@ -505,7 +505,10 @@ nav ul li a:hover {
 
 
 
-
+/* REFINE BY PRICE SLIDER */
+.ui-slider-horizontal .ui-slider-handle { width: 10px !important;}
+.ui-slider-horizontal .ui-slider-handle:hover { cursor:pointer !important;}
+/* REFINE BY PRICE SLIDER END */
 
 
 

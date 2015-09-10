@@ -9,25 +9,6 @@ else
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<!-- PLEASE NOTE: CODE FOR THE INFORMATION DASHBOARD PROJECT IS ON THE FOLLOWING LINES: -->
-<!-- INFORMATION DASHBOARD HEADER: 75 - 145 -->
-<!-- INFORMATION DASHBOARD BODY:  490 - 1050 -->
-
-
-<!-- DASHBOARD HOME: The dashboard home gives a real time overview of business performance and is made up of the following components:
-
-1. Manage Store (Line 603) � This takes a user to the store management tool, separate to this project.
-2. �I� for Information (Line 610) � This gives a brief explanation to the user about the dashboard home.
-3. Sales This Week (Line 620) � This is a real time count of the number of sales in the database that have been made in the last 7 days for the brand. Clicking anywhere in this box takes a user through to the sales dashboard.
-4. Views This Week (Line 658) � This is a real time count of the number of views on all products made in the last 7 days for the brand. Clicking anywhere in this box takes a user through to the views dashboard.
-5. Targets (Line 694) � This outputs a bar graph, displaying the percentage of each targets completion. If a user has currently set no targets, two default targets are set for them: �Sell 5 of all products per month� and �100 views on all products per week�. Targets are further explained in Section 6.6. Clicking anywhere in this box takes a user through to the targets dashboard.
-6. Recent Sales (Line 764) � This displays real time information for the three most recent sales. Clicking anywhere in this box opens a pop up window displaying all sales details (Line 825). The pop up uses an open source jQuery plugin called Colorbox under the MIT Licence (available at www.jacklmoore.com/colorbox)
-7. Most Viewed (Line 888) � This displays a real time count of the three most viewed items for a brand. Clicking anywhere in this box takes a user to the views dashboard.
-8. Lowest in Stock (Line 999) � This displays the three items with the lowest stock. Clicking anywhere in this box takes a user to the stocks dashboard.
-
- -->
-
 <html lang="en">
 	<head>
 		<title>Dashboard Home | ZOOQIE</title>

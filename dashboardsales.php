@@ -1,6 +1,3 @@
-<?
-ob_start ();
-?>
 <?php
 	if(!session_id()) session_start();
 	if(!isset($_SESSION['username'])){
@@ -13,358 +10,175 @@ else
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<!-- PLEASE NOTE: CODE FOR THE INFORMATION DASHBOARD PROJECT IS ON THE FOLLOWING LINES: -->
-<!-- INFORMATION DASHBOARD HEADER: 80 - 175 -->
-<!-- INFORMATION DASHBOARD BODY: 515 - 1070 -->
-
-
-<!-- SALES DASHBOARD: The sales dashboard gives detailed information on sales performance and is made up of the following components:
-
-1.	�I� for information (Line 528) � This gives a brief explanation to the user about the sales dashboard.
-2.	Sales this week (Line 549) � This is a count of the number of sales in the last 7 days.
-3.	From last week (Line 564) � This is a percentage comparison of sales this week against sales last week. This percentage is shown in green if the number is positive and red if the number is negative.
-4.	Sales this month (Line 598) � This is a count of the number of sales in the last 28 days.
-5.	Income this month (Line 613) � This is the total income on sales made in the last 28 days.
-6.	Total sales (Line 635) � This is a count of the total sales made through Zooqie.
-7.	Total income (Line 650) � This is the total income on all sales made through Zooqie.
-8.	Time Period drop down (Line 686) � This is a time period option for the line graph allowing a user to see sales over 4 weeks, 3 months or 1 year. The default is 4 weeks.
-9.	Product drop down (Line 697) � This is a product option for the line graph allowing a user to see sales for all products or any one of their products. The default is all products.
-10.	Line graph (Line 752) � This shows the number of sales over a selected time period for a selected product or all products using the Chart.JS plugin. The default graph shows all products sold over the last 4 weeks.
-11.	Pie chart (Line 821) � Each slice represents the number of sales for each product.
-12.	Best seller (Line 930) � This shows a brand�s best-selling item and the number sold. This also gives the pie chart a relative reference of the size of a slice to the number of sales.
-13.	Table sort drop down (Line 1039) � This allows the user to sort the sales report table by various different fields.
-14.	Sales report (Line 961) � This provides all information about a sale including the date, the item details and where to ship the item. The sales report can be ordered by the date of sale, item name, price and customer name.
-15.	Download full report (Line 1017) � This downloads a report of all sales to a Comma Separate Value file, which can be opened by any common spreadsheet software such as Microsoft Excel.
-16.	Sales map (Line 91 + 1057) � Using the google maps and geocode API, this map displays a sales pin for each customer.
-
- -->
-
- 
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><!--TITLE--></title>
-<meta name="viewport" content="width=1000">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<title>Sales Dashboard | ZOOQIE</title>
+	<?
+		//Variable declarations
+		$folderLevel = 0;
+		$folderString = '';
+		$names = array('Home', 'Dashboard Home', 'Sales');
+		$links = array('index.php', 'dashboard.php', 'dashboardsales.php');
+		$pageHeight = 1470;
 
-<link rel="stylesheet" type="text/css" href="css/styles.css">
-<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="js/jquery.js"></script>
+		include($folderString . 'php/head.php');
+	?>
 
+	<!-- BEGINNING OF INFORMATION DASHBOARD HEADER -->
 
-<!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
-
-<meta http-equiv="Content-Style-Type" content="text/css">
-<meta http-equiv="Content-Script-Type" content="text/javascript">
-<meta content="<!--DESCRIPTION-->" name="description" property="og:description" />
-
-<?php
-    //Include database settings
-    if(file_exists("db_settings.php")) {include("db_settings.php");}
-    else if(file_exists("../db_settings.php")) {include("../db_settings.php");}
-    else if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
-
-    //Include utilities
-    if(file_exists("utils.php")) {include("utils.php");}
-    else if(file_exists("../utils.php")) {include("../utils.php");}
-    else if(file_exists("../../utils.php")) {include("../../utils.php");}
-    ?>
-
-
-
-
-
-
-
-
-
-<!-- BEGINNING OF INFORMATION DASHBOARD HEADER -->
-
-	<!-- CHART.JS INITIALISATION -->
-	<script src="js/Chart.js"></script>
-	<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
-	<style>
-		canvas{
-		}
-	</style>
-
-	
-	<!--GOOGLE MAPS INITIALISATION-->
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-	<meta charset="utf-8">
-	<title>Geocoding service</title>
-	<style>
-	  html, body, #map-canvas {
-		height: 100%;
-		margin: 0px;
-		padding: 0px
-	  }
-	  
-	  #panel {
-		position: absolute;
-		top: 15px;
-		left: 10%;
-		z-index: 5;
-		background-color: #fff;
-		padding: 5px;
-		border: 1px solid #999;
-	  }
-	</style>
-	
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-	
-	<script>
-		var geocoder;
-		var map;
-		//initialisation settings for google maps including: initial coordinates, map type and initial zoom
-		function initialize() {
-			geocoder = new google.maps.Geocoder();
-			var latlng = new google.maps.LatLng(50.692648, 14.697053);
-			var mapOptions = {
-				zoom: 4,
-				center: latlng
+		<!-- CHART.JS INITIALISATION -->
+		<script src="js/Chart.js"></script>
+		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+		<style>
+			canvas{
 			}
-			map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-		}
+		</style>
 
-		//Plot sales postcodes from database onto map
-		function codeAddress() {
-			
-			<?
-			// Create connection
-			$con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
-			
-			//create user id variable
-                    $userID = getBrandIDFromSessionUsername($_SESSION['username']);
-			
-			//get all postcodes and put into an array, ready to be converted to js
-			$phparray = array();
-			$data = mysqli_query($con,"SELECT Postcode FROM sales WHERE BrandUsername = '$userID'");
-			while($row = mysqli_fetch_array($data)){
-				if ($row['Postcode'] != ""){
-					array_push($phparray, $row['Postcode']);
+
+		<!--GOOGLE MAPS INITIALISATION-->
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<meta charset="utf-8">
+		<title>Geocoding service</title>
+		<style>
+		  html, body, #map-canvas {
+			height: 100%;
+			margin: 0px;
+			padding: 0px
+		  }
+
+		  #panel {
+			position: absolute;
+			top: 15px;
+			left: 10%;
+			z-index: 5;
+			background-color: #fff;
+			padding: 5px;
+			border: 1px solid #999;
+		  }
+		</style>
+
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+		<script>
+			var geocoder;
+			var map;
+			//initialisation settings for google maps including: initial coordinates, map type and initial zoom
+			function initialize() {
+				geocoder = new google.maps.Geocoder();
+				var latlng = new google.maps.LatLng(50.692648, 14.697053);
+				var mapOptions = {
+					zoom: 4,
+					center: latlng
+				}
+				map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+			}
+
+			//Plot sales postcodes from database onto map
+			function codeAddress() {
+
+				<?
+				// Create connection
+				$con=mysqli_connect("cust-mysql-123-18",$db_user,$db_pass,$db_user);
+
+				//create user id variable
+						$userID = getBrandIDFromSessionUsername($_SESSION['username']);
+
+				//get all postcodes and put into an array, ready to be converted to js
+				$phparray = array();
+				$data = mysqli_query($con,"SELECT Postcode FROM sales WHERE BrandUsername = '$userID'");
+				while($row = mysqli_fetch_array($data)){
+					if ($row['Postcode'] != ""){
+						array_push($phparray, $row['Postcode']);
+					}
+				}
+				?>
+
+				//convert php array to js
+				var postcodes = [<?php echo '"'.implode('","', $phparray).'"' ?>];
+
+				//plot all points from array on map
+				for (var i=0;i<postcodes.length;i++) {
+				  geocoder.geocode( { 'address': postcodes[i]}, function(results, status) {
+					if (status == google.maps.GeocoderStatus.OK) {
+					  var marker = new google.maps.Marker({
+						  map: map,
+						  position: results[0].geometry.location
+					  });
+					}
+				  });
 				}
 			}
-			?>
-			
-			//convert php array to js
-			var postcodes = [<?php echo '"'.implode('","', $phparray).'"' ?>];
-				
-			//plot all points from array on map
-			for (var i=0;i<postcodes.length;i++) {
-			  geocoder.geocode( { 'address': postcodes[i]}, function(results, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-				  var marker = new google.maps.Marker({
-					  map: map,
-					  position: results[0].geometry.location
-				  });
-				} 
-			  });
-			}
+
+			google.maps.event.addDomListener(window, 'load', initialize);
+
+
+		</script>
+	<!-- END OF INFORMATION DASHBOARD HEADER -->
+
+
+	<style type ="text/css">
+		.Heading-2-C
+		{
+			font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
 		}
-
-		google.maps.event.addDomListener(window, 'load', initialize);
-
-
-	</script>
-
-
-	
-	
-	
-<!-- END OF INFORMATION DASHBOARD HEADER -->
-
-
-
-
-
-
-
-
-
-
-
-<style type ="text/css">
-.Heading-1-P
-{
-    margin:32px 0px 4px 0px; text-align:center; font-weight:400;
-}
-.Heading-2-C
-{
-    font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
-}
-.Heading-22-C
-{
-    font-family:"Harabara", serif; color:#656565; font-size:24px; line-height:1.47em;
-}
-.Heading-22-GREEN
-{
-    font-family:"Harabara", serif; color:#376737; font-size:24px; line-height:1.47em;
-}
-.Heading-22-RED
-{
-    font-family:"Harabara", serif; color:#672626; font-size:24px; line-height:1.47em;
-}
-.Heading-22-CC
-{
-    font-family:"Harabara", serif; color:#656565; font-size:12.5px; line-height:1.47em;
-}
-.Body-C
-{
-    font-family:"Lato", sans-serif; color:#2c2c2c; font-size:14px; line-height:1.29em;
-}
-.Heading-2-C-C0
-{
-    font-family:"Harabara", serif; color:#656565; font-size:21px; line-height:1.48em;
-}
-.Heading-3-C
-{
-    font-family:"Harabara", serif; color:#e52b50; font-size:14px; line-height:1.50em;
-}
-.Heading-1-C-C0
-{
-    font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
-}
-.Heading-1-C-C10
-{
-    font-family:"Harabara", serif; color:#656565; font-size:24px; line-height:1.47em;
-}
-.Heading-1-C-C1
-{
-    font-family:"Harabara", serif; color:#656565; font-size:13px; line-height:1.54em;
-}
-.Heading-3-C-C0
-{
-    font-family:"Harabara", serif; font-weight:700; color:#656565; font-size:16px; line-height:1.50em;
-}
-.Heading-3-C-C1
-{
-    font-family:"Harabara", serif; color:#656565; font-size:13px; line-height:1.54em;
-}
-.Heading-3-C-C10
-{
-    font-family:"Harabara", serif; color:#656565; font-size:13px; line-height:1.54em; text-align: center;
-}
-.Heading-1-C-C9
-{
-    font-family:"Harabara", serif; color:#656565; font-size:27px; line-height:1.47em;
-}
-.Body-C-C3
-{
-    font-family:"Lato", sans-serif; color:#2c2c2c; font-size:16px; line-height:1.38em;
-}
-.Body-C-C4
-{
-    font-family:"Lato", sans-serif; color:#ff0000; font-size:16px; line-height:1.38em;
-}
-.Heading-3-C-C12
-{
-    font-family:"Harabara", serif; font-size:15px; line-height:1.47em;
-}
-table.hovertable {
-	font-family:"Lato", sans-serif;
-	font-size:13px;
-	line-height:1.47em;
-	color:#515151;
-	border-width: 1px;
-	border-color: #999999;
-	border-collapse: collapse;
-	width:100%;
-    height:100%;
-	margin-left: 0 auto;
-	margin-right: 0 auto;
-}
-table.hovertable th {
-	background-color:#84C2CB;
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #a9c6c9;
-}
-table.hovertable tr {
-	background-color:#d4e3e5;
-}
-table.hovertable td {
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #a9c6c9;
-}
-</style>
-
-
-
-
-
-
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
-  
-
-
-
-<style type="text/css">
-body{margin:0;padding:0;}
-.wpfixed{position:absolute;}
-div > .wpfixed{position:fixed;}
-a.hlink_1:link {color:#2c2c2c;}
-a.hlink_1:visited {color:#2c2c2c;}
-a.hlink_1:hover {color:#e52b50;}
-a.hlink_1:active {color:#2c2c2c;}
-.Heading-2-C
-{
-    font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
-}
-.Body-C
-{
-    font-family:"Lato", sans-serif; color:#2c2c2c; font-size:14px; line-height:1.29em;
-}
-.Heading-2-C-C0
-{
-    font-family:"Harabara", serif; color:#656565; font-size:21px; line-height:1.48em;
-}
-.Heading-1-C
-{
-    font-family:"Harabara", serif; color:#656565; font-size:19px; line-height:1.47em;
-}
-.Body-C-C0
-{
-    font-family:"Harabara", serif; color:#656565; font-size:32px; line-height:1.47em;
-}
-
-
-</style>
-
-
-<script type="text/javascript">
-
-
-</script>
+		.Heading-22-C
+		{
+			font-family:"Harabara", serif; color:#656565; font-size:24px; line-height:1.47em;
+		}
+		.Heading-22-CC
+		{
+			font-family:"Harabara", serif; color:#656565; font-size:12.5px; line-height:1.47em;
+		}
+		.Heading-22-GREEN
+		{
+			font-family:"Harabara", serif; color:#376737; font-size:24px; line-height:1.47em;
+		}
+		.Heading-22-RED
+		{
+			font-family:"Harabara", serif; color:#672626; font-size:24px; line-height:1.47em;
+		}
+		.Body-C-C0
+		{
+			font-family:"Harabara", serif; color:#656565; font-size:32px; line-height:1.47em;
+		}
+		table.hovertable {
+			font-family:"Lato", sans-serif;
+			font-size:13px;
+			line-height:1.47em;
+			color:#515151;
+			border-width: 1px;
+			border-color: #999999;
+			border-collapse: collapse;
+			width:100%;
+			height:100%;
+			margin-left: 0 auto;
+			margin-right: 0 auto;
+		}
+		table.hovertable th {
+			background-color:#84C2CB;
+			border-width: 1px;
+			padding: 8px;
+			border-style: solid;
+			border-color: #a9c6c9;
+		}
+		table.hovertable tr {
+			background-color:#d4e3e5;
+		}
+		table.hovertable td {
+			border-width: 1px;
+			padding: 8px;
+			border-style: solid;
+			border-color: #a9c6c9;
+		}
+	</style>
 </head>
 
 
-<body text="#000000" onload="codeAddress()" style="background:#ffffff url('images/backgroundpattern.png') repeat fixed top center; height:<!--PAGEHEIGHTVAL1-->px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3); "  >
-
-<!--Master Page Body Start-->
-
-<?php
-echoFooter(0, '<!--PAGEHEIGHTVAL-->');
-echoFacebookScript();
-echoHeader(0, '<!--PAGEHEIGHTVAL1-->');
-echoSocialMediaFollowButtons();
-echoGoogleAnalyticsScript();
-
-?>
-
-<img src="images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar" style="position:absolute;left:0px;top:80px;" >
-<!--NAVBAR-->
-
-
-
-
+<body>
+	<div class="pageWrapper">
+		<? include($folderString . 'php/header.php'); ?>
+		<div class="pageContent" style="height:<?echo $pageHeight;?>px;">
+			<? include($folderString . 'php/navBar.php'); ?>
 
 
 
@@ -373,7 +187,7 @@ echoGoogleAnalyticsScript();
 
 
 	<!-- CREATE USABLE DASHBOARD AREA -->
-	<div style="position:relative; top:130px; width:100%;">
+	<div style="position:relative; width:100%;">
 		<!--Title-->
 		<div style = "position:absolute; top: 9px; width:100% ; text-align: center;">
 			<span class="Body-C-C0">Sales Dashboard</span>
@@ -928,63 +742,15 @@ The sales map shows the geographical locations of those who bought your products
 <!-- END OF INFORMATION DASHBOARD BODY -->
 
 
-
-<!--Master Page End-->
-<div id="nav-bar"></div>
-
-</div>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/totop.min.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
-<!--Page Body End-->
-
-
+		</div>
+		<? include($folderString . 'php/footer.php'); ?>
+	</div>
 </body>
 </html>
 
 <?
 
-//close connection
 	mysqli_close($con);
 	
 }
-?>
-
-
-
-
-
-
-<?
-$pageContents = ob_get_contents (); // Get all the page's HTML into a string
-ob_end_clean (); // Wipe the buffer
-
-$navBar = '
-
-<div class="nav_348style" id="nav_348" style="left: 20px; top: 91px;; width: 960px; height: 26px; position: absolute;">
-	<a id="nav_348_I0" href="index.php" target="_self"> Home </a>
-	 &gt; 
-	<a id="nav_348_I2" href="dashboard.php" target="_self"> Dashboard Home </a>
-	&gt; 
-	<a id="nav_348_I2" href="dashboardsales.php" target="_self"> Sales </a>
-</div>';
-
-
-$minHeight = 1570;
-$ph = $b + 40;
-if($ph < $minHeight) $ph = $minHeight;
-$pageHeight = $ph ;
-$pageHeightVal1 = $ph  + 222;
-$pageHeightVal2 = $ph  + 14;
-$pageHeightVal3 = $ph  + 65;
-$pageHeightVal4 = $ph  + 162;
-$pageHeightVal5 = $ph  + 183;
-$pageHeightVal6 = $ph  + 115;
-
-// Replace <!--TITLE--> with $pageTitle variable contents, and print the HTML
-$array1 = array("<!--TITLE-->", '<!--NAVBAR-->', '<!--PAGEHEIGHT-->', '<!--PAGEHEIGHTVAL1-->', '<!--PAGEHEIGHTVAL2-->', '<!--PAGEHEIGHTVAL3-->', '<!--PAGEHEIGHTVAL4-->', '<!--PAGEHEIGHTVAL5-->', '<!--PAGEHEIGHTVAL6-->', '<!--DESCRIPTION-->');//Values to replace 
-$array2 = array("Sales Dashboard", $navBar, $pageHeight, $pageHeightVal1, $pageHeightVal2, $pageHeightVal3, $pageHeightVal4, $pageHeightVal5, $pageHeightVal6, $d);  //Replacements. 
-
-$str = str_replace($array1, $array2, $pageContents);
-echo $str;
 ?>

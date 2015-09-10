@@ -1,71 +1,16 @@
 <?
 ob_start (); // Buffer output
 ?>
-
-
-
-
-
-
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><!--TITLE--></title>
-        <meta name="viewport" content="width=1000">
-        <link rel="icon" href="../favicon.ico" type="image/x-icon">
-        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-
-        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="../css/styles.css">
-        <script type="text/javascript" src="../js/jquery.js"></script>
-
-        <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
-
-
-        <meta http-equiv="Content-Style-Type" content="text/css">
-        <meta http-equiv="Content-Script-Type" content="text/javascript">
         <meta content="<!--DESCRIPTION-->" name="description" property="og:description" />
-
-        <?php
-        //Include database settings
-        if(file_exists("db_settings.php")) {include("db_settings.php");}
-        else if(file_exists("../db_settings.php")) {include("../db_settings.php");}
-        else if(file_exists("../../db_settings.php")) {include("../../db_settings.php");}
-
-        //Include utilities
-        if(file_exists("utils.php")) {include("utils.php");}
-        else if(file_exists("../utils.php")) {include("../utils.php");}
-        else if(file_exists("../../utils.php")) {include("../../utils.php");}
-        ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <?
-
+        $folderLevel = 1;
+        $folderString = '../';
+        include($folderString . 'php/head.php');
 
         $pageName = strtolower(curPageName());
         $category = $pageName;
@@ -102,6 +47,10 @@ ob_start (); // Buffer output
                 $categoryName = 'All';
             }
         }
+
+        //Variable declarations
+        $names = array('Home', ucwords(curFolderName()), $categoryName);
+        $links = array('../../index.php', 'index.php', '');
         ?>
 
         <style type ="text/css">
@@ -168,6 +117,9 @@ ob_start (); // Buffer output
             .Heading-3-C-C12
             {
                 font-family:"Harabara", serif; font-size:15px; line-height:1.47em;
+            }
+            .Wp-Heading-3-P {
+                text-align: center;
             }
         </style>
 
@@ -255,70 +207,11 @@ ob_start (); // Buffer output
     </head>
 
 
-    <body text="#000000" style="background:#ffffff url('../images/backgroundpattern.png') repeat fixed top center; height:<!--PAGEHEIGHTVAL1-->px; /*Master Page Body Style*/ -webkit-box-shadow:1 1px 15px rgba(0,0,0,0.3); box-shadow:0 1px 15px rgba(0,0,0,0.3); "  >
-
-    <!--Master Page Body Start-->
-
-
-    <?php
-    echoFooter(1, '<!--PAGEHEIGHTVAL-->');
-    echoFacebookScript();
-    echoHeader(1, '<!--PAGEHEIGHTVAL1-->');
-    echoSocialMediaFollowButtons();
-    echoGoogleAnalyticsScript();
-    ?>
-
-
-
-    <img src="../images/navbar.png" border="0" width="1000" height="40" id="qs_1" alt="Navigation Bar" style="position:absolute;left:0px;top:80px;" >
-    <!--NAVBAR-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- shopbybrand.jpg - Emb. Bitmap pic_57 -->
-
-
-
-    <!--    <img src="../images/shopbybrand.jpg" border="1" width="984" height="186" id="pic_57" alt="" style="position:absolute;left:8px;top:144px; " >-->
-
-
-
-    <!-- Quick Rectangle qs_288 -->
-
+    <body style=height:<!--PAGEHEIGHTVAL1-->px;">
+    <div class="pageWrapper">
+        <? include($folderString . 'php/header.php'); ?>
+        <div class="pageContent" style="height:<!--PAGEHEIGHTVAL1-->px;">
+            <? include($folderString . 'php/navBar.php'); ?>
 
 
     <img src="../images/grey_bar.png" border="0" width="784" height="43" id="qs_288" alt="" style="position:absolute;left:208px;top:142px; " >
@@ -732,14 +625,9 @@ ob_start (); // Buffer output
 
 
 
-        <!--Master Page End-->
-        <div id="nav-bar"></div>
-
         </div>
-        <script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
-        <script type="text/javascript" src="../js/totop.min.js"></script>
-        <script type="text/javascript" src="../js/custom.js"></script>
-        <!--Page Body End-->
+        <? include($folderString . 'php/footer.php'); ?>
+    </div>
 
     </body>
     </html>

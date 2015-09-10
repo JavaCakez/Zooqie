@@ -165,9 +165,6 @@ table.hovertable td {
 		<a href = "dashboardsales.php" >
 			<div style = "position:absolute; top: 10px; left: 30px; width:150px; height: 100px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 
-				<!--Highlight the box on mouse over-->
-				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
-
 				<!--Show the number of sales this week-->
 				<div class = "dashSales" style = "position:absolute; top: 37px; width:100%; text-align: center;">
 					<?
@@ -202,9 +199,6 @@ table.hovertable td {
 		<a href = "dashboardsales.php" >
 			<div style = "position:absolute; top: 10px; left: 210px; width:150px; height: 100px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 
-				<!--Highlight the box on mouse over-->
-				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
-
 				<!--Show the number of sales this week-->
 				<div class = "dashSales" style = "position:absolute; top: 37px; width:100%; text-align: center;">
 					<?
@@ -231,9 +225,6 @@ table.hovertable td {
 		<!--Make entire box clickable through to the sales dashboard-->
 		<a href = "dashboardsales.php" >
 			<div style = "position:absolute; top: 10px; left: 390px; width:150px; height: 100px; background-color:#D1D1D1; text-align: center; opacity: .9;">
-
-				<!--Highlight the box on mouse over-->
-				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
 
 				<!--Show the number of sales this week-->
 				<div class = "dashSales" style = "position:absolute; top: 37px; width:100%; text-align: center;">
@@ -266,9 +257,6 @@ table.hovertable td {
 		<a href = "dashboardsales.php" >
 			<div style = "position:absolute; top: 10px; left: 570px; width:150px; height: 100px; background-color:#D1D1D1; text-align: center; opacity: .9;">
 
-				<!--Highlight the box on mouse over-->
-				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
-
 				<!--Show the number of sales this week-->
 				<div class = "dashSales" style = "position:absolute; top: 37px; width:100%; text-align: center;">
 					<?
@@ -297,9 +285,6 @@ table.hovertable td {
 		<!--Make entire box clickable through to the views dashboard-->
 		<a href = "dashboardviews.php" >
 			<div style = "position:absolute; top: 130px; left: 30px; width:150px; height: 100px; background-color:#D1D1D1; text-align: center; opacity: .9;">
-
-				<!--Highlight the box on mouse over-->
-				<img src="wpimages/wp9b022f92_06.png" border="0" width="100%" height="100%"  style="position:absolute;left:0px;top:0px;" class="fader_img">
 
 				<!--Show the number of views this week-->
 				<div class = "dashViews" style = "position:absolute; top: 37px; width:100%; text-align: center;">
